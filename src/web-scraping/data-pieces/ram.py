@@ -1,12 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
 
-header = {'user-agent': 'Mozilla/5.0'}
-link = requests.get("https://www.terabyteshop.com.br/hardware/memorias/ddr4",
-                    headers=header)
-soup = BeautifulSoup(link.text, "html.parser")
+precos = []
+alvo = "https://www.terabyteshop.com.br/hardware/memorias/ddr4"
+response = requests.get(alvo)
+print(response)
+html = BeautifulSoup(response.text, 'html.parser')
+print(html)
+for preco in html.select('.prod-new-price span'):
+    precos.append(preco.text)
 
-price_list = soup.find_all('div', {"class": "prod-juros"})
-print(price_list)
+print(precos)
 
-print(link)
