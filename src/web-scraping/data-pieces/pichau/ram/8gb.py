@@ -1,22 +1,33 @@
 import requests
 from bs4 import BeautifulSoup
+from time import sleep
+from selenium.webdriver.common.keys import Keys
+from selenium import webdriver
 
 # Memória ram 8gb
-precos = []
-precosParcelado = []
-nomes = []
-
+namesProducts = []
 header = {'user-agent': 'Mozilla/5.0'}
 response = requests.get("https://www.pichau.com.br/hardware/memorias?capacidadememoria=199", headers=header)
-html = BeautifulSoup(response.text, 'html.parser')
+soup = BeautifulSoup(response.text, 'html.parser')
 
-for nome in html.select('.MuiTypography-h6'):
-    nomes.append(nome.text)
+for nome in soup.select('.MuiTypography-h6'):
+    namesProducts.append(nome.text)
 
-for preco in html.select('.jss64'):
-    precos.append(preco.text)
+navegador = webdriver.Chrome()
+navegador.get('https://www.pichau.com.br/hardware/memorias?capacidadememoria=199')
+produto = navegador.find_elements('class name', 'jss69')
+priceProducts = []
+sleep(5)
+for i in produto:
+    if i.text == "":
+        continue
+    priceProducts.append(i.text)
+    sleep(1)
 
-teste = html.select('.MuiCardContent-root')
-div = teste[0].contents[1]
-div = html.select('.jss69')
-print(div[0].text)
+# Reunindo dados em json
+allData = []
+for i in range(len(priceProducts)):
+    dataDic = {namesProducts[i]: priceProducts[i]}
+    allData.append(dataDic)
+
+print(allData)
