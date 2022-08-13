@@ -10,7 +10,7 @@ imgProducts = []
 allData = []
 linksProducts = []
 pricesProducts = []
-header = {'user-agent': 'Mozilla/5.0'}
+header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36'}
 response = requests.get("https://www.pichau.com.br/hardware/memorias?capacidadememoria=199&tipo_de_memoria=422",
                         headers=header)
 soup = BeautifulSoup(response.text, 'html.parser')
@@ -18,10 +18,12 @@ soup = BeautifulSoup(response.text, 'html.parser')
 for nome in soup.select('.MuiTypography-h6'):
     namesProducts.append(nome.text)
 
+images = soup.select ('img')
+print(images)
+
 driver = webdriver.Chrome()
 driver.get('https://www.pichau.com.br/hardware/memorias?capacidadememoria=199&tipo_de_memoria=422')
-produto = driver.find_elements('class name', 'jss64')
-
+produto = driver.find_elements('class name', 'jss191')
 for i in produto:
     if i.text == "":
         continue
@@ -32,10 +34,10 @@ for i in links:
     if 'memoria' in i.get_attribute('href'):
         linksProducts.append(i.get_attribute('href'))
 
-linksImg = driver.find_elements('tag', 'img')
-print(linksImg)
-for i in linksImg:
-    imgProducts.append(i.get_attribute('src'))
+# linksImg = driver.find_elements('class name', 'jss177')
+# print(linksImg)
+# for i in linksImg:
+#     imgProducts.append(i.get_attribute('src'))
 
 # Reunindo dados em dictionary
 for i in range(len(pricesProducts)):
