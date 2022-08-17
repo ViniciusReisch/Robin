@@ -21,13 +21,14 @@ for nome in soup.select('.MuiTypography-h6'):
 
 driver = webdriver.Chrome()
 driver.get('https://www.pichau.com.br/hardware/memorias?capacidadememoria=199&tipo_de_memoria=422')
-produto = driver.find_elements('class name', 'jss64')
+
+produto = driver.find_elements('class name', 'jss69')
 for i in produto:
     if i.text == "":
         continue
     pricesProducts.append(i.text)
 
-produto = driver.find_elements('class name', 'jss72')
+produto = driver.find_elements('class name', 'jss77')
 for i in produto:
     if i.text == "":
         continue
