@@ -22,8 +22,19 @@ for i in produto:
         continue
     namesProducts.append(i.text)
 
-produto = driver.find_elements('tag name', 'span')
+produto = driver.find_elements('class name', 'prod-new-price')
 for i in produto:
     if i.text == "":
         continue
     pricesProducts.append(i.text)
+
+for i in range(len(pricesProducts)):
+    if '.' in pricesProducts[i]:
+        pricesProducts[i] = pricesProducts[i].replace('.', '')
+    changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.')
+    if '.' in installmentPriceProducts[i]:
+        installmentPriceProducts[i] = installmentPriceProducts[i].replace('.', '')
+    changeableInstallmentPriceProducts = installmentPriceProducts[i].replace('R$', '').replace(',', '.')
+    dataDic = {'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)], 'Installment price': [installmentPriceProducts[i], float(changeableInstallmentPriceProducts)] , 'Link': linksProducts[i]}
+    allData.append(dataDic)
+print(allData)

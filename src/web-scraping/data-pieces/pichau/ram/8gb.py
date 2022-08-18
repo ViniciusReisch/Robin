@@ -31,7 +31,7 @@ print(imgProducts)
 driver = webdriver.Chrome()
 driver.get('https://www.pichau.com.br/hardware/memorias?capacidadememoria=199&tipo_de_memoria=422')
 
-produto = driver.find_elements('class name', 'jss69')
+produto = driver.find_elements('class name', 'jss191')
 for i in produto:
     if i.text == "":
         continue
@@ -52,7 +52,7 @@ for link in link_elements:
     print(src)
     imgProducts.append(src)
 
-produto = driver.find_elements('class name', 'jss77')
+produto = driver.find_elements('class name', 'jss199')
 for i in produto:
     if i.text == "":
         continue
