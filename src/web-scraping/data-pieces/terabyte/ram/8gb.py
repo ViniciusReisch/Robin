@@ -34,11 +34,16 @@ for i in product:
 linksProducts = list(dict.fromkeys(linksProducts))
 linksProducts.remove(None)
 
+product = driver.find_elements('tag name', 'img')
+for i in product:
+    if 'produto' in i.get_attribute('src'):
+        imgProducts.append(i.get_attribute('src'))
+
 for i in range(len(pricesProducts)):
     pricesProducts[i] = pricesProducts[i].replace(' à vista', '')
     if '.' in pricesProducts[i]:
         pricesProducts[i] = pricesProducts[i].replace('.', '')
     changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.')
-    dataDic = {'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)], 'Links': linksProducts[i]}
+    dataDic = {'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)], 'Links': linksProducts[i], 'Images': imgProducts[i]}
     allData.append(dataDic)
 print(allData)
