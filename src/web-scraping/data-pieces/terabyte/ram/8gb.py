@@ -16,25 +16,29 @@ soup = BeautifulSoup(response.text, 'html.parser')
 driver = webdriver.Chrome()
 driver.get('https://www.terabyteshop.com.br/hardware/memorias/ddr4')
 
-produto = driver.find_elements('tag name', 'h2')
-for i in produto:
+product = driver.find_elements('tag name', 'h2')
+for i in product:
     if i.text == "":
         continue
     namesProducts.append(i.text)
 
-produto = driver.find_elements('class name', 'prod-new-price')
-for i in produto:
+product = driver.find_elements('class name', 'prod-new-price')
+for i in product:
     if i.text == "":
         continue
     pricesProducts.append(i.text)
 
+product = driver.find_elements('class name', 'commerce_columns_item_image')
+for i in product:
+    linksProducts.append(i.get_attribute('href'))
+linksProducts = list(dict.fromkeys(linksProducts))
+linksProducts.remove(None)
+
 for i in range(len(pricesProducts)):
+    pricesProducts[i] = pricesProducts[i].replace(' à vista', '')
     if '.' in pricesProducts[i]:
         pricesProducts[i] = pricesProducts[i].replace('.', '')
     changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.')
-    if '.' in installmentPriceProducts[i]:
-        installmentPriceProducts[i] = installmentPriceProducts[i].replace('.', '')
-    changeableInstallmentPriceProducts = installmentPriceProducts[i].replace('R$', '').replace(',', '.')
-    dataDic = {'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)], 'Installment price': [installmentPriceProducts[i], float(changeableInstallmentPriceProducts)] , 'Link': linksProducts[i]}
+    dataDic = {'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)], 'Links': linksProducts[i]}
     allData.append(dataDic)
 print(allData)
