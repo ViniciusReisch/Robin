@@ -37,6 +37,7 @@ product = driver.find_elements('tag name', 'img')
 for i in product:
     if 'produto' in i.get_attribute('src'):  # Only separate images with product in the name
         imgProducts.append(i.get_attribute('src'))
+driver.close()
 
 # Separating data in dictionary for better reading
 for i in range(len(pricesProducts)):
