@@ -10,7 +10,7 @@ installmentPriceProducts = []
 linksProducts = []
 pricesProducts = []
 header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36'}
-response = requests.get("https://www.pichau.com.br/hardware/memorias",
+response = requests.get("https://www.pichau.com.br/hardware/memorias?capacidadememoria=199&tipo_de_memoria=422",
                         headers=header)
 soup = BeautifulSoup(response.text, 'html.parser')
 
