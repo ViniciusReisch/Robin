@@ -1,9 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from time import sleep
-from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
-import re
 
 # Memória ram 8gb
 namesProducts = []
@@ -23,7 +20,7 @@ for nome in soup.select('.MuiTypography-h6'):
 driver = webdriver.Chrome()
 driver.get('https://www.pichau.com.br/hardware/memorias?capacidadememoria=199&tipo_de_memoria=422')
 
-# IMG
+# Crawling Products == Image
 product = driver.find_elements('tag name', 'img')
 for i in product:
     if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
@@ -96,25 +93,28 @@ for i in product:
         imgProducts.append(i.get_attribute('src'))
 imgProducts = list(dict.fromkeys(imgProducts))
 
+# Crawling Products == Price
 product = driver.find_elements('class name', 'jss69')
 for i in product:
     if i.text == "":
         continue
     pricesProducts.append(i.text)
 
+# Crawling Products == Installment Price
 product = driver.find_elements('class name', 'jss77')
 for i in product:
     if i.text == "":
         continue
     installmentPriceProducts.append(i.text)
 
+# Crawling Products == Links
 links = driver.find_elements('tag name', 'a')
 for i in links:
     if 'memoria' in i.get_attribute('href'):
         linksProducts.append(i.get_attribute('href'))
 driver.close()
 
-# Reunindo dados em dictionary
+# Separating data in dictionary for better reading
 for i in range(len(pricesProducts)):
     if '.' in pricesProducts[i]:
         pricesProducts[i] = pricesProducts[i].replace('.', '')
