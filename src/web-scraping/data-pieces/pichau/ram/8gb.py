@@ -14,94 +14,34 @@ for i in range(10):
     driver = webdriver.Chrome()
     page = i + 1
     link = 'https://www.pichau.com.br/hardware/memorias?page='
-    driver.get(link + str(page))
+    new_link = link + str(page)
+    driver.get(new_link)
+    height = driver.execute_script("return document.body.scrollHeight")
+    scroll = 0
+    driver.fullscreen_window()
 
     # Crawling Products == Image
     product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 500);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 1000);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 1500);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 2000);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 2500);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 3000);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 3500);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 4000);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 4500);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 5000);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    imgProducts = list(dict.fromkeys(imgProducts))
-    driver.execute_script("window.scrollTo(0, 5500);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 6000);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 6300);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
-    driver.execute_script("window.scrollTo(0, 6700);")
-    product = driver.find_elements('tag name', 'img')
-    for i in product:
-        if 'product' in i.get_attribute('src'):  # Only separate images with product in the name
-            imgProducts.append(i.get_attribute('src'))
+    for e in product:
+        if 'product' in e.get_attribute('src'):  # Only separate images with product in the name
+            imgProducts.append(e.get_attribute('src'))
+    while scroll < height:
+        driver.execute_script(f"window.scrollTo(0, {scroll});")
+        product = driver.find_elements('tag name', 'img')
+        for e in product:
+            if 'product' in e.get_attribute('src'):  # Only separate images with product in the name
+                imgProducts.append(e.get_attribute('src'))
+        scroll += 200
     imgProducts = list(dict.fromkeys(imgProducts))
 
     # Crawling Products == Price
-    product = driver.find_elements('class name', 'jss69')
+    product = driver.find_elements('class name', 'jss191')  # Possibles class name = jss191
     for i in product:
         if 'R$' in i.text:
             pricesProducts.append(i.text)
 
     # Crawling Products == Installment Price
-    product = driver.find_elements('class name', 'jss77')
+    product = driver.find_elements('class name', 'jss199')  # Possibles class name = jss199
     for i in product:
         if 'R$' in i.text:
             installmentPriceProducts.append(i.text)
