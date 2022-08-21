@@ -147,50 +147,24 @@ for i in range(len(installmentPriceProducts)):
     for data in allData:
         if 'DDR5' in data['Name']:
             memoryDDR5.append(data)
-
+            memoryDDR5 = list(dict.fromkeys(memoryDDR5))
+            
     # FILTER == DDR4
     for data in allData:
         if 'DDR4' in data['Name']:
             memoryDDR4.append(data)
+            memoryDDR4 = list(dict.fromkeys(memoryDDR4))
 
     # FILTER == DDR3
     for data in allData:
         if 'DDR3' in data['Name']:
             memoryDDR3.append(data)
-
+            memoryDDR4 = list(dict.fromkeys(memoryDDR4))
+            
     # Capacity
-    # FILTER == DDR4
-    data8gb3200mhz = []
-    for data in allData:
-        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
-            data8gb3200mhz.append(data)
 
-    # FILTER == DDR3
-    data8gb3200mhz = []
-    for data in allData:
-        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
-            data8gb3200mhz.append(data)
+    # DDR5
+    # FILTER == 8gb
 
-    # FILTER == 8gb 3200mhz
-    data8gb3200mhz = []
-    for data in allData:
-        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
-            data8gb3200mhz.append(data)
 
-    # FILTER == 8gb 3200mhz
-    data8gb3200mhz = []
-    for data in allData:
-        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
-            data8gb3200mhz.append(data)
 
-    # FILTER == 8gb 3200mhz
-    data8gb3200mhz = []
-    for data in allData:
-        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
-            data8gb3200mhz.append(data)
-
-    # FILTER == 8gb 3000mhz
-    data8gb3000mhz = []
-    for data in allData:
-        if '(1x8GB)' in data['Name'] and '3000MHz' in data['Name']:
-            data8gb3200mhz.append(data)
