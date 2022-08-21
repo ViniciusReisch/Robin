@@ -2,13 +2,81 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 
-# Memória ram 8gb
-namesProducts = []
-imgProducts = []
-allData = []
-installmentPriceProducts = []
-linksProducts = []
-pricesProducts = []
+# Memory specific data
+
+installmentPriceProducts = []  # Memory Installment Prices
+pricesProducts = []  # Memory Prices
+namesProducts = []  # Memory Name
+linksProducts = []  # Memory Links
+imgProducts = []  # Memory Image
+allData = []  # Memory all data
+
+# Specific memory lists
+
+# Double Data Rate
+memoryDDR5 = []
+memoryDDR4 = []
+memoryDDR3 = []
+
+# Capacity
+
+# DDR5
+memoryDDR5_8gb = []
+memoryDDR5_16gb = []
+memoryDDR5_32gb = []
+
+# DDR4
+memoryDDR4_4gb = []
+memoryDDR4_8gb = []
+memoryDDR4_16gb = []
+memoryDDR4_32gb = []
+
+# DDR3
+memoryDDR3_4gb = []
+memoryDDR3_8gb = []
+memoryDDR3_16gb = []
+memoryDDR3_32gb = []
+
+# Frequency
+
+# 8gb List
+# 8gb and DDR4
+memoryDDR4_8gb_3200Mhz = []
+memoryDDR4_8gb_3000Mhz = []
+memoryDDR4_8gb_2666Mhz = []
+
+# 8gb and DDR3
+memoryDDR3_8gb_1600Mhz = []
+memoryDDR3_8gb_1866Mhz = []
+
+# 16gb List
+# 16gb and DDR4
+memoryDDR4_16gb_3600Mhz = []
+memoryDDR4_16gb_3200Mhz = []
+memoryDDR4_16gb_3000Mhz = []
+memoryDDR4_16gb_2666Mhz = []
+
+# 16gb and DDR3
+memoryDDR3_16gb_1600Mhz = []
+memoryDDR3_16gb_1866Mhz = []
+
+# 16gb and DDR5
+memoryDDR5_16gb_4800Mhz = []
+
+# 32gb List
+# 32gb and DDR4
+memoryDDR4_32gb_3600Mhz = []
+memoryDDR4_32gb_3200Mhz = []
+memoryDDR4_32gb_3000Mhz = []
+memoryDDR4_32gb_2666Mhz = []
+
+# 32gb and DDR3
+memoryDDR3_32gb_1600Mhz = []
+
+# 32gb and DDR5
+memoryDDR5_32gb_5600Mhz = []
+memoryDDR5_32gb_6000Mhz = []
+
 
 for i in range(10):
     driver = webdriver.Chrome()
@@ -73,6 +141,48 @@ for i in range(len(installmentPriceProducts)):
                'Link': linksProducts[i], 'Image': imgProducts[i]}
     allData.append(dataDic)
 
+    # Double Data Rate
+
+    # FILTER == DDR5
+    for data in allData:
+        if 'DDR5' in data['Name']:
+            memoryDDR5.append(data)
+
+    # FILTER == DDR4
+    for data in allData:
+        if 'DDR4' in data['Name']:
+            memoryDDR4.append(data)
+
+    # FILTER == DDR3
+    for data in allData:
+        if 'DDR3' in data['Name']:
+            memoryDDR3.append(data)
+
+    # Capacity
+    # FILTER == DDR4
+    data8gb3200mhz = []
+    for data in allData:
+        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
+            data8gb3200mhz.append(data)
+
+    # FILTER == DDR3
+    data8gb3200mhz = []
+    for data in allData:
+        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
+            data8gb3200mhz.append(data)
+
+    # FILTER == 8gb 3200mhz
+    data8gb3200mhz = []
+    for data in allData:
+        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
+            data8gb3200mhz.append(data)
+
+    # FILTER == 8gb 3200mhz
+    data8gb3200mhz = []
+    for data in allData:
+        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
+            data8gb3200mhz.append(data)
+
     # FILTER == 8gb 3200mhz
     data8gb3200mhz = []
     for data in allData:
@@ -82,29 +192,5 @@ for i in range(len(installmentPriceProducts)):
     # FILTER == 8gb 3000mhz
     data8gb3000mhz = []
     for data in allData:
-        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
-            data8gb3200mhz.append(data)
-
-    # FILTER == 8gb 3200mhz
-    data8gb3200mhz = []
-    for data in allData:
-        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
-            data8gb3200mhz.append(data)
-
-    # FILTER == 8gb 3200mhz
-    data8gb3200mhz = []
-    for data in allData:
-        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
-            data8gb3200mhz.append(data)
-
-    # FILTER == 8gb 3200mhz
-    data8gb3200mhz = []
-    for data in allData:
-        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
-            data8gb3200mhz.append(data)
-
-    # FILTER == 8gb 3200mhz
-    data8gb3200mhz = []
-    for data in allData:
-        if '(1x8GB)' in data['Name'] and '3200MHz' in data['Name']:
+        if '(1x8GB)' in data['Name'] and '3000MHz' in data['Name']:
             data8gb3200mhz.append(data)
