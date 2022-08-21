@@ -1,7 +1,7 @@
 import arrow
 from selenium import webdriver
 
-# Memory specific data
+# MotherBoard specific data
 
 installmentPriceProducts = []  # Memory Installment Prices
 pricesProducts = []  # Memory Prices
@@ -10,6 +10,28 @@ linksProducts = []  # Memory Links
 imgProducts = []  # Memory Image
 allData = []  # Memory all data
 local = arrow.utcnow()
+
+# Specific MotherBoard lists
+
+# Double Data Rate
+motherBoardDDR5 = []
+motherBoardDDR4 = []
+motherBoardDDR3 = []
+
+# Format
+motherBoardATX = []
+motherBoardE_ATX = []
+motherBoardMicro_ATX = []
+motherBoardMini_ATX = []
+
+# Socket
+motherBoardAM4 = []
+motherBoardLGA1700 = []
+motherBoardLGA1200 = []
+motherBoardLGA1150 = []
+motherBoardLGA1151 = []
+motherBoardLGA1155 = []
+motherBoardFM2 = []
 
 
 for i in range(3):
@@ -75,3 +97,4 @@ for i in range(len(installmentPriceProducts)):
                'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss')}
     allData.append(dataDic)
 lostData = 0
+
