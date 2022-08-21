@@ -1,5 +1,4 @@
-import requests
-from bs4 import BeautifulSoup
+import arrow
 from selenium import webdriver
 
 # Memory specific data
@@ -10,6 +9,7 @@ namesProducts = []  # Memory Name
 linksProducts = []  # Memory Links
 imgProducts = []  # Memory Image
 allData = []  # Memory all data
+local = arrow.utcnow()
 
 # Specific memory lists
 
@@ -46,7 +46,7 @@ memoryDDR4_4gb_1600Mhz = []
 
 # 4gb and DDR3
 memoryDDR3_4gb_1600Mhz = []
-memoryDDR4_8gb_1333Mhz = []
+memoryDDR3_4gb_1333Mhz = []
 
 # 8gb List
 # 8gb and DDR4
@@ -146,7 +146,7 @@ for i in range(len(installmentPriceProducts)):
     changeableInstallmentPriceProducts = installmentPriceProducts[i].replace('R$', '').replace(',', '.')
     dataDic = {'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                'Installment price': [installmentPriceProducts[i], float(changeableInstallmentPriceProducts)],
-               'Link': linksProducts[i], 'Image': imgProducts[i]}
+               'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss')}
     allData.append(dataDic)
 lostData = 0
 
@@ -157,11 +157,11 @@ for data in allData:
     if 'DDR5' in data['Name']:
         memoryDDR5.append(data)
 
-    # FILTER == DDR4
+# FILTER == DDR4
     if 'DDR4' in data['Name']:
         memoryDDR4.append(data)
 
-    # FILTER == DDR3
+# FILTER == DDR3
     if 'DDR3' in data['Name']:
         memoryDDR3.append(data)
 
@@ -172,11 +172,11 @@ for data in memoryDDR5:
     if '8GB' in data['Name']:
         memoryDDR5_8gb.append(data)
 
-    # FILTER == 16gb
+# FILTER == 16gb
     if '16GB' in data['Name']:
         memoryDDR5_16gb.append(data)
 
-    # FILTER == 32gb
+# FILTER == 32gb
     if '32GB' in data['Name']:
         memoryDDR5_32gb.append(data)
 
@@ -190,15 +190,15 @@ for data in memoryDDR4:
     if '4GB' in data['Name']:
         memoryDDR4_4gb.append(data)
 
-    # FILTER == 8gb
+# FILTER == 8gb
     if '8GB' in data['Name']:
         memoryDDR4_8gb.append(data)
 
-    # FILTER == 16gb
+# FILTER == 16gb
     if '16GB' in data['Name']:
         memoryDDR4_16gb.append(data)
 
-    # FILTER == 32gb
+# FILTER == 32gb
     if '32GB' in data['Name']:
         memoryDDR4_32gb.append(data)
 
@@ -207,20 +207,20 @@ for data in memoryDDR4:
 
 # Capacity / DDR3
 
-# FILTER == 4gb and 166
+# FILTER == 4gb
 for data in memoryDDR3:
     if '4GB' in data['Name']:
         memoryDDR3_4gb.append(data)
 
-    # FILTER == 8gb
+# FILTER == 8gb
     if '8GB' in data['Name']:
         memoryDDR3_8gb.append(data)
 
-    # FILTER == 16gb
+# FILTER == 16gb
     if '16GB' in data['Name']:
         memoryDDR3_16gb.append(data)
 
-    # FILTER == 32gb
+# FILTER == 32gb
     if '32GB' in data['Name']:
         memoryDDR3_32gb.append(data)
 
@@ -238,36 +238,73 @@ for data in memoryDDR5_16gb:  # 4800Mhz 16gb DDR5
 for data in memoryDDR5_32gb:
     if '5600MHz' in data['Name']:  # 5600Mhz 32gb DDR5
         memoryDDR5_32gb_5600Mhz.append(data)
-
     if '5600MHz' in data['Name']:  # 6000Mhz 32gb DDR5
         memoryDDR5_32gb_6000Mhz.append(data)
 
 # Frequency / DDR4
 
+# FILTER == 4gb
+for data in memoryDDR4_4gb:
+    if '2400MHz' in data['Name']:
+        memoryDDR4_4gb_2400Mhz.append(data)
+    if '1600MHz' in data['Name']:
+        memoryDDR4_4gb_1600Mhz.append(data)
+
+# FILTER == 8gb
+for data in memoryDDR4_8gb:
+    if '2666MHz' in data['Name']:
+        memoryDDR4_8gb_2666Mhz.append(data)
+    if '3000MHz' in data['Name']:
+        memoryDDR4_8gb_3000Mhz.append(data)
+    if '3200MHz' in data['Name']:
+        memoryDDR4_8gb_3200Mhz.append(data)
+
 # FILTER == 16gb
-for data in memoryDDR5_16gb:  # 4800Mhz 16gb DDR5
-    if '4800MHz' in data['Name']:
-        memoryDDR5_16gb_4800Mhz.append(data)
+for data in memoryDDR4_16gb:
+    if '2666MHz' in data['Name']:
+        memoryDDR4_16gb_2666Mhz.append(data)
+    if '3600MHz' in data['Name']:
+        memoryDDR4_16gb_3600Mhz.append(data)
+    if '3000MHz' in data['Name']:
+        memoryDDR4_16gb_3000Mhz.append(data)
+    if '3200MHz' in data['Name']:
+        memoryDDR4_16gb_3200Mhz.append(data)
 
 # FILTER == 32gb
-for data in memoryDDR5_32gb:
-    if '5600MHz' in data['Name']:  # 5600Mhz 32gb DDR5
-        memoryDDR5_32gb_5600Mhz.append(data)
-
-    if '5600MHz' in data['Name']:  # 6000Mhz 32gb DDR5
-        memoryDDR5_32gb_6000Mhz.append(data)
+for data in memoryDDR4_32gb:
+    if '2666MHz' in data['Name']:
+        memoryDDR4_32gb_2666Mhz.append(data)
+    if '3600MHz' in data['Name']:
+        memoryDDR4_32gb_3600Mhz.append(data)
+    if '3000MHz' in data['Name']:
+        memoryDDR4_32gb_3000Mhz.append(data)
+    if '3200MHz' in data['Name']:
+        memoryDDR4_32gb_3200Mhz.append(data)
 
 # Frequency / DDR3
 
+# FILTER == 4gb
+for data in memoryDDR3_4gb:
+    if '2400MHz' in data['Name']:
+        memoryDDR3_4gb_1600Mhz.append(data)
+    if '1600MHz' in data['Name']:
+        memoryDDR3_4gb_1333Mhz.append(data)
+
+# FILTER == 8gb
+for data in memoryDDR3_8gb:
+    if '1600MHz' in data['Name']:
+        memoryDDR3_8gb_1600Mhz.append(data)
+    if '1866MHz' in data['Name']:
+        memoryDDR3_8gb_1866Mhz.append(data)
+
 # FILTER == 16gb
-for data in memoryDDR5_16gb:  # 4800Mhz 16gb DDR5
-    if '4800MHz' in data['Name']:
-        memoryDDR5_16gb_4800Mhz.append(data)
+for data in memoryDDR3_16gb:
+    if '1600MHz' in data['Name']:
+        memoryDDR3_16gb_1600Mhz.append(data)
+    if '1866MHz' in data['Name']:
+        memoryDDR3_16gb_1866Mhz.append(data)
 
 # FILTER == 32gb
-for data in memoryDDR5_32gb:
-    if '5600MHz' in data['Name']:  # 5600Mhz 32gb DDR5
-        memoryDDR5_32gb_5600Mhz.append(data)
-
-    if '5600MHz' in data['Name']:  # 6000Mhz 32gb DDR5
-        memoryDDR5_32gb_6000Mhz.append(data)
+for data in memoryDDR3_32gb:
+    if '1600MHz' in data['Name']:
+        memoryDDR3_32gb_1600Mhz.append(data)
