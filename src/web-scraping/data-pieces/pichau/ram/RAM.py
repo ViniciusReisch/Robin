@@ -78,7 +78,7 @@ memoryDDR5_32gb_5600Mhz = []
 memoryDDR5_32gb_6000Mhz = []
 
 
-for i in range(10):
+for i in range(9):
     driver = webdriver.Chrome()
     page = i + 1
     link = 'https://www.pichau.com.br/hardware/memorias?page='
@@ -141,30 +141,84 @@ for i in range(len(installmentPriceProducts)):
                'Link': linksProducts[i], 'Image': imgProducts[i]}
     allData.append(dataDic)
 
-    # Double Data Rate
+# Double Data Rate
 
-    # FILTER == DDR5
-    for data in allData:
-        if 'DDR5' in data['Name']:
-            memoryDDR5.append(data)
-            memoryDDR5 = list(dict.fromkeys(memoryDDR5))
-            
-    # FILTER == DDR4
-    for data in allData:
-        if 'DDR4' in data['Name']:
-            memoryDDR4.append(data)
-            memoryDDR4 = list(dict.fromkeys(memoryDDR4))
+# FILTER == DDR5
+for data in allData:
+    if 'DDR5' in data['Name']:
+        memoryDDR5.append(data)
 
-    # FILTER == DDR3
-    for data in allData:
-        if 'DDR3' in data['Name']:
-            memoryDDR3.append(data)
-            memoryDDR4 = list(dict.fromkeys(memoryDDR4))
-            
-    # Capacity
+# FILTER == DDR4
+for data in allData:
+    if 'DDR4' in data['Name']:
+        memoryDDR4.append(data)
 
-    # DDR5
-    # FILTER == 8gb
+# FILTER == DDR3
+for data in allData:
+    if 'DDR3' in data['Name']:
+        memoryDDR3.append(data)
+
+# Capacity / DDR5
+
+# FILTER == 8gb
+for data in memoryDDR5:
+    if '8GB' in data['Name']:
+        memoryDDR5_8gb.append(data)
+
+# FILTER == 16gb
+for data in memoryDDR5:
+    if '16GB' in data['Name']:
+        memoryDDR5_16gb.append(data)
+
+# FILTER == 32gb
+for data in memoryDDR5:
+    if '32GB' in data['Name']:
+        memoryDDR5_32gb.append(data)
+
+# Capacity / DDR4
+
+# FILTER == 4gb
+for data in memoryDDR4:
+    if '4GB' in data['Name']:
+        memoryDDR4_4gb.append(data)
+
+# FILTER == 8gb
+for data in memoryDDR4:
+    if '8GB' in data['Name']:
+        memoryDDR4_8gb.append(data)
+
+# FILTER == 16gb
+for data in memoryDDR4:
+    if '16GB' in data['Name']:
+        memoryDDR4_16gb.append(data)
+
+# FILTER == 32gb
+for data in memoryDDR4:
+    if '32GB' in data['Name']:
+        memoryDDR4_32gb.append(data)
+
+# Capacity / DDR3
+
+# FILTER == 4gb
+for data in memoryDDR3:
+    if '4GB' in data['Name']:
+        memoryDDR3_4gb.append(data)
+
+# FILTER == 8gb
+for data in memoryDDR3:
+    if '8GB' in data['Name']:
+        memoryDDR3_8gb.append(data)
+
+# FILTER == 16gb
+for data in memoryDDR3:
+    if '16GB' in data['Name']:
+        memoryDDR3_16gb.append(data)
+
+# FILTER == 32gb
+for data in memoryDDR3:
+    if '32GB' in data['Name']:
+        memoryDDR3_32gb.append(data)
+
 
 
 
