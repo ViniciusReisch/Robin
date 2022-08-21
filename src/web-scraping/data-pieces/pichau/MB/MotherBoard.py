@@ -22,7 +22,7 @@ motherBoardDDR3 = []
 motherBoardATX = []
 motherBoardE_ATX = []
 motherBoardMicro_ATX = []
-motherBoardMini_ATX = []
+motherBoardMini_ITX = []
 
 # Socket
 motherBoardAM4 = []
@@ -112,3 +112,53 @@ for data in allData:
 # FILTER == DDR3
     if 'DDR3' in data['Name']:
         motherBoardDDR3.append(data)
+
+# Format
+
+# FILTER == AM4
+for data in allData:
+    if 'ATX' in data['Name']:
+        motherBoardATX.append(data)
+
+# FILTER == E-ATX
+    if 'E-ATX' in data['Name']:
+        motherBoardE_ATX.append(data)
+
+# FILTER == Micro-ATX
+    if 'M-ATX' in data['Name']:
+        motherBoardMicro_ATX.append(data)
+
+# FILTER == Mini-ITX
+    if 'mini-ITX' in data['Name']:
+        motherBoardMini_ITX.append(data)
+
+# Socket
+
+# FILTER == ATX
+for data in allData:
+    if 'AM4' in data['Name']:
+        motherBoardAM4.append(data)
+
+# FILTER == LGA1700
+    if 'LGA1700' in data['Name']:
+        motherBoardLGA1700.append(data)
+
+# FILTER == LGA1200
+    if 'LGA1200' in data['Name']:
+        motherBoardLGA1200.append(data)
+
+# FILTER == LGA1150
+    if 'LGA1150' in data['Name']:
+        motherBoardLGA1150.append(data)
+
+# FILTER == LGA1151
+    if 'LGA1151' in data['Name']:
+        motherBoardLGA1151.append(data)
+
+# FILTER == LGA1155
+    if 'LGA1155' in data['Name']:
+        motherBoardLGA1155.append(data)
+
+# FILTER == FM2
+    if 'FM2+' in data['Name']:
+        motherBoardFM2.append(data)
