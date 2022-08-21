@@ -238,7 +238,7 @@ for data in memoryDDR5_16gb:  # 4800Mhz 16gb DDR5
 for data in memoryDDR5_32gb:
     if '5600MHz' in data['Name']:  # 5600Mhz 32gb DDR5
         memoryDDR5_32gb_5600Mhz.append(data)
-    if '5600MHz' in data['Name']:  # 6000Mhz 32gb DDR5
+    if '6000MHz' in data['Name']:  # 6000Mhz 32gb DDR5
         memoryDDR5_32gb_6000Mhz.append(data)
 
 # Frequency / DDR4

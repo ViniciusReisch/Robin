@@ -1,15 +1,18 @@
 from selenium import webdriver
+import arrow
 
-# Item Lists
-namesProducts = []
-imgProducts = []
-allData = []
-linksProducts = []
-pricesProducts = []
+# Memory specific data
+
+pricesProducts = []  # Memory Prices
+namesProducts = []  # Memory Name
+linksProducts = []  # Memory Links
+imgProducts = []  # Memory Image
+allData = []  # Memory all data
+local = arrow.utcnow()
 
 # WebDriver SELECT
 driver = webdriver.Chrome()
-driver.get('https://www.terabyteshop.com.br/hardware/memorias/ddr4')
+driver.get('https://www.terabyteshop.com.br/hardware/memorias')
 
 # Crawling Products == Name Product
 product = driver.find_elements('tag name', 'h2')
@@ -46,6 +49,8 @@ for i in range(len(pricesProducts)):
         pricesProducts[i] = pricesProducts[i].replace('.', '')
     changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.')
     dataDic = {'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
-               'Links': linksProducts[i], 'Images': imgProducts[i]}
+               'Links': linksProducts[i], 'Images': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss')}
     allData.append(dataDic)
+driver.close()
+
 print(allData)
