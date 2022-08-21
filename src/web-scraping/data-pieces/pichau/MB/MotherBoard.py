@@ -98,3 +98,17 @@ for i in range(len(installmentPriceProducts)):
     allData.append(dataDic)
 lostData = 0
 
+# Double Data Rate
+
+# FILTER == DDR5
+for data in allData:
+    if 'DDR5' in data['Name']:
+        motherBoardDDR5.append(data)
+
+# FILTER == DDR4
+    if 'DDR4' in data['Name']:
+        motherBoardDDR4.append(data)
+
+# FILTER == DDR3
+    if 'DDR3' in data['Name']:
+        motherBoardDDR3.append(data)
