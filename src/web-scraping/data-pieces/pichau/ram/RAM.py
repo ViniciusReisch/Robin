@@ -146,7 +146,8 @@ for i in range(len(installmentPriceProducts)):
     changeableInstallmentPriceProducts = installmentPriceProducts[i].replace('R$', '').replace(',', '.')
     dataDic = {'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                'Installment price': [installmentPriceProducts[i], float(changeableInstallmentPriceProducts)],
-               'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss')}
+               'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
+               'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png'}
     allData.append(dataDic)
 lostData = 0
 

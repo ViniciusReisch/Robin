@@ -11,33 +11,12 @@ imgProducts = []  # Memory Image
 allData = []  # Memory all data
 local = arrow.utcnow()
 
-# Specific MotherBoard lists
+# Specific CPU lists
 
-# Double Data Rate
-motherBoardDDR5 = []
-motherBoardDDR4 = []
-motherBoardDDR3 = []
-
-# Format
-motherBoardATX = []
-motherBoardE_ATX = []
-motherBoardMicro_ATX = []
-motherBoardMini_ITX = []
-
-# Socket
-motherBoardAM4 = []
-motherBoardLGA1700 = []
-motherBoardLGA1200 = []
-motherBoardLGA1150 = []
-motherBoardLGA1151 = []
-motherBoardLGA1155 = []
-motherBoardFM2 = []
-
-
-for i in range(3):
+for i in range(2):
     driver = webdriver.Chrome()
     page = i + 1
-    link = 'https://www.pichau.com.br/hardware/placa-m-e?page='
+    link = 'https://www.pichau.com.br/hardware/processadores?page='
     new_link = link + str(page)
     driver.get(new_link)
     height = driver.execute_script("return document.body.scrollHeight")
@@ -80,7 +59,7 @@ for i in range(3):
     # Crawling Products == Links
     links = driver.find_elements('tag name', 'a')
     for i in links:
-        if 'placa-mae' in i.get_attribute('href'):
+        if 'processador' in i.get_attribute('href'):
             linksProducts.append(i.get_attribute('href'))
     driver.close()
 
@@ -98,68 +77,3 @@ for i in range(len(installmentPriceProducts)):
                'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png'}
     allData.append(dataDic)
 lostData = 0
-
-# Double Data Rate
-
-# FILTER == DDR5
-for data in allData:
-    if 'DDR5' in data['Name']:
-        motherBoardDDR5.append(data)
-
-# FILTER == DDR4
-    if 'DDR4' in data['Name']:
-        motherBoardDDR4.append(data)
-
-# FILTER == DDR3
-    if 'DDR3' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# Format
-
-# FILTER == AM4
-for data in allData:
-    if 'ATX' in data['Name']:
-        motherBoardATX.append(data)
-
-# FILTER == E-ATX
-    if 'E-ATX' in data['Name']:
-        motherBoardE_ATX.append(data)
-
-# FILTER == Micro-ATX
-    if 'M-ATX' in data['Name']:
-        motherBoardMicro_ATX.append(data)
-
-# FILTER == Mini-ITX
-    if 'mini-ITX' in data['Name']:
-        motherBoardMini_ITX.append(data)
-
-# Socket
-
-# FILTER == ATX
-for data in allData:
-    if 'AM4' in data['Name']:
-        motherBoardAM4.append(data)
-
-# FILTER == LGA1700
-    if 'LGA1700' in data['Name']:
-        motherBoardLGA1700.append(data)
-
-# FILTER == LGA1200
-    if 'LGA1200' in data['Name']:
-        motherBoardLGA1200.append(data)
-
-# FILTER == LGA1150
-    if 'LGA1150' in data['Name']:
-        motherBoardLGA1150.append(data)
-
-# FILTER == LGA1151
-    if 'LGA1151' in data['Name']:
-        motherBoardLGA1151.append(data)
-
-# FILTER == LGA1155
-    if 'LGA1155' in data['Name']:
-        motherBoardLGA1155.append(data)
-
-# FILTER == FM2
-    if 'FM2+' in data['Name']:
-        motherBoardFM2.append(data)
