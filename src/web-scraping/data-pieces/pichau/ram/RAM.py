@@ -15,77 +15,81 @@ local = arrow.utcnow()
 # Specific memory lists
 
 # Double Data Rate
-memoryDDR5 = []
-memoryDDR4 = []
-memoryDDR3 = []
+DDR = {
+    "memoryDDR5": [],
+    "memoryDDR4": [],
+    "memoryDDR3": []
+}
 
 # Capacity
+capacity = {
+    # DDR5
+    "memoryDDR5_8gb": [],
+    "memoryDDR5_16gb": [],
+    "memoryDDR5_32gb": [],
 
-# DDR5
-memoryDDR5_8gb = []
-memoryDDR5_16gb = []
-memoryDDR5_32gb = []
+    # DDR4
+    "memoryDDR4_4gb": [],
+    "memoryDDR4_8gb": [],
+    "memoryDDR4_16gb": [],
+    "memoryDDR4_32gb": [],
 
-# DDR4
-memoryDDR4_4gb = []
-memoryDDR4_8gb = []
-memoryDDR4_16gb = []
-memoryDDR4_32gb = []
-
-# DDR3
-memoryDDR3_4gb = []
-memoryDDR3_8gb = []
-memoryDDR3_16gb = []
-memoryDDR3_32gb = []
+    # DDR3
+    "memoryDDR3_4gb": [],
+    "memoryDDR3_8gb": [],
+    "memoryDDR3_16gb": [],
+    "memoryDDR3_32gb": []
+}
 
 # Frequency
+frequency = {
+    # 4gb List
+    # 4gb and DDR4
+    "memoryDDR4_4gb_2400Mhz": [],
+    "memoryDDR4_4gb_1600Mhz": [],
 
-# 4gb List
-# 4gb and DDR4
-memoryDDR4_4gb_2400Mhz = []
-memoryDDR4_4gb_1600Mhz = []
+    # 4gb and DDR3
+    "memoryDDR3_4gb_1600Mhz": [],
+    "memoryDDR3_4gb_1333Mhz": [],
 
-# 4gb and DDR3
-memoryDDR3_4gb_1600Mhz = []
-memoryDDR3_4gb_1333Mhz = []
+    # 8gb List
+    # 8gb and DDR4
+    "memoryDDR4_8gb_3200Mhz": [],
+    "memoryDDR4_8gb_3000Mhz": [],
+    "memoryDDR4_8gb_2666Mhz": [],
 
-# 8gb List
-# 8gb and DDR4
-memoryDDR4_8gb_3200Mhz = []
-memoryDDR4_8gb_3000Mhz = []
-memoryDDR4_8gb_2666Mhz = []
+    # 8gb and DDR3
+    "memoryDDR3_8gb_1600Mhz": [],
+    "memoryDDR3_8gb_1866Mhz": [],
 
-# 8gb and DDR3
-memoryDDR3_8gb_1600Mhz = []
-memoryDDR3_8gb_1866Mhz = []
+    # 16gb List
+    # 16gb and DDR4
+    "memoryDDR4_16gb_3600Mhz": [],
+    "memoryDDR4_16gb_3200Mhz": [],
+    "memoryDDR4_16gb_3000Mhz": [],
+    "memoryDDR4_16gb_2666Mhz": [],
 
-# 16gb List
-# 16gb and DDR4
-memoryDDR4_16gb_3600Mhz = []
-memoryDDR4_16gb_3200Mhz = []
-memoryDDR4_16gb_3000Mhz = []
-memoryDDR4_16gb_2666Mhz = []
+    # 16gb and DDR3
+    "memoryDDR3_16gb_1600Mhz": [],
+    "memoryDDR3_16gb_1866Mhz": [],
 
-# 16gb and DDR3
-memoryDDR3_16gb_1600Mhz = []
-memoryDDR3_16gb_1866Mhz = []
+    # 16gb and DDR5
+    "memoryDDR5_16gb_4800Mhz": [],
 
-# 16gb and DDR5
-memoryDDR5_16gb_4800Mhz = []
+    # 32gb List
+    # 32gb and DDR4
+    "memoryDDR4_32gb_3600Mhz": [],
+    "memoryDDR4_32gb_3200Mhz": [],
+    "memoryDDR4_32gb_3000Mhz": [],
+    "memoryDDR4_32gb_2666Mhz": [],
 
-# 32gb List
-# 32gb and DDR4
-memoryDDR4_32gb_3600Mhz = []
-memoryDDR4_32gb_3200Mhz = []
-memoryDDR4_32gb_3000Mhz = []
-memoryDDR4_32gb_2666Mhz = []
+    # 32gb and DDR3
+    "memoryDDR3_32gb_1600Mhz": [],
 
-# 32gb and DDR3
-memoryDDR3_32gb_1600Mhz = []
-
-# 32gb and DDR5
-memoryDDR5_32gb_5600Mhz = []
-memoryDDR5_32gb_6000Mhz = []
+    # 32gb and DDR5
+    "memoryDDR5_32gb_5600Mhz": [],
+    "memoryDDR5_32gb_6000Mhz": []
+}
 
 hostIP = socket.gethostname()
 IPAddr = socket.gethostbyname(hostIP)
