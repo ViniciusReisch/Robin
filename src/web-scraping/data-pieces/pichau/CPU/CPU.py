@@ -1,5 +1,6 @@
 import arrow
 from selenium import webdriver
+import socket
 
 # MotherBoard specific data
 
@@ -32,7 +33,8 @@ cpuLGA1200 = []  # LGA1200
 cpuLGA1700 = []  # LGA1700
 cpuLGA2066 = []  # LGA2066
 
-
+hostIP = socket.gethostname()
+IPAddr = socket.gethostbyname(hostIP)
 for i in range(2):
     driver = webdriver.Chrome()
     page = i + 1
@@ -58,16 +60,30 @@ for i in range(2):
     imgProducts = list(dict.fromkeys(imgProducts))
 
     # Crawling Products == Price
-    product = driver.find_elements('class name', 'jss191')  # Possibles class name = jss191
-    for i in product:
-        if 'R$' in i.text:
-            pricesProducts.append(i.text)
+    if IPAddr == '192.168.2.38':  # Id verification
+        product = driver.find_elements('class name', 'jss69')  # Possibles class name = jss191, jss69
+        for i in product:
+            if 'R$' in i.text:
+                pricesProducts.append(i.text)
 
-    # Crawling Products == Installment Price
-    product = driver.find_elements('class name', 'jss199')  # Possibles class name = jss199
-    for i in product:
-        if 'R$' in i.text:
-            installmentPriceProducts.append(i.text)
+        # Crawling Products == Installment Price
+        product = driver.find_elements('class name', 'jss77')  # Possibles class name = jss199, jss77
+        for i in product:
+            if 'R$' in i.text:
+                installmentPriceProducts.append(i.text)
+    else:  # Different ID
+
+        # Crawling Products == Price
+        product = driver.find_elements('class name', 'jss191')  # Possibles class name = jss191, jss69
+        for i in product:
+            if 'R$' in i.text:
+                pricesProducts.append(i.text)
+
+        # Crawling Products == Installment Price
+        product = driver.find_elements('class name', 'jss69')  # Possibles class name = jss199, jss77
+        for i in product:
+            if 'R$' in i.text:
+                installmentPriceProducts.append(i.text)
 
     # Crawling Products == Name
     product = driver.find_elements('tag name', 'h2')
