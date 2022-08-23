@@ -22,24 +22,25 @@ DDR = {
 }
 
 # Capacity
-capacity = {
-    # DDR5
-    "memoryDDR5_4gb": [],
-    "memoryDDR5_8gb": [],
-    "memoryDDR5_16gb": [],
-    "memoryDDR5_32gb": [],
-
-    # DDR4
-    "memoryDDR4_4gb": [],
-    "memoryDDR4_8gb": [],
-    "memoryDDR4_16gb": [],
-    "memoryDDR4_32gb": [],
-
-    # DDR3
-    "memoryDDR3_4gb": [],
-    "memoryDDR3_8gb": [],
-    "memoryDDR3_16gb": [],
-    "memoryDDR3_32gb": []
+capacityDDR = {
+    "DDR5": {
+        "4gb": [],
+        "8gb": [],
+        "16gb": [],
+        "32gb": []
+    },
+    "DDR4": {
+        "4gb": [],
+        "8gb": [],
+        "16gb": [],
+        "32gb": []
+    },
+    "DDR3": {
+        "4gb": [],
+        "8gb": [],
+        "16gb": [],
+        "32gb": []
+    }
 }
 
 # Frequency
@@ -118,7 +119,7 @@ for i in range(9):
     imgProducts = list(dict.fromkeys(imgProducts))
 
     # Crawling Products == Price
-    if IPAddr == '192.168.2.38':  # Id verification
+    if IPAddr == '192.168.2.38' or IPAddr == '192.168.2.75':  # Id verification
         product = driver.find_elements('class name', 'jss69')  # Possibles class name = jss191, jss69
         for i in product:
             if 'R$' in i.text:
@@ -129,6 +130,7 @@ for i in range(9):
         for i in product:
             if 'R$' in i.text:
                 installmentPriceProducts.append(i.text)
+
     else:  # Different ID
 
         # Crawling Products == Price
@@ -185,13 +187,12 @@ allCapacity = [
     '4GB', '8GB', '16gb', '32gb'
 ]
 key = list(DDR.values())
-for j in range(3):
-    for i in range(4):
-        for data in key[j]:
+for k in range(3):  # DDR
+    for i in range(4):  # Capacity
+        for data in key[k]:
             if allCapacity[i] in data['Name']:
                 keyCapacity = list(capacity.values())
                 keyCapacity[i].append(data)
-
 
 # # FILTER == 8gb
 # for data in memoryDDR5:
