@@ -185,12 +185,12 @@ allCapacity = [
     '4GB', '8GB', '16gb', '32gb'
 ]
 key = list(DDR.values())
-for e in range(3):
-    for i in range(len(allCapacity)):
-        for data in key[e]:
+for j in range(3):
+    for i in range(4):
+        for data in key[j]:
             if allCapacity[i] in data['Name']:
-                key = list(capacity.values())
-                key[i].append(data)
+                keyCapacity = list(capacity.values())
+                keyCapacity[i].append(data)
 
 
 # # FILTER == 8gb
