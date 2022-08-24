@@ -186,13 +186,18 @@ for i in range(len(allDDR)):
 allCapacity = [
     '4GB', '8GB', '16gb', '32gb'
 ]
-key = list(DDR.values())
-for k in range(3):  # DDR
-    for i in range(4):  # Capacity
-        for data in key[k]:
-            if allCapacity[i] in data['Name']:
-                keyCapacity = list(capacity.values())
-                keyCapacity[i].append(data)
+
+keyDDR = list(DDR.values())
+for i in [memoria.values() for memoria in capacityDDR.values()]:
+    for memoria in i:
+        for j in range(len(allDDR)):
+            for k in range(len(allCapacity)):
+                for key in keyDDR[i]:
+                    if allCapacity[i] in keyDDR[i]:
+                        memoria.append(key)
+
+print(capacityDDR)
+
 
 # # FILTER == 8gb
 # for data in memoryDDR5:
