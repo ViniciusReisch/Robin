@@ -42,7 +42,18 @@ capacityDDR3 = {
     }
 
 # Frequency
-frequency = {
+frequencyDDR5 = {
+    # 16gb and DDR5
+    "8gb_48000Mhz": [],
+
+    # 16gb and DDR5
+    "16gb_4800Mhz": [],
+
+    # 32gb and DDR5
+    "32gb_5600Mhz": [],
+    "32gb_6000Mhz": []
+}
+frequencyDDR4 = {
     # 4gb List
     # 4gb and DDR4
     "memoryDDR4_4gb_2400Mhz": [],
@@ -73,8 +84,7 @@ frequency = {
     "memoryDDR3_16gb_1600Mhz": [],
     "memoryDDR3_16gb_1866Mhz": [],
 
-    # 16gb and DDR5
-    "memoryDDR5_16gb_4800Mhz": [],
+
 
     # 32gb List
     # 32gb and DDR4
@@ -86,9 +96,7 @@ frequency = {
     # 32gb and DDR3
     "memoryDDR3_32gb_1600Mhz": [],
 
-    # 32gb and DDR5
-    "memoryDDR5_32gb_5600Mhz": [],
-    "memoryDDR5_32gb_6000Mhz": []
+
 }
 hostIP = socket.gethostname()
 IPAddr = socket.gethostbyname(hostIP)
@@ -207,20 +215,25 @@ for i in range(len(allCapacity)):
             key[i].append(data)
 
 
-# # Frequency / DDR5
-#
-# # FILTER == 16gb
-# for data in memoryDDR5_16gb:  # 4800Mhz 16gb DDR5
-#     if '4800MHz' in data['Name']:
-#         memoryDDR5_16gb_4800Mhz.append(data)
-#
-# # FILTER == 32gb
-# for data in memoryDDR5_32gb:
-#     if '5600MHz' in data['Name']:  # 5600Mhz 32gb DDR5
-#         memoryDDR5_32gb_5600Mhz.append(data)
-#     if '6000MHz' in data['Name']:  # 6000Mhz 32gb DDR5
-#         memoryDDR5_32gb_6000Mhz.append(data)
-#
+# Frequency / DDR5
+
+# FILTER == 8gb
+for data in capacityDDR5['8gb']:  # 4800Mhz 16gb DDR5
+    if '4800MHz' in data['Name']:
+        frequencyDDR5['8gb_48000Mhz'].append(data)
+
+# FILTER == 16gb
+for data in capacityDDR5['16gb']:  # 4800Mhz 16gb DDR5
+    if '4800MHz' in data['Name']:
+        frequencyDDR5['16gb_4800Mhz'].append(data)
+
+# FILTER == 32gb
+for data in capacityDDR5['32gb']:
+    if '5600MHz' in data['Name']:  # 5600Mhz 32gb DDR5
+        frequencyDDR5['32gb_5600Mhz'].append(data)
+    if '6000MHz' in data['Name']:  # 6000Mhz 32gb DDR5
+        frequencyDDR5['32gb_6000Mhz'].append(data)
+
 # # Frequency / DDR4
 #
 # # FILTER == 4gb
