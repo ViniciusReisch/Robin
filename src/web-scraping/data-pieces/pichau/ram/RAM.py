@@ -100,7 +100,7 @@ frequencyDDR4 = {
 }
 hostIP = socket.gethostname()
 IPAddr = socket.gethostbyname(hostIP)
-for i in range(9):
+for i in range(10):
     driver = webdriver.Chrome()
     page = i + 1
     link = 'https://www.pichau.com.br/hardware/memorias?page='
