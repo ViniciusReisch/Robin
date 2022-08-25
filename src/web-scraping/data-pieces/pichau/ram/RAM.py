@@ -44,60 +44,54 @@ capacityDDR3 = {
 # Frequency
 frequencyDDR5 = {
     # 16gb and DDR5
-    "8gb_48000Mhz": [],
+    "8gb_48000MHz": [],
 
     # 16gb and DDR5
-    "16gb_4800Mhz": [],
+    "16gb_4800MHz": [],
 
     # 32gb and DDR5
-    "32gb_5600Mhz": [],
-    "32gb_6000Mhz": []
+    "32gb_5600MHz": [],
+    "32gb_6000MHz": []
 }
 frequencyDDR4 = {
-    # 4gb List
     # 4gb and DDR4
-    "memoryDDR4_4gb_2400Mhz": [],
-    "memoryDDR4_4gb_1600Mhz": [],
+    "4gb_2400MHz": [],
+    "4gb_1600MHz": [],
 
-    # 4gb and DDR3
-    "memoryDDR3_4gb_1600Mhz": [],
-    "memoryDDR3_4gb_1333Mhz": [],
-
-    # 8gb List
     # 8gb and DDR4
-    "memoryDDR4_8gb_3200Mhz": [],
-    "memoryDDR4_8gb_3000Mhz": [],
-    "memoryDDR4_8gb_2666Mhz": [],
+    "8gb_3200Mhz": [],
+    "8gb_3000Mhz": [],
+    "8gb_2666Mhz": [],
+
+    # 16gb and DDR4
+    "16gb_3600Mhz": [],
+    "16gb_3200Mhz": [],
+    "16gb_3000Mhz": [],
+    "16gb_2666Mhz": [],
+
+    # 32gb and DDR4
+    "32gb_3600Mhz": [],
+    "32gb_3200Mhz": [],
+    "32gb_3000Mhz": [],
+    "32gb_2666Mhz": []
+}
+frequencyDDR3 = {
+    # 4gb and DDR3
+    "4gb_1600Mhz": [],
+    "4gb_1333Mhz": [],
 
     # 8gb and DDR3
-    "memoryDDR3_8gb_1600Mhz": [],
-    "memoryDDR3_8gb_1866Mhz": [],
-
-    # 16gb List
-    # 16gb and DDR4
-    "memoryDDR4_16gb_3600Mhz": [],
-    "memoryDDR4_16gb_3200Mhz": [],
-    "memoryDDR4_16gb_3000Mhz": [],
-    "memoryDDR4_16gb_2666Mhz": [],
+    "8gb_1600Mhz": [],
+    "8gb_1866Mhz": [],
 
     # 16gb and DDR3
-    "memoryDDR3_16gb_1600Mhz": [],
-    "memoryDDR3_16gb_1866Mhz": [],
-
-
-
-    # 32gb List
-    # 32gb and DDR4
-    "memoryDDR4_32gb_3600Mhz": [],
-    "memoryDDR4_32gb_3200Mhz": [],
-    "memoryDDR4_32gb_3000Mhz": [],
-    "memoryDDR4_32gb_2666Mhz": [],
+    "16gb_1600Mhz": [],
+    "16gb_1866Mhz": [],
 
     # 32gb and DDR3
-    "memoryDDR3_32gb_1600Mhz": [],
-
-
+    "32gb_1600Mhz": []
 }
+
 hostIP = socket.gethostname()
 IPAddr = socket.gethostbyname(hostIP)
 for i in range(10):
@@ -220,84 +214,84 @@ for i in range(len(allCapacity)):
 # FILTER == 8gb
 for data in capacityDDR5['8gb']:  # 4800Mhz 16gb DDR5
     if '4800MHz' in data['Name']:
-        frequencyDDR5['8gb_48000Mhz'].append(data)
+        frequencyDDR5['8gb_48000MHz'].append(data)
 
 # FILTER == 16gb
 for data in capacityDDR5['16gb']:  # 4800Mhz 16gb DDR5
     if '4800MHz' in data['Name']:
-        frequencyDDR5['16gb_4800Mhz'].append(data)
+        frequencyDDR5['16gb_4800MHz'].append(data)
 
 # FILTER == 32gb
 for data in capacityDDR5['32gb']:
     if '5600MHz' in data['Name']:  # 5600Mhz 32gb DDR5
-        frequencyDDR5['32gb_5600Mhz'].append(data)
+        frequencyDDR5['32gb_5600MHz'].append(data)
     if '6000MHz' in data['Name']:  # 6000Mhz 32gb DDR5
-        frequencyDDR5['32gb_6000Mhz'].append(data)
+        frequencyDDR5['32gb_6000MHz'].append(data)
 
 # # Frequency / DDR4
-#
-# # FILTER == 4gb
-# for data in memoryDDR4_4gb:
-#     if '2400MHz' in data['Name']:  # 2600Mhz 4gb DDR4
-#         memoryDDR4_4gb_2400Mhz.append(data)
-#     if '1600MHz' in data['Name']:  # 1600MHz 4gb DDR4
-#         memoryDDR4_4gb_1600Mhz.append(data)
-#
-# # FILTER == 8gb
-# for data in memoryDDR4_8gb:
-#     if '2666MHz' in data['Name']:  # 2666MHz 8gb DDR4
-#         memoryDDR4_8gb_2666Mhz.append(data)
-#     if '3000MHz' in data['Name']:  # 3000MHz 8gb DDR4
-#         memoryDDR4_8gb_3000Mhz.append(data)
-#     if '3200MHz' in data['Name']:  # 3200MHz 8gb DDR4
-#         memoryDDR4_8gb_3200Mhz.append(data)
-#
-# # FILTER == 16gb
-# for data in memoryDDR4_16gb:
-#     if '2666MHz' in data['Name']:  # 2666MHz 16gb DDR4
-#         memoryDDR4_16gb_2666Mhz.append(data)
-#     if '3600MHz' in data['Name']:  # 3600MHz 16gb DDR4
-#         memoryDDR4_16gb_3600Mhz.append(data)
-#     if '3000MHz' in data['Name']:  # 3000MHz 16gb DDR4
-#         memoryDDR4_16gb_3000Mhz.append(data)
-#     if '3200MHz' in data['Name']:  # 3200MHz 16gb DDR4
-#         memoryDDR4_16gb_3200Mhz.append(data)
-#
-# # FILTER == 32gb
-# for data in memoryDDR4_32gb:
-#     if '2666MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-#         memoryDDR4_32gb_2666Mhz.append(data)
-#     if '3600MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-#         memoryDDR4_32gb_3600Mhz.append(data)
-#     if '3000MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-#         memoryDDR4_32gb_3000Mhz.append(data)
-#     if '3200MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-#         memoryDDR4_32gb_3200Mhz.append(data)
-#
-# # Frequency / DDR3
-#
-# # FILTER == 4gb
-# for data in memoryDDR3_4gb:
-#     if '2400MHz' in data['Name']:  # 2400MHz 4gb DDR3
-#         memoryDDR3_4gb_1600Mhz.append(data)
-#     if '1600MHz' in data['Name']:  # 1600MHz 4gb DDR3
-#         memoryDDR3_4gb_1333Mhz.append(data)
-#
-# # FILTER == 8gb
-# for data in memoryDDR3_8gb:
-#     if '1600MHz' in data['Name']:  # 1600MHz 8gb DDR3
-#         memoryDDR3_8gb_1600Mhz.append(data)
-#     if '1866MHz' in data['Name']:  # 1866MHz 8gb DDR3
-#         memoryDDR3_8gb_1866Mhz.append(data)
-#
-# # FILTER == 16gb
-# for data in memoryDDR3_16gb:
-#     if '1600MHz' in data['Name']:  # 1600MHz 16gb DDR3
-#         memoryDDR3_16gb_1600Mhz.append(data)
-#     if '1866MHz' in data['Name']:  # 1866MHz 16gb DDR3
-#         memoryDDR3_16gb_1866Mhz.append(data)
-#
-# # FILTER == 32gb
-# for data in memoryDDR3_32gb:
-#     if '1600MHz' in data['Name']:  # 1600MHz 32gb DDR3
-#         memoryDDR3_32gb_1600Mhz.append(data)
+
+# FILTER == 4gb
+for data in capacityDDR4['4gb']:
+    if '2400MHz' in data['Name']:  # 2600Mhz 4gb DDR4
+        frequencyDDR4['4gb_2400MHz'].append(data)
+    if '1600MHz' in data['Name']:  # 1600MHz 4gb DDR4
+        frequencyDDR4['4gb_1600MHz'].append(data)
+
+# FILTER == 8gb
+for data in capacityDDR4['8gb']:
+    if '2666MHz' in data['Name']:  # 2666MHz 8gb DDR4
+        frequencyDDR4['8gb_2666Mhz'].append(data)
+    if '3000MHz' in data['Name']:  # 3000MHz 8gb DDR4
+        frequencyDDR4['8gb_3000Mhz'].append(data)
+    if '3200MHz' in data['Name']:  # 3200MHz 8gb DDR4
+        frequencyDDR4['8gb_3200Mhz'].append(data)
+
+# FILTER == 16gb
+for data in capacityDDR4['16gb']:
+    if '2666MHz' in data['Name']:  # 2666MHz 16gb DDR4
+        frequencyDDR4['16gb_2666Mhz'].append(data)
+    if '3600MHz' in data['Name']:  # 3600MHz 16gb DDR4
+        frequencyDDR4['16gb_3600Mhz'].append(data)
+    if '3000MHz' in data['Name']:  # 3000MHz 16gb DDR4
+        frequencyDDR4['16gb_3200Mhz'].append(data)
+    if '3200MHz' in data['Name']:  # 3200MHz 16gb DDR4
+        frequencyDDR4['16gb_3200Mhz'].append(data)
+
+# FILTER == 32gb
+for data in capacityDDR4['32gb']:
+    if '2666MHz' in data['Name']:  # 5600Mhz 32gb DDR4
+        frequencyDDR4['32gb_2666Mhz'].append(data)
+    if '3600MHz' in data['Name']:  # 5600Mhz 32gb DDR4
+        frequencyDDR4['32gb_3600Mhz'].append(data)
+    if '3000MHz' in data['Name']:  # 5600Mhz 32gb DDR4
+        frequencyDDR4['32gb_3000Mhz'].append(data)
+    if '3200MHz' in data['Name']:  # 5600Mhz 32gb DDR4
+        frequencyDDR4['32gb_3200Mhz'].append(data)
+
+# Frequency / DDR3
+
+# FILTER == 4gb
+for data in capacityDDR3['4gb']:
+    if '2400MHz' in data['Name']:  # 2400MHz 4gb DDR3
+        frequencyDDR3['4gb_1333Mhz'].append(data)
+    if '1600MHz' in data['Name']:  # 1600MHz 4gb DDR3
+        frequencyDDR3['4gb_1600Mhz'].append(data)
+
+# FILTER == 8gb
+for data in capacityDDR3['8gb']:
+    if '1600MHz' in data['Name']:  # 1600MHz 8gb DDR3
+        frequencyDDR3['8gb_1600Mhz'].append(data)
+    if '1866MHz' in data['Name']:  # 1866MHz 8gb DDR3
+        frequencyDDR3['8gb_1866Mhz'].append(data)
+
+# FILTER == 16gb
+for data in capacityDDR3['16gb']:
+    if '1600MHz' in data['Name']:  # 1600MHz 16gb DDR3
+        frequencyDDR3['16gb_1600Mhz'].append(data)
+    if '1866MHz' in data['Name']:  # 1866MHz 16gb DDR3
+        frequencyDDR3['16gb_1866Mhz'].append(data)
+
+# FILTER == 32gb
+for data in capacityDDR3['32gb']:
+    if '1600MHz' in data['Name']:  # 1600MHz 32gb DDR3
+        frequencyDDR3['32gb_1600Mhz'].append(data)
