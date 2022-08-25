@@ -15,24 +15,26 @@ local = arrow.utcnow()
 # Specific MotherBoard lists
 
 # Double Data Rate
-motherBoardDDR5 = []
-motherBoardDDR4 = []
-motherBoardDDR3 = []
-
-# Format
-motherBoardATX = []
-motherBoardE_ATX = []
-motherBoardMicro_ATX = []
-motherBoardMini_ITX = []
-
-# Socket
-motherBoardAM4 = []
-motherBoardLGA1700 = []
-motherBoardLGA1200 = []
-motherBoardLGA1150 = []
-motherBoardLGA1151 = []
-motherBoardLGA1155 = []
-motherBoardFM2 = []
+DDR = {
+    "motherBoardDDR5": [],
+    "motherBoardDDR4": [],
+    "motherBoardDDR3": []
+}
+Format = {
+    "motherBoardATX": [],
+    "motherBoardE_ATX": [],
+    "motherBoardMicro_ATX": [],
+    "motherBoardMini_ITX": []
+}
+Socket = {
+    "motherBoardAM4": [],
+    "motherBoardLGA1700": [],
+    "motherBoardLGA1200": [],
+    "motherBoardLGA1150": [],
+    "motherBoardLGA1151": [],
+    "motherBoardLGA1155": [],
+    "motherBoardFM2": []
+}
 
 hostIP = socket.gethostname()
 IPAddr = socket.gethostbyname(hostIP)
@@ -72,8 +74,8 @@ for i in range(3):
         for i in product:
             if 'R$' in i.text:
                 installmentPriceProducts.append(i.text)
-    else:  # Different ID
 
+    else:  # Different ID
         # Crawling Products == Price
         product = driver.find_elements('class name', 'jss191')  # Possibles class name = jss191, jss69
         for i in product:
@@ -81,7 +83,7 @@ for i in range(3):
                 pricesProducts.append(i.text)
 
         # Crawling Products == Installment Price
-        product = driver.find_elements('class name', 'jss69')  # Possibles class name = jss199, jss77
+        product = driver.find_elements('class name', 'jss199')  # Possibles class name = jss199, jss77
         for i in product:
             if 'R$' in i.text:
                 installmentPriceProducts.append(i.text)
@@ -108,7 +110,7 @@ for i in range(len(installmentPriceProducts)):
     if '.' in installmentPriceProducts[i]:
         installmentPriceProducts[i] = installmentPriceProducts[i].replace('.', '')
     changeableInstallmentPriceProducts = installmentPriceProducts[i].replace('R$', '').replace(',', '.')
-    dataDic = {'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
+    dataDic = {'Store': 'Pichau', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                'Installment price': [installmentPriceProducts[i], float(changeableInstallmentPriceProducts)],
                'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
                'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png'}
@@ -116,66 +118,28 @@ for i in range(len(installmentPriceProducts)):
 lostData = 0
 
 # Double Data Rate
-
-# FILTER == DDR5
-for data in allData:
-    if 'DDR5' in data['Name']:
-        motherBoardDDR5.append(data)
-
-# FILTER == DDR4
-    if 'DDR4' in data['Name']:
-        motherBoardDDR4.append(data)
-
-# FILTER == DDR3
-    if 'DDR3' in data['Name']:
-        motherBoardDDR3.append(data)
+allDDR = ['DDR5', 'DDR4', 'DDR3']
+key = list(DDR.values())
+for i in range(len(allDDR)):
+    for data in allData:
+        if allDDR[i] in data['Name']:
+            key = list(DDR.values())
+            key[i].append(data)
 
 # Format
-
-# FILTER == AM4
-for data in allData:
-    if 'ATX' in data['Name']:
-        motherBoardATX.append(data)
-
-# FILTER == E-ATX
-    if 'E-ATX' in data['Name']:
-        motherBoardE_ATX.append(data)
-
-# FILTER == Micro-ATX
-    if 'M-ATX' in data['Name']:
-        motherBoardMicro_ATX.append(data)
-
-# FILTER == Mini-ITX
-    if 'mini-ITX' in data['Name']:
-        motherBoardMini_ITX.append(data)
+allFormat = ['ATX', 'E-ATX', 'Micro-ATX', 'Mini-ITX']
+key = list(Format.values())
+for i in range(len(allFormat)):
+    for data in allData:
+        if allFormat[i] in data['Name']:
+            key = list(Format.values())
+            key[i].append(data)
 
 # Socket
-
-# FILTER == ATX
-for data in allData:
-    if 'AM4' in data['Name']:
-        motherBoardAM4.append(data)
-
-# FILTER == LGA1700
-    if 'LGA1700' in data['Name']:
-        motherBoardLGA1700.append(data)
-
-# FILTER == LGA1200
-    if 'LGA1200' in data['Name']:
-        motherBoardLGA1200.append(data)
-
-# FILTER == LGA1150
-    if 'LGA1150' in data['Name']:
-        motherBoardLGA1150.append(data)
-
-# FILTER == LGA1151
-    if 'LGA1151' in data['Name']:
-        motherBoardLGA1151.append(data)
-
-# FILTER == LGA1155
-    if 'LGA1155' in data['Name']:
-        motherBoardLGA1155.append(data)
-
-# FILTER == FM2
-    if 'FM2+' in data['Name']:
-        motherBoardFM2.append(data)
+allSocket = ['AM4', 'LGA1700', 'LGA1200', 'LGA1150', 'LGA1151', 'LGA1155', 'FM2+']
+key = list(Socket.values())
+for i in range(len(allSocket)):
+    for data in allData:
+        if allSocket[i] in data['Name']:
+            key = list(Socket.values())
+            key[i].append(data)
