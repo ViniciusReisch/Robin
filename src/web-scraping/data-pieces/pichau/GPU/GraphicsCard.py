@@ -13,6 +13,120 @@ allData = []  # Memory all data
 local = arrow.utcnow()
 
 # Specific Graphic Card lists
+Model = {
+    'GT 1030 2GB': [],
+    'GT 610 2GB': [],
+    'GT 710 1GB': [],
+    'GT 710 2GB': [],
+    'GT 730 2GB': [],
+    'GT 730 4GB': [],
+    'GT 240 1GB': [],
+    'GTX 1050 2GB': [],
+    'GTX 1050 3GB': [],
+    'GTX 1050 TI 4GB': [],
+    'GTX 1060 3GB': [],
+    'GTX 1060 6GB': [],
+    'GTX 1070 8GB': [],
+    'GTX 1070 TI 8GB': [],
+    'GTX 1080 8GB': [],
+    'GTX 1080 TI 11GB': [],
+    'GTX 1630 4GB': [],
+    'GTX 1650 4GB': [],
+    'GTX 1650 SUPER': [],
+    'GTX 1660 6GB': [],
+    'GTX 1660 SUPER': [],
+    'GTX 1660 TI 6GB': [],
+    'GTX 750 TI 2GB': [],
+    'GTX 750 TI 4GB': [],
+    'GTX 980 TI 6GB': [],
+    'NVS 810 4GB': [],
+    'PRO W6600 8GB': [],
+    'QUADRO P1000 4GB': [],
+    'QUADRO P2000 5GB': [],
+    'QUADRO P400 2GB': [],
+    'QUADRO P4000 8GB': [],
+    'QUADRO P620 2GB': [],
+    'QUADRO RTX 4000 8GB': [],
+    'QUADRO RTX A2000 12GB': [],
+    'QUADRO RTX A2000 6GB': [],
+    'QUADRO RTX A4000 16GB': [],
+    'QUADRO RTX A4500 20GB': [],
+    'QUADRO RTX A5000 24GB': [],
+    'QUADRO T1000 4GB': [],
+    'QUADRO T1000 8GB': [],
+    'QUADRO T400 2GB': [],
+    'QUADRO T600 4GB': [],
+    'R5 220 2GB': [],
+    'R5 230 1GB': [],
+    'R5 230 2GB': [],
+    'R7 240': [],
+    'RTX 2060 12GB': [],
+    'RTX 2060 6GB': [],
+    'RTX 2060 SUPER 8GB': [],
+    'RTX 2070 8GB': [],
+    'RTX 2070 SUPER 8GB': [],
+    'RTX 2080 8GB': [],
+    'RTX 2080 SUPER 8GB': [],
+    'RTX 2080 TI 11GB': [],
+    'RTX 3050 4GB': [],
+    'RTX 3050 8GB': [],
+    'RTX 3060 12GB': [],
+    'RTX 3060 TI 8GB': [],
+    'RTX 3070 8GB': [],
+    'RTX 3070 TI 8GB': [],
+    'RTX 3080 10GB': [],
+    'RTX 3080 12GB': [],
+    'RTX 3080 TI 12GB': [],
+    'RTX 3090 24GB': [],
+    'RTX 3090 TI 24 GB': [],
+    'RX 460 2GB': [],
+    'RX 550 2GB': [],
+    'RX 550 4GB': [],
+    'RX 5500 4GB': [],
+    'RX 5600 XT 6GB': [],
+    'RX 570 4GB': [],
+    'RX 570 8GB': [],
+    'RX 5700 8GB': [],
+    'RX 5700 XT 8GB': [],
+    'RX 580 4GB': [],
+    'RX 580 8GB': [],
+    'RX 590 8GB': [],
+    'RX 6400 4GB': [],
+    'RX 6500 XT 4GB': [],
+    'RX 6600 8GB': [],
+    'RX 6600 XT 8GB': [],
+    'RX 6650 XT 8GB': [],
+    'RX 6700 XT 12GB': [],
+    'RX 6750 XT 12GB': [],
+    'RX 6800 16GB': [],
+    'RX 6800 XT 16GB': [],
+    'RX 6900 XT 16GB': [],
+    'RX 6950 XT 16GB': []
+}
+
+VRAM_2gb = {
+
+}
+
+VRAM_4gb = {
+
+}
+
+VRAM_6gb = {
+
+}
+
+VRAM_8gb = {
+
+}
+
+VRAM_10gb = {
+
+}
+
+VRAM_12gb = {
+
+}
 
 # Graphic Board
 
@@ -63,7 +177,7 @@ for i in range(5):
                 pricesProducts.append(i.text)
 
         # Crawling Products == Installment Price
-        product = driver.find_elements('class name', 'jss69')  # Possibles class name = jss199, jss77
+        product = driver.find_elements('class name', 'jss199')  # Possibles class name = jss199, jss77
         for i in product:
             if 'R$' in i.text:
                 installmentPriceProducts.append(i.text)
@@ -73,7 +187,9 @@ for i in range(5):
     for i in product:
         if i.text == "":
             continue
-        namesProducts.append(i.text)
+        reformatName = i.text.replace(',', '')  # Some cards are separated by commas as an example [2080TI, 8gb]
+        reformatName = reformatName.replace('SUPER', 'Super')
+        namesProducts.append(reformatName)
 
     # Crawling Products == Links
     links = driver.find_elements('tag name', 'a')
@@ -98,376 +214,28 @@ for i in range(len(installmentPriceProducts)):
 lostData = 0
 
 # Graphic Board
-
-# FILTER == GT 1030 2GB
-for data in allData:
-    if 'GT 1030 2GB' in data['Name']:
-        motherBoardDDR5.append(data)
-
-# FILTER == GT 610 2GB
-    if 'GT 610 2GB' in data['Name']:
-        motherBoardDDR4.append(data)
-
-# FILTER == GT 710 1GB
-    if 'GT 710 1GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GT 710 2GB
-    if 'GT 710 2GB' in data['Name']:
-        motherBoardDDR5.append(data)
-
-# FILTER == GT 730 2GB
-    if 'GT 730 2GB' in data['Name']:
-        motherBoardDDR4.append(data)
-
-# FILTER == GT 730 4GB
-    if 'GT 730 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GT240 1GB
-    if 'GT240 1GB' in data['Name']:
-        motherBoardDDR5.append(data)
-
-# FILTER == GTX 1050 2Gb
-    if 'GTX 1050 2Gb' in data['Name']:
-        motherBoardDDR4.append(data)
-
-# FILTER == GTX 1050 3GB
-    if 'GTX 1050 3GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 1050 Ti 4Gb
-    if 'GTX 1050 Ti 4Gb' in data['Name']:
-        motherBoardDDR5.append(data)
-
-# FILTER == GTX 1060 3GB
-    if 'GTX 1060 3GB' in data['Name']:
-        motherBoardDDR4.append(data)
-
-# FILTER == GTX 1060 6GB
-    if 'GTX 1060 6GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 1070 8GB
-    if 'GTX 1070 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 1070 Ti 8GB
-    if 'GTX 1070 Ti 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 1080 8GB
-    if 'GTX 1080 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 1080 Ti 11GB
-    if 'GTX 1080 Ti 11GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 1630 4GB
-    if 'GTX 1630 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 1650 4GB
-    if 'GTX 1650 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 1630 4GB
-    if 'GTX 1650 Super' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 1660 6GB
-    if 'GTX 1660 6GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 1660 Super
-    if 'GTX 1660 Super' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 1660 TI 6GB
-    if 'GTX 1660 TI 6GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 750 Ti 2GB
-    if 'GTX 750 Ti 2GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 750 Ti 4GB
-    if 'GTX 750 Ti 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == GTX 980 TI 6GB
-    if 'GTX 980 TI 6GBB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == NVS 810 4GB
-    if 'NVS 810 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == PRO W6600 8GB
-    if 'PRO W6600 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro P1000 4GB
-    if 'Quadro P1000 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro P2000 5GB
-    if 'Quadro P2000 5GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro P400 2GB
-    if 'Quadro P400 2GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro P4000 8GB
-    if 'Quadro P4000 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro P620 2GB
-    if 'Quadro P620 2GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro RTX 4000 8GB
-    if 'Quadro RTX 4000 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro RTX A2000 12GB
-    if 'Quadro RTX A2000 12GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro RTX A2000 6GB
-    if 'Quadro RTX A2000 6GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro RTX A4000 16GB
-    if 'Quadro RTX A4000 16GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro RTX A4500 16GB
-    if 'Quadro RTX A4500 16GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro RTX A5000 24GB
-    if 'Quadro RTX A5000 24GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro T1000 4GB
-    if 'Quadro T1000 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro T1000 8GB
-    if 'Quadro T1000 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro T400 2GB
-    if 'Quadro T400 2GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == Quadro T600 4GB
-    if 'Quadro T600 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == R5 220 2GB
-    if 'R5 220 2GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == R5 230 1GB
-    if 'R5 230 1GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == R5 230 2GB
-    if 'R5 230 2GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == R7 240
-    if 'R7 240' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 2060 12GB
-    if 'RTX 2060 12GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 2060 6GB
-    if 'RTX 2060 6GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 2060 SUPER 8GB
-    if 'RTX 2060 SUPER 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 2070 8GB
-    if 'RTX 2070 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 2070 SUPER 8GB
-    if 'RTX 2070 SUPER 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 2080 8GB
-    if 'RTX 2080 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 2080 SUPER 8GB
-    if 'RTX 2080 SUPER 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 2080 Ti 11GB
-    if 'RTX 2080 Ti 11GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 3050 4GB
-    if 'RTX 3050 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 3050 8GB
-    if 'RTX 3050 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 3060 12GB
-    if 'RTX 3060 12GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 3060 TI 8GB
-    if 'RTX 3060 TI 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 3070 8GB
-    if 'RTX 3070 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 3070 Ti 8GB
-    if 'RTX 3070 Ti 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 3080 10GB
-    if 'RTX 3080 10GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 3080 12GB
-    if 'RTX 3080 12GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 3080 TI 12GB
-    if 'RTX 3080 TI 12GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 3090 24GB
-    if 'RTX 3090 24GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RTX 3090 TI 24GB
-    if 'RTX 3090 TI 24GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 460 2GB
-    if 'RX 460 2GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 550 2GB
-    if 'RX 550 2GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 550 4GB
-    if 'RX 550 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 5500 4GB
-    if 'RX 5500 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 5500 XT 4GB
-    if 'RX 5500 XT 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 5500 XT 8GB
-    if 'RX 5500 XT 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 560 2GB
-    if 'RX 560 2GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 560 4GB
-    if 'RX 560 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RRX 5600 XT 6GB
-    if 'RX 5600 XT 6GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 570 4GB
-    if 'RX 570 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 570 8GB
-    if 'RX 570 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 5700 8GB
-    if 'RX 5700 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 5700 XT 8GB
-    if 'RX 5700 XT 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 580 4GB
-    if 'RX 580 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 580 8GB
-    if 'RX 580 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 590 8GB
-    if 'RX 590 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 560 4GB
-    if 'RX 560 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 6400 4GB
-    if 'RX 5600 XT 6GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 6500 XT 4GB
-    if 'RX 6500 XT 4GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 6600 8GB
-    if 'RX 6600 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 6600 XT 8GB
-    if 'RX 6600 XT 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 6650 XT 8GB
-    if 'RX 6650 XT 8GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 6700 XT 12GB
-    if 'RX 6700 XT 12GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 6750 XT 12GB
-    if 'RX 6750 XT 12GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 6800 16GB
-    if 'RX 6800 16GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 6800 XT 16GB
-    if 'RX 6800 XT 16GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 6900 XT 16GB
-    if 'RX 6900 XT 16GB' in data['Name']:
-        motherBoardDDR3.append(data)
-
-# FILTER == RX 6950 XT 16GB
-    if 'RX 6950 XT 16GB' in data['Name']:
-        motherBoardDDR3.append(data)
+allModel = [
+    'GT 1030', 'GT 610', 'GT 710 1GB', 'GT 710 2GB', 'GT 730', 'GT 730',
+    'GT240', 'GTX 1050 2GB', 'GTX 1050 3GB', 'GTX 1050 TI', 'GTX 1060',
+    'GTX 1060', 'GTX 1070', 'GTX 1070 TI', 'GTX 1080', 'GTX 1080 TI',
+    'GTX 1630', 'GTX 1650', 'GTX 1650 Super', 'GTX 1660', 'GTX 1660 Super',
+    'GTX 1660 TI', 'GTX 750 TI 2GB', 'GTX 750 TI 4GB', 'GTX 980 TI', 'NVS 810',
+    'PRO W6600', 'QUADRO P1000', 'QUADRO P2000', 'QUADRO P400', 'QUADRO P4000',
+    'QUADRO P620', 'QUADRO RTX 4000', 'QUADRO RTX A2000', 'QUADRO RTX A2000',
+    'QUADRO RTX A4000', 'QUADRO RTX A4500', 'QUADRO RTX A5000', 'QUADRO T1000',
+    'QUADRO T1000', 'QUADRO T400', 'QUADRO T600', 'R5 220 2GB', 'R5 230 1GB',
+    'R5 230 2GB', 'R7 240', 'RTX 2060', 'RTX 2060', 'RTX 2060 Super', 'RTX 2070',
+    'RTX 2070 Super', 'RTX 2080', 'RTX 2080 Super', 'RTX 2080 TI', 'RTX 3050',
+    'RTX 3050', 'RTX 3060', 'RTX 3060 TI', 'RTX 3070', 'RTX 3070 TI', 'RTX 3080',
+    'RTX 3080', 'RTX 3080 TI', 'RTX 3090', 'RTX 3090 TI', 'RX 460', 'RX 550',
+    'RX 550', 'RX 5500', 'RX 5600 XT', 'RX 570', 'RX 570', 'RX 5700',
+    'RX 5700 XT', 'RX 580', 'RX 580', 'RX 590', 'RX 6400', 'RX 6500 XT',
+    'RX 6600', 'RX 6600 XT', 'RX 6650 XT', 'RX 6700 XT', 'RX 6750 XT',
+    'RX 6800', 'RX 6800 XT', 'RX 6900 XT', 'RX 6950 XT'
+]
+key = list(Model.values())
+for i in range(len(allModel)):
+    for data in allData:
+        if allModel[i] in data['Name']:
+            key = list(Model.values())
+            key[i].append(data)
