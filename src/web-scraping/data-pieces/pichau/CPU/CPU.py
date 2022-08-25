@@ -5,7 +5,7 @@ from time import sleep
 
 
 def CPU_Crawl():
-    # MotherBoard specific data
+    # CPU specific data
     installmentPriceProducts = []  # Memory Installment Prices
     pricesProducts = []  # Memory Prices
     namesProducts = []  # Memory Name
