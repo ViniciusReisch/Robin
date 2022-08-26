@@ -1,0 +1,819 @@
+
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ 
+<head>
+
+<link href="https://fonts.googleapis.com/css?family=Exo:300,300i,400,400i,500,500i|Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito+Sans:300,300i,400,400i,600,600i,700,700i|Titillium+Web:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i|Oxygen:300,400,700|Arimo:400,400i,700,700i|Lato:300,300i,400,400i,700,700i|Karla:400,400i,700,700i|Montserrat:300,300i,400,400i,500,500i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+<script src="https://unpkg.com/phosphor-icons"></script>
+
+<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+ 
+    <title>robin — Os melhores preços para o seu PC Gamer!</title>
+    <link rel="icon" type="image/x-icon" href="https://i.imgur.com/k92TGxm.png">
+    <link rel="altertnate" type="application/rss+xml" href="{RSS}">
+    <meta http-equiv="x-dns-prefetch-control" content="off"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
+
+<style type="text/css">
+ 
+
+:root {
+    --accent: #005f9e;
+    --accented-text: #ffffff;
+    --main-background: #005f9e;
+    --main-font: 14px;
+    --main-font-color: #000000;
+    --title-text: #ffffff;
+    --header-title: #ffffff;
+    --header-content-text: #ffffff;
+    --header-content-background: #d7d7d7;
+    --bolded: #D3DFDD;
+    --main-links: #ffffff;
+    --link-hover: #68d9c2;
+    --scrollbar: #55443D;
+    --text-selection-background: #443729;
+    --text-selection: #fff;
+    --tooltip: #fff;
+    --tooltip-background: #68d9c2;
+    --post-borders: #68d9c2;
+    --corners: #0e0550;
+    --container: #eeeeee;
+    --progress-bar-outline: #68d9c2;
+}
+ 
+ 
+@keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-moz-keyframes fadein { /* Firefox */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-webkit-keyframes fadein { /* Safari e Chrome */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-o-keyframes fadein { /* Opera */
+    from {opacity:0;}
+    to {opacity: 1;}
+}
+ 
+ 
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar);
+    border-radius: 6px;
+}
+ 
+::-webkit-scrollbar-track {
+    background: var(--main-background);
+    border-radius: 6px;
+}
+ 
+
+
+
+.tippy-tooltip.custom-theme {
+    background-color: var(--tooltip-background);
+    color: var(--tooltip); 
+    text-align:center;
+    font-size: 12px;
+}
+ 
+.tippy-tooltip.custom-theme .tippy-svg-arrow {
+  fill: var(--tooltip-background);
+}
+ 
+::selection {
+    background: var(--text-selection-background); 
+    color: var(--text-selection); 
+}
+ 
+::-moz-selection {
+    background: var(--text-selection-background); 
+    color: var(--text-selection); 
+}
+ 
+::-webkit-selection {
+    background: var(--text-selection-background);
+    color: var(--text-selection);
+}
+ 
+
+ 
+body {
+    color: var(--main-font-color);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: var(--main-font);
+    line-height: 180%;
+    margin: 0;
+    text-align: justify;
+    background: var(--main-background) url("") center;
+    background-attachment: fixed;
+    background-repeat: repeat;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    animation: fadein 2.5s;
+    -moz-animation: fadein 2.5s; /* Firefox */
+    -webkit-animation: fadein 2.5s; /* Safari e Chrome */
+    -o-animation: fadein  2.5s; /* Opera */
+}
+ 
+b,strong {
+    color:var(--bolded);
+    font-weight: 700;
+}
+ 
+i,em {
+    color:var(--text);
+}
+ 
+u {
+    color:var(--bolded);
+}
+ 
+hr {
+    width: 30%;
+    height: 1px;
+    background-color: var(--post-borders);
+    color: var(--post-borders);
+    border: 0px solid transparent;
+}
+ 
+h1,h2,h3 {
+    font-weight: 700;
+    font-size: 2em;
+    color: var(--header-text);
+}
+ 
+small,sub,sup {
+    font-size: 10px;
+}
+ 
+a {
+    color: var(--main-links);
+    text-decoration:none;
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+ 
+a:hover {
+    color: var(--link-hover);
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+
+
+#banner-top {
+    width: 100%;
+    height: 60px;
+    background-color: var(--corners);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 9;
+}
+
+#banner-top h2 {
+    color: var(--title-text);
+}
+
+.homelinks a {
+    margin: 0 10px;
+    font-weight: 700;
+    font-size: 1.2em;
+    text-transform: capitalize;
+    color: var(--main-links);
+    box-shadow: inset 0px 0px 0px 0px transparent;
+}
+
+.homelinks a:hover {
+    box-shadow: inset 0px -12px 0px 0px var(--link-hover);
+}
+
+
+
+#banner-right {
+    height: 100%;
+    width: 30px;
+    background-color: var(--corners);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9;
+}
+
+
+
+
+#banner-bottom {
+    width: 100%;
+    height: 100px;
+    background-color: var(--corners);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+}
+
+#banner-bottom a {
+    margin: 0 20px;
+    font-weight: 700;
+    color: var(--main-links);
+    font-size: 1.2em;
+    box-shadow: inset 0px 0px 0px 0px transparent;
+}
+
+#banner-bottom a:hover {
+    color: var(--main-links);
+    box-shadow: inset 0px -12px 0px 0px var(--link-hover);
+}
+
+
+
+#banner-left {
+    height: 100%;
+    width: 30px;
+    background-color: var(--corners);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+
+
+
+#fullpage {
+    height: 100vh;
+}
+
+
+
+
+.section {
+    position: relative;
+    margin: auto;
+    width: calc(100% - 60px);
+    height: 100vh;
+    margin-bottom: 10px;
+}
+
+.container {
+    position: relative;
+    margin: auto;
+    width: calc(100% - 10px);
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    background-color: var(--container);
+}
+
+
+
+
+#header-image {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--container);
+}
+
+#header-image img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+#header-content {
+    width: 40%;
+    opacity: 0.5;
+    height: 95%;
+    padding: 20px 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--header-content-background);
+    clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%, 5% 50%);
+}
+
+#header-content p {
+    padding: 20px;
+    margin: 0;
+}
+
+
+
+
+.main-title {
+    padding: 10px;
+    position: relative;
+    color: var(--header-title);
+    margin: 10px 0 5px;
+}
+
+.main-title:before {
+    content: '';
+    position: absolute;
+    left: -30%;
+    top: 50%;
+    background-color: var(--post-borders);
+    width: 25%;
+    height: 1px;
+}
+
+.main-title:after {
+    content: '';
+    position: absolute;
+    right: -30%;
+    top: 50%;
+    background-color: var(--post-borders);
+    width: 25%;
+    height: 1px;
+}
+
+
+
+
+.image-container {
+    width: 30%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.image-container2 {
+    width: 30%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.image-container2 img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+.square-1 {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--post-borders);
+    background-color: transparent;
+    position: absolute;
+    left: -5px;
+    top: -10px;
+}
+
+.square-2 {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--post-borders);
+    background-color: transparent;
+    position: absolute;
+    right: -5px;
+    bottom: -10px;
+}
+
+.square-3 {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--post-borders);
+    background-color: transparent;
+    position: absolute;
+    right: -5px;
+    top: -10px;
+}
+
+.square-4 {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--post-borders);
+    background-color: transparent;
+    position: absolute;
+    left: -5px;
+    bottom: -10px;
+}
+
+
+
+
+.biography {
+    width: 30%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.biography h2 {
+    width: 100%;
+    font-size: 1.7em;
+    border-bottom: 1px solid var(--post-borders);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+
+
+.stats-section {
+    width: 30%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.stats {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.stats h2 {
+    border-bottom: 1px solid var(--post-borders);
+    padding-bottom: 10px;
+    font-size: 1.6em;
+    margin-top: 0;
+}
+
+.stats p:first-of-type {
+    margin-top: 20px;
+}
+
+.stats p:last-of-type {
+    margin-bottom: 0px;
+}
+
+.stats b {
+    color: var(--bolded);
+}
+
+.progress-bar {
+    margin-top: 20px;
+}
+
+.bar, .bar-2, .bar-3, .bar-4, .bar-5 {
+    margin: 10px 0;
+}
+
+.bar-info span, .bar-info-2 span, .bar-info-3 span, .bar-info-4 span, .bar-info-5 span {
+    color: var(--bolded);
+    font-weight: 700;
+}
+
+.progress-line, .progress-line-2, .progress-line-3, .progress-line-4, .progress-line-5 {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: var(--progress-bar-outline);
+    border-radius: 10px;
+}
+
+
+
+
+@media screen and (max-width: 1100px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        overflow: auto;
+        max-height: 100%;
+        width: 100%;
+        height: 100vh;
+        padding: 30px 20px 180px;
+        margin-top: 80px;
+    }
+    
+    .biography, .image-container, .stats-section {
+        width: 100%;
+        height: auto;
+        min-height: 100%;
+    }
+    
+    .image-container {
+        margin: 30px 0;
+    }
+    
+    #banner-right, #banner-left {
+        display: none;
+    }
+    
+    .tmblr-iframe--app-cta-button {
+        display: none!important;
+    }
+}
+
+</style>
+ 
+</head>
+
+<body>
+
+<div id="banner-top">
+    <a href="http://home.com"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
+    
+    <nav class="homelinks">
+        <a href="/" title="home"><i class="ph-house"></i></a> 
+        <a href="/" title="newsletter"><i class="ph-newspaper-clipping"></i></a>  
+        <a href="/">link</a> 
+        <a href="/">link</a>
+        <a href="/">link</a>
+        <a href="/">Link 2</a>
+    </nav> 
+</div>
+
+<div id="banner-right"></div>
+
+<div id="banner-bottom">
+    <a href="#page1"><img src="https://i.imgur.com/3IA2iGz.png" alt="" id="icones"></a> 
+    <a href="#page2"><img src="https://i.imgur.com/ycPmFZc.png" alt="" id="icones"></a> 
+    <a href="#page3"><img src="https://i.imgur.com/6Bv15eA.png" alt="" id="icones"></a> 
+    <a href="#page4"><img src="https://i.imgur.com/jhYv9ZC.png" alt="" id="icones"></a> 
+    <a href="#page5">Placa de vídeo</a>
+    <a href="#page6">HD & SSD</a> 
+    <a href="#page7">Gabinete</a>
+    <a href="#page8">Fonte de alimentação</a>
+    <a href="#page9">Periféricos</a>
+</div>
+
+<div id="banner-left"></div>
+
+<div id="fullpage">
+
+    <div class="section" data-anchor="page1">
+        <header id="header-image">
+        <img src="https://i.imgur.com/C5YmbmH.png">
+        </header>
+    </div>
+
+
+    <div class="section fp-auto-height-responsive" data-anchor="page2">
+        <section class="container">
+        
+            <header class="image-container">
+            <div class="square-1"></div>
+            <div class="square-2"></div>
+            <div class="square-3"></div>
+            <div class="square-4"></div>
+            <img src="https://www.pngmart.com/files/4/CPU-Processor-PNG-File.png">
+            </header>
+            
+            <article class="biography">
+                <h2>Processadores</h2>
+                
+            <p>
+            O processador é a unidade central de processamento de um computador (CPU), que funciona como o cérebro do computador, pois interage e faz as conexões necessárias entre todos os programas instalados.
+        </p>
+            Neste processo, ele também interpreta as informações enviadas pelos programas, realiza diversas operações, inclusive gerando a interface que nós interagimos quando usamos um computador.
+        </p>
+            Os processadores são colocados na Placa-Mãe, por soquetes, e sua estrutura é composta por bilhões de transistores.
+</p>
+
+            </article>
+            
+            <aside class="stats-section">
+            
+                <div class="stats">
+                    <h2>Os melhores preços</h2>
+                </div>
+            </aside>
+        </section>
+    </div>
+    
+    <div class="section fp-auto-height-responsive" data-anchor="page3">
+        <section class="container">
+            <article class="biography">
+                <h2>Placa-mãe</h2>
+                
+                <p>
+                As placas-mãe são os componentes responsáveis por abrigar e conectar todas as outras peças do seu computador. É na placa-mãe que são instalados processador, memória RAM, placa de vídeo e todas as outras peças de expansão que conhecemos, tais como placas PCI Express.
+                É comum vermos a placa-mãe sendo chamada de “mobo” na internet. Essa redução vem do nome em inglês, motherboard.
+<p></ptiam>
+                </p>
+
+            </article>
+            
+            <aside class="stats-section">
+            
+                <div class="stats">
+                    <h2>Os melhores preços</h2>
+
+                </div>
+                
+            
+            
+            <header class="image-container2">
+            <div class="square-1"></div>
+            <div class="square-2"></div>
+            <div class="square-3"></div>
+            <div class="square-4"></div>
+            <img src="https://mercado.etc.br/wp-content/uploads/2021/06/Placa-mae-ASRock.png">
+            </header>
+        </aside>
+        </section>
+    </div>
+    
+    <div class="section fp-auto-height-responsive" data-anchor="page4">
+        <section class="container">
+        
+            <aside class="stats-section">
+                 <div class="stats">
+                    <h2>Melhores preços</h2>
+                </div>
+            </aside>
+            
+            <header class="image-container">
+            <div class="square-1"></div>
+            <div class="square-2"></div>
+            <div class="square-3"></div>
+            <div class="square-4"></div>
+
+            <img src="https://www.pngmart.com/files/7/RAM-PNG-Photos.png">
+
+            </header>
+            
+            <article class="biography">
+                <h2> Memória RAM</h2>
+                
+                <p>
+
+                RAM, ou memória de acesso aleatório, é um tipo de memória de computador que pode ser acessada aleatoriamente. Isso significa que os dados podem ser armazenados e recuperados em qualquer ordem.
+<p></ptiam>
+                </p>
+
+            </article>
+            
+        </section>
+    </div>
+    
+    <div class="section fp-auto-height-responsive" data-anchor="page5">
+        <section class="container">
+            <header class="image-container">
+            <div class="square-1"></div>
+            <div class="square-2"></div>
+            <div class="square-3"></div>
+            <div class="square-4"></div>
+
+            <img src="https://nvidiastore.com.br/media/catalog/product/cache/1/image/450x450/9df78eab33525d08d6e5fb8d27136e95/t/i/titan_rtx_6_2.png">
+
+            </header>
+            <article class="biography">
+                <h2>Placa de vídeo</h2> 
+                
+                <p>
+
+                Uma placa de vídeo é o componente do hardware do computador responsável por administrar e controlar as funções de exibição de vídeo na tela. Todo computador contemporâneo usa uma interface gráfica. A placa gráfica faz com que essa interface salte aos olhos através do LCD.
+
+<p></ptiam>
+
+                </p>
+
+            </article>
+            
+            <aside class="stats-section">
+                <div class="stats">
+                    <h2>Os melhores preços</h2>
+ 
+                </div>
+                
+            </aside>
+        </section>
+    </div>
+    
+    <div class="section fp-auto-height-responsive" data-anchor="page6">
+        <section class="container">
+            
+            <article class="biography">
+                <h2> HD & SSD</h2>
+                <p>
+                Uma HD é um dispositivo de armazenamento tradicional que usa pratos giratórios mecânicos e um cabeçote móvel de leitura/gravação para acessar dados. SSDs são unidades mais recentes e rápidas que armazenam dados em chips de memória acessíveis instantaneamente.
+<p></ptiam>
+                </p>
+
+            </article>
+            
+        <aside class="stats-section">
+        
+                <div class="stats">
+                    <h2>Os melhores preços</h2>
+                </div>
+            
+        </aside>
+            
+        <header class="image-container">
+            <div class="square-1"></div>
+            <div class="square-2"></div>
+            <div class="square-3"></div>
+            <div class="square-4"></div>
+   
+            <img src="https://cdn.dooca.store/2394/products/5gs74oklwvgaoaxguym9zuyudhkep8snf6sd_1600x1600+crop_center.png?v=1656358942&webp=0">
+
+        </header>
+            
+        </section>
+    </div>
+    
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="https://static.tumblr.com/uh2chis/dk1qhlq4o/fullpage.js"></script>
+
+<script src="https://unpkg.com/popper.js@1"></script> <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script> <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
+
+<script>
+    $(document).ready(function() {
+	    $('#fullpage').fullpage({
+	        loopBottom: true,
+	        autoScrolling: true,
+	        scrollHorizontally: true,
+	        responsiveWidth: 1100,
+	    });
+    });
+        tippy('a[title]', { 
+            theme: 'custom', 
+            arrow: tippy.roundArrow, 
+            zIndex: 9999999999, 
+            placement: 'auto',
+            maxWidth: 300, 
+            content(reference) { 
+                const title = reference.getAttribute('title'); 
+                reference.removeAttribute('title'); return title; }, 
+            
+        });
+</script>
+ 
+</body>
+</html>
