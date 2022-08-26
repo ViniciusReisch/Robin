@@ -1,31 +1,30 @@
 import arrow
 from selenium import webdriver
 import socket
-from time import sleep
 
 
-def RAM_Crawl():
-    # Memory specific data
-    installmentPriceProducts = []  # Memory Installment Prices
-    pricesProducts = []  # Memory Prices
-    namesProducts = []  # Memory Name
-    linksProducts = []  # Memory Links
-    imgProducts = []  # Memory Image
+def Case_Crawl():
+    # Case specific data
+    installmentPriceProducts = []  # Case Installment Prices
+    pricesProducts = []  # Case Prices
+    namesProducts = []  # Case Name
+    linksProducts = []  # Case Links
+    imgProducts = []  # Case Image
     local = arrow.utcnow()  # Scraping date and time
     hostIP = socket.gethostname()  # IP Local
     IPAddr = socket.gethostbyname(hostIP)  # Specif IP
-    allData = []  # Memory all data
+    allData = []  # Case all data
 
-    for i in range(10):
+    for i in range(5):
         driver = webdriver.Chrome()
         page = i + 1
-        link = 'https://www.pichau.com.br/hardware/memorias?page='
+        link = 'https://www.pichau.com.br/hardware/gabinete?page='
         new_link = link + str(page)
         driver.get(new_link)
         height = driver.execute_script("return document.body.scrollHeight")
         scroll = 0
         driver.fullscreen_window()
-        sleep(5)
+
         # Crawling Products == Image
         product = driver.find_elements('tag name', 'img')
         for e in product:
@@ -41,20 +40,19 @@ def RAM_Crawl():
         imgProducts = list(dict.fromkeys(imgProducts))
 
         # Crawling Products == Price
-        if IPAddr == '192.168.2.38' or IPAddr == '192.168.2.75':  # Id verification
-            product = driver.find_elements('class name', 'jss64')  # Possibles class name = jss191, jss69, jss64, jss201
+        if IPAddr == '192.168.2.38':  # Id verification
+            product = driver.find_elements('class name', 'jss69')  # Possibles class name = jss191, jss69
             for i in product:
                 if 'R$' in i.text:
                     pricesProducts.append(i.text)
 
             # Crawling Products == Installment Price
-            product = driver.find_elements('class name', 'jss72')  # Possibles class name = jss199, jss77, jss72, jss209
+            product = driver.find_elements('class name', 'jss77')  # Possibles class name = jss199, jss77
             for i in product:
                 if 'R$' in i.text:
                     installmentPriceProducts.append(i.text)
 
         else:  # Different ID
-
             # Crawling Products == Price
             product = driver.find_elements('class name', 'jss191')  # Possibles class name = jss191, jss69
             for i in product:
@@ -77,7 +75,7 @@ def RAM_Crawl():
         # Crawling Products == Links
         links = driver.find_elements('tag name', 'a')
         for i in links:
-            if 'memoria' in i.get_attribute('href'):
+            if 'hd' in i.get_attribute('href'):
                 linksProducts.append(i.get_attribute('href'))
         driver.close()
 
@@ -95,4 +93,3 @@ def RAM_Crawl():
                    'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png'}
         allData.append(dataDic)
     return allData
-

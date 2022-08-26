@@ -11,10 +11,10 @@ def CPU_Crawl():
     namesProducts = []  # Memory Name
     linksProducts = []  # Memory Links
     imgProducts = []  # Memory Image
+    local = arrow.utcnow()  # Scraping date and time
+    hostIP = socket.gethostname()  # IP Local
+    IPAddr = socket.gethostbyname(hostIP)  # Specif IP
     allData = []  # Memory all data
-    local = arrow.utcnow()
-    hostIP = socket.gethostname()
-    IPAddr = socket.gethostbyname(hostIP)
 
     for i in range(2):
         driver = webdriver.Chrome()

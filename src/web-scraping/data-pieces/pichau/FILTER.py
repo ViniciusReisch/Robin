@@ -4,8 +4,13 @@ from MB import MotherBoard
 from RAM import RAM
 from SSD import SSD
 from HD import HardDisk
+from CASE import Case
 
 
+# GPU Filter
+# In this object there are two functions that
+# scraping the all GPU of Pichau Store and
+# return in several dictionaries for different filters
 class PichauGPU:
 
     @staticmethod
@@ -136,7 +141,10 @@ class PichauGPU:
 
         return Model, allGPU
 
-
+# CPU Filter
+# In this object there are two functions that
+# scraping the all CPU of Pichau Store and
+# return in several dictionaries for different filters
 class PichauCPU:
 
     @staticmethod
@@ -207,7 +215,10 @@ class PichauCPU:
 
         return Socket, Platform, allCPU
 
-
+# Mother Board Filter
+# In this object there are two functions that
+# scraping the all MotherBoards of Pichau Store and
+# return in several dictionaries for different filters
 class PichauMotherBoard:
 
     @staticmethod
@@ -273,7 +284,10 @@ class PichauMotherBoard:
 
         return DDR, Format, Socket, allMB
 
-
+# GPU Filter
+# In this object there are two functions that
+# scraping the all RAM memories of Pichau Store and
+# return in several dictionaries for different filters
 class PichauRAM:
     @staticmethod
     def RAM_get():
@@ -487,7 +501,10 @@ class PichauRAM:
 
         return DDR, capacityDDR5, capacityDDR4, capacityDDR3, frequencyDDR5, frequencyDDR4, frequencyDDR3, allRAM
 
-
+# SSD Filter
+# In this object there are two functions that
+# scraping the all SSD Data of Pichau Store and
+# return in several dictionaries for different filters
 class PichauSSD:
     @staticmethod
     def SSD_get():
@@ -560,7 +577,10 @@ class PichauSSD:
 
         return Interface, Format, Capacity, allSSD
 
-
+# GPU Filter
+# In this object there are two functions that
+# scraping the all HD Data of Pichau Store and
+# return in several dictionaries for different filters
 class PichauHD:
     @staticmethod
     def HD_get():
@@ -597,6 +617,19 @@ class PichauHD:
                     key[i].append(data)
 
         return Capacity, allHD
+
+# GPU Case
+# In this object there are two functions that
+# scraping the all cases of Pichau Store and
+# return in several dictionaries for different filters
+class PichauCase:
+        @staticmethod
+        def Case_get():
+            allCase = HardDisk.HD_Crawl()
+            return allHD
+
+        @staticmethod
+        def Case_FILTERS():
 
 
 Capacity_HardDisk, allHD = PichauHD.HD_FILTERS()

@@ -5,15 +5,15 @@ import socket
 
 def MB_Crawl():
     # MotherBoard specific data
-    installmentPriceProducts = []  # Memory Installment Prices
-    pricesProducts = []  # Memory Prices
-    namesProducts = []  # Memory Name
-    linksProducts = []  # Memory Links
-    imgProducts = []  # Memory Image
-    allData = []  # Memory all data
-    local = arrow.utcnow()
-    hostIP = socket.gethostname()
-    IPAddr = socket.gethostbyname(hostIP)
+    installmentPriceProducts = []  # MotherBoard Installment Prices
+    pricesProducts = []  # MotherBoard Prices
+    namesProducts = []  # MotherBoard Name
+    linksProducts = []  # MotherBoard Links
+    imgProducts = []  # MotherBoard Image
+    local = arrow.utcnow()  # Scraping date and time
+    hostIP = socket.gethostname()  # IP Local
+    IPAddr = socket.gethostbyname(hostIP)  # Specif IP
+    allData = []  # MotherBoard all data
 
     for i in range(3):
         driver = webdriver.Chrome()

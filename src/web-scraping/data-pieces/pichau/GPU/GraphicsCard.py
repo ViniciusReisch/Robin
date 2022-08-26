@@ -6,11 +6,11 @@ import socket
 # Graphic Board
 def GPU_Crawl():
     # Graphic Card specific data
-    installmentPriceProducts = []  # Memory Installment Prices
-    pricesProducts = []  # Memory Prices
-    namesProducts = []  # Memory Name
-    linksProducts = []  # Memory Links
-    imgProducts = []  # Memory Image
+    installmentPriceProducts = []  # Graphic Card Installment Prices
+    pricesProducts = []  # Graphic Card Prices
+    namesProducts = []  # Graphic Card Name
+    linksProducts = []  # Graphic Card Links
+    imgProducts = []  # Graphic Card Image
     local = arrow.utcnow()  # Scraping date and time
     hostIP = socket.gethostname()  # IP Local
     IPAddr = socket.gethostbyname(hostIP)  # Specif IP

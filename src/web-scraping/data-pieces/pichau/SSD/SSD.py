@@ -5,15 +5,15 @@ import socket
 
 def SSD_Crawl():
     # SSD specific data
-    installmentPriceProducts = []  # Memory Installment Prices
-    pricesProducts = []  # Memory Prices
-    namesProducts = []  # Memory Name
-    linksProducts = []  # Memory Links
-    imgProducts = []  # Memory Image
-    allData = []  # Memory all data
-    local = arrow.utcnow()
-    hostIP = socket.gethostname()
-    IPAddr = socket.gethostbyname(hostIP)
+    installmentPriceProducts = []  # SSD Installment Prices
+    pricesProducts = []  # SSD Prices
+    namesProducts = []  # SSD Name
+    linksProducts = []  # SSD Links
+    imgProducts = []  # SSD Image
+    local = arrow.utcnow()  # Scraping date and time
+    hostIP = socket.gethostname()  # IP Local
+    IPAddr = socket.gethostbyname(hostIP)  # Specif IP
+    allData = []  # SSD all data
 
     for i in range(6):
         driver = webdriver.Chrome()
