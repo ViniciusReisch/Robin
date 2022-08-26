@@ -595,7 +595,7 @@ class PichauHD:
     @staticmethod
     def HD_FILTERS():
         allHD = PichauHD.HD_get()
-        # Specific SSD lists
+        # Specific HardDisk lists
 
         # HardDisk Capacity
         Capacity = {
@@ -637,8 +637,56 @@ class PichauCase:
     @staticmethod
     def Case_FILTERS():
         allCase = PichauCase.Case_get()
+        # Specific Case lists
+
+        # Case Types
+        Types = {
+            'Full-Tower': [],
+            'Mid-Tower': [],
+            'Mini-Tower': []
+        }
+
+        # Case Colors
+        Colors = {
+            'Azul': [],
+            'Branco': [],
+            'Branco - Preto': [],
+            'Cinza': [],
+            'Prata': [],
+            'Preto': [],
+            'Preto - Azul': [],
+            'Preto - Branco': [],
+            'Preto - Laranja': [],
+            'Preto - Prata': [],
+            'Preto - Vermelho': [],
+            'Rosa': [],
+            'Verde': []
+        }
+        # Filters
+
+        # Case Types
+        allTypes = ['Full-Tower', 'Mid-Tower', 'Mini-Tower']
+        key = list(Types.values())
+        for i in range(len(allTypes)):
+            for data in allCase:
+                if allTypes[i] in data['Name']:
+                    key = list(Types.values())
+                    key[i].append(data)
+
+        # Case Colors
+        allColors = ['Azul', 'Branco', 'Branco/Preto', 'Cinza', 'Prata', 'Preto', 'Preto/Azul',
+                     'Preto/Branco', 'Preto/Laranja', 'Preto/Prata', 'Preto/Vermelho', 'Rosa', 'Verde']
+        key = list(Colors.values())
+        for i in range(len(allColors)):
+            for data in allCase:
+                if allColors[i] in data['Name']:
+                    key = list(Colors.values())
+                    key[i].append(data)
+
+        return Types, Colors, allCase
 
 
+Case_Types, Case_Colors, allCase = PichauCase.Case_FILTERS()
 Capacity_HardDisk, allHD = PichauHD.HD_FILTERS()
 Interface_SSD, Format_SSD, Capacity_SSD, allSSD = PichauSSD.SSD_FILTERS()
 RAM_DDR, RAM_capacityDDR5, RAM_capacityDDR4, RAM_capacityDDR3, RAM_frequencyDDR5, RAM_frequencyDDR4, RAM_frequencyDDR3, allRAM = PichauRAM.RAM_FILTERS()

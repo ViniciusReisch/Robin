@@ -1,6 +1,7 @@
 import arrow
 from selenium import webdriver
 import socket
+from time import sleep
 
 
 def Case_Crawl():
@@ -24,7 +25,6 @@ def Case_Crawl():
         height = driver.execute_script("return document.body.scrollHeight")
         scroll = 0
         driver.fullscreen_window()
-
         # Crawling Products == Image
         product = driver.find_elements('tag name', 'img')
         for e in product:
@@ -75,7 +75,7 @@ def Case_Crawl():
         # Crawling Products == Links
         links = driver.find_elements('tag name', 'a')
         for i in links:
-            if 'hd' in i.get_attribute('href'):
+            if 'gabinete' in i.get_attribute('href'):
                 linksProducts.append(i.get_attribute('href'))
         driver.close()
 
