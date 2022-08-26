@@ -3,6 +3,7 @@ from CPU import CPU
 from MB import MotherBoard
 from RAM import RAM
 from SSD import SSD
+from HD import HardDisk
 
 
 class PichauGPU:
@@ -560,6 +561,45 @@ class PichauSSD:
         return Interface, Format, Capacity, allSSD
 
 
+class PichauHD:
+    @staticmethod
+    def HD_get():
+        allHD = HardDisk.HD_Crawl()
+        return allHD
+
+    @staticmethod
+    def HD_FILTERS():
+        allHD = PichauHD.HD_get()
+        # Specific SSD lists
+
+        # HardDisk Capacity
+        Capacity = {
+            '10TB': [],
+            '12TB': [],
+            '14TB': [],
+            '16TB': [],
+            '1TB': [],
+            '2TB': [],
+            '3TB': [],
+            '4TB': [],
+            '6TB': [],
+            '8TB': []
+        }
+        # Filters
+
+        # HardDisk Capacity
+        allCapacity = ['10TB', '12TB', '14TB', '16TB', '1TB', '2TB', '3TB', '4TB', '6TB', '8TB']
+        key = list(Capacity.values())
+        for i in range(len(allCapacity)):
+            for data in allHD:
+                if allCapacity[i] in data['Name']:
+                    key = list(Capacity.values())
+                    key[i].append(data)
+
+        return Capacity, allHD
+
+
+Capacity_HardDisk, allHD = PichauHD.HD_FILTERS()
 Interface_SSD, Format_SSD, Capacity_SSD, allSSD = PichauSSD.SSD_FILTERS()
 RAM_DDR, RAM_capacityDDR5, RAM_capacityDDR4, RAM_capacityDDR3, RAM_frequencyDDR5, RAM_frequencyDDR4, RAM_frequencyDDR3, allRAM = PichauRAM.RAM_FILTERS()
 motherBoard_DDR, motherBoard_Format, motherBoard_Socket, allMB = PichauMotherBoard.MB_FILTERS()
