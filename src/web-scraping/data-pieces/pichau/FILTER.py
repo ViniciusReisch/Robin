@@ -1,3 +1,4 @@
+# Importing all Scraping Functions
 from GPU import GraphicsCard
 from CPU import CPU
 from MB import MotherBoard
@@ -5,6 +6,7 @@ from RAM import RAM
 from SSD import SSD
 from HD import HardDisk
 from CASE import Case
+from FONT import Font
 
 
 # GPU Filter
@@ -686,6 +688,47 @@ class PichauCase:
         return Types, Colors, allCase
 
 
+# Font Filter
+# In this object there are two functions that
+# scraping the all Font of Pichau Store and
+# return in several dictionaries for different filters
+class PichauFont:
+    @staticmethod
+    def Font_get():
+        allFont = Font.Font_Crawl()
+        return allFont
+
+    @staticmethod
+    def Font_FILTERS():
+        allFont = PichauFont.Font_get()
+        # Specific Fonts lists
+
+        # Font Potency
+        Potency = {
+            '200w': [],
+            '400W': [],
+            '450W': [],
+            '500W': [],
+            '550W': [],
+            '600W': [],
+            '650W': [],
+            '700W': [],
+            '750W': [],
+            '850W': [],
+            '1200W': []
+        }
+        allPotency = ['200', '400', '450', '500', '550', '600', '650', '700', '750', '850', '1200']
+        key = list(Potency.values())
+        for i in range(len(allPotency)):
+            for data in allFont:
+                if allPotency[i] in data['Name']:
+                    key = list(Potency.values())
+                    key[i].append(data)
+
+        return Potency, allFont
+
+
+Font_Potency, allFont = PichauFont.Font_FILTERS()
 Case_Types, Case_Colors, allCase = PichauCase.Case_FILTERS()
 Capacity_HardDisk, allHD = PichauHD.HD_FILTERS()
 Interface_SSD, Format_SSD, Capacity_SSD, allSSD = PichauSSD.SSD_FILTERS()
