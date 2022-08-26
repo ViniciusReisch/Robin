@@ -2,6 +2,7 @@ from GPU import GraphicsCard
 from CPU import CPU
 from MB import MotherBoard
 from RAM import RAM
+from SSD import SSD
 
 
 class PichauGPU:
@@ -359,6 +360,7 @@ class PichauRAM:
             # 32gb and DDR3
             "32gb_1600Mhz": []
         }
+        # Filters
 
         # Double Data Rate
         allDDR = ['DDR5', 'DDR4', 'DDR3']
@@ -482,10 +484,84 @@ class PichauRAM:
             if '1600MHz' in data['Name']:  # 1600MHz 32gb DDR3
                 frequencyDDR3['32gb_1600Mhz'].append(data)
 
-        return DDR, capacityDDR5, capacityDDR4, capacityDDR3, frequencyDDR5, frequencyDDR4, frequencyDDR3
+        return DDR, capacityDDR5, capacityDDR4, capacityDDR3, frequencyDDR5, frequencyDDR4, frequencyDDR3, allRAM
 
 
-RAM_DDR, RAM_capacityDDR5, RAM_capacityDDR4, RAM_capacityDDR3, RAM_frequencyDDR5, RAM_frequencyDDR4, RAM_frequencyDDR3 = PichauRAM.RAM_FILTERS()
+class PichauSSD:
+    @staticmethod
+    def SSD_get():
+        allSSD = SSD.SSD_Crawl()
+        return allSSD
+
+    @staticmethod
+    def SSD_FILTERS():
+        allSSD = PichauSSD.SSD_get()
+        # Specific SSD lists
+
+        # SSD Interface
+        Interface = {
+            'NVME': [],
+            'SATA': [],
+        }
+
+        # SSD Format
+        Format = {
+            '2.5': [],
+            'M.2': [],
+            'PCIe': []
+        }
+
+        # SSD Capacity
+        Capacity = {
+            '120GB': [],
+            '128GB': [],
+            '1TB': [],
+            '240GB': [],
+            '250GB': [],
+            '256GB': [],
+            '2TB': [],
+            '480GB': [],
+            '4TB': [],
+            '500GB': [],
+            '8TB': [],
+            '980GB': []
+        }
+        # Filters
+
+        # SSD Interface
+        allInterface = ['NVMe', 'SATA']
+        key = list(Interface.values())
+        for i in range(len(allInterface)):
+            for data in allSSD:
+                if allInterface[i] in data['Name']:
+                    key = list(Interface.values())
+                    key[i].append(data)
+
+        # SSD Format
+        allFormat = ['2.5', 'M.2', 'PCIe']
+        key = list(Format.values())
+        for i in range(len(allFormat)):
+            for data in allSSD:
+                if allFormat[i] in data['Name']:
+                    key = list(Format.values())
+                    key[i].append(data)
+
+        # SSD Capacity
+        allCapacity = ['120GB', '128GB', '1TB', '240GB',
+                       '250GB', '256GB', '2TB', '480GB',
+                       '4TB', '500GB', '8TB', '980GB']
+        key = list(Capacity.values())
+        for i in range(len(allCapacity)):
+            for data in allSSD:
+                if allCapacity[i] in data['Name']:
+                    key = list(Capacity.values())
+                    key[i].append(data)
+
+        return Interface, Format, Capacity, allSSD
+
+
+Interface_SSD, Format_SSD, Capacity_SSD, allSSD = PichauSSD.SSD_FILTERS()
+RAM_DDR, RAM_capacityDDR5, RAM_capacityDDR4, RAM_capacityDDR3, RAM_frequencyDDR5, RAM_frequencyDDR4, RAM_frequencyDDR3, allRAM = PichauRAM.RAM_FILTERS()
 motherBoard_DDR, motherBoard_Format, motherBoard_Socket, allMB = PichauMotherBoard.MB_FILTERS()
 CPU_Socket, CPU_Platform, allCPU = PichauCPU.CPU_FILTERS()
 GPU_Model, allGPU = PichauGPU.GPU_FILTERS()
