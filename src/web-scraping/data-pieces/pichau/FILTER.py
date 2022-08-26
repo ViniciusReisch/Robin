@@ -141,6 +141,7 @@ class PichauGPU:
 
         return Model, allGPU
 
+
 # CPU Filter
 # In this object there are two functions that
 # scraping the all CPU of Pichau Store and
@@ -215,6 +216,7 @@ class PichauCPU:
 
         return Socket, Platform, allCPU
 
+
 # Mother Board Filter
 # In this object there are two functions that
 # scraping the all MotherBoards of Pichau Store and
@@ -284,7 +286,8 @@ class PichauMotherBoard:
 
         return DDR, Format, Socket, allMB
 
-# GPU Filter
+
+# RAM Filter
 # In this object there are two functions that
 # scraping the all RAM memories of Pichau Store and
 # return in several dictionaries for different filters
@@ -501,6 +504,7 @@ class PichauRAM:
 
         return DDR, capacityDDR5, capacityDDR4, capacityDDR3, frequencyDDR5, frequencyDDR4, frequencyDDR3, allRAM
 
+
 # SSD Filter
 # In this object there are two functions that
 # scraping the all SSD Data of Pichau Store and
@@ -577,7 +581,8 @@ class PichauSSD:
 
         return Interface, Format, Capacity, allSSD
 
-# GPU Filter
+
+# Hard Disk Filter
 # In this object there are two functions that
 # scraping the all HD Data of Pichau Store and
 # return in several dictionaries for different filters
@@ -618,18 +623,20 @@ class PichauHD:
 
         return Capacity, allHD
 
-# GPU Case
+
+# Case Filter
 # In this object there are two functions that
 # scraping the all cases of Pichau Store and
 # return in several dictionaries for different filters
 class PichauCase:
-        @staticmethod
-        def Case_get():
-            allCase = HardDisk.HD_Crawl()
-            return allHD
+    @staticmethod
+    def Case_get():
+        allCase = Case.Case_Crawl()
+        return allCase
 
-        @staticmethod
-        def Case_FILTERS():
+    @staticmethod
+    def Case_FILTERS():
+        allCase = PichauCase.Case_get()
 
 
 Capacity_HardDisk, allHD = PichauHD.HD_FILTERS()
