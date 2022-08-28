@@ -2,6 +2,7 @@ from RAM import RAM
 from CPU import CPU
 from GPU import GraphicsCard
 from MB import MotherBoard
+from HD import HardDisk
 
 
 # RAM Filter
@@ -502,7 +503,46 @@ class TerabyteMotherBoard:
         return DDR, Format, Socket, allMB
 
 
-TerabyteDDR, TerabyteFormat, TerabyteSocket, TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
+class TerabyteHD:
+    @staticmethod
+    def HD_get():
+        allHD = HardDisk.HD_Crawl()
+        return allHD
+
+    @staticmethod
+    def HD_FILTERS():
+        allHD = TerabyteHD.HD_get()
+        # Specific HardDisk lists
+
+        # HardDisk Capacity
+        Capacity = {
+            '10TB': [],
+            '12TB': [],
+            '14TB': [],
+            '16TB': [],
+            '1TB': [],
+            '2TB': [],
+            '3TB': [],
+            '4TB': [],
+            '6TB': [],
+            '8TB': []
+        }
+        # Filters
+
+        # HardDisk Capacity
+        allCapacity = ['10TB', '12TB', '14TB', '16TB', '1TB', '2TB', '3TB', '4TB', '6TB', '8TB']
+        key = list(Capacity.values())
+        for i in range(len(allCapacity)):
+            for data in allHD:
+                if allCapacity[i] in data['Name']:
+                    key = list(Capacity.values())
+                    key[i].append(data)
+
+        return Capacity, allHD
+
+
+Terabyte_Capacity, TerabyteAllHD = TerabyteHD.HD_FILTERS()
+TerabyteMB_DDR, TerabyteMB_Format, TerabyteMB_Socket, TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
 # TerabyteGPU_Model, TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
 # TerabyteCPU_Socket, TerabyteCPU_Platform, TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
 # TerabyteRAM_DDR, TerabyteRAM_capacityDDR5, TerabyteRAM_capacityDDR4, TerabyteRAM_capacityDDR3, TerabyteRAM_frequencyDDR5, TerabyteRAM_frequencyDDR4, TerabyteRAM_frequencyDDR3, TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()
