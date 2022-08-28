@@ -2,27 +2,27 @@ import arrow
 from selenium import webdriver
 
 
-def HD_Crawl():
-    # HardDisk specific data
+def SSD_Crawl():
+    # SSD specific data
 
-    installmentPriceProducts = []          # HardDisk Installment Prices
-    pricesProducts = []                    # HardDisk Prices
-    namesProducts = []                     # HardDisk Name
-    linksProducts = []                     # HardDisk Links
-    imgProducts = []                       # HardDisk Image
-    local = arrow.utcnow()                 # Scraping date and time
-    allData = []                           # HardDisk all data
+    installmentPriceProducts = []          # SSD Installment Prices
+    pricesProducts = []                    # SSD Prices
+    namesProducts = []                     # SSD Name
+    linksProducts = []                     # SSD Links
+    imgProducts = []                       # SSD Image
+    local = arrow.utcnow()                 # SSD date and time
+    allData = []                           # SSD all data
 
     # WEB CRAWLER
 
     driver = webdriver.Chrome()
-    link = 'https://www.terabyteshop.com.br/hardware/hard-disk/hd-sata-iii'
+    link = 'https://www.terabyteshop.com.br/hardware/hard-disk/ssd'
     driver.get(link)
 
     # Crawling Products == Image
     product = driver.find_elements('tag name', 'img')
     for e in product:
-        if 'hd' in e.get_attribute('src'):  # Only separate images with product in the name
+        if 'ssd' in e.get_attribute('src'):  # Only separate images with product in the name
             imgProducts.append(e.get_attribute('src'))
     imgProducts = list(dict.fromkeys(imgProducts))
 
@@ -68,3 +68,4 @@ def HD_Crawl():
         allData.append(dataDic)
     return allData
 
+a = SSD_Crawl()

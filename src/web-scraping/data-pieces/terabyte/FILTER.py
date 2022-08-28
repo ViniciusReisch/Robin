@@ -3,6 +3,7 @@ from CPU import CPU
 from GPU import GraphicsCard
 from MB import MotherBoard
 from HD import HardDisk
+from SSD import SSD
 
 
 # RAM Filter
@@ -300,7 +301,7 @@ class TerabyteCPU:
 
 # GPU Filter
 # In this object there are two functions that
-# scraping the all GPU of Pichau Store and
+# scraping the all GPU of Terabyte Store and
 # return in several dictionaries for different filters
 class TerabyteGPU:
 
@@ -435,7 +436,7 @@ class TerabyteGPU:
 
 # Mother Board Filter
 # In this object there are two functions that
-# scraping the all MotherBoards of Pichau Store and
+# scraping the all MotherBoards of Terabyte Store and
 # return in several dictionaries for different filters
 class TerabyteMotherBoard:
 
@@ -503,6 +504,10 @@ class TerabyteMotherBoard:
         return DDR, Format, Socket, allMB
 
 
+# Hard Disk Filter
+# In this object there are two functions that
+# scraping the all HD Data of Terabyte Store and
+# return in several dictionaries for different filters
 class TerabyteHD:
     @staticmethod
     def HD_get():
@@ -541,7 +546,88 @@ class TerabyteHD:
         return Capacity, allHD
 
 
-Terabyte_Capacity, TerabyteAllHD = TerabyteHD.HD_FILTERS()
+# SSD Filter
+# In this object there are two functions that
+# scraping the all SSD Data of Terabyte Store and
+# return in several dictionaries for different filters
+class TerabyteSSD:
+    @staticmethod
+    def SSD_get():
+        allSSD = SSD.SSD_Crawl()
+        return allSSD
+
+    @staticmethod
+    def SSD_FILTERS():
+        allSSD = TerabyteSSD.SSD_get()
+        # Specific SSD lists
+
+        # SSD Interface
+        Interface = {
+            'NVME': [],
+            'SATA': [],
+        }
+
+        # SSD Format
+        Format = {
+            '2.5': [],
+            'M.2': [],
+            'PCIe': []
+        }
+
+        # SSD Capacity
+        Capacity = {
+            '120GB': [],
+            '128GB': [],
+            '1TB': [],
+            '240GB': [],
+            '250GB': [],
+            '256GB': [],
+            '2TB': [],
+            '480GB': [],
+            '4TB': [],
+            '500GB': [],
+            '8TB': [],
+            '980GB': []
+        }
+        # Filters
+
+        # SSD Interface
+        allInterface = ['NVMe', 'SATA']
+        key = list(Interface.values())
+        for i in range(len(allInterface)):
+            for data in allSSD:
+                if allInterface[i] in data['Name']:
+                    key = list(Interface.values())
+                    key[i].append(data)
+
+        # SSD Format
+        allFormat = ['2.5', 'M.2', 'PCIe']
+        key = list(Format.values())
+        for i in range(len(allFormat)):
+            for data in allSSD:
+                if allFormat[i] in data['Name']:
+                    key = list(Format.values())
+                    key[i].append(data)
+
+        # SSD Capacity
+        allCapacity = ['120GB', '128GB', '1TB', '240GB',
+                       '250GB', '256GB', '2TB', '480GB',
+                       '4TB', '500GB', '8TB', '980GB']
+        key = list(Capacity.values())
+        for i in range(len(allCapacity)):
+            for data in allSSD:
+                if allCapacity[i] in data['Name']:
+                    key = list(Capacity.values())
+                    key[i].append(data)
+
+        return Interface, Format, Capacity, allSSD
+
+
+
+
+
+TerabyteSSD_Interface, TerabyteSSD_Format, TerabyteSSD_Capacity, TerabyteAllSSD = TerabyteSSD.SSD_FILTERS()
+TerabyteHD_Capacity, TerabyteAllHD = TerabyteHD.HD_FILTERS()
 TerabyteMB_DDR, TerabyteMB_Format, TerabyteMB_Socket, TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
 # TerabyteGPU_Model, TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
 # TerabyteCPU_Socket, TerabyteCPU_Platform, TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
