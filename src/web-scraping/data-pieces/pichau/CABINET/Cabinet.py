@@ -4,17 +4,20 @@ import socket
 from time import sleep
 
 
-def Case_Crawl():
-    # Case specific data
-    installmentPriceProducts = []  # Case Installment Prices
-    pricesProducts = []  # Case Prices
-    namesProducts = []  # Case Name
-    linksProducts = []  # Case Links
-    imgProducts = []  # Case Image
-    local = arrow.utcnow()  # Scraping date and time
-    hostIP = socket.gethostname()  # IP Local
-    IPAddr = socket.gethostbyname(hostIP)  # Specif IP
-    allData = []  # Case all data
+def Cabinet_Crawl():
+    # Cabinet specific data
+
+    installmentPriceProducts = []           # Cabinet Installment Prices
+    pricesProducts = []                     # Cabinet Prices
+    namesProducts = []                      # Cabinet Name
+    linksProducts = []                      # Cabinet Links
+    imgProducts = []                        # Cabinet Image
+    local = arrow.utcnow()                  # Scraping date and time
+    hostIP = socket.gethostname()           # IP Local
+    IPAddr = socket.gethostbyname(hostIP)   # Specif IP
+    allData = []                            # Cabinet all data
+
+    # WEB CRAWLER
 
     for i in range(5):
         driver = webdriver.Chrome()

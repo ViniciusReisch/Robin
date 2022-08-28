@@ -5,6 +5,7 @@ from MB import MotherBoard
 from HD import HardDisk
 from SSD import SSD
 from FONT import Font
+from CABINET import Cabinet
 
 
 # RAM Filter
@@ -664,10 +665,73 @@ class TerabyteFont:
         return Potency, allFont
 
 
+# Cabinet Filter
+# In this object there are two functions that
+# scraping the all cases of Pichau Store and
+# return in several dictionaries for different filters
+class TerabyteCabinet:
+    @staticmethod
+    def Cabinet_get():
+        allCabinet = Cabinet.Cabinet_Crawl()
+        return allCabinet
+
+    @staticmethod
+    def Cabinet_FILTERS():
+        allCabinet = TerabyteCabinet.Cabinet_get()
+        # Specific Case lists
+
+        # Case Types
+        Types = {
+            'Full-Tower': [],
+            'Mid-Tower': [],
+            'Mini-Tower': []
+        }
+
+        # Case Colors
+        Colors = {
+            'Azul': [],
+            'Branco': [],
+            'Branco - Preto': [],
+            'Cinza': [],
+            'Prata': [],
+            'Preto': [],
+            'Preto - Azul': [],
+            'Preto - Branco': [],
+            'Preto - Laranja': [],
+            'Preto - Prata': [],
+            'Preto - Vermelho': [],
+            'Rosa': [],
+            'Verde': []
+        }
+        # Filters
+
+        # Case Types
+        allTypes = ['Full Tower', 'Mid Tower', 'Mini Tower']
+        key = list(Types.values())
+        for i in range(len(allTypes)):
+            for data in allCabinet:
+                if allTypes[i] in data['Name']:
+                    key = list(Types.values())
+                    key[i].append(data)
+
+        # Case Colors
+        allColors = ['Blue', 'White', 'White/Black', 'Gray', 'Prata', 'Black', 'Preto/Azul',
+                     'Black/White', 'Preto/Laranja', 'Black/Gray', 'Red', 'Pink', 'Green']
+        key = list(Colors.values())
+        for i in range(len(allColors)):
+            for data in allCabinet:
+                if allColors[i] in data['Name']:
+                    key = list(Colors.values())
+                    key[i].append(data)
+
+        return Types, Colors, allCabinet
+
+
+TerabyteCabinet_Types, TerabyteCabinet_Colors, TerabyteAllCabinet = TerabyteCabinet.Cabinet_FILTERS()
 TerabyteFont_Potency, TerabyteAllFont = TerabyteFont.Font_FILTERS()
-# TerabyteSSD_Interface, TerabyteSSD_Format, TerabyteSSD_Capacity, TerabyteAllSSD = TerabyteSSD.SSD_FILTERS()
-# TerabyteHD_Capacity, TerabyteAllHD = TerabyteHD.HD_FILTERS()
-# TerabyteMB_DDR, TerabyteMB_Format, TerabyteMB_Socket, TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
-# TerabyteGPU_Model, TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
-# TerabyteCPU_Socket, TerabyteCPU_Platform, TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
-# TerabyteRAM_DDR, TerabyteRAM_capacityDDR5, TerabyteRAM_capacityDDR4, TerabyteRAM_capacityDDR3, TerabyteRAM_frequencyDDR5, TerabyteRAM_frequencyDDR4, TerabyteRAM_frequencyDDR3, TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()
+TerabyteSSD_Interface, TerabyteSSD_Format, TerabyteSSD_Capacity, TerabyteAllSSD = TerabyteSSD.SSD_FILTERS()
+TerabyteHD_Capacity, TerabyteAllHD = TerabyteHD.HD_FILTERS()
+TerabyteMB_DDR, TerabyteMB_Format, TerabyteMB_Socket, TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
+TerabyteGPU_Model, TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
+TerabyteCPU_Socket, TerabyteCPU_Platform, TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
+TerabyteRAM_DDR, TerabyteRAM_capacityDDR5, TerabyteRAM_capacityDDR4, TerabyteRAM_capacityDDR3, TerabyteRAM_frequencyDDR5, TerabyteRAM_frequencyDDR4, TerabyteRAM_frequencyDDR3, TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()

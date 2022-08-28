@@ -5,7 +5,7 @@ from MB import MotherBoard
 from RAM import RAM
 from SSD import SSD
 from HD import HardDisk
-from CASE import Case
+from CABINET import Cabinet
 from FONT import Font
 
 
@@ -626,19 +626,19 @@ class PichauHD:
         return Capacity, allHD
 
 
-# Case Filter
+# Cabinet Filter
 # In this object there are two functions that
 # scraping the all cases of Pichau Store and
 # return in several dictionaries for different filters
-class PichauCase:
+class PichauCabinet:
     @staticmethod
-    def Case_get():
-        allCase = Case.Case_Crawl()
-        return allCase
+    def Cabinet_get():
+        allCabinet = Cabinet.Cabinet_Crawl()
+        return allCabinet
 
     @staticmethod
-    def Case_FILTERS():
-        allCase = PichauCase.Case_get()
+    def Cabinet_FILTERS():
+        allCabinet = PichauCabinet.Cabinet_get()
         # Specific Case lists
 
         # Case Types
@@ -670,7 +670,7 @@ class PichauCase:
         allTypes = ['Full-Tower', 'Mid-Tower', 'Mini-Tower']
         key = list(Types.values())
         for i in range(len(allTypes)):
-            for data in allCase:
+            for data in allCabinet:
                 if allTypes[i] in data['Name']:
                     key = list(Types.values())
                     key[i].append(data)
@@ -680,12 +680,12 @@ class PichauCase:
                      'Preto/Branco', 'Preto/Laranja', 'Preto/Prata', 'Preto/Vermelho', 'Rosa', 'Verde']
         key = list(Colors.values())
         for i in range(len(allColors)):
-            for data in allCase:
+            for data in allCabinet:
                 if allColors[i] in data['Name']:
                     key = list(Colors.values())
                     key[i].append(data)
 
-        return Types, Colors, allCase
+        return Types, Colors, allCabinet
 
 
 # Font Filter
@@ -729,7 +729,7 @@ class PichauFont:
 
 
 Font_Potency, allFont = PichauFont.Font_FILTERS()
-Case_Types, Case_Colors, allCase = PichauCase.Case_FILTERS()
+Cabinet_Types, Cabinet_Colors, allCabinet = PichauCabinet.Cabinet_FILTERS()
 Capacity_HardDisk, allHD = PichauHD.HD_FILTERS()
 Interface_SSD, Format_SSD, Capacity_SSD, allSSD = PichauSSD.SSD_FILTERS()
 RAM_DDR, RAM_capacityDDR5, RAM_capacityDDR4, RAM_capacityDDR3, RAM_frequencyDDR5, RAM_frequencyDDR4, RAM_frequencyDDR3, allRAM = PichauRAM.RAM_FILTERS()
