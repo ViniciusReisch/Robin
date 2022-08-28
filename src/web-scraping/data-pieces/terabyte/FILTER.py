@@ -1,9 +1,10 @@
 from RAM import RAM
+from CPU import CPU
 
 
 # RAM Filter
 # In this object there are two functions that
-# scraping the all RAM memories of Pichau Store and
+# scraping the all RAM memories of Terabyte Store and
 # return in several dictionaries for different filters
 class TerabyteRAM:
     @staticmethod
@@ -219,4 +220,80 @@ class TerabyteRAM:
         return DDR, capacityDDR5, capacityDDR4, capacityDDR3, frequencyDDR5, frequencyDDR4, frequencyDDR3, allRAM
 
 
-RAM_DDR, RAM_capacityDDR5, RAM_capacityDDR4, RAM_capacityDDR3, RAM_frequencyDDR5, RAM_frequencyDDR4, RAM_frequencyDDR3, allRAM = TerabyteRAM.RAM_FILTERS()
+# CPU Filter
+# In this object there are two functions that
+# scraping the all CPU of Terabyte Store and
+# return in several dictionaries for different filters
+class TerabyteCPU:
+
+    @staticmethod
+    def CPU_get():
+        allCPU = CPU.CPU_Crawl()
+        return allCPU
+
+    @staticmethod
+    def CPU_FILTERS():
+        allCPU = TerabyteCPU.CPU_get()
+        # Specific CPU lists
+
+        # Platform and integrate GPU
+        Platform = {
+            "AMD": {
+                "cpuAMD": [],
+                "apuAMD": []
+            },
+            "Intel": {
+                "cpuIntel": [],
+                "apuIntel": []
+            }
+        }
+        Socket = {
+            "cpuAM4": [],  # AMD AM4 and AMD AM4G
+            "cpuFM2": [],  # FM2+
+            "cpuLGA1150": [],  # LGA1150
+            "cpuLGA1151": [],  # LGA1151
+            "cpuLGA1200": [],  # LGA1200
+            "cpuLGA1700": [],  # LGA1700
+            "cpuLGA2066": [],  # LGA2066
+        }
+
+        # Platform
+
+        # AMD
+        # FILTER == AMD APU integrate GPU
+        for data in allCPU:
+            if 'AMD' in data['Name']:
+                if '0G' in data['Name'] or '0GE' in data['Name'] or 'FM2+' in data['Name']:
+                    Platform['AMD']['apuAMD'].append(data)
+
+                # FILTER == AMD CPU without GPU
+                else:
+                    Platform['AMD']['cpuAMD'].append(data)
+
+        # Intel
+        # FILTER == Intel CPU without GPU
+        for data in allCPU:
+            if 'Intel' in data['Name']:
+                if '5F' in data['Name'] or '0KF' in data['Name'] or '0X' in data['Name'] or '0F' in data['Name']:
+                    Platform['Intel']['cpuIntel'].append(data)
+
+                # FILTER == Intel APU integrate GPU
+                else:
+                    Platform['Intel']['apuIntel'].append(data)
+
+        # Socket
+
+        # FILTER == AMD AM4 and AMD AM4G
+        allSocket = ['AM4', 'FM2+', 'LGA 1150', 'LGA 1151', 'LGA 1200', 'LGA 1700', 'LGA 2066']
+        key = list(Socket.values())
+        for i in range(len(allSocket)):
+            for data in allCPU:
+                if allSocket[i] in data['Name']:
+                    key = list(Socket.values())
+                    key[i].append(data)
+
+        return Socket, Platform, allCPU
+
+
+TerabyteCPU_Socket, TerabyteCPU_Platform, TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
+# TerabyteRAM_DDR, TerabyteRAM_capacityDDR5, TerabyteRAM_capacityDDR4, TerabyteRAM_capacityDDR3, TerabyteRAM_frequencyDDR5, TerabyteRAM_frequencyDDR4, TerabyteRAM_frequencyDDR3, TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()
