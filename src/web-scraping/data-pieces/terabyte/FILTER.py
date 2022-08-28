@@ -1,6 +1,8 @@
 from RAM import RAM
 from CPU import CPU
 from GPU import GraphicsCard
+from MB import MotherBoard
+
 
 # RAM Filter
 # In this object there are two functions that
@@ -430,6 +432,77 @@ class TerabyteGPU:
         return Model, allGPU
 
 
-TerabyteGPU_Model, TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
-TerabyteCPU_Socket, TerabyteCPU_Platform, TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
+# Mother Board Filter
+# In this object there are two functions that
+# scraping the all MotherBoards of Pichau Store and
+# return in several dictionaries for different filters
+class TerabyteMotherBoard:
+
+    @staticmethod
+    def MB_get():
+        allMB = MotherBoard.MB_Crawl()
+        return allMB
+
+    @staticmethod
+    def MB_FILTERS():
+        allMB = TerabyteMotherBoard.MB_get()
+        # Specific MotherBoard lists
+
+        # Double Data Rate
+        DDR = {
+            "motherBoardDDR5": [],
+            "motherBoardDDR4": [],
+            "motherBoardDDR3": []
+        }
+        # MotherBoard Format
+        Format = {
+            "motherBoardATX": [],
+            "motherBoardE_ATX": [],
+            "motherBoardMicro_ATX": [],
+            "motherBoardMini_ITX": []
+        }
+        # MotherBoard Socket
+        Socket = {
+            "motherBoardAM4": [],
+            "motherBoardLGA1700": [],
+            "motherBoardLGA1200": [],
+            "motherBoardLGA1150": [],
+            "motherBoardLGA1151": [],
+            "motherBoardLGA1155": [],
+            "motherBoardFM2": []
+        }
+
+        # Double Data Rate
+        allDDR = ['DDR5', 'DDR4', 'DDR3']
+        key = list(DDR.values())
+        for i in range(len(allDDR)):
+            for data in allMB:
+                if allDDR[i] in data['Name']:
+                    key = list(DDR.values())
+                    key[i].append(data)
+
+        # Format
+        allFormat = ['ATX', 'E-ATX', 'MATX', 'Mini-ITX']
+        key = list(Format.values())
+        for i in range(len(allFormat)):
+            for data in allMB:
+                if allFormat[i] in data['Name']:
+                    key = list(Format.values())
+                    key[i].append(data)
+
+        # Socket
+        allSocket = ['AM4', 'LGA 1700', '1200', 'LGA 1150', 'LGA 1151', 'LGA 1155', 'FM2+']
+        key = list(Socket.values())
+        for i in range(len(allSocket)):
+            for data in allMB:
+                if allSocket[i] in data['Name']:
+                    key = list(Socket.values())
+                    key[i].append(data)
+
+        return DDR, Format, Socket, allMB
+
+
+TerabyteDDR, TerabyteFormat, TerabyteSocket, TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
+# TerabyteGPU_Model, TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
+# TerabyteCPU_Socket, TerabyteCPU_Platform, TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
 # TerabyteRAM_DDR, TerabyteRAM_capacityDDR5, TerabyteRAM_capacityDDR4, TerabyteRAM_capacityDDR3, TerabyteRAM_frequencyDDR5, TerabyteRAM_frequencyDDR4, TerabyteRAM_frequencyDDR3, TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()
