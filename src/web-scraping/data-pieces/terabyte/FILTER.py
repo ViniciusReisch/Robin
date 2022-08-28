@@ -4,6 +4,7 @@ from GPU import GraphicsCard
 from MB import MotherBoard
 from HD import HardDisk
 from SSD import SSD
+from FONT import Font
 
 
 # RAM Filter
@@ -623,12 +624,50 @@ class TerabyteSSD:
         return Interface, Format, Capacity, allSSD
 
 
+# Font Filter
+# In this object there are two functions that
+# scraping the all Font of Pichau Store and
+# return in several dictionaries for different filters
+class TerabyteFont:
+    @staticmethod
+    def Font_get():
+        allFont = Font.Font_Crawl()
+        return allFont
+
+    @staticmethod
+    def Font_FILTERS():
+        allFont = TerabyteFont.Font_get()
+        # Specific Fonts lists
+
+        # Font Potency
+        Potency = {
+            '200w': [],
+            '400W': [],
+            '450W': [],
+            '500W': [],
+            '550W': [],
+            '600W': [],
+            '650W': [],
+            '700W': [],
+            '750W': [],
+            '850W': [],
+            '1200W': []
+        }
+        allPotency = ['200', '400', '450', '500', '550', '600', '650', '700', '750', '850', '1200']
+        key = list(Potency.values())
+        for i in range(len(allPotency)):
+            for data in allFont:
+                if allPotency[i] in data['Name']:
+                    key = list(Potency.values())
+                    key[i].append(data)
+
+        return Potency, allFont
 
 
-
-TerabyteSSD_Interface, TerabyteSSD_Format, TerabyteSSD_Capacity, TerabyteAllSSD = TerabyteSSD.SSD_FILTERS()
-TerabyteHD_Capacity, TerabyteAllHD = TerabyteHD.HD_FILTERS()
-TerabyteMB_DDR, TerabyteMB_Format, TerabyteMB_Socket, TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
+TerabyteFont_Potency, TerabyteAllFont = TerabyteFont.Font_FILTERS()
+# TerabyteSSD_Interface, TerabyteSSD_Format, TerabyteSSD_Capacity, TerabyteAllSSD = TerabyteSSD.SSD_FILTERS()
+# TerabyteHD_Capacity, TerabyteAllHD = TerabyteHD.HD_FILTERS()
+# TerabyteMB_DDR, TerabyteMB_Format, TerabyteMB_Socket, TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
 # TerabyteGPU_Model, TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
 # TerabyteCPU_Socket, TerabyteCPU_Platform, TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
 # TerabyteRAM_DDR, TerabyteRAM_capacityDDR5, TerabyteRAM_capacityDDR4, TerabyteRAM_capacityDDR3, TerabyteRAM_frequencyDDR5, TerabyteRAM_frequencyDDR4, TerabyteRAM_frequencyDDR3, TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()

@@ -10,7 +10,7 @@ def SSD_Crawl():
     namesProducts = []                     # SSD Name
     linksProducts = []                     # SSD Links
     imgProducts = []                       # SSD Image
-    local = arrow.utcnow()                 # SSD date and time
+    local = arrow.utcnow()                 # Scraping date and time
     allData = []                           # SSD all data
 
     # WEB CRAWLER
@@ -67,5 +67,3 @@ def SSD_Crawl():
                    'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg'}
         allData.append(dataDic)
     return allData
-
-a = SSD_Crawl()
