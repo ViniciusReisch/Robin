@@ -1,5 +1,5 @@
-from pichau import FILTER
+from terabyte import FILTER
 
-PichauGPU = FILTER.PichauGPU
+TerabyteFont = FILTER.TerabyteRAM
 
-PichauGPUModels, PichauAllGPU = PichauGPU.GPU_FILTERS()
+TerabyteFont_Potency, TerabyteAllFont = TerabyteFont.RAM_FILTERS()

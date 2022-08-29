@@ -2,27 +2,27 @@ import arrow
 from selenium import webdriver
 
 
-def RAM_Crawl():
-    # Memory RAM specific data
+def CPU_Crawl():
+    # CPU specific data
 
-    installmentPriceProducts = []          # Memory RAM Installment Prices
-    pricesProducts = []                    # Memory RAM Prices
-    namesProducts = []                     # Memory RAM Name
-    linksProducts = []                     # Memory RAM Links
-    imgProducts = []                       # Memory RAM Image
+    installmentPriceProducts = []          # CPU Installment Prices
+    pricesProducts = []                    # CPU Prices
+    namesProducts = []                     # CPU Name
+    linksProducts = []                     # CPU Links
+    imgProducts = []                       # CPU Image
     local = arrow.utcnow()                 # Scraping date and time
-    allData = []                           # Memory RAM all data
+    allData = []                           # CPU all data
 
     # WEB CRAWLER
 
     driver = webdriver.Chrome()
-    link = 'https://www.terabyteshop.com.br/hardware/memorias'
+    link = 'https://www.terabyteshop.com.br/hardware/processadores'
     driver.get(link)
 
     # Crawling Products == Image
     product = driver.find_elements('tag name', 'img')
     for e in product:
-        if 'memoria' in e.get_attribute('src'):  # Only separate images with product in the name
+        if 'processador' in e.get_attribute('src'):  # Only separate images with product in the name
             imgProducts.append(e.get_attribute('src'))
     imgProducts = list(dict.fromkeys(imgProducts))
 
@@ -67,4 +67,6 @@ def RAM_Crawl():
                    'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg'}
         allData.append(dataDic)
     return allData
+
+
 

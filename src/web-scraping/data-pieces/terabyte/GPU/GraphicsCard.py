@@ -2,27 +2,27 @@ import arrow
 from selenium import webdriver
 
 
-def RAM_Crawl():
-    # Memory RAM specific data
+def GPU_Crawl():
+    # GPU specific data
 
-    installmentPriceProducts = []          # Memory RAM Installment Prices
-    pricesProducts = []                    # Memory RAM Prices
-    namesProducts = []                     # Memory RAM Name
-    linksProducts = []                     # Memory RAM Links
-    imgProducts = []                       # Memory RAM Image
+    installmentPriceProducts = []          # GPU Installment Prices
+    pricesProducts = []                    # GPU Prices
+    namesProducts = []                     # GPU Name
+    linksProducts = []                     # GPU Links
+    imgProducts = []                       # GPU Image
     local = arrow.utcnow()                 # Scraping date and time
-    allData = []                           # Memory RAM all data
+    allData = []                           # GPU all data
 
     # WEB CRAWLER
 
     driver = webdriver.Chrome()
-    link = 'https://www.terabyteshop.com.br/hardware/memorias'
+    link = 'https://www.terabyteshop.com.br/hardware/placas-de-video'
     driver.get(link)
 
     # Crawling Products == Image
     product = driver.find_elements('tag name', 'img')
     for e in product:
-        if 'memoria' in e.get_attribute('src'):  # Only separate images with product in the name
+        if 'placa-de-video' in e.get_attribute('src'):  # Only separate images with product in the name
             imgProducts.append(e.get_attribute('src'))
     imgProducts = list(dict.fromkeys(imgProducts))
 
@@ -53,7 +53,7 @@ def RAM_Crawl():
     driver.close()
 
     # Separating data in dictionary for better reading
-    for i in range(len(installmentPriceProducts)):
+    for i in range(99):
         installmentPrice = installmentPriceProducts[i].split()
         if '.' in installmentPrice[3]:
             installmentPrice[3] = installmentPrice[3].replace('.', '')
@@ -67,4 +67,3 @@ def RAM_Crawl():
                    'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg'}
         allData.append(dataDic)
     return allData
-

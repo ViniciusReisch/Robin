@@ -2,27 +2,27 @@ import arrow
 from selenium import webdriver
 
 
-def RAM_Crawl():
-    # Memory RAM specific data
+def SSD_Crawl():
+    # SSD specific data
 
-    installmentPriceProducts = []          # Memory RAM Installment Prices
-    pricesProducts = []                    # Memory RAM Prices
-    namesProducts = []                     # Memory RAM Name
-    linksProducts = []                     # Memory RAM Links
-    imgProducts = []                       # Memory RAM Image
+    installmentPriceProducts = []          # SSD Installment Prices
+    pricesProducts = []                    # SSD Prices
+    namesProducts = []                     # SSD Name
+    linksProducts = []                     # SSD Links
+    imgProducts = []                       # SSD Image
     local = arrow.utcnow()                 # Scraping date and time
-    allData = []                           # Memory RAM all data
+    allData = []                           # SSD all data
 
     # WEB CRAWLER
 
     driver = webdriver.Chrome()
-    link = 'https://www.terabyteshop.com.br/hardware/memorias'
+    link = 'https://www.terabyteshop.com.br/hardware/hard-disk/ssd'
     driver.get(link)
 
     # Crawling Products == Image
     product = driver.find_elements('tag name', 'img')
     for e in product:
-        if 'memoria' in e.get_attribute('src'):  # Only separate images with product in the name
+        if 'ssd' in e.get_attribute('src'):  # Only separate images with product in the name
             imgProducts.append(e.get_attribute('src'))
     imgProducts = list(dict.fromkeys(imgProducts))
 
@@ -62,9 +62,8 @@ def RAM_Crawl():
             pricesProducts[i] = pricesProducts[i].replace('.', '')
         changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.').replace(' à vista', '')
         dataDic = {'Store': 'Terabyte', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
-                   'Installment price': [f'R${(str(installmentPrice).replace(".", ","))}', installmentPrice],
+                   'Installment price': [f'R${round(float(installmentPrice), 2)}', round(float(installmentPrice), 2)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
                    'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg'}
         allData.append(dataDic)
     return allData
-
