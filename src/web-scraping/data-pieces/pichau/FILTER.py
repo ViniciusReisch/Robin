@@ -1,12 +1,12 @@
 # Importing all Scraping Functions
-from GPU import GraphicsCard
-from CPU import CPU
-from MB import MotherBoard
-from RAM import RAM
-from SSD import SSD
-from HD import HardDisk
-from CABINET import Cabinet
-from FONT import Font
+from pichau.GPU import GraphicsCard
+from pichau.CPU import CPU
+from pichau.MB import MotherBoard
+from pichau.RAM import RAM
+from pichau.SSD import SSD
+from pichau.HD import HardDisk
+from pichau.CABINET import Cabinet
+from pichau.FONT import Font
 
 
 # GPU Filter

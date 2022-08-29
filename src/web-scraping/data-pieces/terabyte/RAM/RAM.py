@@ -67,4 +67,3 @@ def RAM_Crawl():
                    'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg'}
         allData.append(dataDic)
     return allData
-

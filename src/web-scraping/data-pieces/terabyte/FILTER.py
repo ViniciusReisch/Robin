@@ -1,11 +1,11 @@
-from RAM import RAM
-from CPU import CPU
-from GPU import GraphicsCard
-from MB import MotherBoard
-from HD import HardDisk
-from SSD import SSD
-from FONT import Font
-from CABINET import Cabinet
+from terabyte.RAM import RAM
+from terabyte.CPU import CPU
+from terabyte.GPU import GraphicsCard
+from terabyte.MB import MotherBoard
+from terabyte.HD import HardDisk
+from terabyte.SSD import SSD
+from terabyte.FONT import Font
+from terabyte.CABINET import Cabinet
 
 
 # RAM Filter
