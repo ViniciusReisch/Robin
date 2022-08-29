@@ -728,11 +728,3 @@ class PichauFont:
         return Potency, allFont
 
 
-Font_Potency, allFont = PichauFont.Font_FILTERS()
-Cabinet_Types, Cabinet_Colors, allCabinet = PichauCabinet.Cabinet_FILTERS()
-Capacity_HardDisk, allHD = PichauHD.HD_FILTERS()
-Interface_SSD, Format_SSD, Capacity_SSD, allSSD = PichauSSD.SSD_FILTERS()
-RAM_DDR, RAM_capacityDDR5, RAM_capacityDDR4, RAM_capacityDDR3, RAM_frequencyDDR5, RAM_frequencyDDR4, RAM_frequencyDDR3, allRAM = PichauRAM.RAM_FILTERS()
-motherBoard_DDR, motherBoard_Format, motherBoard_Socket, allMB = PichauMotherBoard.MB_FILTERS()
-CPU_Socket, CPU_Platform, allCPU = PichauCPU.CPU_FILTERS()
-GPU_Model, allGPU = PichauGPU.GPU_FILTERS()
