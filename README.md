@@ -1,5 +1,5 @@
 <h1>
-  <a href="https://www.google.com/"> <img src="img/robin-logo.png" width="40%"> </a>
+  <a href="https://www.google.com/"> <img src="https://i.imgur.com/nS6xzZl.png" width="40%"> </a>
 </h1>
 <h3> Computer setup creation website gathering the lowest prices </h3>
 <br>
