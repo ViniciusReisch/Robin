@@ -1,10 +1,11 @@
-from RAM import RAM
-from GPU import GraphicsCard
+from kabum.RAM import RAM
+from kabum.GPU import GraphicsCard
+from kabum.CPU import CPU
 
 
 # GPU Filter
 # In this object there are two functions that
-# scraping the all GPU of Terabyte Store and
+# scraping the all GPU of Kabum Store and
 # return in several dictionaries for different filters
 class KabumGPU:
 
@@ -139,7 +140,7 @@ class KabumGPU:
 
 # RAM Filter
 # In this object there are two functions that
-# scraping the all RAM memories of Terabyte Store and
+# scraping the all RAM memories of Kabum Store and
 # return in several dictionaries for different filters
 class KabumRAM:
     @staticmethod
@@ -355,5 +356,78 @@ class KabumRAM:
         return DDR, capacityDDR5, capacityDDR4, capacityDDR3, frequencyDDR5, frequencyDDR4, frequencyDDR3, allRAM
 
 
-KabumGPU_Model, KabumAllGPU = KabumGPU.GPU_FILTERS()
-# KabumRAM_DDR, KabumRAM_capacityDDR5, KabumRAM_capacityDDR4, KabumRAM_capacityDDR3, KabumRAM_frequencyDDR5, KabumRAM_frequencyDDR4, KabumRAM_frequencyDDR3, allRAM = KabumRAM.RAM_FILTERS()
+# CPU Filter
+# In this object there are two functions that
+# scraping the all CPU of Pichau Store and
+# return in several dictionaries for different filters
+class KabumCPU:
+
+    @staticmethod
+    def CPU_get():
+        allCPU = CPU.CPU_Crawl()
+        return allCPU
+
+    @staticmethod
+    def CPU_FILTERS():
+        allCPU = KabumCPU.CPU_get()
+        # Specific CPU lists
+
+        # Platform and integrate GPU
+        Platform = {
+            "AMD": {
+                "cpuAMD": [],
+                "apuAMD": []
+            },
+            "Intel": {
+                "cpuIntel": [],
+                "apuIntel": []
+            }
+        }
+        Socket = {
+            "cpuAM4": [],  # AMD AM4 and AMD AM4G
+            "cpuFM2": [],  # FM2+
+            "cpuLGA1150": [],  # LGA1150
+            "cpuLGA1151": [],  # LGA1151
+            "cpuLGA1200": [],  # LGA1200
+            "cpuLGA1700": [],  # LGA1700
+            "cpuLGA2066": [],  # LGA2066
+        }
+
+        # Platform
+
+        # AMD
+        # FILTER == AMD APU integrate GPU
+        for data in allCPU:
+            if 'AMD' in data['Name']:
+                if '0G' in data['Name'] or '0GE' in data['Name'] or 'FM2+' in data['Name']:
+                    Platform['AMD']['apuAMD'].append(data)
+
+                # FILTER == AMD CPU without GPU
+                else:
+                    Platform['AMD']['cpuAMD'].append(data)
+
+        # Intel
+        # FILTER == Intel CPU without GPU
+        for data in allCPU:
+            if 'Intel' in data['Name']:
+                if '5F' in data['Name'] or '0KF' in data['Name'] or '0X' in data['Name'] or '0F' in data['Name']:
+                    Platform['Intel']['cpuIntel'].append(data)
+
+                # FILTER == Intel APU integrate GPU
+                else:
+                    Platform['Intel']['apuIntel'].append(data)
+
+        # Socket
+
+        # FILTER == AMD AM4 and AMD AM4G
+        allSocket = ['AM4', 'FM2+', '1150', '1151', '1200', '1700', '2066']
+        key = list(Socket.values())
+        for i in range(len(allSocket)):
+            for data in allCPU:
+                if allSocket[i] in data['Name']:
+                    key = list(Socket.values())
+                    key[i].append(data)
+
+        return Socket, Platform, allCPU
+
+

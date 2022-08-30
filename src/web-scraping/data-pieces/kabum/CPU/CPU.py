@@ -2,7 +2,7 @@ import arrow
 from selenium import webdriver
 
 
-def GPU_Crawl():
+def CPU_Crawl():
     # Memory specific data
     pricesProducts = []             # Memory Prices
     namesProducts = []              # Memory Name
@@ -10,9 +10,9 @@ def GPU_Crawl():
     imgProducts = []                # Memory Image
     local = arrow.utcnow()          # Scraping date and time
     allData = []                    # Memory all data
-    for i in range(1, 7):
+    for i in range(1, 4):
         driver = webdriver.Chrome()
-        link = f'https://www.kabum.com.br/hardware/placa-de-video-vga?page_number={i}&page_size=100&facet_filters=&sort=most_searched'
+        link = f'https://www.kabum.com.br/hardware/processadores?page_number={i}&page_size=100&facet_filters=&sort=most_searched'
         driver.get(link)
 
         # Crawling Products == Image
