@@ -2,19 +2,19 @@ import arrow
 from selenium import webdriver
 
 
-def RAM_Crawl():
+def MB_Crawl():
     # Memory specific data
-    installmentPriceProducts = []  # Memory Installment Prices
-    pricesProducts = []  # Memory Prices
-    namesProducts = []  # Memory Name
-    linksProducts = []  # Memory Links
-    imgProducts = []  # Memory Image
-    local = arrow.utcnow()  # Scraping date and time
-    allData = []  # Memory all data
+    installmentPriceProducts = []   # Memory Installment Prices
+    pricesProducts = []             # Memory Prices
+    namesProducts = []              # Memory Name
+    linksProducts = []              # Memory Links
+    imgProducts = []                # Memory Image
+    local = arrow.utcnow()          # Scraping date and time
+    allData = []                    # Memory all data
 
     for i in range(1, 8):
         driver = webdriver.Chrome()
-        link = f'https://www.kabum.com.br/hardware/memoria-ram?page_number={i}&page_size=100&facet_filters=&sort=most_searched'
+        link = f'https://www.kabum.com.br/hardware/placas-mae?page_number={i}&page_size=100&facet_filters=&sort=most_searched'
         driver.get(link)
 
         # Crawling Products == Image
@@ -40,9 +40,9 @@ def RAM_Crawl():
         for i in links:
             if i.get_attribute('href') is None:
                 continue
-            if 'memoria' in i.get_attribute('href') and 'produto' in i.get_attribute(
-                    'href'):  # Only separate images with product in the name
+            if 'produto' in i.get_attribute('href'):  # Only separate images with product in the name
                 linksProducts.append(i.get_attribute('href'))
+        linksProducts = list(dict.fromkeys(linksProducts))
         driver.close()
 
     # Separating data in dictionary for better reading
@@ -52,6 +52,6 @@ def RAM_Crawl():
         changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.')
         dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'RAM Memory', 'Model': ''}
+                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'MotherBoard', 'Model': ''}
         allData.append(dataDic)
     return allData

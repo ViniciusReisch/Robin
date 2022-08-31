@@ -373,27 +373,6 @@ class KabumCPU:
         # Specific CPU lists
 
         # Platform and integrate GPU
-        Platform = {
-            "AMD": {
-                "cpuAMD": [],
-                "apuAMD": []
-            },
-            "Intel": {
-                "cpuIntel": [],
-                "apuIntel": []
-            }
-        }
-        Socket = {
-            "cpuAM4": [],  # AMD AM4 and AMD AM4G
-            "cpuFM2": [],  # FM2+
-            "cpuLGA1150": [],  # LGA1150
-            "cpuLGA1151": [],  # LGA1151
-            "cpuLGA1200": [],  # LGA1200
-            "cpuLGA1700": [],  # LGA1700
-            "cpuLGA2066": [],  # LGA2066
-        }
-
-        # Platform
 
         # AMD
         # FILTER == AMD APU integrate GPU
@@ -431,3 +410,71 @@ class KabumCPU:
         return Socket, Platform, allCPU
 
 
+# Mother Board Filter
+# In this object there are two functions that
+# scraping the all MotherBoards of Pichau Store and
+# return in several dictionaries for different filters
+class PichauMotherBoard:
+
+    @staticmethod
+    def MB_get():
+        allMB = MotherBoard.MB_Crawl()
+        return allMB
+
+    @staticmethod
+    def MB_FILTERS():
+        allMB = PichauMotherBoard.MB_get()
+        # Specific MotherBoard lists
+
+        # Double Data Rate
+        DDR = {
+            "motherBoardDDR5": [],
+            "motherBoardDDR4": [],
+            "motherBoardDDR3": []
+        }
+        # MotherBoard Format
+        Format = {
+            "motherBoardATX": [],
+            "motherBoardE_ATX": [],
+            "motherBoardMicro_ATX": [],
+            "motherBoardMini_ITX": []
+        }
+        # MotherBoard Socket
+        Socket = {
+            "motherBoardAM4": [],
+            "motherBoardLGA1700": [],
+            "motherBoardLGA1200": [],
+            "motherBoardLGA1150": [],
+            "motherBoardLGA1151": [],
+            "motherBoardLGA1155": [],
+            "motherBoardFM2": []
+        }
+
+        # Double Data Rate
+        allDDR = ['DDR5', 'DDR4', 'DDR3']
+        key = list(DDR.values())
+        for i in range(len(allDDR)):
+            for data in allMB:
+                if allDDR[i] in data['Name']:
+                    key = list(DDR.values())
+                    key[i].append(data)
+
+        # Format
+        allFormat = ['ATX', 'E-ATX', 'Micro-ATX', 'Mini-ITX']
+        key = list(Format.values())
+        for i in range(len(allFormat)):
+            for data in allMB:
+                if allFormat[i] in data['Name']:
+                    key = list(Format.values())
+                    key[i].append(data)
+
+        # Socket
+        allSocket = ['AM4', 'LGA1700', 'LGA1200', 'LGA1150', 'LGA1151', 'LGA1155', 'FM2+']
+        key = list(Socket.values())
+        for i in range(len(allSocket)):
+            for data in allMB:
+                if allSocket[i] in data['Name']:
+                    key = list(Socket.values())
+                    key[i].append(data)
+
+        return DDR, Format, Socket, allMB
