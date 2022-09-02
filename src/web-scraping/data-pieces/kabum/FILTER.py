@@ -1,6 +1,11 @@
-from kabum.RAM import RAM
-from kabum.GPU import GraphicsCard
-from kabum.CPU import CPU
+from RAM import RAM
+from GPU import GraphicsCard
+from CPU import CPU
+from MB import MotherBoard
+from FONT import Font
+from HD import HardDisk
+from SSD import SSD
+from CABINET import Cabinet
 
 
 # GPU Filter
@@ -19,123 +24,32 @@ class KabumGPU:
         allGPU = KabumGPU.GPU_get()
 
         # Specific GPU lists
-        Model = {
-            'GT 1030 2GB': [],
-            'GT 610 2GB': [],
-            'GT 710 1GB': [],
-            'GT 710 2GB': [],
-            'GT 730 2GB': [],
-            'GT 730 4GB': [],
-            'GT 240 1GB': [],
-            'GTX 1050 2GB': [],
-            'GTX 1050 3GB': [],
-            'GTX 1050 TI 4GB': [],
-            'GTX 1060 3GB': [],
-            'GTX 1060 6GB': [],
-            'GTX 1070 8GB': [],
-            'GTX 1070 TI 8GB': [],
-            'GTX 1080 8GB': [],
-            'GTX 1080 TI 11GB': [],
-            'GTX 1630 4GB': [],
-            'GTX 1650 4GB': [],
-            'GTX 1650 SUPER': [],
-            'GTX 1660 6GB': [],
-            'GTX 1660 SUPER': [],
-            'GTX 1660 TI 6GB': [],
-            'GTX 750 TI 2GB': [],
-            'GTX 750 TI 4GB': [],
-            'GTX 980 TI 6GB': [],
-            'NVS 810 4GB': [],
-            'PRO W6600 8GB': [],
-            'QUADRO P1000 4GB': [],
-            'QUADRO P2000 5GB': [],
-            'QUADRO P400 2GB': [],
-            'QUADRO P4000 8GB': [],
-            'QUADRO P620 2GB': [],
-            'QUADRO RTX 4000 8GB': [],
-            'QUADRO RTX A2000 12GB': [],
-            'QUADRO RTX A2000 6GB': [],
-            'QUADRO RTX A4000 16GB': [],
-            'QUADRO RTX A4500 20GB': [],
-            'QUADRO RTX A5000 24GB': [],
-            'QUADRO T1000 4GB': [],
-            'QUADRO T1000 8GB': [],
-            'QUADRO T400 2GB': [],
-            'QUADRO T600 4GB': [],
-            'R5 220 2GB': [],
-            'R5 230 1GB': [],
-            'R5 230 2GB': [],
-            'R7 240': [],
-            'RTX 2060 12GB': [],
-            'RTX 2060 6GB': [],
-            'RTX 2060 SUPER 8GB': [],
-            'RTX 2070 8GB': [],
-            'RTX 2070 SUPER 8GB': [],
-            'RTX 2080 8GB': [],
-            'RTX 2080 SUPER 8GB': [],
-            'RTX 2080 TI 11GB': [],
-            'RTX 3050 4GB': [],
-            'RTX 3050 8GB': [],
-            'RTX 3060 12GB': [],
-            'RTX 3060 TI 8GB': [],
-            'RTX 3070 8GB': [],
-            'RTX 3070 TI 8GB': [],
-            'RTX 3080 10GB': [],
-            'RTX 3080 12GB': [],
-            'RTX 3080 TI 12GB': [],
-            'RTX 3090 24GB': [],
-            'RTX 3090 TI 24 GB': [],
-            'RX 460 2GB': [],
-            'RX 550 2GB': [],
-            'RX 550 4GB': [],
-            'RX 5500 4GB': [],
-            'RX 5600 XT 6GB': [],
-            'RX 570 4GB': [],
-            'RX 570 8GB': [],
-            'RX 5700 8GB': [],
-            'RX 5700 XT 8GB': [],
-            'RX 580 4GB': [],
-            'RX 580 8GB': [],
-            'RX 590 8GB': [],
-            'RX 6400 4GB': [],
-            'RX 6500 XT 4GB': [],
-            'RX 6600 8GB': [],
-            'RX 6600 XT 8GB': [],
-            'RX 6650 XT 8GB': [],
-            'RX 6700 XT 12GB': [],
-            'RX 6750 XT 12GB': [],
-            'RX 6800 16GB': [],
-            'RX 6800 XT 16GB': [],
-            'RX 6900 XT 16GB': [],
-            'RX 6950 XT 16GB': []
-        }
-        allModel = [
-            'GT 1030', 'GT 610', 'GT 710 1GB', 'GT 710 2GB', 'GT 730', 'GT 730',
-            'GT240', 'GTX 1050 2GB', 'GTX 1050 3GB', 'GTX 1050 TI', 'GTX 1060',
-            'GTX 1060', 'GTX 1070', 'GTX 1070 TI', 'GTX 1080', 'GTX 1080 TI',
-            'GTX 1630', 'GTX 1650', 'GTX 1650 Super', 'GTX 1660', 'GTX 1660 Super',
-            'GTX 1660 TI', 'GTX 750 TI 2GB', 'GTX 750 TI 4GB', 'GTX 980 TI', 'NVS 810',
-            'PRO W6600', 'QUADRO P1000', 'QUADRO P2000', 'QUADRO P400', 'QUADRO P4000',
-            'QUADRO P620', 'QUADRO RTX 4000', 'QUADRO RTX A2000', 'QUADRO RTX A2000',
-            'QUADRO RTX A4000', 'QUADRO RTX A4500', 'QUADRO RTX A5000', 'QUADRO T1000',
-            'QUADRO T1000', 'QUADRO T400', 'QUADRO T600', 'R5 220 2GB', 'R5 230 1GB',
-            'R5 230 2GB', 'R7 240', 'RTX 2060', 'RTX 2060', 'RTX 2060 Super', 'RTX 2070',
-            'RTX 2070 Super', 'RTX 2080', 'RTX 2080 Super', 'RTX 2080 TI', 'RTX 3050',
-            'RTX 3050', 'RTX 3060', 'RTX 3060 TI', 'RTX 3070', 'RTX 3070 TI', 'RTX 3080',
-            'RTX 3080', 'RTX 3080 TI', 'RTX 3090', 'RTX 3090 TI', 'RX 460', 'RX 550',
-            'RX 550', 'RX 5500', 'RX 5600 XT', 'RX 570', 'RX 570', 'RX 5700',
-            'RX 5700 XT', 'RX 580', 'RX 580', 'RX 590', 'RX 6400', 'RX 6500 XT',
-            'RX 6600', 'RX 6600 XT', 'RX 6650 XT', 'RX 6700 XT', 'RX 6750 XT',
-            'RX 6800', 'RX 6800 XT', 'RX 6900 XT', 'RX 6950 XT'
-        ]
-        key = list(Model.values())
+
+        allModel = ['GT 1030', 'Gt 1030', 'GT 610', 'GT 710 1GB', 'GT 710 2GB', 'GT 730 2GB',
+                    'GT 730,2GB','GT240', 'Gt240', 'GTX 1050 2GB', 'GTx 1050 2GB', 'GTX 1050 3GB',
+                    'GTX 1050 TI', 'GTx 1050 TI', 'GTX 1060', 'GTx 1060', 'gtx 1060 3GB','GTX 1060',
+                    'GTX 1070', 'GTX 1070 TI', 'GTX 1080', 'GTX 1080 TI', 'GTX 1630',
+                    'GTX 1650', 'Gtx 1650 4GB', 'GTX 1650 Super', 'GTX 1660', 'GTX 1660 Super',
+                    'GTX 1660 TI', 'Gtx 1660 TI', 'GTX 750 TI,2GB', 'GTX 750 TI,4GB', 'GTX 980 TI',
+                    'NVS 810', 'PRO W6600', 'Quadro P1000', 'Quadro P2000', 'Quadro P400',
+                    'Quadro P4000', 'Quadro P620', 'Quadro Rtx 4000', 'Quadro RTX A2000',
+                    'Quadro RTX A2000', 'Quadro Rtx A4000', 'Quadro RTX A4500', 'Quadro RTX A5000',
+                    'Quadro T1000', 'Quadro T1000', 'Quadro T400', 'Quadro T600', 'R5 220 2GB',
+                    'R5 230, 1GB', 'R5 230 2GB', 'R7 240, 2GB', 'Rtx 2060 Super', 'RTX 2060', 'Rtx 2060',
+                    'Rtx 2060 Super', 'RTX 2070', 'RTX 2070 Super', 'RTX 2080', 'RTX 2080 Super',
+                    'RTX 2080 TI', 'Rtx 3050', 'RTX 3050', 'RTX 3060', 'RTX 3060 TI', 'RTX 3070',
+                    'RTX 3070 TI', 'Rtx 3070 TI', 'Rtx 3080', 'Rtx 3080', 'RTX 3080 TI', 'RTX 3090',
+                    'RTX 3090 TI', 'Rtx 3090 TI', 'Rx 460', 'Rx 550', 'RX 550', 'RX 5500', 'RX 5600 XT',
+                    'RX 570', 'RX 570', 'RX 5700', 'RX 5700 XT', 'Rx 580', 'Rx 580', 'RX 590',
+                    'RX 6400', 'RX 6500 XT', 'RX 6600', 'RX 6600 XT', 'RX 6650 XT', 'RX 6700 XT',
+                    'RX 6750 XT', 'RX 6800', 'RX 6800 XT', 'RX 6900 XT', 'RX 6950 XT']
+
         for i in range(len(allModel)):
             for data in allGPU:
                 if allModel[i] in data['Name']:
-                    key = list(Model.values())
-                    key[i].append(data)
+                    data.update({'Model': allModel[i]})
 
-        return Model, allGPU
+        return allGPU
 
 
 # RAM Filter
@@ -153,212 +67,155 @@ class KabumRAM:
         allRAM = KabumRAM.RAM_get()
         # Specific memory lists
 
-        # Double Data Rate
-        DDR = {
-            "memoryDDR5": [],
-            "memoryDDR4": [],
-            "memoryDDR3": []
-        }
-
-        # Capacity
-        capacityDDR5 = {
-            "8gb": [],
-            "16gb": [],
-            "32gb": []
-        }
-        capacityDDR4 = {
-            "4gb": [],
-            "8gb": [],
-            "16gb": [],
-            "32gb": []
-        }
-        capacityDDR3 = {
-            "4gb": [],
-            "8gb": [],
-            "16gb": [],
-            "32gb": []
-        }
-
-        # Frequency
-        frequencyDDR5 = {
-            # 16gb and DDR5
-            "8gb_48000MHz": [],
-
-            # 16gb and DDR5
-            "16gb_4800MHz": [],
-
-            # 32gb and DDR5
-            "32gb_5600MHz": [],
-            "32gb_6000MHz": []
-        }
-        frequencyDDR4 = {
-            # 4gb and DDR4
-            "4gb_2400MHz": [],
-            "4gb_1600MHz": [],
-
-            # 8gb and DDR4
-            "8gb_3200Mhz": [],
-            "8gb_3000Mhz": [],
-            "8gb_2666Mhz": [],
-
-            # 16gb and DDR4
-            "16gb_3600Mhz": [],
-            "16gb_3200Mhz": [],
-            "16gb_3000Mhz": [],
-            "16gb_2666Mhz": [],
-
-            # 32gb and DDR4
-            "32gb_3600Mhz": [],
-            "32gb_3200Mhz": [],
-            "32gb_3000Mhz": [],
-            "32gb_2666Mhz": []
-        }
-        frequencyDDR3 = {
-            # 4gb and DDR3
-            "4gb_1600Mhz": [],
-            "4gb_1333Mhz": [],
-
-            # 8gb and DDR3
-            "8gb_1600Mhz": [],
-            "8gb_1866Mhz": [],
-
-            # 16gb and DDR3
-            "16gb_1600Mhz": [],
-            "16gb_1866Mhz": [],
-
-            # 32gb and DDR3
-            "32gb_1600Mhz": []
-        }
         # Filters
 
         # Double Data Rate
         allDDR = ['DDR5', 'DDR4', 'DDR3']
-        key = list(DDR.values())
         for i in range(len(allDDR)):
             for data in allRAM:
                 if allDDR[i] in data['Name']:
-                    key = list(DDR.values())
-                    key[i].append(data)
+                    data.update({'DDR': allDDR[i]})
 
         # Capacity / DDR5
         allCapacity = ['8GB', '16GB', '32GB']
-        key = list(capacityDDR5.values())
         for i in range(len(allCapacity)):
-            for data in DDR['memoryDDR5']:
-                if allCapacity[i] in data['Name']:
-                    key = list(capacityDDR5.values())
-                    key[i].append(data)
+            for data in allRAM:
+                if allCapacity[i] in data['Name'] and 'DDR5' in data['Name']:
+                    data.update({'Capacity': allCapacity[i]})
 
         # Capacity / DDR4
         allCapacity = ['4GB', '8GB', '16GB', '32GB']
-        key = list(capacityDDR4.values())
         for i in range(len(allCapacity)):
-            for data in DDR['memoryDDR4']:
-                if allCapacity[i] in data['Name']:
-                    key = list(capacityDDR4.values())
-                    key[i].append(data)
+            for data in allRAM:
+                if allCapacity[i] in data['Name'] and 'DDR4' in data['Name']:
+                    data.update({'Capacity': allCapacity[i]})
 
         # Capacity / DDR3
-        key = list(capacityDDR3.values())
         for i in range(len(allCapacity)):
-            for data in DDR['memoryDDR3']:
-                if allCapacity[i] in data['Name']:
-                    key = list(capacityDDR3.values())
-                    key[i].append(data)
+            for data in allRAM:
+                if allCapacity[i] in data['Name'] and 'DDR3' in data['Name']:
+                    data.update({'Capacity': allCapacity[i]})
 
         # Frequency / DDR5
 
         # FILTER == 8gb
-        for data in capacityDDR5['8gb']:  # 4800Mhz 16gb DDR5
-            if '4800MHz' in data['Name']:
-                frequencyDDR5['8gb_48000MHz'].append(data)
+        for data in allRAM:
+            if '4800MHz' in data['Name'] and 'DDR5' in data['Name'] and '8GB' in data['Name']:
+                data.update({'Frequency': '4800MHz'})
+                data.update({'Model': '4800MHz 8GB DDR5'})
 
         # FILTER == 16gb
-        for data in capacityDDR5['16gb']:  # 4800Mhz 16gb DDR5
-            if '4800MHz' in data['Name']:
-                frequencyDDR5['16gb_4800MHz'].append(data)
+            if '4800MHz' in data['Name'] and 'DDR5' in data['Name'] and '16GB' in data['Name']:
+                data.update({'Frequency': '4800MHz'})
+                data.update({'Model': '4800MHz 16GB DDR5'})
 
         # FILTER == 32gb
-        for data in capacityDDR5['32gb']:
-            if '5600MHz' in data['Name']:  # 5600Mhz 32gb DDR5
-                frequencyDDR5['32gb_5600MHz'].append(data)
-            if '6000MHz' in data['Name']:  # 6000Mhz 32gb DDR5
-                frequencyDDR5['32gb_6000MHz'].append(data)
+            if '5600MHz' in data['Name'] and 'DDR5' in data['Name'] and '32GB' in data['Name']:  # 5600Mhz 32gb DDR5
+                data.update({'Frequency': '5600MHz'})
+                data.update({'Model': '5600MHz 32GB DDR5'})
+
+            if '6000MHz' in data['Name'] and 'DDR5' in data['Name'] and '32GB' in data['Name']:  # 6000Mhz 32gb DDR5
+                data.update({'Frequency': '6000MHz'})
+                data.update({'Model': '6000MHz 32GB DDR5'})
 
         # # Frequency / DDR4
 
         # FILTER == 4gb
-        for data in capacityDDR4['4gb']:
-            if '2400MHz' in data['Name']:  # 2600Mhz 4gb DDR4
-                frequencyDDR4['4gb_2400MHz'].append(data)
-            if '1600MHz' in data['Name']:  # 1600MHz 4gb DDR4
-                frequencyDDR4['4gb_1600MHz'].append(data)
+            if '2400MHz' in data['Name'] and 'DDR4' in data['Name'] and '4GB' in data['Name']:  # 2400MHz 4GB DDR4
+                data.update({'Frequency': '2400MHz'})
+                data.update({'Model': '2400MHz 4GB DDR4'})
+
+            if '1600MHz' in data['Name'] and 'DDR4' in data['Name'] and '4GB' in data['Name']:  # 1600MHz 4GB DDR4
+                data.update({'Frequency': '1600MHz'})
+                data.update({'Model': '1600MHz 4GB DDR4'})
 
         # FILTER == 8gb
-        for data in capacityDDR4['8gb']:
-            if '2666MHz' in data['Name']:  # 2666MHz 8gb DDR4
-                frequencyDDR4['8gb_2666Mhz'].append(data)
-            if '3000MHz' in data['Name']:  # 3000MHz 8gb DDR4
-                frequencyDDR4['8gb_3000Mhz'].append(data)
-            if '3200MHz' in data['Name']:  # 3200MHz 8gb DDR4
-                frequencyDDR4['8gb_3200Mhz'].append(data)
+            if '2666MHz' in data['Name'] and 'DDR4' in data['Name'] and '8GB' in data['Name']:  # 2666MHz 8GB DDR4
+                data.update({'Frequency': '2666MHz'})
+                data.update({'Model': '2666MHz 8GB DDR4'})
+
+            if '3000MHz' in data['Name'] and 'DDR4' in data['Name'] and '8GB' in data['Name']:  # 3000MHz 8GB DDR4
+                data.update({'Frequency': '3000MHz'})
+                data.update({'Model': '3000MHz 8GB DDR4'})
+
+            if '3200MHz' in data['Name'] and 'DDR4' in data['Name'] and '8GB' in data['Name']:  # 3200MHz 8GB DDR4
+                data.update({'Frequency': '3200MHz'})
+                data.update({'Model': '3200MHz 8GB DDR4'})
 
         # FILTER == 16gb
-        for data in capacityDDR4['16gb']:
-            if '2666MHz' in data['Name']:  # 2666MHz 16gb DDR4
-                frequencyDDR4['16gb_2666Mhz'].append(data)
-            if '3600MHz' in data['Name']:  # 3600MHz 16gb DDR4
-                frequencyDDR4['16gb_3600Mhz'].append(data)
-            if '3000MHz' in data['Name']:  # 3000MHz 16gb DDR4
-                frequencyDDR4['16gb_3200Mhz'].append(data)
-            if '3200MHz' in data['Name']:  # 3200MHz 16gb DDR4
-                frequencyDDR4['16gb_3200Mhz'].append(data)
+            if '2666MHz' in data['Name'] and 'DDR4' in data['Name'] and '16GB' in data['Name']:  # 2666MHz 16GB DDR4
+                data.update({'Frequency': '2666MHz'})
+                data.update({'Model': '2666MHz 16GB DDR4'})
+
+            if '3000MHz' in data['Name'] and 'DDR4' in data['Name'] and '16GB' in data['Name']:  # 3000MHz 16GB DDR4
+                data.update({'Frequency': '3000MHz'})
+                data.update({'Model': '3000MHz 16GB DDR4'})
+
+            if '3200MHz' in data['Name'] and 'DDR4' in data['Name'] and '16GB' in data['Name']:  # 3200MHz 16GB DDR4
+                data.update({'Frequency': '3200MHz'})
+                data.update({'Model': '3200MHz 16GB DDR4'})
+
+            if '3600MHz' in data['Name'] and 'DDR4' in data['Name'] and '16GB' in data['Name']:  # 3600MHz 16GB DDR4
+                data.update({'Frequency': '3600MHz'})
+                data.update({'Model': '3600MHz 16GB DDR4'})
 
         # FILTER == 32gb
-        for data in capacityDDR4['32gb']:
-            if '2666MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-                frequencyDDR4['32gb_2666Mhz'].append(data)
-            if '3600MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-                frequencyDDR4['32gb_3600Mhz'].append(data)
-            if '3000MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-                frequencyDDR4['32gb_3000Mhz'].append(data)
-            if '3200MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-                frequencyDDR4['32gb_3200Mhz'].append(data)
+            if '2666MHz' in data['Name'] and 'DDR4' in data['Name'] and '32GB' in data['Name']:  # 2666MHz 32GB DDR4
+                data.update({'Frequency': '2666MHz'})
+                data.update({'Model': '2666MHz 32GB DDR4'})
+
+            if '3000MHz' in data['Name'] and 'DDR4' in data['Name'] and '32GB' in data['Name']:  # 3000MHz 32GB DDR4
+                data.update({'Frequency': '3000MHz'})
+                data.update({'Model': '3000MHz 32GB DDR4'})
+
+            if '3200MHz' in data['Name'] and 'DDR4' in data['Name'] and '32GB' in data['Name']:  # 3200MHz 32GB DDR4
+                data.update({'Frequency': '3200MHz'})
+                data.update({'Model': '3200MHz 32GB DDR4'})
+
+            if '3600MHz' in data['Name'] and 'DDR4' in data['Name'] and '32GB' in data['Name']:  # 3600MHz 32GB DDR4
+                data.update({'Frequency': '3600MHz'})
+                data.update({'Model': '3600MHz 32GB DDR4'})
 
         # Frequency / DDR3
 
         # FILTER == 4gb
-        for data in capacityDDR3['4gb']:
-            if '2400MHz' in data['Name']:  # 2400MHz 4gb DDR3
-                frequencyDDR3['4gb_1333Mhz'].append(data)
-            if '1600MHz' in data['Name']:  # 1600MHz 4gb DDR3
-                frequencyDDR3['4gb_1600Mhz'].append(data)
+            if '2400MHz' in data['Name'] and 'DDR3' in data['Name'] and '4GB' in data['Name']:  # 2400MHz 4gb DDR3
+                data.update({'Frequency': '2400MHz'})
+                data.update({'Model': '2400MHz 4GB DDR3'})
+
+            if '1600MHz' in data['Name'] and 'DDR3' in data['Name'] and '4GB' in data['Name']:  # 1600MHz 4gb DDR3
+                data.update({'Frequency': '1600MHz'})
+                data.update({'Model': '1600MHz 4GB DDR3'})
 
         # FILTER == 8gb
-        for data in capacityDDR3['8gb']:
-            if '1600MHz' in data['Name']:  # 1600MHz 8gb DDR3
-                frequencyDDR3['8gb_1600Mhz'].append(data)
-            if '1866MHz' in data['Name']:  # 1866MHz 8gb DDR3
-                frequencyDDR3['8gb_1866Mhz'].append(data)
+            if '1600MHz' in data['Name'] and 'DDR3' in data['Name'] and '8GB' in data['Name']:  # 1600MHz 8GB DDR3
+                data.update({'Frequency': '1600MHz'})
+                data.update({'Model': '1600MHz 8GB DDR3'})
+
+            if '1866MHz' in data['Name'] and 'DDR3' in data['Name'] and '8GB' in data['Name']:  # 1866MHz 8GB DDR3
+                data.update({'Frequency': '1866MHz'})
+                data.update({'Model': '1866MHz 8GB DDR3'})
 
         # FILTER == 16gb
-        for data in capacityDDR3['16gb']:
-            if '1600MHz' in data['Name']:  # 1600MHz 16gb DDR3
-                frequencyDDR3['16gb_1600Mhz'].append(data)
-            if '1866MHz' in data['Name']:  # 1866MHz 16gb DDR3
-                frequencyDDR3['16gb_1866Mhz'].append(data)
+            if '1600MHz' in data['Name'] and 'DDR3' in data['Name'] and '16GB' in data['Name']:  # 1600MHz 16GB DDR3
+                data.update({'Frequency': '1600MHz'})
+                data.update({'Model': '1600MHz 16GB DDR3'})
+
+            if '1866MHz' in data['Name'] and 'DDR3' in data['Name'] and '16GB' in data['Name']:  # 1866MHz 16GB DDR3
+                data.update({'Frequency': '1866MHz'})
+                data.update({'Model': '1866MHz 16GB DDR3'})
 
         # FILTER == 32gb
-        for data in capacityDDR3['32gb']:
-            if '1600MHz' in data['Name']:  # 1600MHz 32gb DDR3
-                frequencyDDR3['32gb_1600Mhz'].append(data)
+            if '1600MHz' in data['Name'] and 'DDR3' in data['Name'] and '32GB' in data['Name']:  # 1600MHz 32GB DDR3
+                data.update({'Frequency': '1600MHz'})
+                data.update({'Model': '1600MHz 32GB DDR3'})
 
-        return DDR, capacityDDR5, capacityDDR4, capacityDDR3, frequencyDDR5, frequencyDDR4, frequencyDDR3, allRAM
+        return allRAM
 
 
 # CPU Filter
 # In this object there are two functions that
-# scraping the all CPU of Pichau Store and
+# scraping the all CPU of Kabum Store and
 # return in several dictionaries for different filters
 class KabumCPU:
 
@@ -372,49 +229,47 @@ class KabumCPU:
         allCPU = KabumCPU.CPU_get()
         # Specific CPU lists
 
-        # Platform and integrate GPU
+        # Platform
 
         # AMD
         # FILTER == AMD APU integrate GPU
         for data in allCPU:
             if 'AMD' in data['Name']:
                 if '0G' in data['Name'] or '0GE' in data['Name'] or 'FM2+' in data['Name']:
-                    Platform['AMD']['apuAMD'].append(data)
+                    data.update({'Platform': 'AMD APU'})
 
                 # FILTER == AMD CPU without GPU
                 else:
-                    Platform['AMD']['cpuAMD'].append(data)
+                    data.update({'Platform': 'AMD CPU'})
 
         # Intel
         # FILTER == Intel CPU without GPU
         for data in allCPU:
             if 'Intel' in data['Name']:
                 if '5F' in data['Name'] or '0KF' in data['Name'] or '0X' in data['Name'] or '0F' in data['Name']:
-                    Platform['Intel']['cpuIntel'].append(data)
+                    data.update({'Platform': 'Intel CPU'})
 
                 # FILTER == Intel APU integrate GPU
                 else:
-                    Platform['Intel']['apuIntel'].append(data)
+                    data.update({'Platform': 'Intel APU'})
 
         # Socket
 
         # FILTER == AMD AM4 and AMD AM4G
-        allSocket = ['AM4', 'FM2+', '1150', '1151', '1200', '1700', '2066']
-        key = list(Socket.values())
-        for i in range(len(allSocket)):
+        allModel = ['AM4', 'FM2+', 'LGA 1150', 'LGA 1151', 'LGA 1200', 'LGA 1700', 'LGA 2066']
+        for i in range(len(allModel)):
             for data in allCPU:
-                if allSocket[i] in data['Name']:
-                    key = list(Socket.values())
-                    key[i].append(data)
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i]})
 
-        return Socket, Platform, allCPU
+        return allCPU
 
 
 # Mother Board Filter
 # In this object there are two functions that
-# scraping the all MotherBoards of Pichau Store and
+# scraping the all MotherBoards of Kabum Store and
 # return in several dictionaries for different filters
-class PichauMotherBoard:
+class KabumMotherBoard:
 
     @staticmethod
     def MB_get():
@@ -423,58 +278,172 @@ class PichauMotherBoard:
 
     @staticmethod
     def MB_FILTERS():
-        allMB = PichauMotherBoard.MB_get()
+        allMB = KabumMotherBoard.MB_get()
         # Specific MotherBoard lists
 
         # Double Data Rate
-        DDR = {
-            "motherBoardDDR5": [],
-            "motherBoardDDR4": [],
-            "motherBoardDDR3": []
-        }
-        # MotherBoard Format
-        Format = {
-            "motherBoardATX": [],
-            "motherBoardE_ATX": [],
-            "motherBoardMicro_ATX": [],
-            "motherBoardMini_ITX": []
-        }
-        # MotherBoard Socket
-        Socket = {
-            "motherBoardAM4": [],
-            "motherBoardLGA1700": [],
-            "motherBoardLGA1200": [],
-            "motherBoardLGA1150": [],
-            "motherBoardLGA1151": [],
-            "motherBoardLGA1155": [],
-            "motherBoardFM2": []
-        }
-
-        # Double Data Rate
         allDDR = ['DDR5', 'DDR4', 'DDR3']
-        key = list(DDR.values())
         for i in range(len(allDDR)):
             for data in allMB:
                 if allDDR[i] in data['Name']:
-                    key = list(DDR.values())
-                    key[i].append(data)
+                    data.update({'DDR': allDDR[i]})
 
         # Format
-        allFormat = ['ATX', 'E-ATX', 'Micro-ATX', 'Mini-ITX']
-        key = list(Format.values())
+        allFormat = ['ATX', 'E-ATX', 'MATX', 'Mini-ITX']
         for i in range(len(allFormat)):
             for data in allMB:
                 if allFormat[i] in data['Name']:
-                    key = list(Format.values())
-                    key[i].append(data)
+                    data.update({'Format': allFormat[i]})
 
         # Socket
-        allSocket = ['AM4', 'LGA1700', 'LGA1200', 'LGA1150', 'LGA1151', 'LGA1155', 'FM2+']
-        key = list(Socket.values())
-        for i in range(len(allSocket)):
+        allModel = ['AM4', 'LGA1700', '1200', 'LGA1150', 'LGA1151', 'LGA1155', 'FM2+']
+        for i in range(len(allModel)):
             for data in allMB:
-                if allSocket[i] in data['Name']:
-                    key = list(Socket.values())
-                    key[i].append(data)
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i]})
+        return allMB
 
-        return DDR, Format, Socket, allMB
+
+# Font Filter
+# In this object there are two functions that
+# scraping the all Font of Kabum Store and
+# return in several dictionaries for different filters
+class KabumFont:
+    @staticmethod
+    def Font_get():
+        allFont = Font.Font_Crawl()
+        return allFont
+
+    @staticmethod
+    def Font_FILTERS():
+        allFont = KabumFont.Font_get()
+        # Specific Fonts lists
+
+        # Font Potency
+
+        allModel = ['200', '400', '450', '500', '550', '600', '650', '700', '750', '850', '1200']
+        for i in range(len(allModel)):
+            for data in allFont:
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i] + 'W'})
+
+        return allFont
+
+
+# HardDisk Filter
+# In this object there are two functions that
+# scraping the all HardDisk of Kabum Store and
+# return in several dictionaries for different filters
+class KabumHD:
+    @staticmethod
+    def HD_get():
+        allHD = HardDisk.HD_Crawl()
+        return allHD
+
+    @staticmethod
+    def HD_FILTERS():
+        allHD = KabumHD.HD_get()
+        # Specific HardDisk lists
+
+        # HardDisk Capacity
+
+        # Filters
+
+        # HardDisk Capacity
+        allModel = ['10TB', '12TB', '14TB', '16TB', '1TB', '2TB', '3TB', '4TB', '6TB', '8TB']
+        for i in range(len(allModel)):
+            for data in allHD:
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i]})
+
+        return allHD
+
+
+# SSD Filter
+# In this object there are two functions that
+# scraping the all SSD Data of Kabum Store and
+# return in several dictionaries for different filters
+class KabumSSD:
+    @staticmethod
+    def SSD_get():
+        allSSD = SSD.SSD_Crawl()
+        return allSSD
+
+    @staticmethod
+    def SSD_FILTERS():
+        allSSD = KabumSSD.SSD_get()
+        # Specific SSD lists
+
+        # Filters
+
+        # SSD Interface
+        allInterface = ['NVMe', 'SATA']
+        for i in range(len(allInterface)):
+            for data in allSSD:
+                if allInterface[i] in data['Name']:
+                    data.update({'Interface': allInterface[i]})
+
+        # SSD Format
+        allFormat = ['2.5', 'M.2', 'PCIe']
+        for i in range(len(allFormat)):
+            for data in allSSD:
+                if allFormat[i] in data['Name']:
+                    data.update({'Format': allFormat[i]})
+
+        # SSD Capacity
+        allModel = ['120', '128', '1TB', '240',
+                    '250', '256', '2TB', '480',
+                    '4TB', '500', '8TB', '980']
+        for i in range(len(allModel)):
+            for data in allSSD:
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i]})
+
+        return allSSD
+
+
+# Cabinet Filter
+# In this object there are two functions that
+# scraping the all cases of Pichau Store and
+# return in several dictionaries for different filters
+class KabumCabinet:
+    @staticmethod
+    def Cabinet_get():
+        allCabinet = Cabinet.Cabinet_Crawl()
+        return allCabinet
+
+    @staticmethod
+    def Cabinet_FILTERS():
+        allCabinet = KabumCabinet.Cabinet_get()
+        # Specific Case lists
+
+        # Filters
+
+        # Case Colors
+        allColors = ['Azul', 'Blue', 'Branco', 'White', 'Branco/Preto', 'Cinza', 'Gray', 'Prata', 'Silver', 'Preto', 'Black', 'Preto/Azul',
+                     'Preto/Branco', 'Preto/Laranja', 'Preto/Prata', 'Preto/Vermelho', 'Rosa', 'Pink', 'Verde', 'Green']
+
+        for i in range(len(allColors)):
+            for data in allCabinet:
+                if allColors[i] in data['Name']:
+                    data.update({'Model': allColors[i]})
+
+        # Case Model
+        allModel = ['Full-Tower', 'Full Tower', 'Mid-Tower', 'Mid Tower', 'Mini-Tower', 'Mini Tower']
+
+        for i in range(len(allModel)):
+            for data in allCabinet:
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i]})
+
+        return allCabinet
+
+
+KabumAllCabinet = KabumCabinet.Cabinet_FILTERS()
+KabumAllFont = KabumFont.Font_FILTERS()
+KabumAllSSD = KabumSSD.SSD_FILTERS()
+KabumAllHD = KabumHD.HD_FILTERS()
+KabumAllMB = KabumMotherBoard.MB_FILTERS()
+KabumAllGPU = KabumGPU.GPU_FILTERS()
+KabumAllCPU = KabumCPU.CPU_FILTERS()
+KabumAllRAM = KabumRAM.RAM_FILTERS()

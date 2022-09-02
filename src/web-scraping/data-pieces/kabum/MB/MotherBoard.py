@@ -4,7 +4,7 @@ from selenium import webdriver
 
 def MB_Crawl():
     # Memory specific data
-    installmentPriceProducts = []   # Memory Installment Prices
+
     pricesProducts = []             # Memory Prices
     namesProducts = []              # Memory Name
     linksProducts = []              # Memory Links
@@ -52,6 +52,7 @@ def MB_Crawl():
         changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.')
         dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'MotherBoard', 'Model': ''}
+                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'MotherBoard', 'Model': '',
+                   'DDR': '', 'Format': ''}
         allData.append(dataDic)
     return allData

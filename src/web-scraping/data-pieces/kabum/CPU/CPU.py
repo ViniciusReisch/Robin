@@ -4,12 +4,14 @@ from selenium import webdriver
 
 def CPU_Crawl():
     # Memory specific data
+
     pricesProducts = []             # Memory Prices
     namesProducts = []              # Memory Name
     linksProducts = []              # Memory Links
     imgProducts = []                # Memory Image
     local = arrow.utcnow()          # Scraping date and time
     allData = []                    # Memory all data
+
     for i in range(1, 4):
         driver = webdriver.Chrome()
         link = f'https://www.kabum.com.br/hardware/processadores?page_number={i}&page_size=100&facet_filters=&sort=most_searched'
@@ -50,6 +52,6 @@ def CPU_Crawl():
         changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.')
         dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'CPU', 'Model': ''}
+                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'CPU', 'Model': '', 'Platform': ''}
         allData.append(dataDic)
     return allData

@@ -4,13 +4,13 @@ from selenium import webdriver
 
 def RAM_Crawl():
     # Memory specific data
-    installmentPriceProducts = []  # Memory Installment Prices
-    pricesProducts = []  # Memory Prices
-    namesProducts = []  # Memory Name
-    linksProducts = []  # Memory Links
-    imgProducts = []  # Memory Image
-    local = arrow.utcnow()  # Scraping date and time
-    allData = []  # Memory all data
+
+    pricesProducts = []             # Memory Prices
+    namesProducts = []              # Memory Name
+    linksProducts = []              # Memory Links
+    imgProducts = []                # Memory Image
+    local = arrow.utcnow()          # Scraping date and time
+    allData = []                    # Memory all data
 
     for i in range(1, 8):
         driver = webdriver.Chrome()
@@ -52,6 +52,7 @@ def RAM_Crawl():
         changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.')
         dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'RAM Memory', 'Model': ''}
+                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'RAM Memory', 'Model': '',
+                   'Capacity': '', 'DDR': '', 'Frequency': ''}
         allData.append(dataDic)
     return allData
