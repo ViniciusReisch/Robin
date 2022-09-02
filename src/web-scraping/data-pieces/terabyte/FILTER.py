@@ -597,7 +597,14 @@ class TerabyteCabinet:
         for i in range(len(allColors)):
             for data in allCabinet:
                 if allColors[i] in data['Name']:
-                    data.update({'Model': allColors[i]})
+                    data.update({'Color': allColors[i]})
+
+        # Case Model
+        allModel = ['Full-Tower', 'Mid-Tower', 'Mini-Tower']
+        for i in range(len(allModel)):
+            for data in allCabinet:
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i]})
 
         return allCabinet
 
