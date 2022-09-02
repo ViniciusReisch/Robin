@@ -23,207 +23,150 @@ class TerabyteRAM:
         allRAM = TerabyteRAM.RAM_get()
         # Specific memory lists
 
-        # Double Data Rate
-        DDR = {
-            "memoryDDR5": [],
-            "memoryDDR4": [],
-            "memoryDDR3": []
-        }
-
-        # Capacity
-        capacityDDR5 = {
-            "8gb": [],
-            "16gb": [],
-            "32gb": []
-        }
-        capacityDDR4 = {
-            "4gb": [],
-            "8gb": [],
-            "16gb": [],
-            "32gb": []
-        }
-        capacityDDR3 = {
-            "4gb": [],
-            "8gb": [],
-            "16gb": [],
-            "32gb": []
-        }
-
-        # Frequency
-        frequencyDDR5 = {
-            # 16gb and DDR5
-            "8gb_48000MHz": [],
-
-            # 16gb and DDR5
-            "16gb_4800MHz": [],
-
-            # 32gb and DDR5
-            "32gb_5600MHz": [],
-            "32gb_6000MHz": []
-        }
-        frequencyDDR4 = {
-            # 4gb and DDR4
-            "4gb_2400MHz": [],
-            "4gb_1600MHz": [],
-
-            # 8gb and DDR4
-            "8gb_3200Mhz": [],
-            "8gb_3000Mhz": [],
-            "8gb_2666Mhz": [],
-
-            # 16gb and DDR4
-            "16gb_3600Mhz": [],
-            "16gb_3200Mhz": [],
-            "16gb_3000Mhz": [],
-            "16gb_2666Mhz": [],
-
-            # 32gb and DDR4
-            "32gb_3600Mhz": [],
-            "32gb_3200Mhz": [],
-            "32gb_3000Mhz": [],
-            "32gb_2666Mhz": []
-        }
-        frequencyDDR3 = {
-            # 4gb and DDR3
-            "4gb_1600Mhz": [],
-            "4gb_1333Mhz": [],
-
-            # 8gb and DDR3
-            "8gb_1600Mhz": [],
-            "8gb_1866Mhz": [],
-
-            # 16gb and DDR3
-            "16gb_1600Mhz": [],
-            "16gb_1866Mhz": [],
-
-            # 32gb and DDR3
-            "32gb_1600Mhz": []
-        }
         # Filters
 
         # Double Data Rate
         allDDR = ['DDR5', 'DDR4', 'DDR3']
-        key = list(DDR.values())
         for i in range(len(allDDR)):
             for data in allRAM:
                 if allDDR[i] in data['Name']:
-                    key = list(DDR.values())
-                    key[i].append(data)
+                    data.update({'DDR': allDDR[i]})
 
         # Capacity / DDR5
         allCapacity = ['8GB', '16GB', '32GB']
-        key = list(capacityDDR5.values())
         for i in range(len(allCapacity)):
-            for data in DDR['memoryDDR5']:
-                if allCapacity[i] in data['Name']:
-                    key = list(capacityDDR5.values())
-                    key[i].append(data)
+            for data in allRAM:
+                if allCapacity[i] in data['Name'] and 'DDR5' in data['Name']:
+                    data.update({'Capacity': allCapacity[i]})
 
         # Capacity / DDR4
         allCapacity = ['4GB', '8GB', '16GB', '32GB']
-        key = list(capacityDDR4.values())
         for i in range(len(allCapacity)):
-            for data in DDR['memoryDDR4']:
-                if allCapacity[i] in data['Name']:
-                    key = list(capacityDDR4.values())
-                    key[i].append(data)
+            for data in allRAM:
+                if allCapacity[i] in data['Name'] and 'DDR4' in data['Name']:
+                    data.update({'Capacity': allCapacity[i]})
 
         # Capacity / DDR3
-        key = list(capacityDDR3.values())
         for i in range(len(allCapacity)):
-            for data in DDR['memoryDDR3']:
-                if allCapacity[i] in data['Name']:
-                    key = list(capacityDDR3.values())
-                    key[i].append(data)
+            for data in allRAM:
+                if allCapacity[i] in data['Name'] and 'DDR3' in data['Name']:
+                    data.update({'Capacity': allCapacity[i]})
 
         # Frequency / DDR5
 
         # FILTER == 8gb
-        for data in capacityDDR5['8gb']:  # 4800Mhz 16gb DDR5
-            if '4800MHz' in data['Name']:
-                frequencyDDR5['8gb_48000MHz'].append(data)
+        for data in allRAM:
+            if '4800MHz' in data['Name'] and 'DDR5' in data['Name'] and '8GB' in data['Name']:
+                data.update({'Frequency': '4800MHz'})
+                data.update({'Model': '4800MHz 8GB DDR5'})
 
         # FILTER == 16gb
-        for data in capacityDDR5['16gb']:  # 4800Mhz 16gb DDR5
-            if '4800MHz' in data['Name']:
-                frequencyDDR5['16gb_4800MHz'].append(data)
+            if '4800MHz' in data['Name'] and 'DDR5' in data['Name'] and '16GB' in data['Name']:
+                data.update({'Frequency': '4800MHz'})
+                data.update({'Model': '4800MHz 16GB DDR5'})
 
         # FILTER == 32gb
-        for data in capacityDDR5['32gb']:
-            if '5600MHz' in data['Name']:  # 5600Mhz 32gb DDR5
-                frequencyDDR5['32gb_5600MHz'].append(data)
-            if '6000MHz' in data['Name']:  # 6000Mhz 32gb DDR5
-                frequencyDDR5['32gb_6000MHz'].append(data)
+            if '5600MHz' in data['Name'] and 'DDR5' in data['Name'] and '32GB' in data['Name']:  # 5600Mhz 32gb DDR5
+                data.update({'Frequency': '5600MHz'})
+                data.update({'Model': '5600MHz 32GB DDR5'})
+
+            if '6000MHz' in data['Name'] and 'DDR5' in data['Name'] and '32GB' in data['Name']:  # 6000Mhz 32gb DDR5
+                data.update({'Frequency': '6000MHz'})
+                data.update({'Model': '6000MHz 32GB DDR5'})
 
         # # Frequency / DDR4
 
         # FILTER == 4gb
-        for data in capacityDDR4['4gb']:
-            if '2400MHz' in data['Name']:  # 2600Mhz 4gb DDR4
-                frequencyDDR4['4gb_2400MHz'].append(data)
-            if '1600MHz' in data['Name']:  # 1600MHz 4gb DDR4
-                frequencyDDR4['4gb_1600MHz'].append(data)
+            if '2400MHz' in data['Name'] and 'DDR4' in data['Name'] and '4GB' in data['Name']:  # 2400MHz 4GB DDR4
+                data.update({'Frequency': '2400MHz'})
+                data.update({'Model': '2400MHz 4GB DDR4'})
+
+            if '1600MHz' in data['Name'] and 'DDR4' in data['Name'] and '4GB' in data['Name']:  # 1600MHz 4GB DDR4
+                data.update({'Frequency': '1600MHz'})
+                data.update({'Model': '1600MHz 4GB DDR4'})
 
         # FILTER == 8gb
-        for data in capacityDDR4['8gb']:
-            if '2666MHz' in data['Name']:  # 2666MHz 8gb DDR4
-                frequencyDDR4['8gb_2666Mhz'].append(data)
-            if '3000MHz' in data['Name']:  # 3000MHz 8gb DDR4
-                frequencyDDR4['8gb_3000Mhz'].append(data)
-            if '3200MHz' in data['Name']:  # 3200MHz 8gb DDR4
-                frequencyDDR4['8gb_3200Mhz'].append(data)
+            if '2666MHz' in data['Name'] and 'DDR4' in data['Name'] and '8GB' in data['Name']:  # 2666MHz 8GB DDR4
+                data.update({'Frequency': '2666MHz'})
+                data.update({'Model': '2666MHz 8GB DDR4'})
+
+            if '3000MHz' in data['Name'] and 'DDR4' in data['Name'] and '8GB' in data['Name']:  # 3000MHz 8GB DDR4
+                data.update({'Frequency': '3000MHz'})
+                data.update({'Model': '3000MHz 8GB DDR4'})
+
+            if '3200MHz' in data['Name'] and 'DDR4' in data['Name'] and '8GB' in data['Name']:  # 3200MHz 8GB DDR4
+                data.update({'Frequency': '3200MHz'})
+                data.update({'Model': '3200MHz 8GB DDR4'})
 
         # FILTER == 16gb
-        for data in capacityDDR4['16gb']:
-            if '2666MHz' in data['Name']:  # 2666MHz 16gb DDR4
-                frequencyDDR4['16gb_2666Mhz'].append(data)
-            if '3600MHz' in data['Name']:  # 3600MHz 16gb DDR4
-                frequencyDDR4['16gb_3600Mhz'].append(data)
-            if '3000MHz' in data['Name']:  # 3000MHz 16gb DDR4
-                frequencyDDR4['16gb_3200Mhz'].append(data)
-            if '3200MHz' in data['Name']:  # 3200MHz 16gb DDR4
-                frequencyDDR4['16gb_3200Mhz'].append(data)
+            if '2666MHz' in data['Name'] and 'DDR4' in data['Name'] and '16GB' in data['Name']:  # 2666MHz 16GB DDR4
+                data.update({'Frequency': '2666MHz'})
+                data.update({'Model': '2666MHz 16GB DDR4'})
+
+            if '3000MHz' in data['Name'] and 'DDR4' in data['Name'] and '16GB' in data['Name']:  # 3000MHz 16GB DDR4
+                data.update({'Frequency': '3000MHz'})
+                data.update({'Model': '3000MHz 16GB DDR4'})
+
+            if '3200MHz' in data['Name'] and 'DDR4' in data['Name'] and '16GB' in data['Name']:  # 3200MHz 16GB DDR4
+                data.update({'Frequency': '3200MHz'})
+                data.update({'Model': '3200MHz 16GB DDR4'})
+
+            if '3600MHz' in data['Name'] and 'DDR4' in data['Name'] and '16GB' in data['Name']:  # 3600MHz 16GB DDR4
+                data.update({'Frequency': '3600MHz'})
+                data.update({'Model': '3600MHz 16GB DDR4'})
 
         # FILTER == 32gb
-        for data in capacityDDR4['32gb']:
-            if '2666MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-                frequencyDDR4['32gb_2666Mhz'].append(data)
-            if '3600MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-                frequencyDDR4['32gb_3600Mhz'].append(data)
-            if '3000MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-                frequencyDDR4['32gb_3000Mhz'].append(data)
-            if '3200MHz' in data['Name']:  # 5600Mhz 32gb DDR4
-                frequencyDDR4['32gb_3200Mhz'].append(data)
+            if '2666MHz' in data['Name'] and 'DDR4' in data['Name'] and '32GB' in data['Name']:  # 2666MHz 32GB DDR4
+                data.update({'Frequency': '2666MHz'})
+                data.update({'Model': '2666MHz 32GB DDR4'})
+
+            if '3000MHz' in data['Name'] and 'DDR4' in data['Name'] and '32GB' in data['Name']:  # 3000MHz 32GB DDR4
+                data.update({'Frequency': '3000MHz'})
+                data.update({'Model': '3000MHz 32GB DDR4'})
+
+            if '3200MHz' in data['Name'] and 'DDR4' in data['Name'] and '32GB' in data['Name']:  # 3200MHz 32GB DDR4
+                data.update({'Frequency': '3200MHz'})
+                data.update({'Model': '3200MHz 32GB DDR4'})
+
+            if '3600MHz' in data['Name'] and 'DDR4' in data['Name'] and '32GB' in data['Name']:  # 3600MHz 32GB DDR4
+                data.update({'Frequency': '3600MHz'})
+                data.update({'Model': '3600MHz 32GB DDR4'})
 
         # Frequency / DDR3
 
         # FILTER == 4gb
-        for data in capacityDDR3['4gb']:
-            if '2400MHz' in data['Name']:  # 2400MHz 4gb DDR3
-                frequencyDDR3['4gb_1333Mhz'].append(data)
-            if '1600MHz' in data['Name']:  # 1600MHz 4gb DDR3
-                frequencyDDR3['4gb_1600Mhz'].append(data)
+            if '2400MHz' in data['Name'] and 'DDR3' in data['Name'] and '4GB' in data['Name']:  # 2400MHz 4gb DDR3
+                data.update({'Frequency': '2400MHz'})
+                data.update({'Model': '2400MHz 4GB DDR3'})
+
+            if '1600MHz' in data['Name'] and 'DDR3' in data['Name'] and '4GB' in data['Name']:  # 1600MHz 4gb DDR3
+                data.update({'Frequency': '1600MHz'})
+                data.update({'Model': '1600MHz 4GB DDR3'})
 
         # FILTER == 8gb
-        for data in capacityDDR3['8gb']:
-            if '1600MHz' in data['Name']:  # 1600MHz 8gb DDR3
-                frequencyDDR3['8gb_1600Mhz'].append(data)
-            if '1866MHz' in data['Name']:  # 1866MHz 8gb DDR3
-                frequencyDDR3['8gb_1866Mhz'].append(data)
+            if '1600MHz' in data['Name'] and 'DDR3' in data['Name'] and '8GB' in data['Name']:  # 1600MHz 8GB DDR3
+                data.update({'Frequency': '1600MHz'})
+                data.update({'Model': '1600MHz 8GB DDR3'})
+
+            if '1866MHz' in data['Name'] and 'DDR3' in data['Name'] and '8GB' in data['Name']:  # 1866MHz 8GB DDR3
+                data.update({'Frequency': '1866MHz'})
+                data.update({'Model': '1866MHz 8GB DDR3'})
 
         # FILTER == 16gb
-        for data in capacityDDR3['16gb']:
-            if '1600MHz' in data['Name']:  # 1600MHz 16gb DDR3
-                frequencyDDR3['16gb_1600Mhz'].append(data)
-            if '1866MHz' in data['Name']:  # 1866MHz 16gb DDR3
-                frequencyDDR3['16gb_1866Mhz'].append(data)
+            if '1600MHz' in data['Name'] and 'DDR3' in data['Name'] and '16GB' in data['Name']:  # 1600MHz 16GB DDR3
+                data.update({'Frequency': '1600MHz'})
+                data.update({'Model': '1600MHz 16GB DDR3'})
+
+            if '1866MHz' in data['Name'] and 'DDR3' in data['Name'] and '16GB' in data['Name']:  # 1866MHz 16GB DDR3
+                data.update({'Frequency': '1866MHz'})
+                data.update({'Model': '1866MHz 16GB DDR3'})
 
         # FILTER == 32gb
-        for data in capacityDDR3['32gb']:
-            if '1600MHz' in data['Name']:  # 1600MHz 32gb DDR3
-                frequencyDDR3['32gb_1600Mhz'].append(data)
+            if '1600MHz' in data['Name'] and 'DDR3' in data['Name'] and '32GB' in data['Name']:  # 1600MHz 32GB DDR3
+                data.update({'Frequency': '1600MHz'})
+                data.update({'Model': '1600MHz 32GB DDR3'})
 
-        return DDR, capacityDDR5, capacityDDR4, capacityDDR3, frequencyDDR5, frequencyDDR4, frequencyDDR3, allRAM
+        return allRAM
 
 
 # CPU Filter
@@ -344,7 +287,6 @@ class TerabyteMotherBoard:
             for data in allMB:
                 if allDDR[i] in data['Name']:
                     data.update({'DDR': allDDR[i]})
-
 
         # Format
         allFormat = ['ATX', 'E-ATX', 'MATX', 'Mini-ITX']
@@ -502,4 +444,4 @@ TerabyteAllHD = TerabyteHD.HD_FILTERS()
 TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
 TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
 TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
-# TerabyteRAM_DDR, TerabyteRAM_capacityDDR5, TerabyteRAM_capacityDDR4, TerabyteRAM_capacityDDR3, TerabyteRAM_frequencyDDR5, TerabyteRAM_frequencyDDR4, TerabyteRAM_frequencyDDR3, TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()
+TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()
