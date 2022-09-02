@@ -5,15 +5,16 @@ import socket
 
 def HD_Crawl():
     # HardDisk specific data
-    installmentPriceProducts = []  # HardDisk Installment Prices
-    pricesProducts = []  # HardDisk Prices
-    namesProducts = []  # HardDisk Name
-    linksProducts = []  # HardDisk Links
-    imgProducts = []  # HardDisk Image
-    local = arrow.utcnow()  # Scraping date and time
-    hostIP = socket.gethostname()  # IP Local
-    IPAddr = socket.gethostbyname(hostIP)  # Specif IP
-    allData = []  # HardDisk all data
+
+    installmentPriceProducts = []           # HardDisk Installment Prices
+    pricesProducts = []                     # HardDisk Prices
+    namesProducts = []                      # HardDisk Name
+    linksProducts = []                      # HardDisk Links
+    imgProducts = []                        # HardDisk Image
+    local = arrow.utcnow()                  # Scraping date and time
+    hostIP = socket.gethostname()           # IP Local
+    IPAddr = socket.gethostbyname(hostIP)   # Specif IP
+    allData = []                            # HardDisk all data
 
     for i in range(2):
         driver = webdriver.Chrome()
@@ -90,6 +91,6 @@ def HD_Crawl():
         dataDic = {'Store': 'Pichau', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                    'Installment price': [installmentPriceProducts[i], float(changeableInstallmentPriceProducts)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png'}
+                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'HardDisk', 'Model': ''}
         allData.append(dataDic)
     return allData

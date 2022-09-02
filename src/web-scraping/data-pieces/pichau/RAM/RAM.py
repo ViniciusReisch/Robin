@@ -6,15 +6,16 @@ from time import sleep
 
 def RAM_Crawl():
     # Memory specific data
-    installmentPriceProducts = []  # Memory Installment Prices
-    pricesProducts = []  # Memory Prices
-    namesProducts = []  # Memory Name
-    linksProducts = []  # Memory Links
-    imgProducts = []  # Memory Image
-    local = arrow.utcnow()  # Scraping date and time
-    hostIP = socket.gethostname()  # IP Local
-    IPAddr = socket.gethostbyname(hostIP)  # Specif IP
-    allData = []  # Memory all data
+
+    installmentPriceProducts = []           # Memory Installment Prices
+    pricesProducts = []                     # Memory Prices
+    namesProducts = []                      # Memory Name
+    linksProducts = []                      # Memory Links
+    imgProducts = []                        # Memory Image
+    local = arrow.utcnow()                  # Scraping date and time
+    hostIP = socket.gethostname()           # IP Local
+    IPAddr = socket.gethostbyname(hostIP)   # Specif IP
+    allData = []                            # Memory all data
 
     for i in range(10):
         driver = webdriver.Chrome()
@@ -92,7 +93,8 @@ def RAM_Crawl():
         dataDic = {'Store': 'Pichau', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                    'Installment price': [installmentPriceProducts[i], float(changeableInstallmentPriceProducts)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png'}
+                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'RAM Memory', 'Model': '',
+                   'Capacity': '', 'DDR': '', 'Frequency': ''}
         allData.append(dataDic)
     return allData
 

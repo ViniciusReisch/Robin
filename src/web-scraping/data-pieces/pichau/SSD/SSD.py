@@ -5,15 +5,16 @@ import socket
 
 def SSD_Crawl():
     # SSD specific data
-    installmentPriceProducts = []  # SSD Installment Prices
-    pricesProducts = []  # SSD Prices
-    namesProducts = []  # SSD Name
-    linksProducts = []  # SSD Links
-    imgProducts = []  # SSD Image
-    local = arrow.utcnow()  # Scraping date and time
-    hostIP = socket.gethostname()  # IP Local
-    IPAddr = socket.gethostbyname(hostIP)  # Specif IP
-    allData = []  # SSD all data
+
+    installmentPriceProducts = []           # SSD Installment Prices
+    pricesProducts = []                     # SSD Prices
+    namesProducts = []                      # SSD Name
+    linksProducts = []                      # SSD Links
+    imgProducts = []                        # SSD Image
+    local = arrow.utcnow()                  # Scraping date and time
+    hostIP = socket.gethostname()           # IP Local
+    IPAddr = socket.gethostbyname(hostIP)   # Specif IP
+    allData = []                            # SSD all data
 
     for i in range(6):
         driver = webdriver.Chrome()
@@ -90,6 +91,6 @@ def SSD_Crawl():
         dataDic = {'Store': 'Pichau', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                    'Installment price': [installmentPriceProducts[i], float(changeableInstallmentPriceProducts)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png'}
+                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'SSD', 'Model': '', 'Format': '', 'Interface': ''}
         allData.append(dataDic)
     return allData
