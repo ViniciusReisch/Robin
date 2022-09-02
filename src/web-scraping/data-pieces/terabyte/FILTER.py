@@ -1,10 +1,10 @@
-# from terabyte.RAM import RAM
-# from terabyte.CPU import CPU
+from RAM import RAM
+from CPU import CPU
 from GPU import GraphicsCard
-# from terabyte.MB import MotherBoard
-# from terabyte.HD import HardDisk
-# from terabyte.SSD import SSD
-# from terabyte.FONT import Font
+from MB import MotherBoard
+from HD import HardDisk
+from SSD import SSD
+from FONT import Font
 from CABINET import Cabinet
 
 
@@ -242,27 +242,6 @@ class TerabyteCPU:
         allCPU = TerabyteCPU.CPU_get()
         # Specific CPU lists
 
-        # Platform and integrate GPU
-        Platform = {
-            "AMD": {
-                "cpuAMD": [],
-                "apuAMD": []
-            },
-            "Intel": {
-                "cpuIntel": [],
-                "apuIntel": []
-            }
-        }
-        Socket = {
-            "cpuAM4": [],  # AMD AM4 and AMD AM4G
-            "cpuFM2": [],  # FM2+
-            "cpuLGA1150": [],  # LGA1150
-            "cpuLGA1151": [],  # LGA1151
-            "cpuLGA1200": [],  # LGA1200
-            "cpuLGA1700": [],  # LGA1700
-            "cpuLGA2066": [],  # LGA2066
-        }
-
         # Platform
 
         # AMD
@@ -270,35 +249,33 @@ class TerabyteCPU:
         for data in allCPU:
             if 'AMD' in data['Name']:
                 if '0G' in data['Name'] or '0GE' in data['Name'] or 'FM2+' in data['Name']:
-                    Platform['AMD']['apuAMD'].append(data)
+                    data.update({'Platform': 'AMD APU'})
 
                 # FILTER == AMD CPU without GPU
                 else:
-                    Platform['AMD']['cpuAMD'].append(data)
+                    data.update({'Platform': 'AMD CPU'})
 
         # Intel
         # FILTER == Intel CPU without GPU
         for data in allCPU:
             if 'Intel' in data['Name']:
                 if '5F' in data['Name'] or '0KF' in data['Name'] or '0X' in data['Name'] or '0F' in data['Name']:
-                    Platform['Intel']['cpuIntel'].append(data)
+                    data.update({'Platform': 'Intel CPU'})
 
                 # FILTER == Intel APU integrate GPU
                 else:
-                    Platform['Intel']['apuIntel'].append(data)
+                    data.update({'Platform': 'Intel APU'})
 
         # Socket
 
         # FILTER == AMD AM4 and AMD AM4G
-        allSocket = ['AM4', 'FM2+', 'LGA 1150', 'LGA 1151', 'LGA 1200', 'LGA 1700', 'LGA 2066']
-        key = list(Socket.values())
-        for i in range(len(allSocket)):
+        allModel = ['AM4', 'FM2+', 'LGA 1150', 'LGA 1151', 'LGA 1200', 'LGA 1700', 'LGA 2066']
+        for i in range(len(allModel)):
             for data in allCPU:
-                if allSocket[i] in data['Name']:
-                    key = list(Socket.values())
-                    key[i].append(data)
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i]})
 
-        return Socket, Platform, allCPU
+        return allCPU
 
 
 # GPU Filter
@@ -362,57 +339,27 @@ class TerabyteMotherBoard:
         # Specific MotherBoard lists
 
         # Double Data Rate
-        DDR = {
-            "motherBoardDDR5": [],
-            "motherBoardDDR4": [],
-            "motherBoardDDR3": []
-        }
-        # MotherBoard Format
-        Format = {
-            "motherBoardATX": [],
-            "motherBoardE_ATX": [],
-            "motherBoardMicro_ATX": [],
-            "motherBoardMini_ITX": []
-        }
-        # MotherBoard Socket
-        Socket = {
-            "motherBoardAM4": [],
-            "motherBoardLGA1700": [],
-            "motherBoardLGA1200": [],
-            "motherBoardLGA1150": [],
-            "motherBoardLGA1151": [],
-            "motherBoardLGA1155": [],
-            "motherBoardFM2": []
-        }
-
-        # Double Data Rate
         allDDR = ['DDR5', 'DDR4', 'DDR3']
-        key = list(DDR.values())
         for i in range(len(allDDR)):
             for data in allMB:
                 if allDDR[i] in data['Name']:
-                    key = list(DDR.values())
-                    key[i].append(data)
+                    data.update({'DDR': allDDR[i]})
+
 
         # Format
         allFormat = ['ATX', 'E-ATX', 'MATX', 'Mini-ITX']
-        key = list(Format.values())
         for i in range(len(allFormat)):
             for data in allMB:
                 if allFormat[i] in data['Name']:
-                    key = list(Format.values())
-                    key[i].append(data)
+                    data.update({'Format': allFormat[i]})
 
         # Socket
-        allSocket = ['AM4', 'LGA 1700', '1200', 'LGA 1150', 'LGA 1151', 'LGA 1155', 'FM2+']
-        key = list(Socket.values())
-        for i in range(len(allSocket)):
+        allModel = ['AM4', 'LGA 1700', '1200', 'LGA 1150', 'LGA 1151', 'LGA 1155', 'FM2+']
+        for i in range(len(allModel)):
             for data in allMB:
-                if allSocket[i] in data['Name']:
-                    key = list(Socket.values())
-                    key[i].append(data)
-
-        return DDR, Format, Socket, allMB
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i]})
+        return allMB
 
 
 # Hard Disk Filter
@@ -431,30 +378,17 @@ class TerabyteHD:
         # Specific HardDisk lists
 
         # HardDisk Capacity
-        Capacity = {
-            '10TB': [],
-            '12TB': [],
-            '14TB': [],
-            '16TB': [],
-            '1TB': [],
-            '2TB': [],
-            '3TB': [],
-            '4TB': [],
-            '6TB': [],
-            '8TB': []
-        }
+
         # Filters
 
         # HardDisk Capacity
-        allCapacity = ['10TB', '12TB', '14TB', '16TB', '1TB', '2TB', '3TB', '4TB', '6TB', '8TB']
-        key = list(Capacity.values())
-        for i in range(len(allCapacity)):
+        allModel = ['10TB', '12TB', '14TB', '16TB', '1TB', '2TB', '3TB', '4TB', '6TB', '8TB']
+        for i in range(len(allModel)):
             for data in allHD:
-                if allCapacity[i] in data['Name']:
-                    key = list(Capacity.values())
-                    key[i].append(data)
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i]})
 
-        return Capacity, allHD
+        return allHD
 
 
 # SSD Filter
@@ -472,66 +406,32 @@ class TerabyteSSD:
         allSSD = TerabyteSSD.SSD_get()
         # Specific SSD lists
 
-        # SSD Interface
-        Interface = {
-            'NVME': [],
-            'SATA': [],
-        }
-
-        # SSD Format
-        Format = {
-            '2.5': [],
-            'M.2': [],
-            'PCIe': []
-        }
-
-        # SSD Capacity
-        Capacity = {
-            '120GB': [],
-            '128GB': [],
-            '1TB': [],
-            '240GB': [],
-            '250GB': [],
-            '256GB': [],
-            '2TB': [],
-            '480GB': [],
-            '4TB': [],
-            '500GB': [],
-            '8TB': [],
-            '980GB': []
-        }
         # Filters
 
         # SSD Interface
         allInterface = ['NVMe', 'SATA']
-        key = list(Interface.values())
         for i in range(len(allInterface)):
             for data in allSSD:
                 if allInterface[i] in data['Name']:
-                    key = list(Interface.values())
-                    key[i].append(data)
+                    data.update({'Interface': allInterface[i]})
 
         # SSD Format
         allFormat = ['2.5', 'M.2', 'PCIe']
-        key = list(Format.values())
         for i in range(len(allFormat)):
             for data in allSSD:
                 if allFormat[i] in data['Name']:
-                    key = list(Format.values())
-                    key[i].append(data)
+                    data.update({'Format': allFormat[i]})
 
         # SSD Capacity
-        allCapacity = ['120GB', '128GB', '1TB', '240GB',
-                       '250GB', '256GB', '2TB', '480GB',
-                       '4TB', '500GB', '8TB', '980GB']
-        key = list(Capacity.values())
-        for i in range(len(allCapacity)):
+        allModel = ['120', '128', '1TB', '240',
+                    '250', '256', '2TB', '480',
+                    '4TB', '500', '8TB', '980']
+        for i in range(len(allModel)):
             for data in allSSD:
-                if allCapacity[i] in data['Name']:
-                    key = list(Capacity.values())
-                    key[i].append(data)
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i]})
 
-        return Interface, Format, Capacity, allSSD
+        return allSSD
 
 
 # Font Filter
@@ -550,28 +450,14 @@ class TerabyteFont:
         # Specific Fonts lists
 
         # Font Potency
-        Potency = {
-            '200w': [],
-            '400W': [],
-            '450W': [],
-            '500W': [],
-            '550W': [],
-            '600W': [],
-            '650W': [],
-            '700W': [],
-            '750W': [],
-            '850W': [],
-            '1200W': []
-        }
-        allPotency = ['200', '400', '450', '500', '550', '600', '650', '700', '750', '850', '1200']
-        key = list(Potency.values())
-        for i in range(len(allPotency)):
-            for data in allFont:
-                if allPotency[i] in data['Name']:
-                    key = list(Potency.values())
-                    key[i].append(data)
 
-        return Potency, allFont
+        allModel = ['200', '400', '450', '500', '550', '600', '650', '700', '750', '850', '1200']
+        for i in range(len(allModel)):
+            for data in allFont:
+                if allModel[i] in data['Name']:
+                    data.update({'Model': allModel[i] + 'W'})
+
+        return allFont
 
 
 # Cabinet Filter
@@ -592,7 +478,7 @@ class TerabyteCabinet:
         # Filters
 
         # Case Colors
-        allColors = ['Blue', 'White', 'White/Black', 'Gray', 'Prata', 'Black', 'Preto/Azul',
+        allColors = ['Blue', 'White', 'White/Black', 'Gray', 'Silver', 'Black', 'Preto/Azul',
                      'Black/White', 'Preto/Laranja', 'Black/Gray', 'Red', 'Pink', 'Green']
         for i in range(len(allColors)):
             for data in allCabinet:
@@ -600,7 +486,7 @@ class TerabyteCabinet:
                     data.update({'Color': allColors[i]})
 
         # Case Model
-        allModel = ['Full-Tower', 'Mid-Tower', 'Mini-Tower']
+        allModel = ['Full Tower', 'Mid Tower', 'Mini Tower']
         for i in range(len(allModel)):
             for data in allCabinet:
                 if allModel[i] in data['Name']:
@@ -610,10 +496,10 @@ class TerabyteCabinet:
 
 
 TerabyteAllCabinet = TerabyteCabinet.Cabinet_FILTERS()
-# TerabyteFont_Potency, TerabyteAllFont = TerabyteFont.Font_FILTERS()
-# TerabyteSSD_Interface, TerabyteSSD_Format, TerabyteSSD_Capacity, TerabyteAllSSD = TerabyteSSD.SSD_FILTERS()
-# TerabyteHD_Capacity, TerabyteAllHD = TerabyteHD.HD_FILTERS()
-# TerabyteMB_DDR, TerabyteMB_Format, TerabyteMB_Socket, TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
+TerabyteAllFont = TerabyteFont.Font_FILTERS()
+TerabyteAllSSD = TerabyteSSD.SSD_FILTERS()
+TerabyteAllHD = TerabyteHD.HD_FILTERS()
+TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
 TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
-# TerabyteCPU_Socket, TerabyteCPU_Platform, TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
+TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
 # TerabyteRAM_DDR, TerabyteRAM_capacityDDR5, TerabyteRAM_capacityDDR4, TerabyteRAM_capacityDDR3, TerabyteRAM_frequencyDDR5, TerabyteRAM_frequencyDDR4, TerabyteRAM_frequencyDDR3, TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()

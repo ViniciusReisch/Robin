@@ -64,7 +64,7 @@ def HD_Crawl():
         dataDic = {'Store': 'Terabyte', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                    'Installment price': [f'R${round(float(installmentPrice), 2)}', round(float(installmentPrice), 2)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg'}
+                   'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg', 'Type': 'HardDisk', 'Model': ''}
         allData.append(dataDic)
     return allData
 
