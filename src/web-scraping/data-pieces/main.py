@@ -50,7 +50,13 @@ class AllProducts:
         AllRAM = [TerabyteAllRAM, PichauAllRAM, KabumAllRAM]
         AllProducts = [AllRAM, AllMB, AllHD, AllCPU, AllGPU, AllSSD, AllFont, AllCabinet]
 
-        return AllProducts, AllCabinet, AllFont, AllSSD, AllHD, AllMB, AllGPU, AllCPU, AllRAM
+        Products = []
+        for i in AllProducts:
+            for k in range(3):
+                for item in i[k]:
+                    Products.append(item)
+
+        return Products, AllCabinet, AllFont, AllSSD, AllHD, AllMB, AllGPU, AllCPU, AllRAM
 
 
 a = AllProducts
