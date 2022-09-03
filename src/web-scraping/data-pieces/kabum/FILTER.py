@@ -1,11 +1,11 @@
-from RAM import RAM
-from GPU import GraphicsCard
-from CPU import CPU
-from MB import MotherBoard
-from FONT import Font
-from HD import HardDisk
-from SSD import SSD
-from CABINET import Cabinet
+from kabum.RAM import RAM
+from kabum.GPU import GraphicsCard
+from kabum.CPU import CPU
+from kabum.MB import MotherBoard
+from kabum.FONT import Font
+from kabum.HD import HardDisk
+from kabum.SSD import SSD
+from kabum.CABINET import Cabinet
 
 
 # GPU Filter
@@ -256,7 +256,10 @@ class KabumCPU:
         # Socket
 
         # FILTER == AMD AM4 and AMD AM4G
-        allModel = ['AM4', 'FM2+', 'LGA 1150', 'LGA 1151', 'LGA 1200', 'LGA 1700', 'LGA 2066']
+        allModel = [
+            'AM4', 'FM2+', 'LGA 1150', 'LGA 1151', 'LGA 1200', 'LGA 1700', 'LGA 2066',
+            'LGA1150', 'LGA1151', 'LGA1200', 'LGA1700', 'LGA2066'
+            ]
         for i in range(len(allModel)):
             for data in allCPU:
                 if allModel[i] in data['Name']:
@@ -391,9 +394,9 @@ class KabumSSD:
                     data.update({'Format': allFormat[i]})
 
         # SSD Capacity
-        allModel = ['120', '128', '1TB', '240',
-                    '250', '256', '2TB', '480',
-                    '4TB', '500', '8TB', '980']
+        allModel = ['120', '128', '1TB', '240', '500GB'
+                    '250', '256', '2TB', '480', '2 TB', '300gb',
+                    '4TB', '500 GB', '8TB', '980', '1000GB', '1 TB']
         for i in range(len(allModel)):
             for data in allSSD:
                 if allModel[i] in data['Name']:
@@ -439,11 +442,3 @@ class KabumCabinet:
         return allCabinet
 
 
-KabumAllCabinet = KabumCabinet.Cabinet_FILTERS()
-KabumAllFont = KabumFont.Font_FILTERS()
-KabumAllSSD = KabumSSD.SSD_FILTERS()
-KabumAllHD = KabumHD.HD_FILTERS()
-KabumAllMB = KabumMotherBoard.MB_FILTERS()
-KabumAllGPU = KabumGPU.GPU_FILTERS()
-KabumAllCPU = KabumCPU.CPU_FILTERS()
-KabumAllRAM = KabumRAM.RAM_FILTERS()

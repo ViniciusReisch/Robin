@@ -1,11 +1,11 @@
-from RAM import RAM
-from CPU import CPU
-from GPU import GraphicsCard
-from MB import MotherBoard
-from HD import HardDisk
-from SSD import SSD
-from FONT import Font
-from CABINET import Cabinet
+from terabyte.RAM import RAM
+from terabyte.CPU import CPU
+from terabyte.GPU import GraphicsCard
+from terabyte.MB import MotherBoard
+from terabyte.HD import HardDisk
+from terabyte.SSD import SSD
+from terabyte.FONT import Font
+from terabyte.CABINET import Cabinet
 
 
 # RAM Filter
@@ -435,13 +435,3 @@ class TerabyteCabinet:
                     data.update({'Model': allModel[i]})
 
         return allCabinet
-
-
-TerabyteAllCabinet = TerabyteCabinet.Cabinet_FILTERS()
-TerabyteAllFont = TerabyteFont.Font_FILTERS()
-TerabyteAllSSD = TerabyteSSD.SSD_FILTERS()
-TerabyteAllHD = TerabyteHD.HD_FILTERS()
-TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
-TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
-TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
-TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()

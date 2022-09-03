@@ -1,50 +1,58 @@
-# from terabyte.FILTER import *
+from terabyte.FILTER import *
 from pichau.FILTER import *
 from kabum.FILTER import *
 
-# Terabyte
 
-# TerabyteCabinet_Types, TerabyteCabinet_Colors, TerabyteAllCabinet = TerabyteCabinet.Cabinet_FILTERS()
-# TerabyteFont_Potency, TerabyteAllFont = TerabyteFont.Font_FILTERS()
-# TerabyteSSD_Interface, TerabyteSSD_Format, TerabyteSSD_Capacity, TerabyteAllSSD = TerabyteSSD.SSD_FILTERS()
-# TerabyteHD_Capacity, TerabyteAllHD = TerabyteHD.HD_FILTERS()
-# TerabyteMB_DDR, TerabyteMB_Format, TerabyteMB_Socket, TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
-# TerabyteGPU_Model, TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
-# TerabyteCPU_Socket, TerabyteCPU_Platform, TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
-# TerabyteRAM_DDR, TerabyteRAM_capacityDDR5, TerabyteRAM_capacityDDR4, TerabyteRAM_capacityDDR3, TerabyteRAM_frequencyDDR5, TerabyteRAM_frequencyDDR4, TerabyteRAM_frequencyDDR3, TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()
-#
-#
-# # Pichau
-#
-#
-# PichauFont_Potency, PichauAllFont = PichauFont.Font_FILTERS()
-# PichauCabinet_Types, PichauCabinet_Colors, PichauAllCabinet = PichauCabinet.Cabinet_FILTERS()
-# PichauCapacity_HardDisk, PichauAllHD = PichauHD.HD_FILTERS()
-# PichauInterface_SSD, PichauFormat_SSD, PichauCapacity_SSD, PichauAllSSD = PichauSSD.SSD_FILTERS()
-# PichauRAM_DDR, PichauRAM_capacityDDR5, PichauRAM_capacityDDR4, PichauRAM_capacityDDR3, PichauRAM_frequencyDDR5, PichauRAM_frequencyDDR4, PichauRAM_frequencyDDR3, PichauAllRAM = PichauRAM.RAM_FILTERS()
-# motherBoard_DDR, motherBoard_Format, motherBoard_Socket, PichauAllMB = PichauMotherBoard.MB_FILTERS()
-# PichauCPU_Socket, PichauCPU_Platform, PichauAllCPU = PichauCPU.CPU_FILTERS()
-# PichauGPU_Model, PichauAllGPU = PichauGPU.GPU_FILTERS()
-#
-#
-# # Kabum
-#
-#
-# KabumGPU_Model, KabumAllGPU = KabumGPU.GPU_FILTERS()
-# KabumRAM_DDR, KabumRAM_capacityDDR5, KabumRAM_capacityDDR4, KabumRAM_capacityDDR3, KabumRAM_frequencyDDR5, KabumRAM_frequencyDDR4, KabumRAM_frequencyDDR3, KabumAllRAM = KabumRAM.RAM_FILTERS()
-KabumCPU_Socket, KabumCPU_Platform, KabumAllCPU = KabumCPU.CPU_FILTERS()
+class AllProducts:
 
-# All Stores
-
-class AllStores:
     @staticmethod
-    def allData():  
-        allHardDisk = [PichauAllHD, TerabyteAllHD]
-        allCabinet = [PichauAllCabinet, TerabyteAllCabinet]
-        allFont = [PichauAllFont, TerabyteAllFont]       
-        allCPU = [PichauAllCPU, TerabyteAllCPU]
-        allRAM = [PichauAllRAM, TerabyteAllRAM, KabumAllRAM]
-        allSSD = [PichauAllSSD, TerabyteAllSSD]
-        allGPU = [PichauAllGPU, TerabyteAllGPU, KabumAllGPU]
-        
+    def get_All():
+        # Kabum
 
+        KabumAllCabinet = KabumCabinet.Cabinet_FILTERS()
+        KabumAllFont = KabumFont.Font_FILTERS()
+        KabumAllSSD = KabumSSD.SSD_FILTERS()
+        KabumAllHD = KabumHD.HD_FILTERS()
+        KabumAllMB = KabumMotherBoard.MB_FILTERS()
+        KabumAllGPU = KabumGPU.GPU_FILTERS()
+        KabumAllCPU = KabumCPU.CPU_FILTERS()
+        KabumAllRAM = KabumRAM.RAM_FILTERS()
+
+        # Pichau
+
+        PichauAllCabinet = PichauCabinet.Cabinet_FILTERS()
+        PichauAllFont = PichauFont.Font_FILTERS()
+        PichauAllSSD = PichauSSD.SSD_FILTERS()
+        PichauAllHD = PichauHD.HD_FILTERS()
+        PichauAllMB = PichauMotherBoard.MB_FILTERS()
+        PichauAllGPU = PichauGPU.GPU_FILTERS()
+        PichauAllCPU = PichauCPU.CPU_FILTERS()
+        PichauAllRAM = PichauRAM.RAM_FILTERS()
+
+        # Terabyte
+
+        TerabyteAllCabinet = TerabyteCabinet.Cabinet_FILTERS()
+        TerabyteAllFont = TerabyteFont.Font_FILTERS()
+        TerabyteAllSSD = TerabyteSSD.SSD_FILTERS()
+        TerabyteAllHD = TerabyteHD.HD_FILTERS()
+        TerabyteAllMB = TerabyteMotherBoard.MB_FILTERS()
+        TerabyteAllGPU = TerabyteGPU.GPU_FILTERS()
+        TerabyteAllCPU = TerabyteCPU.CPU_FILTERS()
+        TerabyteAllRAM = TerabyteRAM.RAM_FILTERS()
+
+        AllCabinet = [KabumAllCabinet, PichauAllCabinet, TerabyteAllCabinet]
+        AllFont = [TerabyteAllFont, PichauAllFont, KabumAllFont]
+        AllSSD = [KabumAllSSD, PichauAllSSD, TerabyteAllSSD]
+        AllHD = [TerabyteAllHD, PichauAllHD, KabumAllHD]
+        AllMB = [TerabyteAllMB, PichauAllMB, KabumAllMB]
+        AllGPU = [TerabyteAllGPU, PichauAllGPU, KabumAllGPU]
+        AllCPU = [TerabyteAllCPU, PichauAllCPU, KabumAllCPU]
+        AllRAM = [TerabyteAllRAM, PichauAllRAM, KabumAllRAM]
+        AllProducts = [AllRAM, AllMB, AllHD, AllCPU, AllGPU, AllSSD, AllFont, AllCabinet]
+
+        return AllProducts, AllCabinet, AllFont, AllSSD, AllHD, AllMB, AllGPU, AllCPU, AllRAM
+
+
+a = AllProducts
+
+AllProducts, AllCabinet, AllFont, AllSSD, AllHD, AllMB, AllGPU, AllCPU, AllRAM = a.get_All()
