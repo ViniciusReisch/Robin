@@ -15,12 +15,12 @@
 <p> A maneira que achamos para pegar todos os dados de peças de computador foi por meio do Web-Scraping que é uma forma de mineração que permite a extração de dados de sites da web convertendo-os em informação estruturada para posterior análise, o framework ultilizado para obter esses dados foi o Selenium em Python </p>
 <p> Cada site possui uma estrutura especifica para seus dados: </p>
 <h2> Pichau </h2>
-<p> A Pichau com certeza foi o site que eu mais tive dificuldade, a estrutura do site altera a cada computador diferente que o mesmo é aberto, então uma forma que eu achei para obter os dados em diferentes computadores que eu executasse o código ele ainda sim funcionasse, foi usando a lib Socket para salvar uma estrutura especifica para cada IP </p>
+<p> A Pichau com certeza foi o site que eu mais tive dificuldade, a estrutura do site altera a cada computador diferente que o mesmo é aberto, então uma forma que eu achei para obter os dados em diferentes computadores que eu executasse o código ele ainda sim funcionasse, foi usando a lib Socket para salvar uma estrutura especifica para cada IP, nesse README estarei usando a estrutura gerada no meu computador pessoal. </p>
 
-```
+```python
 import socket
     hostIP = socket.gethostname()           # IP Local
-    IPAddr = socket.gethostbyname(hostIP)   # Specif IP
+    IP = socket.gethostbyname(hostIP)       # Specif IP
 ```
 
 <br>
