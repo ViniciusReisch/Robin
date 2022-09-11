@@ -52,6 +52,33 @@ from selenium import webdriver
 | Link da imagem | https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/t/f/tf4d48g3200hc16c011.jpg |
 | Horário de Scraping | 09/07/2022 23:22:34 |
 
+<h3> Texto de nome de produto </h3>
+<table>
+  <tr>
+    <td>Bloco de informação </td>
+     <td>Código de web-scraping</td>
+     <td>Explicação</td>
+  </tr>
+  <tr>
+    <td valign="top"><img src="img/Captura de tela 2022-09-10 224901.jpg" width="100%"></td>
+    <td valign="top">
+    
+```python
+# Crawling Products == Name
+product = driver.find_elements('tag name', 'h2')
+for i in product:
+    if i.text == "":
+        continue
+    namesProducts.append(i.text)
+``` 
+
+</td>
+    <td valign="top">
+    
+    
+  </tr>
+ </table>
+ 
 <br>
 <h2>
 UNDER DEVELOPMENT
