@@ -1,6 +1,6 @@
 import arrow
 from selenium import webdriver
-
+from time import sleep
 
 def Cabinet_Crawl():
     # Memory specific data
