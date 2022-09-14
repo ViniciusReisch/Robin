@@ -53,11 +53,11 @@ from selenium import webdriver
 | Horário de Scraping | 09/07/2022 23:22:34 |
 
 <h3> Texto de nome de produto </h3>
+<p> No site da Pichau os títulos dos produtos são separados em tags ``h2`` sendo assim é só puxar todas h2 do site usando ``find_elements('tag name', 'h2')`` </p>
 <table>
   <tr>
     <td>Bloco de informação </td>
      <td>Código de web-scraping</td>
-     <td>Explicação</td>
   </tr>
   <tr>
     <td valign="top"><img src="img/Captura de tela 2022-09-10 224901.jpg" width="100%"></td>
@@ -73,10 +73,7 @@ for i in product:
 ``` 
 
 </td>
-    <td valign="top">
-    
-    
-  </tr>
+
  </table>
  
 <br>
