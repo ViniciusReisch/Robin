@@ -6,7 +6,7 @@
 
 <p> Robin é um website que visa ajudar as pessoas na hora de escolher as peças para montar seu computador, o Robin reúne dados de diversos sites de venda de produtos de informática, retornando os valores mais acessíveis. </p>
 
-<h1> Tools Used 🛠 </h1>
+<h1> Used Tools 🛠 </h1>
 
 - Selenium <a href="https://selenium.dev"><img src="https://selenium.dev/images/selenium_logo_square_green.png" width="25" alt="Selenium"/></a>
 - MySQL <a href="https://selenium.dev"><img src="https://kinsta.com/wp-content/uploads/2019/04/mysql-logo-1.svg" width="43" alt="MySQL"/></a>
