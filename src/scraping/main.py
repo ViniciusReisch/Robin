@@ -108,4 +108,5 @@ class AllProducts:
         return Products, Cabinet, Font, SSD, HardDisk, MotherBoard, GPU, CPU, RAM
 
 
+a, b, c, d, e, f, g, k, h = AllProducts.get_All()
 
