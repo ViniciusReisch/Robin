@@ -40,8 +40,7 @@ def RAM_Crawl():
         for i in links:
             if i.get_attribute('href') is None:
                 continue
-            if 'memoria' in i.get_attribute('href') and 'produto' in i.get_attribute(
-                    'href'):  # Only separate images with product in the name
+            if 'produto' in i.get_attribute('href'):  # Only separate images with product in the name
                 linksProducts.append(i.get_attribute('href'))
         driver.close()
 
@@ -51,8 +50,11 @@ def RAM_Crawl():
             pricesProducts[i] = pricesProducts[i].replace('.', '')
         changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.')
         dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
+                   'Installment price': ['',''],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'RAM Memory', 'Model': '',
-                   'Capacity': '', 'DDR': '', 'Frequency': ''}
+                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'RAM Memory','Model': '', 'Format': '',
+                   'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
+
+a = RAM_Crawl()

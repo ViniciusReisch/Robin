@@ -64,6 +64,7 @@ def GPU_Crawl():
         dataDic = {'Store': 'Terabyte', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                    'Installment price': [f'R${(str(installmentPrice).replace(".", ","))}', installmentPrice],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg', 'Type': 'GPU', 'Model': ''}
+                   'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg', 'Type': 'GPU',  'Model': '', 'Format': '',
+                   'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
