@@ -56,5 +56,3 @@ def RAM_Crawl():
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
-
-a = RAM_Crawl()
