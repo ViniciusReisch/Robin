@@ -40,9 +40,7 @@ def Cabinet_Crawl():
         for i in links:
             if i.get_attribute('href') is None:
                 continue
-            if 'gabinete' in i.get_attribute('href') and 'produto' in i.get_attribute('href') \
-                    or 'preto' in i.get_attribute('href') and 'produto' in i.get_attribute('href')\
-                    or 'memory' in i.get_attribute('href') and 'produto' in i.get_attribute('href'):  # Only separate images with product in the name
+            if 'produto' in i.get_attribute('href'):  # Only separate images with product in the name
                 linksProducts.append(i.get_attribute('href'))
         driver.close()
 

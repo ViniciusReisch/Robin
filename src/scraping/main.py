@@ -48,58 +48,10 @@ def get_All():
     AllProducts = [AllRAM, AllMB, AllHD, AllCPU, AllGPU, AllSSD, AllFont, AllCabinet]
 
     Products = []
-    Cabinet = []
-    Font = []
-    SSD = []
-    HardDisk = []
-    MotherBoard = []
-    GPU = []
-    CPU = []
-    RAM = []
 
     for i in AllProducts:
-        for k in range(3):
-            for item in i[k]:
+        for k in i:
+            for item in k:
                 Products.append(item)
-
-    for i in AllCabinet:
-        for k in range(3):
-            for item in i[k]:
-                Cabinet.append(item)
-
-    for i in AllFont:
-        for k in range(3):
-            for item in i[k]:
-                Font.append(item)
-
-    for i in AllSSD:
-        for k in range(3):
-            for item in i[k]:
-                SSD.append(item)
-
-    for i in AllHD:
-        for k in range(3):
-            for item in i[k]:
-                HardDisk.append(item)
-
-    for i in AllMB:
-        for k in range(3):
-            for item in i[k]:
-                MotherBoard.append(item)
-
-    for i in AllGPU:
-        for k in range(3):
-            for item in i[k]:
-                GPU.append(item)
-
-    for i in AllCPU:
-        for k in range(3):
-            for item in i[k]:
-                CPU.append(item)
-
-    for i in AllRAM:
-        for k in range(3):
-            for item in i[k]:
-                RAM.append(item)
 
     return Products
