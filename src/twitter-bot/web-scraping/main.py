@@ -22,14 +22,14 @@ product = driver.find_element('class name', 'jss59')
 names = product.find_elements('class name', 'MuiTypography-h6')
 
 prices = product.find_elements('class name', 'jss145')  # jss224, jss145
-priceTagList = ['jss224', 'jss139']
+priceTagList = ['jss224', 'jss139', 'jss212']
 while len(prices) == 0:
     prices = product.find_elements('class name', priceTagList[priceTag])
     priceTag += 1
 
 passPrices = product.find_elements('class name', 'jss154')  # jss233, jss154
-passPriceTagList = ['jss233', 'jss148']
-while len(prices) == 0:
+passPriceTagList = ['jss233', 'jss148', 'jss221']
+while len(passPrices) == 0:
     passPrices = product.find_elements('class name', passPriceTagList[passPriceTag])
     passPriceTag += 1
 
