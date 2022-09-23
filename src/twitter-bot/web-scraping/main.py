@@ -18,11 +18,11 @@ scroll = 0
 driver.fullscreen_window()
 
 # Crawling Products == Name
-product = driver.find_element('class name', 'jss59')
+product = driver.find_element('class name', 'jss64')
 names = product.find_elements('class name', 'MuiTypography-h6')
 
 prices = product.find_elements('class name', 'jss145')  # jss224, jss145
-priceTagList = ['jss224', 'jss139']
+priceTagList = ['jss224', 'jss139', 'jss145']
 while len(prices) == 0:
     prices = product.find_elements('class name', priceTagList[priceTag])
     priceTag += 1
