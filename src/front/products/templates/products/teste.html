@@ -1,232 +1,101 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>CodePen - Product Card</title>
+  <meta property="og:image" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
+<meta property="og:image:secure_url" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="400" />
+<meta property="og:image:height" content="300" /><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'><link rel="stylesheet" href="./stylecard.css">
+
 </head>
-<style>
-  $primary: #fa983a;
-$secondary: rgba(248, 194, 145, 0.4);
-$decor: #2ed573;
-$white: #ffffff;
-$black: #4b4b4b;
-$font: 	"museo-sans", sans-serif;
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: $font;
-  font-size: 1em;
-  font-weight: 300;
-  color: $black;
-  letter-spacing: 1px;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  &:focus {
-    outline: none;
-  }
-}
-
-body{
-  background-color: #f6fff5;
-}
-
-#wrapper{
-  position: absolute;
-  top: 50%;
-  margin-top: -384px;
-  left: 0;
-  width: 100%;
-}
-
-#container{
-  width: 1285px;
-  height: 768px;
-  margin: 0 auto;
-  position: relative;
-  padding: 20px;
-}
-
-.price-card {
-  width: 375px;
-  height: 670px;
-  text-align: center;
-  float: left;
-  margin: 0px 20px;
-  box-shadow: 1px 1px 10px 2px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  background: rgb(245,246,250);
-  background: -moz-linear-gradient(45deg, rgba(245,246,250,1) 0%, rgba(255,255,255,1) 70%, rgba(255,255,255,1) 100%);
-  background: -webkit-linear-gradient(45deg, rgba(245,246,250,1) 0%,rgba(255,255,255,1) 70%,rgba(255,255,255,1) 100%);
-  background: linear-gradient(45deg, rgba(245,246,250,1) 0%,rgba(255,255,255,1) 70%,rgba(255,255,255,1) 100%);
-  position: relative;
-  .img-container {
-    height: 35%;
-    img {
-      height: 150%;
-      margin-top: -80px;
-      &.brown {
-        margin-left: -40px;
-      }
-      &.black {
-        margin-top: -90px;
-      }
-    }
-  }
-}
-
-.card-content {
-  width: 100%;
-  height: 65%;
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  text-align: left;
-  p {
-    width: 100%;
-    font-size: 1em;
-    line-height: 1.6em;
-    margin-bottom: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
-    position: relative;
-    &:before {
-      content: "";
-      display: block;
-      width: 40px;
-      height: 2px;
-      background-color: $primary;
-      position: absolute;
-      top: 27px;
-      left: 0px;
-    }
-    span {
-      padding-top: 8px;
-      width: 100%;
-      display: block;
-      text-transform: none;
-    }
-  }
-  h2 {
-    width: 100%;
-    font-size: 2.8em;
-    letter-spacing: 4px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  ul {
-    width: 100%;
-    margin-bottom: 18px;
-    li {
-      font-size: 0.9em;
-      list-style: none;
-      height: 38px;
-      line-height: 38px;
-      i {
-        font-size: 1.2em;
-        margin-right: 8px;
-        color: $primary;
-      }
-    }
-  }
-}
-
-button {
-  width: 100%;
-  height: 56px;
-  line-height: 52px;
-  border: none;
-  border-radius: 5px;
-  background-color: $secondary;
-  color: $primary;
-  font-weight: 700;
-  font-size: 1.2em;
-  cursor: pointer;
-  &:hover {
-    background-color: $primary;
-    color: #ffeddc;
-  }
-}
-
-@media screen and (max-width: 1440px){
-  #wrapper{
-    transform: scale(0.6);
-  }
-}
-
-</style>
 <body>
-<div id="wrapper">
-  <div id="container">
+<!-- partial:index.partial.html -->
 
-    <div class="price-card">
 
-      <div class="img-container">
-        <img class="brown" src="http://enwaara.se/codepen/marshall-brown.png" />
+<div class="shell">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img">
+            <img src="https://3.bp.blogspot.com/-eDeTttUjHxI/WVSvmI-552I/AAAAAAAAAKw/0T3LN6jABKMyEkTRUUQMFxpe6PLvtcMMwCPcBGAYYCw/s1600/001-culture-clash-matthew-gianoulis.jpg" alt="Product" class="img-responsive" />
+          </div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Ethnic</span>
+            </div>
+            <div class="title-product">
+              <h3>My face not my heart</h3>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="card-content">
-        <p>Marshall Major II <span>On-ear</span></p>
-        <h2>$144.90</h2>
-        <ul>
-          <li><i class="fas fa-check-circle"></i>High comfort</li>
-          <li><i class="fas fa-check-circle"></i>Wireless</li>
-          <li><i class="fas fa-check-circle"></i>Microphone and remote control</li>
-        </ul>
-        <button>Buy</button>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="https://1.bp.blogspot.com/-b-2SgNUrFHg/WVSvmewWqgI/AAAAAAAAAK0/1K4YCcbYjhokHwV_IgiVJN9mEnQoWunIwCPcBGAYYCw/s1600/fashion-portrait-nicole-6347.jpg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Introvert</span>
+            </div>
+            <div class="title-product">
+              <h3>My face not my heart</h3>
+            </div>
+            <div class="description-prod">
+              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
       </div>
-
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="https://1.bp.blogspot.com/-XL_Ba-178Fo/WVSvm5AbApI/AAAAAAAAAK4/X5109HTqUiAhPjbmz4NFVHcpL7ZWe6T3ACPcBGAYYCw/s1600/wow-29.jpg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Beauty</span>
+            </div>
+            <div class="title-product">
+              <h3>My face not my heart</h3>
+            </div>
+            <div class="description-prod">
+              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="https://3.bp.blogspot.com/-iUes8qr4uC8/WVSvl6Wf_fI/AAAAAAAAAKs/JiTUUVvdbqEC_QGGaQhuVJiezIN3LIqEgCPcBGAYYCw/s1600/IMG_5367-bp.jpg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Drama</span>
+            </div>
+            <div class="title-product">
+              <h3>My face not my heart cvf ggf gfg g</h3>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">Rp500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="price-card">
-
-      <div class="img-container">
-        <img src="http://enwaara.se/codepen/marshall-big.png" />
-      </div>
-
-      <div class="card-content">
-        <p>Marshall Woburn <span>Multiroom</span></p>
-        <h2>$549.00</h2>
-        <ul>
-          <li><i class="fas fa-check-circle"></i>Large multiroom speaker</li>
-          <li><i class="fas fa-check-circle"></i>Bluetooth 4.1, Wi-Fi</li>
-          <li><i class="fas fa-check-circle"></i>Chrome Cast, Spotify Connect</li>
-        </ul>
-        <button>Buy</button>
-      </div>
-
-    </div>
-
-    <div class="price-card">
-
-      <div class="img-container">
-        <img class="black" src="http://enwaara.se/codepen/marshall-black.png" />
-      </div>
-
-      <div class="card-content">
-        <p>Marshall Monitor <span>Around-ear</span></p>
-        <h2>$159.00</h2>
-        <ul>
-          <li><i class="fas fa-check-circle"></i>Removable cable</li>
-          <li><i class="fas fa-check-circle"></i>Built-in mic and remote control</li>
-          <li><i class="fas fa-check-circle"></i>Unique design</li>
-        </ul>
-        <button>Buy</button>
-      </div>
-
-    </div>
-
-  </div>
-</div>
+<!-- partial -->
+  
 </body>
 </html>
