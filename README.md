@@ -19,7 +19,7 @@
 
 <h2> Pichau </h2>
 
-<p> A Pichau com certeza foi o site que eu mais tive dificuldade, a estrutura do site altera a cada computador diferente que o mesmo é aberto, então uma forma que eu achei para obter os dados em diferentes computadores que eu executasse o código ele ainda sim funcionasse, foi usando a lib Socket para salvar uma estrutura especifica para cada IP, nesse README estarei usando a estrutura gerada no meu computador pessoal. </p>
+<p> A Pichau com certeza foi o site que tivemos mais dificuldade, a estrutura do site altera a cada computador diferente que o mesmo é aberto, então uma forma que achamos para obter os dados em diferentes computadores que executássemos o código ele ainda sim funcionasse, foi usando a lib Socket para salvar uma estrutura especifica para cada IP, nesse README estarei usando a estrutura gerada no meu computador pessoal. </p>
 
 ```python
 import socket
@@ -27,11 +27,11 @@ import socket
     IP = socket.gethostbyname(hostIP)       # Specif IP
 ```
 
-<p> Outro problema que eu tive foi o pequeno efeito de fade-in que é aplicado apartir da terceira linha de produtos do site, sendo assim as imagens dos itens só passam a aparecer no source HMTL do site depois que você da scoll pra baixo. </p>
+<p> Outro problema que nos tivemos foi o pequeno efeito de fade-in que é aplicado apartir da terceira linha de produtos do site, sendo assim as imagens dos itens só passam a aparecer no source HMTL do site depois que você da scoll pra baixo. </p>
 
 <img src="img/robin.gif" width="50%">
 
-<p> Para resolver esse problema eu ultizei um comandos do Selenium para pegar a altura total do site, e para fazer ele dar um scroll down automatico de acordo com o tamanho do site. </p>
+<p> Para resolver esse problema nós ultilizamos um comandos do Selenium para pegar a altura total do site, e para fazer ele dar um scroll down automatico de acordo com o tamanho do site. </p>
 
 ```python
 from selenium import webdriver
@@ -41,7 +41,7 @@ from selenium import webdriver
          scroll += 200
 ```
 <p> Problemas resolvidos agora vem a hora de pegar cada especificação de peça, como o preço, o nome e etc... </p>
-<p> Tendo isso em mente na Pichau optei por essa lista de especificações, exemplo: </p>
+<p> Tendo isso em mente na Pichau optamos por essa lista de especificações, exemplo: </p>
 
 | Especificações | Dados |
 | --- | --- |
