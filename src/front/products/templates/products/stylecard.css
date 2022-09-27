@@ -4,6 +4,7 @@
 }
 .wsk-cp-product{
   background:#fff;
+  width: 150px;
   padding:15px;
   border-radius:6px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -82,7 +83,7 @@
   text-align:center;
 }
 .wsk-cp-text .title-product h3{
-  font-size:20px;
+  font-size:12px;
   font-weight:bold;
   margin:15px auto;
   overflow: hidden;
@@ -126,7 +127,7 @@
 }
 
 .price{
-  font-size:18px;
+  font-size:15px;
   font-weight:bold;
 }
 
