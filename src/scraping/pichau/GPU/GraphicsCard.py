@@ -17,7 +17,7 @@ def GPU_Crawl():
     IPAddr = socket.gethostbyname(hostIP)   # Specif IP
     allData = []                            # Memory all data
 
-    for i in range(5):
+    for i in range(1):
         driver = webdriver.Chrome()
         page = i + 1
         link = 'https://www.pichau.com.br/hardware/placa-de-video?page='
@@ -42,27 +42,23 @@ def GPU_Crawl():
         imgProducts = list(dict.fromkeys(imgProducts))
 
         # Crawling Products == Price
-        if IPAddr == '192.168.2.38':  # Id verification
-            product = driver.find_elements('class name', 'jss69')  # Possibles class name = jss191, jss69
+        priceTag = 0
+        product = []
+        priceTagList = ['jss201', 'jss213', 'jss191', 'jss191', 'jss201']
+        while len(product) == 0:
+            product = driver.find_elements('class name', priceTagList[priceTag])
+            priceTag += 1
             for i in product:
                 if 'R$' in i.text:
                     pricesProducts.append(i.text)
 
-            # Crawling Products == Installment Price
-            product = driver.find_elements('class name', 'jss77')  # Possibles class name = jss199, jss77
-            for i in product:
-                if 'R$' in i.text:
-                    installmentPriceProducts.append(i.text)
-        else:  # Different ID
-
-            # Crawling Products == Price
-            product = driver.find_elements('class name', 'jss191')  # Possibles class name = jss191, jss69
-            for i in product:
-                if 'R$' in i.text:
-                    pricesProducts.append(i.text)
-
-            # Crawling Products == Installment Price
-            product = driver.find_elements('class name', 'jss199')  # Possibles class name = jss199, jss77
+        # Crawling Products == Installment Price
+        priceTag = 0
+        product = []
+        priceTagList = ['jss209', 'jss221', 'jss199', 'jss199', 'jss209']
+        while len(product) == 0:
+            product = driver.find_elements('class name', priceTagList[priceTag])
+            priceTag += 1
             for i in product:
                 if 'R$' in i.text:
                     installmentPriceProducts.append(i.text)

@@ -1,5 +1,4 @@
 import mysql.connector
-
 import main
 
 allProducts = main.get_All()
@@ -8,7 +7,7 @@ conexao = mysql.connector.connect(
     host="localhost",
     user="root",
     password="root",
-    database="RobinDatabase"
+    database="RobinDB"
 )
 cursor = conexao.cursor()
 
