@@ -50,7 +50,7 @@ def Cabinet_Crawl():
             pricesProducts[i] = pricesProducts[i].replace('.', '')
         changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.')
         dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
-                   'Installment price': ['',''],
+                   'Installment price': [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
                    'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'Gabinete', 'Model': '', 'Format': '',
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
