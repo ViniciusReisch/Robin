@@ -4,12 +4,12 @@
 }
 .wsk-cp-product{
   background:#fff;
-  width: 150px;
+  width: 160px;
   padding:15px;
   border-radius:6px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   position:relative;
-  margin:20px auto;
+  margin:15px auto;
   font-family: 'Muli', sans-serif;
 }
 .wsk-cp-img{
@@ -23,7 +23,6 @@
     -o-transform:translate(-50%);
     -khtml-transform:translate(-50%);
     width: 100%;
-    padding: 15px;
     transition: all 0.2s ease-in-out;
   }
   .wsk-cp-img img{
@@ -31,12 +30,6 @@
     transition: all 0.2s ease-in-out;
     border-radius:6px;
   }
-.wsk-cp-product:hover .wsk-cp-img{
-  top:-40px;
-}
-.wsk-cp-product:hover .wsk-cp-img img{
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
 .wsk-cp-text{
   padding-top:150%;
 }
@@ -63,14 +56,18 @@
 }
 .wsk-cp-text .category > span{
   padding: 12px 30px;
-  border: 1px solid #313131;
   background:#212121;
   color:#fff;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   border-radius:27px;
   transition: all 0.05s ease-in-out;
   
 }
+
+.loja-tamanho {
+  width: 50px;
+  height: auto;
+}
+
 .wsk-cp-product:hover .wsk-cp-text .category > span{
   border-color:#ddd;
   box-shadow: none;
@@ -135,13 +132,14 @@ a.buy-btn{
   display:block;
   color:#212121;
   text-align:center;
-  font-size: 18px;
+  font-size: 20px;
   width:35px;
   height:35px;
   line-height:35px;
   border-radius:50%;
   border:1px solid #212121;
   transition: all 0.2s ease-in-out;
+  top: 2px;
 }
 a.buy-btn:hover , a.buy-btn:active, a.buy-btn:focus{
   border-color: #FF9800;
@@ -176,7 +174,7 @@ a.buy-btn:hover , a.buy-btn:active, a.buy-btn:focus{
     margin:40px auto;
   }
   .wsk-cp-product .wsk-cp-img{
-  top:-40px;
+  top:-10px;
 }
 .wsk-cp-product .wsk-cp-img img{
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
