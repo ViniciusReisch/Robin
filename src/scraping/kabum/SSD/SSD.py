@@ -30,9 +30,8 @@ def SSD_Crawl():
     # Crawling Products == Name
     product = driver.find_elements('class name', 'nameCard')
     for i in product:
-        if i.text == "":
-            continue
-        namesProducts.append(i.text)
+        j = i.text.replace('"', '')
+        namesProducts.append(j)
 
     # Crawling Products == Links
     links = driver.find_elements('tag name', 'a')
@@ -75,9 +74,8 @@ def SSD_Crawl():
         # Crawling Products == Name
         product = driver.find_elements('class name', 'nameCard')
         for i in product:
-            if i.text == "":
-                continue
-            namesProducts.append(i.text)
+            j = i.text.replace('"', '')
+            namesProducts.append(j)
 
         # Crawling Products == Links
         links = driver.find_elements('tag name', 'a')
@@ -108,9 +106,8 @@ def SSD_Crawl():
         # Crawling Products == Name
         product = driver.find_elements('class name', 'nameCard')
         for i in product:
-            if i.text == "":
-                continue
-            namesProducts.append(i.text)
+            j = i.text.replace('"', '')
+            namesProducts.append(j)
 
         # Crawling Products == Links
         links = driver.find_elements('tag name', 'a')
@@ -128,7 +125,7 @@ def SSD_Crawl():
             pricesProducts[i] = pricesProducts[i].replace('.', '')
         changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.')
         dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
-                   'Installment price': ['',''],
+                   'Installment price': [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
                    'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'SSD','Model': '', 'Format': '',
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}

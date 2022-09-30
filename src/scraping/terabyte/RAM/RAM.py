@@ -62,7 +62,7 @@ def RAM_Crawl():
             pricesProducts[i] = pricesProducts[i].replace('.', '')
         changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.').replace(' à vista', '')
         dataDic = {'Store': 'Terabyte', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
-                   'Installment price': [f'R${(str(installmentPrice).replace(".", ","))}', installmentPrice],
+                   'Installment price': [f'R${round(float(installmentPrice), 2)}', round(float(installmentPrice), 2)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
                    'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg', 'Type': 'RAM Memory', 'Model': '', 'Format': '',
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
