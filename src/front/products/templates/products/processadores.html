@@ -169,6 +169,8 @@ h1,h2,h3 {
     font-weight: 700;
     font-size: 2em;
     color: var(--header-text);
+    text-align: left;
+    hyphens: auto;
 }
 
 small,sub,sup {
@@ -311,8 +313,8 @@ a:hover {
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: left;
+    text-align: left;
     padding: 50px 20px;
     box-sizing: border-box;
     background-color: var(--container);
@@ -432,7 +434,7 @@ a:hover {
 
 
 .biography {
-    width: 20%;
+    width: 30%;
     height: 150px;
     display: flex;
     flex-direction: column;
@@ -440,6 +442,10 @@ a:hover {
     padding: 20px;
     box-sizing: border-box;
     margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -3%;;
+    text-align: justify;
+    hyphens: auto
 }
 
 .biography h2 {
@@ -580,7 +586,14 @@ a:hover {
     <div class="shell">
         <div class="container">
           <article class="biography">
-            <h2>Periféricos</h2>
+            <h2>Processadores</h2>
+            <p>
+              O processador é a unidade central de processamento de um computador (CPU), que funciona como o cérebro do computador, pois interage e faz as conexões necessárias entre todos os programas instalados.
+          </p>
+              Neste processo, ele também interpreta as informações enviadas pelos programas, realiza diversas operações, inclusive gerando a interface que nós interagimos quando usamos um computador.
+          </p>
+              Os processadores são colocados na Placa-Mãe, por soquetes, e sua estrutura é composta por bilhões de transistores.
+  </p>  
         </article>
           <div class="row">
             <div class="cardcontainer">
