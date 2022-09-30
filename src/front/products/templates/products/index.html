@@ -8,6 +8,7 @@
 
 <script src="https://unpkg.com/phosphor-icons"></script>
 
+
 <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
  
     <title>robin — Os melhores preços para o seu PC Gamer!</title>
@@ -26,7 +27,7 @@
 :root {
     --accent: #005f9e;
     --accented-text: #ffffff;
-    --main-background: #005f9e;
+    --main-background: rgb(0, 95, 158);
     --main-font: 14px;
     --main-font-color: #000000;
     --title-text: #ffffff;
@@ -531,6 +532,154 @@ a:hover {
     }
 }
 
+#tenth>button{
+  letter-spacing:0;
+}
+
+#tenth span{
+  letter-spacing:0;
+  display:inline-block;
+  position:relative;
+  width:8px;
+  transition:all .5s ease-in-out;
+}
+
+#tenth span:nth-of-type(4){
+  width:5px;
+}
+
+#tenth span:nth-of-type(6){
+  width:1px;
+}
+
+#tenth span:nth-of-type(8){
+  width:4px;
+}
+
+#tenth:hover span:nth-of-type(1){
+  animation:h .5s;
+}
+
+#tenth:hover span:nth-of-type(2){
+  animation:o .5s;
+}
+
+#tenth:hover span:nth-of-type(3){
+  animation:v .5s;
+}
+
+#tenth:hover span:nth-of-type(4){
+  animation:e .5s;
+}
+
+#tenth:hover span:nth-of-type(5){
+  animation:r .5s;
+}
+
+#tenth:hover span:nth-of-type(7){
+  animation:t .5s;
+}
+
+#tenth:hover span:nth-of-type(8){
+  animation:e .5s;
+}
+
+#tenth:hover span:nth-of-type(9){
+  animation:n .5s;
+}
+
+@keyframes h{
+  0%{transform:translate(0, 0);}
+  50%{transform:translate(50px, 5px);}
+  75%{transform:translate(5px, 5px);}
+  80%{transform:translate(0, 0);}
+  100%{transform:translate(0, 0);}
+}
+
+@keyframes o{
+  0%{transform:translate(0, 0);}
+  25%{transform:translate(-4px, 0);}
+  50%{transform:translate(3px, 4px);}
+  80%{transform:translate(0, 0);}
+  100%{transform:translate(0, 0);}
+}
+
+@keyframes v{
+  0%{transform:translate(0, 0);}
+  20%{transform:rotate(360deg);}
+  50%{transform:scale(2);}
+  80%{transform:translate(0, 0);}
+  100%{transform:translate(0, 0);}
+}
+
+@keyframes e{
+  0%{transform:translate(0, 0);}
+  20%{transform:translate(-10px, -2px);}
+  80%{transform:translate(0, 0);}
+  100%{transform:translate(0, 0);}
+}
+
+@keyframes r{
+  0%{transform:translate(0, 0);}
+  20%{transform:translate(0, 10px);}
+  80%{transform:translate(0, 32px);}
+  100%{transform:translate(0, 0);}
+}
+
+@keyframes t{
+  0%{transform:translate(0, 0);}
+  20%{transform:translate(0, -10px);}
+  40%{transform:translate(0, 0);}
+  60%{transform:translate(0, -10px);}
+  80%{transform:translate(0, 0);}
+  100%{transform:translate(0, 0);}
+}
+
+@keyframes n{
+  0%{transform:translate(0, 0);}
+  50%{transform:skewY(50deg);}
+  80%{transform:translate(0, 0);}
+  100%{transform:translate(0, 0);}
+}
+
+
+@media(max-width: 1200px) {
+  #content-box {
+    width: 100%; 
+  }
+}
+
+.contentBox{
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.buttonBox{
+  margin: 0 20px 40px;
+  position:relative;
+  max-width: 200px;
+  min-width: 150px;
+  flex: 20%;
+}
+
+button{
+  width:100%;
+  height:80px;
+  position:relative;
+  background-color: #005f9e;
+  text-transform:uppercase;
+  color:white;
+  font-weight:700;
+  letter-spacing:1px;
+  border:none;
+  font-size:15px;
+  outline:none;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  cursor: pointer;
+}
+
 </style>
  
 </head>
@@ -569,7 +718,32 @@ a:hover {
 
     <div class="section" data-anchor="page1">
         <header id="header-image">
-        <img src="https://i.imgur.com/C5YmbmH.png">
+            <div id="tenth" class="buttonBox">
+                <button>
+                  <span>H</span>
+                  <span>o</span>
+                  <span>v</span>
+                  <span>e</span>
+                  <span>r</span>
+                  <span> </span>
+                  <span>T</span>
+                  <span>e</span>
+                  <span>n</span>
+                </button>
+              </div>
+              <div id="tenth" class="buttonBox">
+                <button>
+                  <span>H</span>
+                  <span>o</span>
+                  <span>v</span>
+                  <span>e</span>
+                  <span>r</span>
+                  <span> </span>
+                  <span>T</span>
+                  <span>e</span>
+                  <span>n</span>
+                </button>
+              </div>
         </header>
     </div>
 
