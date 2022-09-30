@@ -46,12 +46,11 @@ def get_All():
     AllCPU = [TerabyteAllCPU, PichauAllCPU, KabumAllCPU]
     AllRAM = [TerabyteAllRAM, PichauAllRAM, KabumAllRAM]
     AllProducts = [AllRAM, AllMB, AllHD, AllCPU, AllGPU, AllSSD, AllFont, AllCabinet]
-
     Products = []
 
     for i in AllProducts:
         for k in i:
-            for item in k:
-                Products.append(item)
+            for j in k:
+                Products.append(j)
 
     return Products

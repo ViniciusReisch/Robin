@@ -52,15 +52,16 @@ from selenium import webdriver
 | Link da imagem | https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/t/f/tf4d48g3200hc16c011.jpg |
 | Horário de Scraping | 09/07/2022 23:22:34 |
 
-<h3> Texto de nome de produto </h3>
-<p> No site da Pichau os títulos dos produtos são separados em tags ``h2`` sendo assim é só puxar todas h2 do site usando ``find_elements('tag name', 'h2')`` </p>
+<h3> Como realizar o scraping na Pichau </h3>
+
 <table>
   <tr>
     <td>Bloco de informação </td>
      <td>Código de web-scraping</td>
+     <td>Explicação</td>
   </tr>
   <tr>
-    <td valign="top"><img src="img/Captura de tela 2022-09-10 224901.jpg" width="100%"></td>
+    <td valign="top"><img src="img/Captura de tela 2022-09-10 224901.jpg" width="200%"></td>
     <td valign="top">
     
 ```python
@@ -73,7 +74,39 @@ for i in product:
 ``` 
 
 </td>
+<td valign="top">
 
+No site da Pichau os títulos dos produtos são separados em tags ``h2`` sendo assim é só puxar todas h2 do site usando
+``find_elements('tag name', 'h2')``
+
+</td>
+  <tr>
+    <td valign="top"><img src="img/Captura de tela 2022-09-10 224901.jpg" width="200%"></td>
+    <td valign="top">
+    
+```python
+# Crawling Products == Image
+while scroll < height:
+    driver.execute_script(f"window.scrollTo(0, {scroll});")
+    product = driver.find_elements('tag name', 'img')
+    for e in product:
+        if 'product' in e.get_attribute('src'):
+            imgProducts.append(e.get_attribute('src'))
+    scroll += 200
+imgProducts = list(dict.fromkeys(imgProducts))
+``` 
+
+</td>
+<td valign="top">
+
+As imagens dos produtos são separados em tags ``img`` devido ao problema do fade-in explicado acima, temos que usar um comando  ``driver.execute_script(f"window.scrollTo(0, {scroll});")`` dentro de um laço ``` while ``` para que o código fique dando scrap e descendo, depois só temos que separar as imagens de produto usando: 
+```python
+for e in product:
+        if 'product' in e.get_attribute('src'):
+            imgProducts.append(e.get_attribute('src'))
+``` 
+
+</td>
  </table>
  
 <br>
