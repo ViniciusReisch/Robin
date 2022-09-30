@@ -65,9 +65,8 @@ def SSD_Crawl():
         # Crawling Products == Name
         product = driver.find_elements('tag name', 'h2')
         for i in product:
-            if i.text == "":
-                continue
-            namesProducts.append(i.text)
+            j = i.text.replace('"', '')
+            namesProducts.append(j)
 
         # Crawling Products == Links
         links = driver.find_elements('tag name', 'a')
