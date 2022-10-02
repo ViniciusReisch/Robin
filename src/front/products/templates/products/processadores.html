@@ -547,6 +547,51 @@ a:hover {
     }
 }
 
+/* Dropup Button */
+.dropbtn {
+  background-color: var(--corners);
+  color: white;
+  padding: 14px;
+  padding-left: 20.5px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropup content */
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropup content (Hidden by Default) */
+.dropup-content {
+  display: none;
+  position: absolute;
+  bottom: 90px;
+  background-color: var(--corners);
+  min-width: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/* Links inside the dropup */
+.dropup-content a {
+  color: black;
+  padding-top: 12px;
+  padding-bottom: 20px;
+  bottom: 97px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Show the dropup menu on hover */
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+/* Change the background color of the dropup button when the dropup content is shown */
+.dropup:hover .dropbtn {
+  background-color: var(--corners);
+}
+
 </style>
 
 </head>
@@ -568,15 +613,142 @@ a:hover {
 <div id="banner-right"></div>
 
 <div id="banner-bottom">
-    <a href="#page1"><img src="https://i.imgur.com/v2qPUcV.png" alt="" id="icones"></a>
-    <a href="#page2"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
-    <a href="#page3"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
-    <a href="#page4"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
-    <a href="#page5"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
-    <a href="#page6"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
-    <a href="#page7"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
-    <a href="#page8"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
-    <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
+  <div>
+    <div class="dropup">
+      <button class="dropbtn">
+        <img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones">
+      </button>
+        <div class="dropup-content">
+          <a href="#page2"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
+          <a href="#page3"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
+          <a href="#page4"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
+          <a href="#page5"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
+          <a href="#page6"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
+          <a href="#page7"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
+          <a href="#page8"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
+          <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
+        </div>
+      </div>
+    </div>
+    <div>
+    <div class="dropup">
+      <button class="dropbtn">
+        <img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones">
+      </button>
+        <div class="dropup-content">
+          <a href="#page2"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
+          <a href="#page3"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
+          <a href="#page4"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
+          <a href="#page5"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
+          <a href="#page6"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
+          <a href="#page7"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
+          <a href="#page8"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
+          <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
+        </div>
+      </div>
+    </div>
+    <div>
+    <div class="dropup">
+      <button class="dropbtn">
+        <img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones">
+      </button>
+        <div class="dropup-content">
+          <a href="#page2"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
+          <a href="#page3"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
+          <a href="#page4"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
+          <a href="#page5"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
+          <a href="#page6"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
+          <a href="#page7"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
+          <a href="#page8"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
+          <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
+        </div>
+      </div>
+    </div>
+    <div>
+    <div class="dropup">
+      <button class="dropbtn">
+        <img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones">
+      </button>
+        <div class="dropup-content">
+          <a href="#page2"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
+          <a href="#page3"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
+          <a href="#page4"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
+          <a href="#page5"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
+          <a href="#page6"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
+          <a href="#page7"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
+          <a href="#page8"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
+          <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
+        </div>
+      </div>
+    </div>
+    <div>
+    <div class="dropup">
+      <button class="dropbtn">
+        <img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones">
+      </button>
+        <div class="dropup-content">
+          <a href="#page2"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
+          <a href="#page3"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
+          <a href="#page4"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
+          <a href="#page5"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
+          <a href="#page6"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
+          <a href="#page7"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
+          <a href="#page8"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
+          <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
+        </div>
+      </div>
+    </div>
+<div>
+    <div class="dropup">
+      <button class="dropbtn">
+        <img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones">
+      </button>
+        <div class="dropup-content">
+          <a href="#page2"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
+          <a href="#page3"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
+          <a href="#page4"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
+          <a href="#page5"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
+          <a href="#page6"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
+          <a href="#page7"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
+          <a href="#page8"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
+          <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
+        </div>
+      </div>
+    </div>
+    <div>
+    <div class="dropup">
+      <button class="dropbtn">
+        <img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones">
+      </button>
+        <div class="dropup-content">
+          <a href="#page2"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
+          <a href="#page3"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
+          <a href="#page4"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
+          <a href="#page5"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
+          <a href="#page6"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
+          <a href="#page7"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
+          <a href="#page8"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
+          <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
+        </div>
+      </div>
+    </div>
+    <div>
+    <div class="dropup">
+      <button class="dropbtn">
+        <img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones">
+      </button>
+        <div class="dropup-content">
+          <a href="#page2"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
+          <a href="#page3"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
+          <a href="#page4"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
+          <a href="#page5"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
+          <a href="#page6"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
+          <a href="#page7"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
+          <a href="#page8"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
+          <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
+        </div>
+      </div>
+    </div>
 </div>
 
 <div id="banner-left"></div>
