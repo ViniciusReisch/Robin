@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from .models import Alldata
 
+
 def index(request):
     return render(request, 'products/index.html')
 
 
 def allProducts(request):
-    products = Alldata.objects.all()
+    products = Alldata.objects.all().filter
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
@@ -23,19 +24,37 @@ def motherboard(request):
                   {'products': products})
 
 
-def allProducts(request):
+def cabinet(request):
     products = Alldata.objects.all()
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
-def allProducts(request):
+def CPU(request):
     products = Alldata.objects.all()
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
-def allProducts(request):
+def GPU(request):
+    products = Alldata.objects.all()
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def HD(request):
+    products = Alldata.objects.all()
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def SSD(request):
+    products = Alldata.objects.all()
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font(request):
     products = Alldata.objects.all()
     return render(request, 'products/allProducts.html',
                   {'products': products})
