@@ -71,7 +71,7 @@ def HD_Crawl():
         # Crawling Products == Links
         links = driver.find_elements('tag name', 'a')
         for i in links:
-            if 'hd' in i.get_attribute('href'):
+            if 'hd-' in i.get_attribute('href'):
                 linksProducts.append(i.get_attribute('href'))
         driver.close()
 

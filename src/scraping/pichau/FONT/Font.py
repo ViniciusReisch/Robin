@@ -72,7 +72,7 @@ def Font_Crawl():
         # Crawling Products == Links
         links = driver.find_elements('tag name', 'a')
         for i in links:
-            if 'fonte' in i.get_attribute('href'):
+            if 'fonte-' in i.get_attribute('href'):
                 linksProducts.append(i.get_attribute('href'))
         driver.close()
 
