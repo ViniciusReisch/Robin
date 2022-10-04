@@ -200,7 +200,7 @@ a:hover {
     width: 100%;
     height: 60px;
     background-color: var(--corners);
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -229,20 +229,6 @@ a:hover {
 .homelinks a:hover {
     box-shadow: inset 0px -12px 0px 0px var(--link-hover);
 }
-
-
-
-#banner-right {
-    height: 100%;
-    width: 30px;
-    background-color: var(--corners);
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 9;
-}
-
-
 
 
 #banner-bottom {
@@ -277,21 +263,9 @@ a:hover {
 
 
 
-#banner-left {
-    height: 100%;
-    width: 30px;
-    background-color: var(--corners);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9;
-}
-
-
-
 
 #fullpage {
-    height: 150vh;
+    height: 200vh;
     width: 96%;
     margin-top: 50px;
 }
@@ -594,8 +568,7 @@ a:hover {
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  max-width: 200px;
   margin-top: 50px;
   margin-left: 100px;
   text-align: center;
@@ -604,7 +577,7 @@ a:hover {
 
 .price {
   color: grey;
-  font-size: 22px;
+  font-size: 14px;
 }
 
 .card button {
@@ -616,15 +589,58 @@ a:hover {
   text-align: center;
   cursor: pointer;
   width: 100%;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .card button:hover {
+  transition: 0.2s;
   opacity: 0.7;
 }
 
 .name {
-  font-size: 20px;
+  font-size: 15px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+           line-clamp: 3;
+   -webkit-box-orient: vertical;
+}
+
+.wsk-cp-text{
+}
+.wsk-cp-text .category{
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+  padding:5px;
+  position:relative;
+  transition: all 0.2s ease-in-out;
+}
+.wsk-cp-text .category > *{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  -khtml-transform: translate(-50%,-50%);
+
+}
+.wsk-cp-text .category > span{
+  padding: 12px 30px;
+  background:#212121;
+  color:#fff;
+  border-radius:27px;
+  transition: all 0.05s ease-in-out;
+
+}
+
+.loja-tamanho {
+  width: 50px;
+  height: auto;
 }
 </style>
 
@@ -778,15 +794,19 @@ a:hover {
       </div>
     </div>
 </div>
-<div class="container-xl ">
+<div class="container-fluid">
   <div class="row">
 {%for product in products%}
   <div class="card">
-    <p> <img src="{{product.logo}}" width=30%></p>
+    <div class="wsk-cp-text">
+      <div class="category">
+        <span><img src="{{product.logo}}" alt="Product" class="loja-tamanho"/></span>
+      </div>
+    </div>
     <img src="{{product.image}}" alt="Denim Jeans" style="width:100%">
     <h1 class="name">{{product.name}}</h1>
     <p class="price">{{product.price}}</p>
-    <p> <a href="{{product.link}}"><button>Access</button></a></p>
+    <p> <a href="{{product.link}}"><button>Acesse</button></a></p>
   </div>
 {%endfor%}
   </div>
