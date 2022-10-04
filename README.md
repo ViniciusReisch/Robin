@@ -14,12 +14,12 @@
 
 <h1> Web-Scraping </h1>
 
-<p> A maneira que achamos para pegar todos os dados de peças de computador foi por meio do Web-Scraping que é uma forma de mineração que permite a extração de dados de sites da web convertendo-os em informação estruturada para posterior análise, o framework ultilizado para obter esses dados foi o Selenium em Python </p>
+<p> A maneira que achamos para pegar todos os dados de peças de computador foi por meio do <strong>Web-Scraping</strong>, que é uma forma de mineração no qual nos permite a extração de dados de sites da web convertendo-os em informação estruturada para posterior análise, o framework ultilizado para obter esses dados foi o <strong>Selenium</strong> em <strong>Python</strong> </p>
 <p> Cada site possui uma estrutura especifica para seus dados: </p>
 
 <h2> Pichau </h2>
 
-<p> A Pichau com certeza foi o site que tivemos mais dificuldade, a estrutura do site altera a cada computador diferente que o mesmo é aberto, então uma forma que achamos para obter os dados em diferentes computadores que executássemos o código ele ainda sim funcionasse, foi usando a lib Socket para salvar uma estrutura especifica para cada IP, nesse README estarei usando a estrutura gerada no meu computador pessoal. </p>
+<p> A <strong>Pichau</strong> com certeza foi o site que mais tivemos dificuldade, a estrutura do site altera a cada computador diferente que o mesmo é aberto, então uma forma que achamos para obter os dados em diferentes computadores que executássemos o código e ele ainda funcionasse, foi usando a <strong>lib Socket</strong> para salvar uma estrutura específica para cada IP. </p>
 
 ```python
 import socket
@@ -27,11 +27,11 @@ import socket
     IP = socket.gethostbyname(hostIP)       # Specif IP
 ```
 
-<p> Outro problema que nos tivemos foi o pequeno efeito de fade-in que é aplicado apartir da terceira linha de produtos do site, sendo assim as imagens dos itens só passam a aparecer no source HMTL do site depois que você da scoll pra baixo. </p>
+<p> Outro problema que nós tivemos, foi o pequeno efeito de <strong>fade-in</strong> que é aplicado apartir da terceira linha de produtos do site, sendo assim as imagens dos ítens só passam a aparecer no <strong>source HMTL</strong> do site depois que você da scoll pra baixo. </p>
 
 <img src="img/robin.gif" width="50%">
 
-<p> Para resolver esse problema nós ultilizamos um comandos do Selenium para pegar a altura total do site, e para fazer ele dar um scroll down automatico de acordo com o tamanho do site. </p>
+<p> Para resolver esse problema, nós ultilizamos um comando do <strong>Selenium</strong> para pegar a altura total do site, e para fazer ele dar um scroll down automático de acordo com o tamanho do site. </p>
 
 ```python
 from selenium import webdriver
@@ -40,8 +40,8 @@ from selenium import webdriver
          driver.execute_script(f"window.scrollTo(0, {scroll});")
          scroll += 200
 ```
-<p> Problemas resolvidos agora vem a hora de pegar cada especificação de peça, como o preço, o nome e etc... </p>
-<p> Tendo isso em mente na Pichau optamos por essa lista de especificações, exemplo: </p>
+<p> Problemas resolvidos, agora vem a hora de pegar cada especificação de peça, como o preço, o nome, etc... </p>
+<p> Tendo isso em mente, optamos na Pichau essa lista de especificações:</p>
 
 | Especificações | Dados |
 | --- | --- |
@@ -52,7 +52,7 @@ from selenium import webdriver
 | Link da imagem | https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/t/f/tf4d48g3200hc16c011.jpg |
 | Horário de Scraping | 09/07/2022 23:22:34 |
 
-<h3> Como realizar o scraping na Pichau </h3>
+<h3> Como realizar o <strong>scraping</strong> na Pichau </h3>
 
 <table>
   <tr>
@@ -76,7 +76,7 @@ for i in product:
 </td>
 <td valign="top">
 
-No site da Pichau os títulos dos produtos são separados em tags ``h2`` sendo assim é só puxar todas h2 do site usando
+No site da Pichau os títulos dos produtos são separados em tags ``h2``, sendo assim temos que puxar todas as tags h2 do site usando
 ``find_elements('tag name', 'h2')``
 
 </td>
@@ -99,7 +99,7 @@ imgProducts = list(dict.fromkeys(imgProducts))
 </td>
 <td valign="top">
 
-As imagens dos produtos são separados em tags ``img`` devido ao problema do fade-in explicado acima, temos que usar um comando  ``driver.execute_script(f"window.scrollTo(0, {scroll});")`` dentro de um laço ``` while ``` para que o código fique dando scrap e descendo, depois só temos que separar as imagens de produto usando: 
+  As imagens dos produtos são separados em tags ``img`` devido ao problema do <strong>fade-in</strong> explicado acima. Temos que usar um comando  ``driver.execute_script(f"window.scrollTo(0, {scroll});")`` dentro de um laço ``` while ``` para que o código fique dando scrap e descendo, depois temos separar as imagens dos produtos usando: 
 ```python
 for e in product:
         if 'product' in e.get_attribute('src'):
