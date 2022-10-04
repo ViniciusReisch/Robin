@@ -19,42 +19,42 @@ def ram(request):
 
 
 def motherboard(request):
-    products = Alldata.objects.all()
+    products = Alldata.objects.all().filter(type='MotherBoard')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def cabinet(request):
-    products = Alldata.objects.all()
+    products = Alldata.objects.all().filter(type='Gabinete')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def CPU(request):
-    products = Alldata.objects.all()
+    products = Alldata.objects.all().filter(type='CPU')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def GPU(request):
-    products = Alldata.objects.all()
+    products = Alldata.objects.all().filter(type='GPU')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def HD(request):
-    products = Alldata.objects.all()
+    products = Alldata.objects.all().filter(type='HardDisk')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def SSD(request):
-    products = Alldata.objects.all()
+    products = Alldata.objects.all().filter(type='SSD')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def font(request):
-    products = Alldata.objects.all()
+    products = Alldata.objects.all().filter(type='Font')
     return render(request, 'products/allProducts.html',
                   {'products': products})
