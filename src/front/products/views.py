@@ -13,7 +13,7 @@ def allProducts(request):
 
 
 def ram(request):
-    products = Alldata.objects.all()
+    products = Alldata.objects.all().filter(type='RAM Memory')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
