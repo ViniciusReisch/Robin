@@ -107,6 +107,72 @@ for e in product:
 ``` 
 
 </td>
+<td valign="top">
+
+No site da Pichau os títulos dos produtos são separados em tags ``h2``, sendo assim temos que puxar todas as tags h2 do site usando
+``find_elements('tag name', 'h2')``
+
+</td>
+  <tr>
+    <td valign="top"><img src="img/Captura de tela 2022-09-10 224901.jpg" width="200%"></td>
+    <td valign="top">
+    
+```python
+# Crawling Products == Image
+while scroll < height:
+    driver.execute_script(f"window.scrollTo(0, {scroll});")
+    product = driver.find_elements('tag name', 'img')
+    for e in product:
+        if 'product' in e.get_attribute('src'):
+            imgProducts.append(e.get_attribute('src'))
+    scroll += 200
+imgProducts = list(dict.fromkeys(imgProducts))
+``` 
+
+</td>
+<td valign="top">
+
+  As imagens dos produtos são separados em tags ``img`` devido ao problema do <strong>fade-in</strong> explicado acima. Temos que usar um comando  ``driver.execute_script(f"window.scrollTo(0, {scroll});")`` dentro de um laço ``` while ``` para que o código fique dando scrap e descendo, depois temos separar as imagens dos produtos usando: 
+```python
+for e in product:
+        if 'product' in e.get_attribute('src'):
+            imgProducts.append(e.get_attribute('src'))
+``` 
+
+</td>
+<td valign="top">
+
+No site da Pichau os títulos dos produtos são separados em tags ``h2``, sendo assim temos que puxar todas as tags h2 do site usando
+``find_elements('tag name', 'h2')``
+
+</td>
+  <tr>
+    <td valign="top"><img src="img/Captura de tela 2022-09-10 224901.jpg" width="200%"></td>
+    <td valign="top">
+    
+```python
+# Crawling Products == Image
+while scroll < height:
+    driver.execute_script(f"window.scrollTo(0, {scroll});")
+    product = driver.find_elements('tag name', 'img')
+    for e in product:
+        if 'product' in e.get_attribute('src'):
+            imgProducts.append(e.get_attribute('src'))
+    scroll += 200
+imgProducts = list(dict.fromkeys(imgProducts))
+``` 
+
+</td>
+<td valign="top">
+
+  As imagens dos produtos são separados em tags ``img`` devido ao problema do <strong>fade-in</strong> explicado acima. Temos que usar um comando  ``driver.execute_script(f"window.scrollTo(0, {scroll});")`` dentro de um laço ``` while ``` para que o código fique dando scrap e descendo, depois temos separar as imagens dos produtos usando: 
+```python
+for e in product:
+        if 'product' in e.get_attribute('src'):
+            imgProducts.append(e.get_attribute('src'))
+``` 
+
+</td>
  </table>
  
 <br>
