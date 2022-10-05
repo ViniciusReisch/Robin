@@ -10,6 +10,10 @@ urlpatterns = [
     path('allssd/', views.SSD, name='allssd'),
     path('allgpu/', views.GPU, name='allgpu'),
     path('allcpu/', views.CPU, name='allcpu'),
+    path('cpuintel/', views.Intel_CPU, name='intelcpu'),
+    path('apuintel/', views.Intel_APU, name='apuintel'),
+    path('cpuamd/', views.AMD_CPU, name='cpuamd'),
+    path('apuamd/', views.AMD_APU, name='apuamd'),
     path('allfont/', views.font, name='allfont'),
     path('allcabinet/', views.cabinet, name='allcabinet'),
 ]
