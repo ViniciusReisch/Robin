@@ -26,7 +26,21 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
 
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
 <style type="text/css">
 
 
@@ -405,9 +419,6 @@ a:hover {
     height: auto;
 }
 
-
-
-
 .biography {
     width: 30%;
     height: 150px;
@@ -430,8 +441,6 @@ a:hover {
     padding-bottom: 10px;
     margin-top: 0;
 }
-
-
 
 .stats-section {
     width: 30%;
@@ -487,9 +496,6 @@ a:hover {
     background-color: var(--progress-bar-outline);
     border-radius: 10px;
 }
-
-
-
 
 @media screen and (max-width: 1100px) {
     .container {
@@ -642,11 +648,71 @@ a:hover {
   width: 50px;
   height: auto;
 }
+/* The side navigation menu */
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Stay on top */
+  z-index: 50; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
 </style>
 
 </head>
 
 <body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
 
 <div id="banner-top">
     <a href="http://home.com"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
@@ -662,9 +728,8 @@ a:hover {
 
 <div id="banner-right"></div>
 
-
 <div id="banner-bottom">
-    <a href="/allcpu/"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
+    <a onclick="openNav()"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
     <a href="/allmb/"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
     <a href="/allram/"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
     <a href="/allgpu/"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
@@ -696,7 +761,21 @@ a:hover {
 <script src="https://static.tumblr.com/uh2chis/dk1qhlq4o/fullpage.js"></script>
 
 <script src="https://unpkg.com/popper.js@1"></script> <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script> <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
 
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
 </div>
 </body>
 

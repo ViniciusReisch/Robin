@@ -35,6 +35,29 @@ def CPU(request):
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
+def Intel_CPU(request):
+    products = Alldata.objects.all().filter(platform='Intel CPU')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def AMD_CPU(request):
+    products = Alldata.objects.all().filter(platform='AMD CPU')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def Intel_APU(request):
+    products = Alldata.objects.all().filter(platform='Intel APU')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def AMD_APU(request):
+    products = Alldata.objects.all().filter(platform='AMD APU')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
 
 def GPU(request):
     products = Alldata.objects.all().filter(type='GPU')
