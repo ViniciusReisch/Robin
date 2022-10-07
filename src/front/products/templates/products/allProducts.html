@@ -649,11 +649,13 @@ a:hover {
   height: auto;
 }
 /* The side navigation menu */
+
 .sidenav {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1000; /* Stay on top */
+  z-index: 50; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: #111; /* Black*/
@@ -726,7 +728,6 @@ a:hover {
 
 <div id="banner-right"></div>
 
-
 <div id="banner-bottom">
     <a onclick="openNav()"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
     <a href="/allmb/"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
@@ -736,11 +737,6 @@ a:hover {
     <a href="/allcabinet/"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
     <a href="/allfont/"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
     <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
-</div>
-
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-<div id="main">
-  ...
 </div>
 
 <div class="container-fluid">
@@ -765,7 +761,21 @@ a:hover {
 <script src="https://static.tumblr.com/uh2chis/dk1qhlq4o/fullpage.js"></script>
 
 <script src="https://unpkg.com/popper.js@1"></script> <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script> <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
 
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
 </div>
 </body>
 
