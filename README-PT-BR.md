@@ -2,7 +2,7 @@
   <a href="https://www.google.com/"> <img src="img/robin-logo.png" width="40%"> </a>
 </h1>
 
-<h1> Description ⚙ </h1>
+<h1> Descrição ⚙ </h1>
 
 <p> Robin é um website que visa ajudar as pessoas na hora de escolher as peças para montar seu computador, o Robin reúne dados de diversos sites de venda de produtos de informática, retornando os valores mais acessíveis. </p>
 
