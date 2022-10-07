@@ -578,7 +578,7 @@ a:hover {
   margin-top: 50px;
   margin-left: 100px;
   text-align: center;
-  font-family: arial;
+  font-family: 'Roboto', sans-serif;
 }
 
 .price {
@@ -658,7 +658,7 @@ a:hover {
   z-index: 50; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black*/
+  background-color: #0e0550; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -669,14 +669,19 @@ a:hover {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: white;
   display: block;
   transition: 0.3s;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+    color: var(--link-hover);
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    padding-top:5px;
 }
 
 /* Position and style the close button (top right corner) */
@@ -699,6 +704,42 @@ a:hover {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+.dropdown {
+  position: relative;
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  background-color: var(--corners);
+  width: 160px;
+  font-size: 18px;
+  color: white;
+  padding: 8px 8px 8px 32px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  color: var(--link-hover);
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+
+.dropbtn {
+  padding: 8px 30px 8px 32px;
+  font-size: 25px;
+  color: white;
+  font-family: 'arial', sans-serif;
+}
+
+.dropdown-links {
+  font-size: 10px;
+}
 
 </style>
 
@@ -708,10 +749,37 @@ a:hover {
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+  <div class="dropdown">
+  <button class="dropbtn">Formato</button>
+      <div class="dropdown-content">
+            <div class="dropdown">
+      <button class="dropbtn">AMD</button>
+          <div class="dropdown-content">
+            <a class="dropdown-links"  style="font-size: 15px;" href="/cpuintel/">CPU</a>
+            <a href="/apuamd/" style="font-size: 15px;">APU</a>
+          </div>
+        </div>
+        <div class="dropdown">
+      <button class="dropbtn">Intel</button>
+          <div class="dropdown-content">
+            <a href="/cpuintel/" style="font-size: 15px;">CPU</a>
+            <a href="/apuintel/" style="font-size: 15px;">APU</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="dropdown">
+  <button class="dropbtn">Socket</button>
+      <div class="dropdown-content">
+        <a href="/socketam4/" style="font-size: 15px;">AM4</a>
+        <a href="/socketfm2/" style="font-size: 15px;">FM2+</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">LGA 1150</a>
+        <a href="/socketlga1151/" style="font-size: 15px;">LGA 1151</a>
+        <a href="/socketlga1200/" style="font-size: 15px;">LGA 1200</a>
+        <a href="/socketlga1700/" style="font-size: 15px;">LGA 1700</a>
+        <a href="/socketlga2066/" style="font-size: 15px;">LGA 2066</a>
+      </div>
+    </div>
 </div>
 
 <div id="banner-top">
@@ -764,9 +832,10 @@ a:hover {
 <script>
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  document.getElementById("mySidenav").style.width = "260px";
+  document.getElementById("main").style.marginLeft = "260px";
+  document.body.style.backgroundColor = "#0e0550";
+  document.getElementById("main").style.box-shadow = "0px 8px 16px 0px rgba(0,0,0,0.2)";
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */

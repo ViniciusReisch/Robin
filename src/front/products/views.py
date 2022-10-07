@@ -59,6 +59,48 @@ def AMD_APU(request):
                   {'products': products})
 
 
+def socket_AM4(request):
+    products = Alldata.objects.all().filter(model='AM4', type='CPU')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def socket_FM2(request):
+    products = Alldata.objects.all().filter(model='FM2+', type='CPU')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def socket_LGA1150(request):
+    products = Alldata.objects.all().filter(model='LGA1150', type='CPU')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def socket_LGA1151(request):
+    products = Alldata.objects.all().filter(model='LGA1151', type='CPU')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def socket_LGA1200(request):
+    products = Alldata.objects.all().filter(model='LGA1200', type='CPU')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def socket_LGA1700(request):
+    products = Alldata.objects.all().filter(model='LGA1700', type='CPU')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def socket_LGA2066(request):
+    products = Alldata.objects.all().filter(model='LGA2066', type='CPU')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
 def GPU(request):
     products = Alldata.objects.all().filter(type='GPU')
     return render(request, 'products/allProducts.html',
