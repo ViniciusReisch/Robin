@@ -741,6 +741,9 @@ a:hover {
   font-size: 10px;
 }
 
+.sidenav {
+  right: 0;
+}
 </style>
 
 </head>
@@ -782,6 +785,43 @@ a:hover {
     </div>
 </div>
 
+
+<div id="mySidenavMB" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="dropdown">
+  <button class="dropbtn">DDR</button>
+      <div class="dropdown-content">
+        <a href="/socketam4/" style="font-size: 15px;">DDR3</a>
+        <a href="/socketfm2/" style="font-size: 15px;">DDR4</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">DDR5</a>
+      </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn">Socket</button>
+      <div class="dropdown-content">
+        <a href="/socketam4/" style="font-size: 15px;">AM4</a>
+        <a href="/socketfm2/" style="font-size: 15px;">LGA 1700</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">LGA 1200</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">LGA 1150</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">LGA 1151</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">LGA 1155</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">FM2+</a>
+      </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn">Tamanho</button>
+      <div class="dropdown-content">
+        <a href="/socketam4/" style="font-size: 15px;">ATX</a>
+        <a href="/socketfm2/" style="font-size: 15px;">M-ATX</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">Mini-ITX</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">E-ATX</a>
+      </div>
+    </div>
+</div>
+
+
+
+
 <div id="banner-top">
     <a href="http://home.com"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
 
@@ -797,8 +837,8 @@ a:hover {
 <div id="banner-right"></div>
 
 <div id="banner-bottom">
-    <a onclick="openNav()"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
-    <a href="/allmb/"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
+    <a onclick="openNavCPU()"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
+    <a onclick="openNavMotherboard()"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
     <a href="/allram/"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
     <a href="/allgpu/"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
     <a href="/allssd/"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
@@ -828,14 +868,14 @@ a:hover {
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script src="https://static.tumblr.com/uh2chis/dk1qhlq4o/fullpage.js"></script>
 
-<script src="https://unpkg.com/popper.js@1"></script> <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script> <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
+<script src="https://unpkg.com/popper.js@1"></script> <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
+
 <script>
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-function openNav() {
-  document.getElementById("mySidenav").style.width = "260px";
-  document.getElementById("main").style.marginLeft = "260px";
-  document.body.style.backgroundColor = "#0e0550";
-  document.getElementById("main").style.box-shadow = "0px 8px 16px 0px rgba(0,0,0,0.2)";
+function openNavCPU() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
@@ -845,6 +885,23 @@ function closeNav() {
   document.body.style.backgroundColor = "white";
 }
 </script>
+
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNavMotherboard() {
+  document.getElementById("mySidenavMB").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
 </div>
 </body>
 
