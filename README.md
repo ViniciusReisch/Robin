@@ -180,4 +180,4 @@ for e in product:
 UNDER DEVELOPMENT
 </h2>
 <br>
-📜Project developed in the <a href="https://www.entra21.com.br/">Entra21</a> Python Class
+📜Project developed in the <a href="https://www.entra21.com.br/">Entra21</a> Matutine Python Class
