@@ -138,8 +138,98 @@ def RAM_ddr5(request):
                   {'products': products})
 
 
-def cabinet(request):
-    products = Alldata.objects.all().filter(type='Gabinete')
+# MEMORY RAM CAPACITY
+
+
+def RAM_4gb(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Capacity='4GB')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_8gb(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Capacity='8GB')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_16gb(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Capacity='16GB')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_32gb(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Capacity='32GB')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_64gb(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Capacity='64GB')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+# MEMORY RAM CAPACITY
+
+
+def RAM_1600mhz(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Frequency='1600MHz')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_3600mhz(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Frequency='3600MHz')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_3200mhz(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Frequency='3200MHz')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_1866mhz(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Frequency='1866MHz')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_3000mhz(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Frequency='3000MHz')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_2666mhz(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Frequency='2666MHz')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_2400mhz(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Frequency='2400MHz')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_6000mhz(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Frequency='6000MHz')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_5600mhz(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Frequency='5600MHz')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def RAM_4800mhz(request):
+    products = Alldata.objects.all().filter(type='RAM Memory', Frequency='4800MHz')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
