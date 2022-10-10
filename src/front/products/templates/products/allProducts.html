@@ -755,10 +755,10 @@ a:hover {
 
 <body>
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<div id="mySidenavCPU" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavCPU()">&times;</a>
   <div class="dropdown">
-  <button class="dropbtn"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></button>
+  <button class="dropbtn">Format</button>
       <div class="dropdown-content">
             <div class="dropdown">
       <button class="dropbtn">AMD</button>
@@ -777,7 +777,7 @@ a:hover {
       </div>
     </div>
   <div class="dropdown">
-  <button class="dropbtn"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></button>
+  <button class="dropbtn">Socket</button>
       <div class="dropdown-content">
         <a href="/socketam4/" style="font-size: 15px;">AM4</a>
         <a href="/socketfm2/" style="font-size: 15px;">FM2+</a>
@@ -792,7 +792,7 @@ a:hover {
 
 
 <div id="mySidenavMB" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavMB()">&times;</a>
   <div class="dropdown">
   <button class="dropbtn">DDR</button>
       <div class="dropdown-content">
@@ -878,14 +878,14 @@ a:hover {
 <script>
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
 function openNavCPU() {
-  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("mySidenavCPU").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
   document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+function closeNavCPU() {
+  document.getElementById("mySidenavCPU").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
   document.body.style.backgroundColor = "white";
 }
@@ -900,7 +900,7 @@ function openNavMotherboard() {
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
-function closeNav() {
+function closeNavMB() {
   document.getElementById("mySidenavMB").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
   document.body.style.backgroundColor = "white";

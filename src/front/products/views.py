@@ -90,6 +90,33 @@ def motherboard_socketLGA1155(request):
                   {'products': products})
 
 
+#  MOTHERBOARD SIZE
+
+
+def motherboard_ATX(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', Format='ATX')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def motherboard_EATX(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', Format='E-ATX')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def motherboard_MATX(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', Format='MATX')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def motherboard_MiniITX(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', Format='Mini-ITX')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
 def cabinet(request):
     products = Alldata.objects.all().filter(type='Gabinete')
     return render(request, 'products/allProducts.html',
