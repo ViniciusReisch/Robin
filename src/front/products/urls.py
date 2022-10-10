@@ -79,4 +79,7 @@ urlpatterns = [
     path('ram6000mhz/', views.RAM_6000mhz, name='RAM_6000mhz'),
     path('ram5600mhz/', views.RAM_5600mhz, name='RAM_5600mhz'),
     path('ram4800mhz/', views.RAM_4800mhz, name='RAM_4800mhz'),
+
+    # GPU Models
+    path('gpugt1030/', views.GPU_GT1030, name='GPU_GT1030'),
 ]

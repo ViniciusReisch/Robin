@@ -816,10 +816,10 @@ a:hover {
     <div class="dropdown">
   <button class="dropbtn">Tamanho</button>
       <div class="dropdown-content">
-        <a href="/socketam4/" style="font-size: 15px;">ATX</a>
-        <a href="/socketfm2/" style="font-size: 15px;">M-ATX</a>
-        <a href="/socketlga1150/" style="font-size: 15px;">Mini-ITX</a>
-        <a href="/socketlga1150/" style="font-size: 15px;">E-ATX</a>
+        <a href="/mbatx/" style="font-size: 15px;">ATX</a>
+        <a href="/mbmatx/" style="font-size: 15px;">M-ATX</a>
+        <a href="/mbminiitx/" style="font-size: 15px;">Mini-ITX</a>
+        <a href="/mbeatx/" style="font-size: 15px;">E-ATX</a>
       </div>
     </div>
 </div>
@@ -862,6 +862,20 @@ a:hover {
     </div>
 </div>
 
+
+<div id="mySidenavGPU" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavGPU()">&times;</a>
+  <div class="dropdown">
+  <button class="dropbtn">Tamanho</button>
+      <div class="dropdown-content">
+          {% for nome, link in gpus.items %}
+                <a href="/gpu/{{link}}/" style="font-size: 15px;">{{nome}}</a>
+          {% endfor %}
+      </div>
+    </div>
+</div>
+
+
 <div id="banner-top">
     <a href="http://home.com"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
 
@@ -880,7 +894,7 @@ a:hover {
     <a onclick="openNavCPU()"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
     <a onclick="openNavMotherboard()"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
     <a onclick="openNavRAM()"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
-    <a href="/allgpu/"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
+    <a onclick="openNavGPU()"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
     <a href="/allssd/"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
     <a href="/allcabinet/"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
     <a href="/allfont/"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
@@ -953,6 +967,23 @@ function openNavMotherboard() {
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
 function closeNavMB() {
   document.getElementById("mySidenavMB").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNavGPU() {
+  document.getElementById("mySidenavGPU").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNavGPU() {
+  document.getElementById("mySidenavGPU").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
   document.body.style.backgroundColor = "white";
 }
