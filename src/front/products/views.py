@@ -24,6 +24,9 @@ def motherboard(request):
                   {'products': products})
 
 
+#  MOTHERBOARD DDR
+
+
 def motherboard_ddr3(request):
     products = Alldata.objects.all().filter(type='MotherBoard', DDR='DDR3')
     return render(request, 'products/allProducts.html',
@@ -38,6 +41,51 @@ def motherboard_ddr4(request):
 
 def motherboard_ddr5(request):
     products = Alldata.objects.all().filter(type='MotherBoard', DDR='DDR5')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+#  MOTHERBOARD SOCKET
+
+
+def motherboard_socketAM4(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', Model='AM4')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def motherboard_socketFM2(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', Model='FM2+')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def motherboard_socketLGA1700(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', Model='LGA1700')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def motherboard_socket1200(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', Model='1200')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def motherboard_socketLGA1150(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', Model='LGA1150')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def motherboard_socketLGA1151(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', Model='LGA1151')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def motherboard_socketLGA1155(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', Model='LGA1155')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
