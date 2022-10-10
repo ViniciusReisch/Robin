@@ -825,7 +825,42 @@ a:hover {
 </div>
 
 
-
+<div id="mySidenavRAM" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavRAM()">&times;</a>
+  <div class="dropdown">
+  <button class="dropbtn">DDR</button>
+      <div class="dropdown-content">
+        <a href="/mbddr3/" style="font-size: 15px;">DDR3</a>
+        <a href="/mbddr4/" style="font-size: 15px;">DDR4</a>
+        <a href="/mbddr5/" style="font-size: 15px;">DDR5</a>
+      </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn">Capacidade</button>
+      <div class="dropdown-content">
+        <a href="/mbAM4/" style="font-size: 15px;">4 GB</a>
+        <a href="/mbFM2/" style="font-size: 15px;">8 GB</a>
+        <a href="/mbLGA1200/" style="font-size: 15px;">16 GB</a>
+        <a href="/mbLGA1150/" style="font-size: 15px;">32 GB</a>
+        <a href="/mbLGA1150/" style="font-size: 15px;">64 GB</a>
+      </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn">Frequencia</button>
+      <div class="dropdown-content">
+        <a href="/socketlga1150/" style="font-size: 15px;">1866 MHz</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">3600 MHz</a>
+        <a href="/socketam4/" style="font-size: 15px;">3200 MHz</a>
+        <a href="/socketfm2/" style="font-size: 15px;">3000 MHz</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">2666 MHz</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">1600 MHz</a>
+        <a href="/socketam4/" style="font-size: 15px;">2400 MHz</a>
+        <a href="/socketfm2/" style="font-size: 15px;">6000 MHz</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">5600 MHz</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">4800 MHz</a>
+      </div>
+    </div>
+</div>
 
 <div id="banner-top">
     <a href="http://home.com"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
@@ -844,7 +879,7 @@ a:hover {
 <div id="banner-bottom">
     <a onclick="openNavCPU()"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
     <a onclick="openNavMotherboard()"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
-    <a href="/allram/"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
+    <a onclick="openNavRAM()"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
     <a href="/allgpu/"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
     <a href="/allssd/"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
     <a href="/allcabinet/"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
@@ -874,6 +909,22 @@ a:hover {
 <script src="https://static.tumblr.com/uh2chis/dk1qhlq4o/fullpage.js"></script>
 
 <script src="https://unpkg.com/popper.js@1"></script> <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
+
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNavRAM() {
+  document.getElementById("mySidenavRAM").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNavRAM() {
+  document.getElementById("mySidenavRAM").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
 
 <script>
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */

@@ -53,4 +53,11 @@ urlpatterns = [
     path('socketlga2066/', views.socket_LGA2066, name='lga2066'),
 
 
+    # RAM DDR
+
+    path('ramddr3/', views.RAM_ddr3, name='RAM_ddr3'),
+    path('ramddr4/', views.RAM_ddr4, name='RAM_ddr4'),
+    path('ramddr5/', views.RAM_ddr5, name='RAM_ddr5'),
+
+
 ]
