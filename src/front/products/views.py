@@ -691,6 +691,19 @@ def GPU_RX6900XT(request):
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
+
+def GPU_RX6500XT(request):
+    products = Alldata.objects.all().filter(type='GPU', model='RX 6500XT')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def GPU_QUADRORTXA4500(request):
+    products = Alldata.objects.all().filter(type='GPU', model='QUADRO RTX 4500')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
 def GPU_RX6950XT(request):
     products = Alldata.objects.all().filter(type='GPU', model='RX 6950 XT')
     return render(request, 'products/allProducts.html',
