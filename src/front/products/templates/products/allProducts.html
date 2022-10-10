@@ -704,6 +704,7 @@ a:hover {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
 .dropdown {
   position: relative;
   display: block;
@@ -730,6 +731,10 @@ a:hover {
   transition-duration: 0.8s;
 }
 
+.dropdown:hover {
+  transition-duration: 0.4s;
+}
+
 .dropbtn {
   padding: 8px 30px 8px 32px;
   font-size: 25px;
@@ -753,7 +758,7 @@ a:hover {
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="dropdown">
-  <button class="dropbtn">Formato</button>
+  <button class="dropbtn"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></button>
       <div class="dropdown-content">
             <div class="dropdown">
       <button class="dropbtn">AMD</button>
@@ -772,7 +777,7 @@ a:hover {
       </div>
     </div>
   <div class="dropdown">
-  <button class="dropbtn">Socket</button>
+  <button class="dropbtn"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></button>
       <div class="dropdown-content">
         <a href="/socketam4/" style="font-size: 15px;">AM4</a>
         <a href="/socketfm2/" style="font-size: 15px;">FM2+</a>
@@ -791,9 +796,9 @@ a:hover {
   <div class="dropdown">
   <button class="dropbtn">DDR</button>
       <div class="dropdown-content">
-        <a href="/socketam4/" style="font-size: 15px;">DDR3</a>
-        <a href="/socketfm2/" style="font-size: 15px;">DDR4</a>
-        <a href="/socketlga1150/" style="font-size: 15px;">DDR5</a>
+        <a href="/mbddr3/" style="font-size: 15px;">DDR3</a>
+        <a href="/mbddr4/" style="font-size: 15px;">DDR4</a>
+        <a href="/mbddr5/" style="font-size: 15px;">DDR5</a>
       </div>
     </div>
     <div class="dropdown">
@@ -896,7 +901,7 @@ function openNavMotherboard() {
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
 function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("mySidenavMB").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
   document.body.style.backgroundColor = "white";
 }

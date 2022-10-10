@@ -24,6 +24,24 @@ def motherboard(request):
                   {'products': products})
 
 
+def motherboard_ddr3(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', DDR='DDR3')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def motherboard_ddr4(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', DDR='DDR4')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def motherboard_ddr5(request):
+    products = Alldata.objects.all().filter(type='MotherBoard', DDR='DDR5')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
 def cabinet(request):
     products = Alldata.objects.all().filter(type='Gabinete')
     return render(request, 'products/allProducts.html',
@@ -34,6 +52,7 @@ def CPU(request):
     products = Alldata.objects.all().filter(type='CPU')
     return render(request, 'products/allProducts.html',
                   {'products': products})
+
 
 def Intel_CPU(request):
     products = Alldata.objects.all().filter(platform='Intel CPU')
