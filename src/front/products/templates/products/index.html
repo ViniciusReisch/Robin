@@ -539,7 +539,7 @@ a:hover {
     z-index: 100000000;
     margin-top: 330px;
     position: absolute;
-    width: 38%;
+    width: 39%;
     left: 115px;
     color: #fff;
 }
@@ -551,7 +551,7 @@ a:hover {
 	 background: #005f9e;
 	 text-decoration: none;
 	 color: #fff;
-     width: 200px;
+     width: 210px;
      text-align: center;
      top: 50%;
      font-weight: 500;
@@ -561,6 +561,7 @@ a:hover {
      height: 70px;
      display: inline-block;
      padding-top: 22px;
+     text-decoration: none;
 
 }
  .grow {
@@ -570,6 +571,7 @@ a:hover {
 }
  .grow:hover {
 	 transform: scale(1.1);
+     text-decoration: none;
 }
  @keyframes pulse-grow {
 	 to {
@@ -581,11 +583,29 @@ a:hover {
 }
  .pulse-grow:hover {
 	 animation-name: pulse-grow;
-	 animation-duration: 0.3s;
+	 animation-duration: 0.5s;
 	 animation-timing-function: linear;
 	 animation-iteration-count: infinite;
 	 animation-direction: alternate;
-     color: #ffffff;
+     text-decoration: none;
+}
+
+.primeirapagina {
+    margin-top: 200px;
+    position: absolute;
+    width: 38.5%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    top: 250px;
+    box-sizing: border-box;
+    line-height: 15px;
+    left: 115px;
+    font-size: 10px;
+    color: rgba(121, 110, 110, 0.911);
+    z-index: inherit;
 }
 
 </style>
@@ -609,7 +629,6 @@ a:hover {
 <div id="banner-right"></div>
 
 <div id="banner-bottom">
-    <a href="#page1"><img src="https://i.imgur.com/v2qPUcV.png" alt="" id="icones"></a>
     <a href="#page2"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
     <a href="#page3"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
     <a href="#page4"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
@@ -630,15 +649,22 @@ a:hover {
                 <div class="container">
                     <div class="row">
                     <div class="col-sm">
-                        <a href="#" class="button pulse-grow">Montado</a>
+                        <a href="#" class="button grow">Montado</a>
                     </div>
                         <div class="col-sm">
-                        <a href="#" class="button pulse-grow">Faça você mesmo</a>
+                        <a href="#" class="button pulse-grow">Faça você mesmo*</a>
                     </div>
                     </div>
                 </div>
             </div>
         </header>
+
+        <article class="primeirapagina">
+            <p>
+            * A Robin ultiliza de automação e webscraping para coletar dados da internet dos mais diversos marketplaces de peças de computadores. A Robin filtra estes produtos e reune em um banco de dados. Não somos exclusivos de nenhuma loja, nós agregamos os preços de várias lojas brasileiras e mostramos os melhores preços do mercado.
+<p></ptiam>
+            </p>
+        </article>
     </div>
 
 
