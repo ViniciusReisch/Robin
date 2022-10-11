@@ -1,9 +1,11 @@
 from terabyte.FILTER import *
 from pichau.FILTER import *
 from kabum.FILTER import *
-
+from promo.main import crawl_products
 
 def get_All():
+    all_products = crawl_products()
+
     # Kabum
 
     KabumAllCabinet = KabumCabinet.Cabinet_FILTERS()
@@ -45,7 +47,7 @@ def get_All():
     AllGPU = [TerabyteAllGPU, PichauAllGPU, KabumAllGPU]
     AllCPU = [TerabyteAllCPU, PichauAllCPU, KabumAllCPU]
     AllRAM = [TerabyteAllRAM, PichauAllRAM, KabumAllRAM]
-    AllProducts = [AllRAM, AllMB, AllHD, AllCPU, AllGPU, AllSSD, AllFont, AllCabinet]
+    AllProducts = [all_products, AllRAM, AllMB, AllHD, AllCPU, AllGPU, AllSSD, AllFont, AllCabinet]
     Products = []
 
     for i in AllProducts:

@@ -177,7 +177,7 @@ for e in product:
  
 <br>
 <h2>
-UNDER DEVELOPMENT
+EM DESENVOLVIMENTO
 </h2>
 <br>
-📜Project developed in the <a href="https://www.entra21.com.br/">Entra21</a> Python Class
+📜Projeto desenvolvido no <a href="https://www.entra21.com.br/">Entra21</a> Python Matutino

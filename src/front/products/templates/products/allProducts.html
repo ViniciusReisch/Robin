@@ -578,7 +578,7 @@ a:hover {
   margin-top: 50px;
   margin-left: 100px;
   text-align: center;
-  font-family: arial;
+  font-family: 'Roboto', sans-serif;
 }
 
 .price {
@@ -658,7 +658,7 @@ a:hover {
   z-index: 50; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black*/
+  background-color: #0e0550; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -669,14 +669,19 @@ a:hover {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: white;
   display: block;
   transition: 0.3s;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+    color: var(--link-hover);
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    padding-top:5px;
 }
 
 /* Position and style the close button (top right corner) */
@@ -700,19 +705,250 @@ a:hover {
   .sidenav a {font-size: 18px;}
 }
 
+.dropdown {
+  position: relative;
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  background-color: var(--corners);
+  width: 160px;
+  font-size: 18px;
+  color: white;
+  padding: 8px 8px 8px 32px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  color: var(--link-hover);
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+
+.dropdown:hover {
+  transition-duration: 0.4s;
+}
+
+.dropbtn {
+  padding: 8px 30px 8px 32px;
+  font-size: 25px;
+  color: white;
+  font-family: 'arial', sans-serif;
+}
+
+.dropdown-links {
+  font-size: 10px;
+}
+
+.sidenav {
+  right: 0;
+}
 </style>
 
 </head>
 
 <body>
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+<div id="mySidenavCPU" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavCPU()">&times;</a>
+  <div class="dropdown">
+  <button class="dropbtn">Format</button>
+      <div class="dropdown-content">
+            <div class="dropdown">
+      <button class="dropbtn">AMD</button>
+          <div class="dropdown-content">
+            <a class="dropdown-links"  style="font-size: 15px;" href="/cpuintel/">CPU</a>
+            <a href="/apuamd/" style="font-size: 15px;">APU</a>
+          </div>
+        </div>
+        <div class="dropdown">
+      <button class="dropbtn">Intel</button>
+          <div class="dropdown-content">
+            <a href="/cpuintel/" style="font-size: 15px;">CPU</a>
+            <a href="/apuintel/" style="font-size: 15px;">APU</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="dropdown">
+  <button class="dropbtn">Socket</button>
+      <div class="dropdown-content">
+        <a href="/socketam4/" style="font-size: 15px;">AM4</a>
+        <a href="/socketfm2/" style="font-size: 15px;">FM2+</a>
+        <a href="/socketlga1150/" style="font-size: 15px;">LGA 1150</a>
+        <a href="/socketlga1151/" style="font-size: 15px;">LGA 1151</a>
+        <a href="/socketlga1200/" style="font-size: 15px;">LGA 1200</a>
+        <a href="/socketlga1700/" style="font-size: 15px;">LGA 1700</a>
+        <a href="/socketlga2066/" style="font-size: 15px;">LGA 2066</a>
+      </div>
+    </div>
 </div>
+
+
+<div id="mySidenavMB" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavMB()">&times;</a>
+  <div class="dropdown">
+  <button class="dropbtn">DDR</button>
+      <div class="dropdown-content">
+        <a href="/mbddr3/" style="font-size: 15px;">DDR3</a>
+        <a href="/mbddr4/" style="font-size: 15px;">DDR4</a>
+        <a href="/mbddr5/" style="font-size: 15px;">DDR5</a>
+      </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn">Socket</button>
+      <div class="dropdown-content">
+        <a href="/mbAM4/" style="font-size: 15px;">AM4</a>
+        <a href="/mbFM2/" style="font-size: 15px;">FM2+</a>
+        <a href="/mbLGA1200/" style="font-size: 15px;">LGA 1200</a>
+        <a href="/mbLGA1150/" style="font-size: 15px;">LGA 1150</a>
+        <a href="/mbLGA1150/" style="font-size: 15px;">LGA 1151</a>
+        <a href="/mbLGA1155/" style="font-size: 15px;">LGA 1155</a>
+        <a href="/mbLGA1700/" style="font-size: 15px;">LGA 1700</a>
+      </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn">Tamanho</button>
+      <div class="dropdown-content">
+        <a href="/mbatx/" style="font-size: 15px;">ATX</a>
+        <a href="/mbmatx/" style="font-size: 15px;">M-ATX</a>
+        <a href="/mbminiitx/" style="font-size: 15px;">Mini-ITX</a>
+        <a href="/mbeatx/" style="font-size: 15px;">E-ATX</a>
+      </div>
+    </div>
+</div>
+
+
+<div id="mySidenavRAM" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavRAM()">&times;</a>
+  <div class="dropdown">
+  <button class="dropbtn">DDR</button>
+      <div class="dropdown-content">
+        <a href="/ramddr3/" style="font-size: 15px;">DDR3</a>
+        <a href="/ramddr4/" style="font-size: 15px;">DDR4</a>
+        <a href="/ramddr5/" style="font-size: 15px;">DDR5</a>
+      </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn">Capacidade</button>
+      <div class="dropdown-content">
+        <a href="/ram4gb/" style="font-size: 15px;">4 GB</a>
+        <a href="/ram8gb/" style="font-size: 15px;">8 GB</a>
+        <a href="/ram16gb/" style="font-size: 15px;">16 GB</a>
+        <a href="/ram32gb/" style="font-size: 15px;">32 GB</a>
+        <a href="/ram64gb/" style="font-size: 15px;">64 GB</a>
+      </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn">Frequencia</button>
+      <div class="dropdown-content">
+        <a href="/ram1866mhz/" style="font-size: 15px;">1866 MHz</a>
+        <a href="/ram3600mhz/" style="font-size: 15px;">3600 MHz</a>
+        <a href="/ram3200mhz/" style="font-size: 15px;">3200 MHz</a>
+        <a href="/ram3000mhz/" style="font-size: 15px;">3000 MHz</a>
+        <a href="/ram2666mhz/" style="font-size: 15px;">2666 MHz</a>
+        <a href="/ram1600mhz/" style="font-size: 15px;">1600 MHz</a>
+        <a href="/ram2400mhz/" style="font-size: 15px;">2400 MHz</a>
+        <a href="/ram6000mhz/" style="font-size: 15px;">6000 MHz</a>
+        <a href="/ram5600mhz/" style="font-size: 15px;">5600 MHz</a>
+        <a href="/ram4800mhz/" style="font-size: 15px;">4800 MHz</a>
+      </div>
+    </div>
+</div>
+
+
+<div id="mySidenavGPU" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavGPU()">&times;</a>
+  <div class="dropdown">
+  <button class="dropbtn">Tamanho</button>
+      <div class="dropdown-content">
+          <a href="/gpugt1030/" style="font-size: 15px;">GPU GT 1030</a>
+          <a href="/gpugt610/" style="font-size: 15px;">GPU GT 610</a>
+          <a href="/gpugt7101GB/" style="font-size: 15px;">GPU GT 710 1GB</a>
+          <a href="/gpugt7102GB/" style="font-size: 15px;">GPU GT 710 2GB</a>
+          <a href="/gpugt730/" style="font-size: 15px;">GPU GT 730</a>
+          <a href="/gpugt240/" style="font-size: 15px;">GPU GT 240</a>
+          <a href="/gpugtx10502GB/" style="font-size: 15px;">GPU GTX 1050 2GB</a>
+          <a href="/gpugtx10503GB/" style="font-size: 15px;">GPU GTX 1050 3GB</a>
+          <a href="/gpugtx1050TI/" style="font-size: 15px;">GPU GTX 1050 TI</a>
+          <a href="/gpugtx1060/" style="font-size: 15px;">GPU GTX 1060</a>
+          <a href="/gpugtx1070/" style="font-size: 15px;">GPU GTX 1070</a>
+          <a href="/gpugtx1070TI/" style="font-size: 15px;">GPU GTX 1070 TI</a>
+          <a href="/gpugtx1080/" style="font-size: 15px;">GPU GTX 1080</a>
+          <a href="/gpugtx1080TI/" style="font-size: 15px;">GPU GTX 1080 TI</a>
+          <a href="/gpugtx1630/" style="font-size: 15px;">GPU GTX 1630</a>
+          <a href="/gpugtx1650/" style="font-size: 15px;">GPU GTX 1650</a>
+          <a href="/gpugtx1650SUPER/" style="font-size: 15px;">GPU GTX 1650 SUPER</a>
+          <a href="/gpugtx1660/" style="font-size: 15px;">GPU GTX 1660</a>
+          <a href="/gpugtx1660SUPER/" style="font-size: 15px;">GPU GTX 1660 SUPER</a>
+          <a href="/gpugtx1660TI/" style="font-size: 15px;">GPU GTX 1660 TI</a>
+          <a href="/gpugtx750TI/" style="font-size: 15px;">GPU GTX 750 TI</a>
+          <a href="/gpugtx980TI/" style="font-size: 15px;">GPU GTX 980 TI</a>
+          <a href="/gpunvs810/" style="font-size: 15px;">GPU GPU NVS 810</a>
+          <a href="/gpuprow6600/" style="font-size: 15px;">GPU PROW 6600</a>
+          <a href="/gpuquadrop1000/" style="font-size: 15px;">GPU QUADRO P1000</a>
+          <a href="/gpuquadrop2000/" style="font-size: 15px;">GPU QUADRO P2000</a>
+          <a href="/gpuquadrop400/" style="font-size: 15px;">GPU QUADRO P400</a>
+          <a href="/gpuquadrop4000/" style="font-size: 15px;">GPU QUADRO P4000</a>
+          <a href="/gpuquadrop620/" style="font-size: 15px;">GPU QUADRO P620</a>
+          <a href="/gpuquadrortx4000/" style="font-size: 15px;">GPU QUADRO RTX 4000</a>
+          <a href="/gpuquadrortxa2000/" style="font-size: 15px;">GPU QUADRO RTX A2000</a>
+          <a href="/gpuquadrortxa4000/" style="font-size: 15px;">GPU QUADRO RTX A4000</a>
+          <a href="/gpuquadrortxa4500/" style="font-size: 15px;">GPU QUADRO RTX A4500</a>
+          <a href="/gpuquadrortxa5000/" style="font-size: 15px;">GPU QUADRO RTX A5000</a>
+          <a href="/gpuquadrot1000/" style="font-size: 15px;">GPU QUADRO T1000</a>
+          <a href="/gpuquadrot400/" style="font-size: 15px;">GPU QUADRO T400</a>
+          <a href="/gpuquadrot600/" style="font-size: 15px;">GPU QUADRO T600</a>
+          <a href="/gpur52202GB/" style="font-size: 15px;">GPU R5 220 2GB</a>
+          <a href="/gpur52301GB/" style="font-size: 15px;">GPU R5 230 1GB</a>
+          <a href="/gpur52302GB/" style="font-size: 15px;">GPU R5 230 2GB</a>
+          <a href="/gpur7240/" style="font-size: 15px;">GPU R7 240</a>
+          <a href="/gpurtx2060/" style="font-size: 15px;">GPU RTX 2060</a>
+          <a href="/gpurtx2060SUPER/" style="font-size: 15px;">GPU RTX 2060 SUPER</a>
+          <a href="/gpurtx2070/" style="font-size: 15px;">GPU RTX 2070</a>
+          <a href="/gpurtx2070SUPER/" style="font-size: 15px;">GPU RTX 2070 SUPER</a>
+          <a href="/gpurtx2080/" style="font-size: 15px;">GPU RTX 2080</a>
+          <a href="/gpurtx2080SUPER/" style="font-size: 15px;">GPU RTX 2080 SUPER</a>
+          <a href="/gpurtx2080TI/" style="font-size: 15px;">GPU RTX 2080 TI</a>
+          <a href="/gpurtx3050/" style="font-size: 15px;">GPU RTX 3050</a>
+          <a href="/gpurtx3060/" style="font-size: 15px;">GPU RTX 3060</a>
+          <a href="/gpurtx3060TI/" style="font-size: 15px;">GPU GPU RTX 3060 TI</a>
+          <a href="/gpurtx3070/" style="font-size: 15px;">GPU RTX 3070</a>
+          <a href="/gpurtx3070TI/" style="font-size: 15px;">GPU RTX 3070 TI</a>
+          <a href="/gpurtx3080/" style="font-size: 15px;">GPU GPU RTX 3080</a>
+          <a href="/gpurtx3080TI/" style="font-size: 15px;">GPU RTX 3080 TI</a>
+          <a href="/gpurtx3090/" style="font-size: 15px;">GPU RTX 3090</a>
+          <a href="/gpurtx3090TI/" style="font-size: 15px;">GPU RTX 3090 TI</a>
+          <a href="/gpurx460/" style="font-size: 15px;">GPU RX 460</a>
+          <a href="/gpurx550/" style="font-size: 15px;">GPU RX 550</a>
+          <a href="/gpurx5500/" style="font-size: 15px;">GPU RX 550</a>
+          <a href="/gpurx5600XT/" style="font-size: 15px;">GPU RX 5500 XT</a>
+          <a href="/gpurx570/" style="font-size: 15px;">GPU RX 570</a>
+          <a href="/gpurx5700/" style="font-size: 15px;">GPU RX 5700</a>
+          <a href="/gpurx580/" style="font-size: 15px;">GPU RX 580</a>
+          <a href="/gpurx590/" style="font-size: 15px;">GPU RX 590</a>
+          <a href="/gpurx6400/" style="font-size: 15px;">GPU RX 6400</a>
+          <a href="/gpurx6500XT/" style="font-size: 15px;">GPU RX 6500 XT</a>
+          <a href="/gpurx6600/" style="font-size: 15px;">GPU RX 6600</a>
+          <a href="/gpurx6600XT/" style="font-size: 15px;">GPU RX 6600 XT</a>
+          <a href="/gpurx6650XT/" style="font-size: 15px;">GPU RX 6650 XT</a>
+          <a href="/gpurx6700XT/" style="font-size: 15px;">GPU RX 6700 XT</a>
+          <a href="/gpurx6750XT/" style="font-size: 15px;">GPU RX 6750 XT</a>
+          <a href="/gpurx6800/" style="font-size: 15px;">GPU RX 6800</a>
+          <a href="/gpurx6800XT/" style="font-size: 15px;">GPU RX 6800 XT</a>
+          <a href="/gpurx6900XT/" style="font-size: 15px;">GPU RX 6900 XT</a>
+          <a href="/gpurx6950XT/" style="font-size: 15px;">GPU RX 6950 XT</a>
+
+      </div>
+    </div>
+</div>
+
 
 <div id="banner-top">
     <a href="http://home.com"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
@@ -729,10 +965,10 @@ a:hover {
 <div id="banner-right"></div>
 
 <div id="banner-bottom">
-    <a onclick="openNav()"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
-    <a href="/allmb/"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
-    <a href="/allram/"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
-    <a href="/allgpu/"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
+    <a onclick="openNavCPU()"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
+    <a onclick="openNavMotherboard()"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
+    <a onclick="openNavRAM()"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
+    <a onclick="openNavGPU()"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
     <a href="/allssd/"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
     <a href="/allcabinet/"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
     <a href="/allfont/"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
@@ -760,22 +996,73 @@ a:hover {
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script src="https://static.tumblr.com/uh2chis/dk1qhlq4o/fullpage.js"></script>
 
-<script src="https://unpkg.com/popper.js@1"></script> <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script> <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
+<script src="https://unpkg.com/popper.js@1"></script> <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
+
 <script>
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
+function openNavRAM() {
+  document.getElementById("mySidenavRAM").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
   document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+function closeNavRAM() {
+  document.getElementById("mySidenavRAM").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
   document.body.style.backgroundColor = "white";
 }
 </script>
+
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNavCPU() {
+  document.getElementById("mySidenavCPU").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNavCPU() {
+  document.getElementById("mySidenavCPU").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNavMotherboard() {
+  document.getElementById("mySidenavMB").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNavMB() {
+  document.getElementById("mySidenavMB").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNavGPU() {
+  document.getElementById("mySidenavGPU").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNavGPU() {
+  document.getElementById("mySidenavGPU").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
 </div>
 </body>
 

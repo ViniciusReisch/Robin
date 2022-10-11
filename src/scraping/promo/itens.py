@@ -71,10 +71,12 @@ def Crawl_Pichau():
                 passPricesProducts[i] = passPricesProducts[i].replace('.', '')
             changeablePassedPrices = passPricesProducts[i].replace('R$ ', '').replace(',', '.').replace(' por:', '').replace('de ', '')
             discountProduct = ((float(changeablePassedPrices) - float(changeablePrices)) * 100) / float(changeablePassedPrices)
-        dataDic = {'Store': 'Pichau', 'Name': namesProducts[i], 'Price': float(changeablePrices),
-                   'Old Prices': float(changeablePassedPrices),
+        dataDic = {'Store': 'Pichau', 'Name': namesProducts[i], 'Price': ['', float(changeablePrices)],
+                   'Installment price':  [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Discount': round(discountProduct, 2)}
+                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'Promo', 'Model': '',
+                   'Format': '', 'Discount': round(discountProduct, 2),'Old Prices': float(changeablePassedPrices),
+                   'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
 
@@ -139,11 +141,12 @@ def Crawl_Kabum():
         changeablePassedPrices = passPriceProducts[i].replace('R$', '').replace(',', '.')
 
         discountProduct = ((float(changeablePassedPrices) - float(changeablePrices)) * 100) / float(changeablePassedPrices)
-        dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': float(changeablePrices),
-                   'Old Price': float(changeablePassedPrices),
+        dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': ['', float(changeablePrices)],
+                   'Installment price': [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png',
-                   'Discount': round(discountProduct, 2)}
+                   'Logo': 'https://upload.wikimedia.org/wikipedia/commons/7/71/KaBuM%21_Logo2015.png',
+                   'Type': 'Promo', 'Model': '', 'Format': '', 'Discount': round(discountProduct, 2), 'Old Prices': float(changeablePassedPrices),
+                   'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
 
@@ -206,11 +209,12 @@ def Crawl_Terabyte():
             pricesProducts[i] = pricesProducts[i].replace('.', '')
         changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.').replace(' à vista', '')
         discountProduct = ((float(passPriceProducts[i]) - float(changeablePrices)) * 100) / float(passPriceProducts[i])
-        dataDic = {'Store': 'Terabyte', 'Name': namesProducts[i], 'Price':float(changeablePrices),
-                   'Old Price': passPriceProducts[i],
+        dataDic = {'Store': 'Terabyte', 'Name': namesProducts[i], 'Price': ['', float(changeablePrices)],
+                   'Installment price': [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg',
-                   'Discount': round(discountProduct, 2)}
+                   'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg', 'Type': 'Promo', 'Model': '',
+                   'Format': '',  'Discount': round(discountProduct, 2), 'Old Prices': passPriceProducts[i],
+                   'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
 
