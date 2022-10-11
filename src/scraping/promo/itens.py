@@ -72,9 +72,9 @@ def Crawl_Pichau():
             changeablePassedPrices = passPricesProducts[i].replace('R$ ', '').replace(',', '.').replace(' por:', '').replace('de ', '')
             discountProduct = ((float(changeablePassedPrices) - float(changeablePrices)) * 100) / float(changeablePassedPrices)
         dataDic = {'Store': 'Pichau', 'Name': namesProducts[i], 'Price': ['', float(changeablePrices)],
-                   'Installment price': ['', ''],
+                   'Installment price':  [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': '', 'Model': '',
+                   'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'Promo', 'Model': '',
                    'Format': '', 'Discount': round(discountProduct, 2),'Old Prices': float(changeablePassedPrices),
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
@@ -145,7 +145,7 @@ def Crawl_Kabum():
                    'Installment price': [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
                    'Logo': 'https://upload.wikimedia.org/wikipedia/commons/7/71/KaBuM%21_Logo2015.png',
-                   'Type': '', 'Model': '', 'Format': '', 'Discount': round(discountProduct, 2), 'Old Prices': float(changeablePassedPrices),
+                   'Type': 'Promo', 'Model': '', 'Format': '', 'Discount': round(discountProduct, 2), 'Old Prices': float(changeablePassedPrices),
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
@@ -210,10 +210,10 @@ def Crawl_Terabyte():
         changeablePrices = pricesProducts[i].replace('R$', '').replace(',', '.').replace(' à vista', '')
         discountProduct = ((float(passPriceProducts[i]) - float(changeablePrices)) * 100) / float(passPriceProducts[i])
         dataDic = {'Store': 'Terabyte', 'Name': namesProducts[i], 'Price': ['', float(changeablePrices)],
-                   'Installment price': [f'R${round(float(installmentPrice), 2)}', round(float(installmentPrice), 2)],
+                   'Installment price': [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg', 'Type': '', 'Model': '',
-                   'Format': '',  'Discount': round(discountProduct, 2), 'Old Prices': float(changeablePassedPrices),
+                   'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg', 'Type': 'Promo', 'Model': '',
+                   'Format': '',  'Discount': round(discountProduct, 2), 'Old Prices': passPriceProducts[i],
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
