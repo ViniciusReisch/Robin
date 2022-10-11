@@ -65,6 +65,7 @@ def CPU_Crawl():
                    'Installment price': [f'R${(str(installmentPrice).replace(".", ","))}', installmentPrice],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
                    'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg', 'Type': 'CPU',  'Model': '', 'Format': '',
+                   'Discount': '', 'Old Prices': '',
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData

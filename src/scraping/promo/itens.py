@@ -92,7 +92,7 @@ def Crawl_Kabum():
     local = arrow.utcnow()
     allData = []
 
-    for i in range(1, 2):
+    for i in range(1, 11):
         driver = webdriver.Chrome()
         link = f'https://www.kabum.com.br/hardware?page_number={i}&page_size=100&facet_filters=eyJoYXNfb2ZmZXIiOlsidHJ1ZSJdfQ==&sort=most_searched'
         driver.get(link)

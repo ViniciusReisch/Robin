@@ -65,6 +65,7 @@ def GPU_Crawl():
                    'Installment price': [f'R${round(float(installmentPrice), 2)}', round(float(installmentPrice), 2)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
                    'Logo': 'https://img.terabyteshop.com.br/terabyte-logo.svg', 'Type': 'GPU',  'Model': '', 'Format': '',
+                   'Discount': '', 'Old Prices': '',
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData

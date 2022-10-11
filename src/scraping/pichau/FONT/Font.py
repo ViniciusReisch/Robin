@@ -88,6 +88,7 @@ def Font_Crawl():
                    'Installment price': [installmentPriceProducts[i], float(changeableInstallmentPriceProducts)],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
                    'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'Font',  'Model': '', 'Format': '',
+                   'Discount': '', 'Old Prices': '',
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
