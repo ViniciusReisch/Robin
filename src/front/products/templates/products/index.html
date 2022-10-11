@@ -5,6 +5,8 @@
 <meta charset="UTF-8"/>
 <link href="https://fonts.googleapis.com/css?family=Exo:300,300i,400,400i,500,500i|Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito+Sans:300,300i,400,400i,600,600i,700,700i|Titillium+Web:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i|Oxygen:300,400,700|Arimo:400,400i,700,700i|Lato:300,300i,400,400i,700,700i|Karla:400,400i,700,700i|Montserrat:300,300i,400,400i,500,500i" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
 <script src="https://unpkg.com/phosphor-icons"></script>
 
@@ -22,12 +24,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
 
 <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 
 
 :root {
     --accent: #005f9e;
     --accented-text: #ffffff;
-    --main-background: rgb(0, 95, 158);
+    --main-background: #eeeeee;
     --main-font: 14px;
     --main-font-color: #000000;
     --title-text: #ffffff;
@@ -297,7 +301,7 @@ a:hover {
     margin-bottom: 10px;
 }
 
-.container {
+.bloco {
     position: relative;
     margin: auto;
     width: calc(100% - 10px);
@@ -317,10 +321,10 @@ a:hover {
 #header-image {
     width: auto;
     height: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
     background: var(--container) url("https://i.imgur.com/oOqA7ch.png") no-repeat fixed center;
+    z-index: 1000000000000000;
 }
 
 #header-image img {
@@ -501,7 +505,7 @@ a:hover {
 
 
 @media screen and (max-width: 1100px) {
-    .container {
+    .bloco {
         display: flex;
         flex-wrap: wrap;
         overflow: auto;
@@ -531,156 +535,57 @@ a:hover {
     }
 }
 
-#tenth>button{
-  letter-spacing:0;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 1000;
+.posicaobotao {
+    z-index: 100000000;
+    margin-top: 330px;
+    position: absolute;
+    width: 38%;
+    left: 115px;
+    color: #fff;
 }
 
-#tenth span{
-  letter-spacing:0;
-  display:inline-block;
-  position:relative;
-  width:8px;
-  transition:all .5s ease-in-out;
+.button {
+	 margin: 0.4em;
+	 padding: 1em;
+	 cursor: pointer;
+	 background: #005f9e;
+	 text-decoration: none;
+	 color: #fff;
+     width: 200px;
+     text-align: center;
+     top: 50%;
+     font-weight: 500;
+     font-family: 'Montserrat', sans-serif;
+     letter-spacing: 1px;
+     font-size: 16px;
+     height: 70px;
+     display: inline-block;
+     padding-top: 22px;
+
 }
-
-#tenth span:nth-of-type(4){
-  width:5px;
+ .grow {
+	 display: inline-block;
+	 transition-duration: 0.3s;
+	 transition-property: transform;
 }
-
-#tenth span:nth-of-type(6){
-  width:1px;
+ .grow:hover {
+	 transform: scale(1.1);
 }
-
-#tenth span:nth-of-type(8){
-  width:4px;
+ @keyframes pulse-grow {
+	 to {
+		 transform: scale(1.1);
+	}
 }
-
-#tenth:hover span:nth-of-type(1){
-  animation:h .5s;
+ .pulse-grow {
+	 display: inline-block;
 }
-
-#tenth:hover span:nth-of-type(2){
-  animation:o .5s;
-}
-
-#tenth:hover span:nth-of-type(3){
-  animation:v .5s;
-}
-
-#tenth:hover span:nth-of-type(4){
-  animation:e .5s;
-}
-
-#tenth:hover span:nth-of-type(5){
-  animation:r .5s;
-}
-
-#tenth:hover span:nth-of-type(7){
-  animation:t .5s;
-}
-
-#tenth:hover span:nth-of-type(8){
-  animation:e .5s;
-}
-
-#tenth:hover span:nth-of-type(9){
-  animation:n .5s;
-}
-
-@keyframes h{
-  0%{transform:translate(0, 0);}
-  50%{transform:translate(50px, 5px);}
-  75%{transform:translate(5px, 5px);}
-  80%{transform:translate(0, 0);}
-  100%{transform:translate(0, 0);}
-}
-
-@keyframes o{
-  0%{transform:translate(0, 0);}
-  25%{transform:translate(-4px, 0);}
-  50%{transform:translate(3px, 4px);}
-  80%{transform:translate(0, 0);}
-  100%{transform:translate(0, 0);}
-}
-
-@keyframes v{
-  0%{transform:translate(0, 0);}
-  20%{transform:rotate(360deg);}
-  50%{transform:scale(2);}
-  80%{transform:translate(0, 0);}
-  100%{transform:translate(0, 0);}
-}
-
-@keyframes e{
-  0%{transform:translate(0, 0);}
-  20%{transform:translate(-10px, -2px);}
-  80%{transform:translate(0, 0);}
-  100%{transform:translate(0, 0);}
-}
-
-@keyframes r{
-  0%{transform:translate(0, 0);}
-  20%{transform:translate(0, 10px);}
-  80%{transform:translate(0, 32px);}
-  100%{transform:translate(0, 0);}
-}
-
-@keyframes t{
-  0%{transform:translate(0, 0);}
-  20%{transform:translate(0, -10px);}
-  40%{transform:translate(0, 0);}
-  60%{transform:translate(0, -10px);}
-  80%{transform:translate(0, 0);}
-  100%{transform:translate(0, 0);}
-}
-
-@keyframes n{
-  0%{transform:translate(0, 0);}
-  50%{transform:skewY(50deg);}
-  80%{transform:translate(0, 0);}
-  100%{transform:translate(0, 0);}
-}
-
-
-@media(max-width: 1200px) {
-  #content-box {
-    width: 100%;
-  }
-}
-
-.contentBox{
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.buttonBox{
-  margin: 0 20px 40px;
-  position:relative;
-  max-width: 200px;
-  min-width: 150px;
-  flex: 20%;
-}
-
-button{
-  width:100%;
-  height:80px;
-  position:relative;
-  background-color: #005f9e;
-  text-transform:uppercase;
-  color:white;
-  font-weight:700;
-  letter-spacing:1px;
-  border:none;
-  font-size:15px;
-  outline:none;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  cursor: pointer;
+ .pulse-grow:hover {
+	 animation-name: pulse-grow;
+	 animation-duration: 0.3s;
+	 animation-timing-function: linear;
+	 animation-iteration-count: infinite;
+	 animation-direction: alternate;
+     color: #ffffff;
 }
 
 </style>
@@ -721,38 +626,24 @@ button{
     
     <div class="section" data-anchor="page1">
         <header id="header-image">
-                <div id="tenth" class="buttonBox">
-                    <button>
-                    <span>H</span>
-                    <span>o</span>
-                    <span>v</span>
-                    <span>e</span>
-                    <span>r</span>
-                    <span> </span>
-                    <span>T</span>
-                    <span>e</span>
-                    <span>n</span>
-                    </button>
+            <div class="posicaobotao">
+                <div class="container">
+                    <div class="row">
+                    <div class="col-sm">
+                        <a href="#" class="button pulse-grow">Montado</a>
+                    </div>
+                        <div class="col-sm">
+                        <a href="#" class="button pulse-grow">Faça você mesmo</a>
+                    </div>
+                    </div>
                 </div>
-                <div id="tenth" class="buttonBox">
-                    <button>
-                    <span>H</span>
-                    <span>o</span>
-                    <span>v</span>
-                    <span>e</span>
-                    <span>r</span>
-                    <span> </span>
-                    <span>T</span>
-                    <span>e</span>
-                    <span>n</span>
-                    </button>
-                </div>
-            </header>
+            </div>
+        </header>
     </div>
 
 
     <div class="section fp-auto-height-responsive" data-anchor="page2">
-        <section class="container">
+        <section class="bloco">
 
             <header class="image-container">
             <img src="https://www.pngmart.com/files/4/CPU-Processor-PNG-File.png">
@@ -781,7 +672,7 @@ button{
     </div>
 
     <div class="section fp-auto-height-responsive" data-anchor="page3">
-        <section class="container">
+        <section class="bloco">
 
             <aside class="stats-section">
                  <div class="stats">
@@ -806,7 +697,7 @@ button{
     </div>
 
     <div class="section fp-auto-height-responsive" data-anchor="page4">
-        <section class="container">
+        <section class="bloco">
 
             <aside class="stats-section">
                  <div class="stats">
@@ -834,7 +725,7 @@ button{
     </div>
 
     <div class="section fp-auto-height-responsive" data-anchor="page5">
-        <section class="container">
+        <section class="bloco">
             <header class="image-container">
             <img src="https://nvidiastore.com.br/media/catalog/product/cache/1/image/450x450/9df78eab33525d08d6e5fb8d27136e95/t/i/titan_rtx_6_2.png">
 
@@ -863,7 +754,7 @@ button{
     </div>
 
     <div class="section fp-auto-height-responsive" data-anchor="page6">
-        <section class="container">
+        <section class="bloco">
 
             <article class="biography">
                 <h2> HD & SSD</h2>
@@ -891,7 +782,7 @@ button{
     </div>
 
     <div class="section fp-auto-height-responsive" data-anchor="page7">
-        <section class="container">
+        <section class="bloco">
             <header class="image-container">
             <img src="https://i.imgur.com/utv1okE.png">
 
@@ -919,7 +810,7 @@ button{
     </div>
 
     <div class="section fp-auto-height-responsive" data-anchor="page8">
-        <section class="container">
+        <section class="bloco">
 
             <aside class="stats-section">
                  <div class="stats">
@@ -946,7 +837,7 @@ button{
     </div>
 
     <div class="section fp-auto-height-responsive" data-anchor="page9">
-        <section class="container">
+        <section class="bloco">
 
             <header class="image-container">
             <img src="https://www.imagensempng.com.br/wp-content/uploads/2021/10/710-3.png">
