@@ -199,5 +199,12 @@ urlpatterns = [
     path('cabinetpretolaranja/', views.cabinet_PretoLaranja, name='cabinet_PretoLaranja'),
     path('cabinetblackgray/', views.cabinet_BlackGray, name='cabinet_BlackGray'),
     path('cabinetred/', views.cabinet_Red, name='cabinet_Red'),
-    path('')
+
+
+    # Cabinet Size
+
+    path('cabinetfulltower/', views.cabinet_fulltower, name='cabinet_fulltower'),
+    path('cabinetmidtower/', views.cabinet_midtower, name='cabinet_midtower'),
+    path('cabinetminitower/', views.cabinet_minitower, name='cabinet_minitower'),
+
 ]
