@@ -3,7 +3,6 @@ from selenium import webdriver
 import socket
 from time import sleep
 
-
 def Cabinet_Crawl():
     # Cabinet specific data
 
@@ -44,7 +43,7 @@ def Cabinet_Crawl():
         # Crawling Products == Price
         priceTag = 0
         product = []
-        priceTagList = ['jss201', 'jss213', 'jss191', 'jss191', 'jss201']
+        priceTagList = ['jss201', 'jss213', 'jss191', 'jss191', 'jss203']
         while len(product) == 0:
             product = driver.find_elements('class name', priceTagList[priceTag])
             priceTag += 1
@@ -55,7 +54,7 @@ def Cabinet_Crawl():
         # Crawling Products == Installment Price
         priceTag = 0
         product = []
-        priceTagList = ['jss209', 'jss221', 'jss199', 'jss199', 'jss209']
+        priceTagList = ['jss201', 'jss221', 'jss199', 'jss199', 'jss209', 'jss211']
         while len(product) == 0:
             product = driver.find_elements('class name', priceTagList[priceTag])
             priceTag += 1

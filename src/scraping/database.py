@@ -7,12 +7,12 @@ conexao = mysql.connector.connect(
     host="localhost",
     user="root",
     password="root",
-    database="RobinDB"
+    database="RobinDatabase"
 )
 cursor = conexao.cursor()
 
 for product in allProducts:
-    cursor.execute(f'INSERT INTO AllData (store, name, price, changeablePrice, installmentPrice, '
+    cursor.execute(f'INSERT INTO alldata (store, name, price, changeablePrice, installmentPrice, '
                    f'changeableInstallmentPrice, Link, Image, Time, Logo, Type, Model, Format, Interface, Capacity, DDR,'
                    f'Frequency, Platform, Color,  Discount, OldPrice) VALUES ("{product["Store"]}", "{product["Name"]}", '
                    f'"{product["Price"][0]}", "{product["Price"][1]}", "{product["Installment price"]}", '

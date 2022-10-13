@@ -68,3 +68,6 @@ def SSD_Crawl():
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
+
+
+a = SSD_Crawl()
