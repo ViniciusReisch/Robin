@@ -157,7 +157,7 @@ urlpatterns = [
     path('gpurx6800/', views.GPU_RX6800, name='GPU_RX6800'),
     path('gpurx6800XT/', views.GPU_RX6800XT, name='GPU_RX6800XT'),
     path('gpurx6900XT/', views.GPU_RX6900XT, name='GPU_RX6900XT'),
-    path('gpurx6950XT/', views.GPU_RX6950XT, name='GPU_RX6950XT')
+    path('gpurx6950XT/', views.GPU_RX6950XT, name='GPU_RX6950XT'),
 
 
     # SSD Interface
@@ -207,4 +207,18 @@ urlpatterns = [
     path('cabinetmidtower/', views.cabinet_midtower, name='cabinet_midtower'),
     path('cabinetminitower/', views.cabinet_minitower, name='cabinet_minitower'),
 
+
+    # Font Potency
+
+    path('font200w/', views.font_200W, name='cabinet_fulltower'),
+    path('font400w/', views.font_400W, name='cabinet_midtower'),
+    path('font450w/', views.font_400W, name='cabinet_minitower'),
+    path('font500w/', views.font_400W, name='cabinet_fulltower'),
+    path('font550w/', views.font_400W, name='cabinet_midtower'),
+    path('font600w/', views.font_400W, name='cabinet_minitower'),
+    path('font650w/', views.font_400W, name='cabinet_fulltower'),
+    path('font700w/', views.font_400W, name='cabinet_midtower'),
+    path('font750w/', views.font_400W, name='cabinet_minitower'),
+    path('font850w/', views.font_400W, name='cabinet_minitower'),
+    path('font1200w/', views.font_400W, name='cabinet_minitower'),
 ]

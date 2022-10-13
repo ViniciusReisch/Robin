@@ -716,6 +716,12 @@ def HD(request):
                   {'products': products})
 
 
+def SSD(request):
+    products = Alldata.objects.all().filter(type='SSD')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
 # SSD INTERFACE
 def SSD_NVME(request):
     products = Alldata.objects.all().filter(type='SSD', Interface='NVMe')
@@ -822,6 +828,72 @@ def SSD_980GB(request):
 
 def font(request):
     products = Alldata.objects.all().filter(type='Font')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font_200W(request):
+    products = Alldata.objects.all().filter(type='Font', model='200W')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font_400W(request):
+    products = Alldata.objects.all().filter(type='Font', model='400W')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font_450W(request):
+    products = Alldata.objects.all().filter(type='Font', model='450W')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font_500W(request):
+    products = Alldata.objects.all().filter(type='Font', model='500W')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font_550W(request):
+    products = Alldata.objects.all().filter(type='Font', model='550W')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font_600W(request):
+    products = Alldata.objects.all().filter(type='Font', model='600W')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font_650W(request):
+    products = Alldata.objects.all().filter(type='Font', model='650W')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font_700W(request):
+    products = Alldata.objects.all().filter(type='Font', model='700W')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font_750W(request):
+    products = Alldata.objects.all().filter(type='Font', model='750W')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font_850W(request):
+    products = Alldata.objects.all().filter(type='Font', model='850W')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def font_1200W(request):
+    products = Alldata.objects.all().filter(type='Font', model='1200W')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
