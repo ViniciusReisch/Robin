@@ -46,8 +46,8 @@ def get_All():
     AllMB = [TerabyteAllMB, PichauAllMB, KabumAllMB]
     AllGPU = [TerabyteAllGPU, PichauAllGPU, KabumAllGPU]
     AllCPU = [TerabyteAllCPU, PichauAllCPU, KabumAllCPU]
-    AllRAM = [TerabyteAllRAM, PichauAllRAM, KabumAllRAM]
-    AllProducts = [all_products, AllRAM, AllMB, AllHD, AllCPU, AllGPU, AllSSD, AllFont, AllCabinet]
+    AllRAM = [TerabyteAllRAM, PichauAllRAM, KabumAllRAM, all_products]
+    AllProducts = [AllRAM, AllMB, AllHD, AllCPU, AllGPU, AllSSD, AllFont, AllCabinet]
     Products = []
 
     for i in AllProducts:

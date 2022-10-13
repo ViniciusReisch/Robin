@@ -429,7 +429,7 @@ class KabumCabinet:
         for i in range(len(allColors)):
             for data in allCabinet:
                 if allColors[i] in data['Name']:
-                    data.update({'Model': allColors[i]})
+                    data.update({'Color': allColors[i]})
 
         # Case Model
         allModel = ['Full-Tower', 'Full Tower', 'Mid-Tower', 'Mid Tower', 'Mini-Tower', 'Mini Tower']

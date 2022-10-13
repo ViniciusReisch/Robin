@@ -825,6 +825,44 @@ a:hover {
 </div>
 
 
+
+<div id="mySidenavSSD" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavSSD()">&times;</a>
+  <div class="dropdown">
+  <button class="dropbtn">Format</button>
+      <div class="dropdown-content">
+        <a href="/ssd25/" style="font-size: 15px;">2.5</a>
+        <a href="/ssdm2/" style="font-size: 15px;">M.2</a>
+        <a href="/ssdpcie/" style="font-size: 15px;">PCIe</a>
+      </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn">Interface</button>
+      <div class="dropdown-content">
+        <a href="/satanvme/" style="font-size: 15px;">NVMe</a>
+        <a href="/ssdsata/" style="font-size: 15px;">SATA</a>
+      </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn">Capacidade</button>
+      <div class="dropdown-content">
+        <a href="/ssd120gb/" style="font-size: 15px;">120 GB</a>
+        <a href="/ssd128gb/" style="font-size: 15px;">128 GB</a>
+        <a href="/ssd240gb/" style="font-size: 15px;">240 GB</a>
+        <a href="/ssd250gb/" style="font-size: 15px;">250 GB</a>
+        <a href="/ssd256gb/" style="font-size: 15px;">256 GB</a>
+        <a href="/ssd480gb/" style="font-size: 15px;">480 GB</a>
+        <a href="/ssd500gb/" style="font-size: 15px;">500 GB</a>
+        <a href="/ssd980gb/" style="font-size: 15px;">980 GB</a>
+        <a href="/ssd1tb/" style="font-size: 15px;">1 TB</a>
+        <a href="/ssd2tb/" style="font-size: 15px;">2 TB</a>
+        <a href="/ssd4tb/" style="font-size: 15px;">4 TB</a>
+        <a href="/ssd8tb/" style="font-size: 15px;">8 TB</a>
+      </div>
+    </div>
+</div>
+
+
 <div id="mySidenavRAM" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNavRAM()">&times;</a>
   <div class="dropdown">
@@ -969,7 +1007,7 @@ a:hover {
     <a onclick="openNavMotherboard()"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
     <a onclick="openNavRAM()"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
     <a onclick="openNavGPU()"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
-    <a href="/allssd/"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
+    <a onclick="openNavSSD()"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
     <a href="/allcabinet/"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
     <a href="/allfont/"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
     <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
@@ -1009,6 +1047,22 @@ function openNavRAM() {
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
 function closeNavRAM() {
   document.getElementById("mySidenavRAM").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNavSSD() {
+  document.getElementById("mySidenavSSD").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNavSSD() {
+  document.getElementById("mySidenavSSD").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
   document.body.style.backgroundColor = "white";
 }
