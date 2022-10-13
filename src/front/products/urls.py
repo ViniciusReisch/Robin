@@ -185,4 +185,19 @@ urlpatterns = [
     path('ssd500gb/', views.SSD_500GB, name='SSD_500GB'),
     path('ssd8tb/', views.SSD_8TB, name='SSD_8TB'),
     path('ssd980gb/', views.SSD_980GB, name='SSD_980GB'),
+
+
+    # Cabinet Colors
+
+    path('cabinetazul/', views.cabinet_Azul, name='cabinet_Azul'),
+    path('cabinetbranco/', views.cabinet_Branco, name='cabinet_Branco'),
+    path('cabinetpreto/', views.cabinet_Preto, name='cabinet_Preto'),
+    path('cabinetcinza/', views.cabinet_Cinza, name='cabinet_Cinza'),
+    path('cabinetrosa/', views.cabinet_Rosa, name='cabinet_Rosa'),
+    path('cabinetverde/', views.cabinet_Verde, name='cabinet_Verde'),
+    path('cabinetbrancopreto/', views.cabinet_BrancoPreto, name='cabinet_BrancoPreto'),
+    path('cabinetpretolaranja/', views.cabinet_PretoLaranja, name='cabinet_PretoLaranja'),
+    path('cabinetblackgray/', views.cabinet_BlackGray, name='cabinet_BlackGray'),
+    path('cabinetred/', views.cabinet_Red, name='cabinet_Red'),
+    path('')
 ]

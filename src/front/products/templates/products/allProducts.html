@@ -988,6 +988,40 @@ a:hover {
 </div>
 
 
+<div id="mySidenavCabinet" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavCabinet()">&times;</a>
+  <div class="dropdown">
+  <button class="dropbtn">Cores</button>
+      <div class="dropdown-content">
+          <a href="/cabinetazul/" style="font-size: 15px;">Azul</a>
+          <a href="/cabinetbranco/" style="font-size: 15px;">Branco</a>
+          <a href="/cabinetpreto/" style="font-size: 15px;">Preto</a>
+          <a href="/cabinetcinza/" style="font-size: 15px;">Cinza</a>
+          <a href="/cabinetrosa/" style="font-size: 15px;">Rosa</a>
+          <a href="/cabinetverde/" style="font-size: 15px;">Verde</a>
+          <a href="/cabinetbrancopreto/" style="font-size: 15px;">Branco & Preto</a>
+          <a href="/cabinetpretolaranja/" style="font-size: 15px;">Preto & Laranja</a>
+          <a href="/cabinetblackgray/" style="font-size: 15px;">Preto & Cinza</a>
+          <a href="/cabinetred/" style="font-size: 15px;">Vermelho</a>
+      </div>
+    </div>
+    <div class="dropdown">
+  <button class="dropbtn">Tamanho</button>
+      <div class="dropdown-content">
+          <a href="/cabinetazul/" style="font-size: 15px;">Azul</a>
+          <a href="/cabinetbranco/" style="font-size: 15px;">Branco</a>
+          <a href="/cabinetpreto/" style="font-size: 15px;">Preto</a>
+          <a href="/cabinetcinza/" style="font-size: 15px;">Cinza</a>
+          <a href="/cabinetrosa/" style="font-size: 15px;">Rosa</a>
+          <a href="/cabinetverde/" style="font-size: 15px;">Verde</a>
+          <a href="/cabinetbrancopreto/" style="font-size: 15px;">Branco & Preto</a>
+          <a href="/cabinetpretolaranja/" style="font-size: 15px;">Preto & Laranja</a>
+          <a href="/cabinetblackgray/" style="font-size: 15px;">Preto & Cinza</a>
+          <a href="/cabinetred/" style="font-size: 15px;">Vermelho</a>
+      </div>
+    </div>
+</div>
+
 <div id="banner-top">
     <a href="http://home.com"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
 
@@ -1008,7 +1042,7 @@ a:hover {
     <a onclick="openNavRAM()"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
     <a onclick="openNavGPU()"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
     <a onclick="openNavSSD()"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
-    <a href="/allcabinet/"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
+    <a onclick="openNavCabinet()"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
     <a href="/allfont/"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
     <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
 </div>
@@ -1047,6 +1081,22 @@ function openNavRAM() {
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
 function closeNavRAM() {
   document.getElementById("mySidenavRAM").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNavCabinet() {
+  document.getElementById("mySidenavCabinet").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNavCabinet() {
+  document.getElementById("mySidenavCabinet").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
   document.body.style.backgroundColor = "white";
 }

@@ -834,37 +834,37 @@ def cabinet(request):
 
 # CABINET COLOR
 def cabinet_Azul(request):
-    products = Alldata.objects.all().filter(type='Cabinet', color='Azul').filter(type='Cabinet', color='Blue')
+    products = Alldata.objects.all().filter(type='Cabinet', Color='Azul').filter(type='Cabinet', Color='Blue')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def cabinet_Branco(request):
-    products = Alldata.objects.all().filter(type='Cabinet', color='White').filter(type='Cabinet', color='Branco')
+    products = Alldata.objects.all().filter(type='Cabinet', Color='White').filter(type='Cabinet', Color='Branco')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def cabinet_Preto(request):
-    products = Alldata.objects.all().filter(type='Cabinet', model='Black').filter(type='Cabinet', model='Preto')
+    products = Alldata.objects.all().filter(type='Cabinet', Color='Black').filter(type='Cabinet', Color='Preto')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def cabinet_Cinza(request):
-    products = Alldata.objects.all().filter(type='Cabinet', model='Cinza').filter(type='Cabinet', model='Gray').filter(type='Cabinet', model='Prata').filter(type='Cabinet', model='Silver')
+    products = Alldata.objects.all().filter(type='Cabinet', Color='Cinza').filter(type='Cabinet', Color='Gray').filter(type='Cabinet', Color='Prata').filter(type='Cabinet', Color='Silver')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def cabinet_Rosa(request):
-    products = Alldata.objects.all().filter(type='Cabinet', model='Pink').filter(type='Cabinet', model='Rosa')
+    products = Alldata.objects.all().filter(type='Cabinet', Color='Pink').filter(type='Cabinet', Color='Rosa')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def cabinet_Verde(request):
-    products = Alldata.objects.all().filter(type='Cabinet', model='Verde').filter(type='Cabinet', model='Green').filter(type='Cabinet', model='Prata').filter(type='Cabinet', model='Silver')
+    products = Alldata.objects.all().filter(type='Cabinet', Color='Verde').filter(type='Cabinet', Color='Green')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
@@ -876,6 +876,38 @@ def cabinet_BrancoPreto(request):
 
 
 def cabinet_PretoLaranja(request):
-    products = Alldata.objects.all().filter(type='Cabinet', model=)
+    products = Alldata.objects.all().filter(type='Cabinet', Color='Preto/Laranja')
     return render(request, 'products/allProducts.html',
                   {'products': products})
+
+
+def cabinet_BlackGray(request):
+    products = Alldata.objects.all().filter(type='Cabinet', Color='Black/Gray')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def cabinet_Red(request):
+    products = Alldata.objects.all().filter(type='Cabinet', Color='Red').filter(type='Cabinet', Color='Vermelho')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+# CABINET SIZE
+def cabinet_fulltower(request):
+    products = Alldata.objects.all().filter(type='Cabinet', Model='Full-Tower')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def cabinet_midtower(request):
+    products = Alldata.objects.all().filter(type='Cabinet', Model='Mid-Tower')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
+def cabinet_minitower(request):
+    products = Alldata.objects.all().filter(type='Cabinet', Model='Mini-Tower')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
