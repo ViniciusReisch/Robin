@@ -81,6 +81,7 @@ urlpatterns = [
     path('ram4800mhz/', views.RAM_4800mhz, name='RAM_4800mhz'),
 
     # GPU Models
+
     path('gpugt1030/', views.GPU_GT1030, name='GPU_GT1030'),
     path('gpugt610/', views.GPU_GT610, name='GPU_GT610'),
     path('gpugt7101GB/', views.GPU_GT7101GB, name='GPU_GT7101GB'),
@@ -157,4 +158,67 @@ urlpatterns = [
     path('gpurx6800XT/', views.GPU_RX6800XT, name='GPU_RX6800XT'),
     path('gpurx6900XT/', views.GPU_RX6900XT, name='GPU_RX6900XT'),
     path('gpurx6950XT/', views.GPU_RX6950XT, name='GPU_RX6950XT'),
+
+
+    # SSD Interface
+
+    path('ssdnvme/', views.SSD_NVME, name='SSD_NVME'),
+    path('ssdsata/', views.SSD_SATA, name='SSD_SATA'),
+
+    # SSD Format
+
+    path('ssd25/', views.SSD_25, name='SSD_25'),
+    path('ssdm2/', views.SSD_M2, name='SSD_M2'),
+    path('ssdpcie/', views.SSD_PCIe, name='SSD_PCIe'),
+
+    # SSD Capacity
+
+    path('ssd120gb/', views.SSD_120GB, name='SSD_120GB'),
+    path('ssd128gb/', views.SSD_128GB, name='SSD_128GB'),
+    path('ssd1tb/', views.SSD_1TB, name='SSD_1TB'),
+    path('ssd2tb/', views.SSD_2TB, name='SSD_2TB'),
+    path('ssd240gb/', views.SSD_240GB, name='SSD_240GB'),
+    path('ssd250gb/', views.SSD_250GB, name='SSD_250GB'),
+    path('ssd256gb/', views.SSD_256GB, name='SSD_256GB'),
+    path('ssd480gb/', views.SSD_480GB, name='SSD_480GB'),
+    path('ssd4tb/', views.SSD_4TB, name='SSD_4TB'),
+    path('ssd500gb/', views.SSD_500GB, name='SSD_500GB'),
+    path('ssd8tb/', views.SSD_8TB, name='SSD_8TB'),
+    path('ssd980gb/', views.SSD_980GB, name='SSD_980GB'),
+
+
+    # Cabinet Colors
+
+    path('cabinetazul/', views.cabinet_Azul, name='cabinet_Azul'),
+    path('cabinetbranco/', views.cabinet_Branco, name='cabinet_Branco'),
+    path('cabinetpreto/', views.cabinet_Preto, name='cabinet_Preto'),
+    path('cabinetcinza/', views.cabinet_Cinza, name='cabinet_Cinza'),
+    path('cabinetrosa/', views.cabinet_Rosa, name='cabinet_Rosa'),
+    path('cabinetverde/', views.cabinet_Verde, name='cabinet_Verde'),
+    path('cabinetbrancopreto/', views.cabinet_BrancoPreto, name='cabinet_BrancoPreto'),
+    path('cabinetpretolaranja/', views.cabinet_PretoLaranja, name='cabinet_PretoLaranja'),
+    path('cabinetblackgray/', views.cabinet_BlackGray, name='cabinet_BlackGray'),
+    path('cabinetred/', views.cabinet_Red, name='cabinet_Red'),
+
+
+    # Cabinet Size
+
+    path('cabinetfulltower/', views.cabinet_fulltower, name='cabinet_fulltower'),
+    path('cabinetmidtower/', views.cabinet_midtower, name='cabinet_midtower'),
+    path('cabinetminitower/', views.cabinet_minitower, name='cabinet_minitower'),
+
+
+    # Font Potency
+
+    path('font200w/', views.font_200W, name='cabinet_fulltower'),
+    path('font400w/', views.font_400W, name='cabinet_midtower'),
+    path('font450w/', views.font_400W, name='cabinet_minitower'),
+    path('font500w/', views.font_400W, name='cabinet_fulltower'),
+    path('font550w/', views.font_400W, name='cabinet_midtower'),
+    path('font600w/', views.font_400W, name='cabinet_minitower'),
+    path('font650w/', views.font_400W, name='cabinet_fulltower'),
+    path('font700w/', views.font_400W, name='cabinet_midtower'),
+    path('font750w/', views.font_400W, name='cabinet_minitower'),
+    path('font850w/', views.font_400W, name='cabinet_minitower'),
+    path('font1200w/', views.font_400W, name='cabinet_minitower'),
 ]
