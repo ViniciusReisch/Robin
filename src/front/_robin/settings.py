@@ -77,10 +77,10 @@ WSGI_APPLICATION = '_robin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'RobinDB',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'NAME': 'RobinDatabase',
+        'USER': 'admin',
+        'PASSWORD': 'entra21python',
+        'HOST': 'robin-db.cio5ym955feo.us-east-1.rds.amazonaws.com',
         'PORT': '3306'
     }
 }

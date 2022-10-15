@@ -43,26 +43,16 @@ def CPU_Crawl():
         imgProducts = list(dict.fromkeys(imgProducts))
 
         # Crawling Products == Price
-        priceTag = 0
-        product = []
-        priceTagList = ['jss201', 'jss213', 'jss191', 'jss191', 'jss203']
-        while len(product) == 0:
-            product = driver.find_elements('class name', priceTagList[priceTag])
-            priceTag += 1
-            for i in product:
-                if 'R$' in i.text:
-                    pricesProducts.append(i.text)
+        product = driver.find_elements('class name', 'jss193')
+        for i in product:
+            if 'R$' in i.text:
+                pricesProducts.append(i.text)
 
         # Crawling Products == Installment Price
-        priceTag = 0
-        product = []
-        priceTagList = ['jss201', 'jss221', 'jss199', 'jss199', 'jss209', 'jss211']
-        while len(product) == 0:
-            product = driver.find_elements('class name', priceTagList[priceTag])
-            priceTag += 1
-            for i in product:
-                if 'R$' in i.text:
-                    installmentPriceProducts.append(i.text)
+        product = driver.find_elements('class name', 'jss201')
+        for i in product:
+            if 'R$' in i.text:
+                installmentPriceProducts.append(i.text)
 
         # Crawling Products == Name
         product = driver.find_elements('tag name', 'h2')

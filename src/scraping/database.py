@@ -4,9 +4,9 @@ import main
 allProducts = main.get_All()
 
 conexao = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="root",
+    host="robin-db.cio5ym955feo.us-east-1.rds.amazonaws.com",
+    user="admin",
+    password="entra21python",
     database="RobinDatabase"
 )
 cursor = conexao.cursor()
