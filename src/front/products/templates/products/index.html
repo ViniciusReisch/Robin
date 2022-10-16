@@ -579,6 +579,28 @@ a:hover {
      text-decoration: none;
 
 }
+
+.button2 {
+	 margin: 0.4em;
+	 padding: 1em;
+	 cursor: pointer;
+	 background: #005f9e;
+	 text-decoration: none;
+	 color: #fff;
+     width: 457px;
+     text-align: center;
+     top: 50%;
+     font-weight: 500;
+     font-family: 'Montserrat', sans-serif;
+     letter-spacing: 1px;
+     font-size: 16px;
+     height: 40px;
+     display: inline-block;
+     padding-top: 8px;
+     text-decoration: none;
+
+}
+
  .grow {
 	 display: inline-block;
 	 transition-duration: 0.3s;
@@ -603,6 +625,25 @@ a:hover {
 	 animation-iteration-count: infinite;
 	 animation-direction: alternate;
      text-decoration: none;
+}
+
+.grow-rotate {
+  display: inline-block;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+.grow-rotate:hover {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.botaopromocao {
+    width: 300px;
+    margin-top: 32.5%;
+    position: absolute;
+    margin-left: 9.8%;
 }
 
 .primeirapagina {
@@ -833,6 +874,36 @@ a:hover {
 #t-5:checked ~ .testimonials label[for="t-5"] {
 	z-index: 4;
 }
+
+.box {
+  margin: 0px auto;
+  width: 60px;
+  margin-left: 70px;
+  position: absolute;
+  transform: rotate(-15deg)
+}
+
+.badge {
+	 background: red;
+	 color: #fff;
+	 height: 80px;
+	 width: 80px;
+     padding-top: 20px;
+	 border-radius: 50%;
+	 font-size: 13px;
+     align-items: center;
+	 text-align: center;
+	 box-shadow: 0 0 3px gray;
+     position: absolute;
+}
+ .badge small {
+	 text-decoration: line-through;
+	 font-size: 11px;
+}
+ .badge large {
+	 font-size: 14px;
+}
+ 
 </style>
 
 </head>
@@ -840,7 +911,7 @@ a:hover {
 <body>
 
 <div id="banner-top">
-    <a href="http://home.com"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
+    <a href="/"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
 
     <nav class="homelinks">
         <a href="/" title="home"><i class="ph-house"></i></a>
@@ -870,17 +941,20 @@ a:hover {
     
     <div class="section" data-anchor="page1">
         <header id="header-image">
-            <div class="posicaobotao">
-                <div class="container">
-                    <div class="row">
-                    <div class="col-sm">
-                        <a href="" class="button grow">Montado</a>
-                    </div>
+                <div class="posicaobotao">
+                    <div class="container">
+                        <div class="row">
                         <div class="col-sm">
-                        <a href="/allcpu/" class="button pulse-grow">Faça você mesmo*</a>
-                    </div>
+                            <a href="" class="button grow">Montado</a>
+                        </div>
+                            <div class="col-sm">
+                            <a href="/allcpu/" class="button pulse-grow">Faça você mesmo*</a>
+                        </div>
+                        </div>
                     </div>
                 </div>
+            <div class="botaopromocao">
+                <a href="/allcpu/" class="button2 grow-rotate">Promoções</a>
             </div>
         </header>
 
@@ -905,7 +979,14 @@ a:hover {
                 <input type="radio" name="testimonial" id="t-5">
                 <div class="testimonials">
                     {%for promo in promos%}
+                    
                         <label class="item" for="t-{{forloop.counter}}">
+                            <div class="box">
+                                <div class="badge">Promoção
+                                    <br><span><small>R$395</small></span><br>
+                                    <large>R$150</large>
+                                </div>
+                            </div>
                             <div class="wsk-cp-text">
                                 <div class="category">
                                     <span> <img src="{{promo.logo}}" alt="Product" class="logosize"/></span>
