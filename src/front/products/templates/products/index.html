@@ -283,6 +283,7 @@ a:hover {
 
 #banner-bottom a:hover {
     color: var(--main-links);
+    opacity: 0.6;
 }
 
 
@@ -663,15 +664,6 @@ a:hover {
 }
 
 
-body {
-	margin: 0;
-	background-image: linear-gradient(90deg, #201A35, #0B0320);
-	color: #fff;
-	font-family: sans-serif;
-	display: flex;
-	align-items: center;
-	min-height: 100vh;
-}
 .slider {
 	width: 100%;
 }
@@ -688,9 +680,9 @@ body {
 	overflow: hidden;
 }
 .testimonials .item {
-	width: 250px;
+	max-width: 270px;
 	padding: 30px;
-	border-radius: 2px;
+	border-radius: 5px;
 	background-color: #0A0220;
 	position: absolute;
 	top: 0;
@@ -725,6 +717,54 @@ body {
 	background-color: #413B52;
 	margin: 7px;
 	transition-duration: 0.2s;
+}
+
+.acessbutton {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.wsk-cp-text{
+}
+.wsk-cp-text .category{
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+  padding:5px;
+  position:relative;
+  transition: all 0.2s ease-in-out;
+}
+.wsk-cp-text .category > *{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  -khtml-transform: translate(-50%,-50%);
+
+}
+.wsk-cp-text .category > span{
+  padding: 12px 30px;
+  background:#212121;
+  color:#fff;
+  border-radius:27px;
+  transition: all 0.05s ease-in-out;
+
+}
+
+.logosize {
+  width: 50px;
+  height: auto;
 }
 
 #t-1:checked ~ .dots label[for="t-1"],
@@ -793,10 +833,6 @@ body {
 #t-5:checked ~ .testimonials label[for="t-5"] {
 	z-index: 4;
 }
-.logosize {
-  width: 44444px;
-  height: auto;
-}
 </style>
 
 </head>
@@ -818,14 +854,14 @@ body {
 <div id="banner-right"></div>
 
 <div id="banner-bottom">
-    <a href="#page2"><img src="https://i.imgur.com/KbleMJc.png" alt="" id="icones"></a>
-    <a href="#page3"><img src="https://i.imgur.com/g0zO5EJ.png" alt="" id="icones"></a>
-    <a href="#page4"><img src="https://i.imgur.com/LL72KzO.png" alt="" id="icones"></a>
-    <a href="#page5"><img src="https://i.imgur.com/zuCKghj.png" alt="" id="icones"></a>
-    <a href="#page6"><img src="https://i.imgur.com/z4MIrET.png" alt="" id="icones"></a>
-    <a href="#page7"><img src="https://i.imgur.com/KIFUmg3.png" alt="" id="icones"></a>
-    <a href="#page8"><img src="https://i.imgur.com/qJNZEo8.png" alt="" id="icones"></a>
-    <a href="#page9"><img src="https://i.imgur.com/S6pIwGb.png" alt="" id="icones"></a>
+    <a href="#page2"><img src="https://i.imgur.com/VsRc1Kk.png" title="Processador" id="icones"></a>
+    <a href="#page3"><img src="https://i.imgur.com/zKzh5Em.png" title="Placa-mãe" id="icones"></a>
+    <a href="#page4"><img src="https://i.imgur.com/RqLq7QL.png" title="Memória RAM" id="icones"></a>
+    <a href="#page5"><img src="https://i.imgur.com/zFUZl0F.png" title="Placa de vídeo" id="icones"></a>
+    <a href="#page6"><img src="https://i.imgur.com/h9VapYx.png" title="HD" id="icones"></a>
+    <a href="#page7"><img src="https://i.imgur.com/9kH9hfC.png" title="Gabinete" id="icones"></a>
+    <a href="#page8"><img src="https://i.imgur.com/LznnzQH.png" title="Fonte de alimentação" id="icones"></a>
+    <a href="#page9"><img src="https://i.imgur.com/cngWwrv.png" title="SSD" id="icones"></a>
 </div>
 
 <div id="banner-left"></div>
@@ -838,10 +874,10 @@ body {
                 <div class="container">
                     <div class="row">
                     <div class="col-sm">
-                        <a href="#" class="button grow">Montado</a>
+                        <a href="" class="button grow">Montado</a>
                     </div>
                         <div class="col-sm">
-                        <a href="#" class="button pulse-grow">Faça você mesmo*</a>
+                        <a href="/allcpu/" class="button pulse-grow">Faça você mesmo*</a>
                     </div>
                     </div>
                 </div>
@@ -859,7 +895,7 @@ body {
     </div>
 
 
-    <div class="section fp-auto-height-responsive" data-anchor="page3">
+    <div class="section fp-auto-height-responsive" data-anchor="page2">
         <section class="bloco">
         <div class="slider">
                 <input type="radio" name="testimonial" id="t-1">
@@ -868,32 +904,24 @@ body {
                 <input type="radio" name="testimonial" id="t-4">
                 <input type="radio" name="testimonial" id="t-5">
                 <div class="testimonials">
-                    <label class="item" for="t-1">
-                        <img src="https://static.pichau.com.br/logo-pichau-2021-dark.png" alt="Product" class="logosize" style="height: 20px;"/>
-                        <img src="https://images.kabum.com.br/produtos/fotos/129459/processador-amd-ryzen-9-5900x-cache-70mb-3-7ghz-4-8ghz-max-turbo-am4-100-100000063wof_1602600708_gg.jpg" alt="picture">
-                        <p>"Raw denim you probably haven't heard of them jean short austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse."</p>
-                        <h2>- Princy, Web Developer</h2>
-                    </label>
-                    <label class="item" for="t-2">
-                        <p>"Raw denim you probably haven't heard of them jean short austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse."</p>
-                        <h2>- Princy, Web Developer</h2>
-                    </label>
-                    <label class="item" for="t-3">
-                        <img src="https://dummyimage.com/150" alt="picture">
-                        <p>"Raw denim you probably haven't heard of them jean short austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse."</p>
-                        <h2>- Princy, Web Developer</h2>
-                    </label>
-                    <label class="item" for="t-4">
-                        <img src="https://dummyimage.com/150" alt="picture">
-                        <p>"Raw denim you probably haven't heard of them jean short austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse."</p>
-                        <h2>- Princy, Web Developer</h2>
-                    </label>
-                    <label class="item" for="t-5">
-                        <img src="https://dummyimage.com/150" alt="picture">
-                        <p>"Raw denim you probably haven't heard of them jean short austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse."</p>
-                        <h2>- Princy, Web Developer</h2>
-                    </label>
+                    {%for promo in promos%}
+                        <label class="item" for="t-{{forloop.counter}}">
+                            <div class="wsk-cp-text">
+                                <div class="category">
+                                    <span> <img src="{{promo.logo}}" alt="Product" class="logosize"/></span>
+                                </div>
+                                <img src="{{promo.image}}" alt="picture" style="width: 100%;">
+                                <h1 class="name"> {{promo.name}} </h1>
+                                <p class="price">{{promo.oldprice}}</p>
+                                <p class="price">{{promo.price}}</p>
+                                <p> <a href="{{promo.link}}"><button class="acessbutton">Acesse</button></a></p>
+                            </div>
+                        </label>
+                    {%endfor%}
                 </div>
+                <br>
+                <br>
+                <br>
                 <div class="dots">
                     <label for="t-1"></label>
                     <label for="t-2"></label>
