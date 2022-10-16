@@ -3,7 +3,7 @@ from .models import Alldata
 
 
 def index(request):
-    promos = Alldata.objects.all().filter(type='MotherBoard', model='FM2+')
+    promos = Alldata.objects.all().filter(type='Promo')
     return render(request, 'products/index.html',
                   {'promos': promos})
 
