@@ -22,7 +22,7 @@ def CPU_Crawl():
     # Crawling Products == Image
     product = driver.find_elements('tag name', 'img')
     for e in product:
-        if 'processador' in e.get_attribute('src'):  # Only separate images with product in the name
+        if 'produto' in e.get_attribute('src'):  # Only separate images with product in the name
             imgProducts.append(e.get_attribute('src'))
     imgProducts = list(dict.fromkeys(imgProducts))
 

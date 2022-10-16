@@ -6,8 +6,6 @@ from time import sleep
 
 def Crawl_Pichau():
     passPricesProducts = []
-    priceTag = 0
-    passPriceTag = 0
     pricesProducts = []
     namesProducts = []
     linksProducts = []
@@ -22,32 +20,25 @@ def Crawl_Pichau():
     driver.fullscreen_window()
 
     # Crawling Products == Name
-    product = driver.find_element('class name', 'jss156')
+    product = driver.find_element('class name', 'jss158')
     names = product.find_elements('class name', 'MuiTypography-h6')
 
-    prices = product.find_elements('class name', 'jss218')  # jss224, jss145
-    priceTagList = ['jss213', 'jss218', 'jss213']
-    while len(prices) == 0:
-        prices = product.find_elements('class name', priceTagList[priceTag])
-        priceTag += 1
+    # Crawling Products == Price
+    price = product.find_elements('class name', 'jss220')
+    for i in price:
+        if 'R$' in i.text:
+            pricesProducts.append(i.text)
 
-    passPrices = product.find_elements('class name', 'jss227')  # jss233, jss154
-    passPriceTagList = ['jss222', 'jss227', 'jss200', 'jss226']
-    while len(passPrices) == 0:
-        passPrices = product.find_elements('class name', passPriceTagList[passPriceTag])
-        passPriceTag += 1
+    # Crawling Products == Installment Price
+    price = product.find_elements('class name', 'jss229')
+    for i in price:
+        if 'R$' in i.text:
+            passPricesProducts.append(i.text)
 
-    img = product.find_elements('tag name', 'img')
     links = product.find_elements('tag name', 'a')
 
     for i in names:
         namesProducts.append(i.text)
-
-    for i in prices:
-        pricesProducts.append(i.text)
-
-    for i in passPrices:
-        passPricesProducts.append(i.text)
 
     while scroll < height:
         driver.execute_script(f"window.scrollTo(0, {scroll});")
@@ -75,7 +66,7 @@ def Crawl_Pichau():
                    'Installment price':  [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
                    'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'Promo', 'Model': '',
-                   'Format': '', 'Discount': round(discountProduct, 2),'Old Prices': float(changeablePassedPrices),
+                   'Format': '',  'Discount': round(discountProduct, 2), 'Old Prices': passPriceProducts[i],
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
@@ -217,4 +208,3 @@ def Crawl_Terabyte():
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData
-

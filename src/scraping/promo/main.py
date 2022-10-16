@@ -1,12 +1,10 @@
-from promo import itens
+from promo.itens import *
+
 
 def crawl_products():
-    products = []
-    allData = [itens.Crawl_Terabyte(), itens.Crawl_Kabum()]
+    products = [Crawl_Pichau(), Crawl_Kabum(), Crawl_Terabyte()]
+    allData = []
     for i in allData:
         for k in i:
             products.append(k)
     return products
-
-
-a = crawl_products()
