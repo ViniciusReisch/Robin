@@ -3,7 +3,21 @@ from .models import Alldata
 
 
 def index(request):
-    return render(request, 'products/index.html')
+    promos = Alldata.objects.all().filter(type='MotherBoard', model='FM2+')
+    return render(request, 'products/index.html',
+                  {'promos': promos})
+
+
+def ssd_promo(request):
+    ssds = Alldata.objects.all().filter(name='ssd', discont='1')
+    return render(request, 'products/index.html',
+                  {'ssds': ssds})
+
+
+def allProducts(request):
+    products = Alldata.objects.all().filter
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
 
 
 def allProducts(request):
