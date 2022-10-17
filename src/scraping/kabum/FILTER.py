@@ -25,7 +25,8 @@ class KabumGPU:
 
         # Specific GPU lists
 
-        allModel = ['GT 1030', 'Gt 1030', 'GT 610', 'GT 710 1GB', 'GT 710 2GB', 'GT 730 2GB',
+        allModel = ['GT 1030', 'Gt 1030', 'GT1030', 'GT 610', 'Gt 610', 'GT610' 'GT 710 1GB', 'Gt 710 1GB', 'GT 710 1gb',
+                    'GT 710 2GB', 'Gt 710 2GB', 'GT 710 2gb', 'GT 730 2GB',
                     'GT 730,2GB','GT240', 'Gt240', 'GTX 1050 2GB', 'GTx 1050 2GB', 'GTX 1050 3GB',
                     'GTX 1050 TI', 'GTx 1050 TI', 'GTX 1060', 'GTx 1060', 'gtx 1060 3GB','GTX 1060',
                     'GTX 1070', 'GTX 1070 TI', 'GTX 1080', 'GTX 1080 TI', 'GTX 1630',

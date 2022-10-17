@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Alldata
 import random
+from .filters import ProductFilter
 
 
 def index(request):
@@ -18,14 +19,10 @@ def ssd_promo(request):
 
 def allProducts(request):
     products = Alldata.objects.all().filter
+    meu_filtro = ProductFilter(request.GET, queryset=products)
+    products = meu_filtro.qs
     return render(request, 'products/allProducts.html',
-                  {'products': products})
-
-
-def allProducts(request):
-    products = Alldata.objects.all().filter
-    return render(request, 'products/allProducts.html',
-                  {'products': products})
+                  {'products': products, 'meu_filtro': meu_filtro})
 
 
 def ram(request):
@@ -334,14 +331,16 @@ def GPU_GT1030(request):
                   {'products': products})
 
 def GPU_GT610(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GT 610')
+    products = Alldata.objects.all().filter(type='GPU', model='GT 610') |  Alldata.objects.all().filter(type='GPU', model='Gt 610') | Alldata.objects.all().filter(type='GPU', model='GT610')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
+
 def GPU_GT7101GB(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GT 710 1GB')
+    products = Alldata.objects.all().filter(type='GPU', model='GT 710 1GB') | Alldata.objects.all().filter(type='GPU', model='Gt 710 1GB') | Alldata.objects.all().filter(type='GPU', model='GT 710 1gb')
     return render(request, 'products/allProducts.html',
                   {'products': products})
+
 
 def GPU_GT7102GB(request):
     products = Alldata.objects.all().filter(type='GPU', model='GT 710 2GB')
@@ -403,20 +402,25 @@ def GPU_GTX1630(request):
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
+
 def GPU_GTX1650(request):
     products = Alldata.objects.all().filter(type='GPU', model='GTX 1650')
     return render(request, 'products/allProducts.html',
                   {'products': products})
+
+
 
 def GPU_GTX1650SUPER(request):
     products = Alldata.objects.all().filter(type='GPU', model='GTX 1650 SUPER')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
+
 def GPU_GTX1660(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GTX 1660')
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 1660') | Alldata.objects.all().filter(type='GPU', model='GTX1660') | Alldata.objects.all().filter(type='GPU', model='GTx 1660')
     return render(request, 'products/allProducts.html',
                   {'products': products})
+
 
 def GPU_GTX1660SUPER(request):
     products = Alldata.objects.all().filter(type='GPU', model='GTX 1660 SUPER')
@@ -928,13 +932,13 @@ def cabinet_Azul(request):
 
 
 def cabinet_Branco(request):
-    products = Alldata.objects.all().filter(type='Gabinete', color='White').filter(type='Gabinete', color='Branco')
+    products = Alldata.objects.all().filter(type='Gabinete', color='White') | Alldata.objects.all().filter(type='Gabinete', color='Branco')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def cabinet_Preto(request):
-    products = Alldata.objects.all().filter(type='Gabinete', color=['Black', 'Preto'])
+    products = Alldata.objects.all().filter(type='Gabinete', color='Black') | Alldata.objects.all().filter(type='Gabinete', color='Black')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
