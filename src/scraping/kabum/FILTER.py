@@ -25,10 +25,11 @@ class KabumGPU:
 
         # Specific GPU lists
 
-        allModel = ['GT 1030', 'Gt 1030', 'GT1030', 'GT 610', 'Gt 610', 'GT610' 'GT 710 1GB', 'Gt 710 1GB', 'GT 710 1gb',
-                    'GT 710 2GB', 'Gt 710 2GB', 'GT 710 2gb', 'GT 730 2GB',
-                    'GT 730,2GB','GT240', 'Gt240', 'GTX 1050 2GB', 'GTx 1050 2GB', 'GTX 1050 3GB',
-                    'GTX 1050 TI', 'GTx 1050 TI', 'GTX 1060', 'GTx 1060', 'gtx 1060 3GB','GTX 1060',
+        allModel = ['GT 1030', 'Gt 1030', 'GT1030', 'GT 610', 'Gt 610', 'GT610' 'GT 710 1GB', 'Gt 710 1GB',
+                    'GT 710 1gb', 'GT 710 2GB', 'Gt 710 2GB', 'GT 710 2gb', 'GT 730 2GB', 'GT 730 2gb'
+                    'GT 730 2gb','GT240', 'Gt240', 'GTX 1050 2GB', 'GTx 1050 2GB', 'GTx 1050 2GB', 'GTX 1050 3GB',
+                    'GTx 1050 3GB', 'GTX 1050 3gb',
+                    'GTX 1050 TI', 'GTx 1050 TI', 'GTX 1050 ti', 'GTX 1060', 'GTx 1060', 'gtx 1060 3GB','gtx 1060',
                     'GTX 1070', 'GTX 1070 TI', 'GTX 1080', 'GTX 1080 TI', 'GTX 1630',
                     'GTX 1650', 'Gtx 1650 4GB', 'GTX 1650 Super', 'GTX 1660', 'GTX 1660 Super',
                     'GTX 1660 TI', 'Gtx 1660 TI', 'GTX 750 TI,2GB', 'GTX 750 TI,4GB', 'GTX 980 TI',
