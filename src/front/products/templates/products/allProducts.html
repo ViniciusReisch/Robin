@@ -209,6 +209,39 @@ a:hover {
     transition-duration: 0.8s;
 }
 
+.container-fluid-top{
+  margin-top: 50px;
+  margin: 50px 20px; 
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  row-gap: 50px;
+  align-content: center;
+  justify-content: space-around;
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1500px) {
+  .container-fluid-top{
+    grid-template-columns: repeat(5, auto);
+  }  
+}
+
+@media screen and (min-width: 900px) and (max-width: 1100px) {
+  .container-fluid-top{
+    grid-template-columns: repeat(4, auto);
+  }  
+}
+
+@media screen and (min-width: 700px) and (max-width: 900px) {
+  .container-fluid-top{
+    grid-template-columns: repeat(3, auto);
+  }  
+}
+
+@media screen and (max-width: 700px) {
+  .container-fluid-top{
+    grid-template-columns: repeat(2, auto);
+  }  
+}
 
 #banner-top {
     width: 100%;
@@ -241,7 +274,8 @@ a:hover {
 }
 
 
-#banner-bottom {
+
+#footer {
     width: 100%;
     height: 100px;
     background-color: var(--corners);
@@ -250,19 +284,38 @@ a:hover {
     left: 0;
     right: 0;
     z-index: 99;
-    padding: 20px 10px;
-    box-sizing: border-box;
+    /* padding: 20px 10px; */
+    /* box-sizing: border-box; */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9;
 }
 
-#banner-bottom a {
+.vertical-scroll{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow-x: scroll;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.vertical-scroll::-webkit-scrollbar{
+  display: none;
+}
+
+.vertical-scroll a {
     margin: 0 20px;
     font-weight: 700;
     color: var(--main-links);
     font-size: 1.2em;
+}
+
+.vertical-scroll a:hover {
+    color: var(--main-links);
+    opacity: 0.6;
 }
 
 
@@ -564,8 +617,8 @@ a:hover {
 
 .card {
   max-width: 200px;
-  margin-top: 50px;
-  margin-left: 100px;
+  /* margin-top: 50px;
+  margin-left: 100px; */
   text-align: center;
   font-family: 'Roboto', sans-serif;
 }
@@ -1035,18 +1088,20 @@ font-size: 14px;
 
 <div id="banner-right"></div>
 
-<div id="banner-bottom">
-    <a onclick="openNavCPU()"><img src="https://i.imgur.com/KbleMJc.png" title="Processadores" id="icones"></a>
-    <a onclick="openNavMotherboard()"><img src="https://i.imgur.com/g0zO5EJ.png" title="Placa-mãe" id="icones"></a>
-    <a onclick="openNavRAM()"><img src="https://i.imgur.com/LL72KzO.png" title="Memória RAM" id="icones"></a>
-    <a onclick="openNavGPU()"><img src="https://i.imgur.com/zuCKghj.png" title="Placa de vídeo" id="icones"></a>
-    <a onclick="openNavSSD()"><img src="https://i.imgur.com/z4MIrET.png" title="SSD" id="icones"></a>
-    <a onclick="openNavCabinet()"><img src="https://i.imgur.com/KIFUmg3.png" title="Periféricos" id="icones"></a>
-    <a onclick="openNavFont()"><img src="https://i.imgur.com/qJNZEo8.png" title="Fonte de alimentação" id="icones"></a>
+<div id="footer">
+    <div class="vertical-scroll">
+        <a onclick="openNavCPU()"><img src="https://i.imgur.com/KbleMJc.png" title="Processadores" id="icones"></a>
+        <a onclick="openNavMotherboard()"><img src="https://i.imgur.com/g0zO5EJ.png" title="Placa-mãe" id="icones"></a>
+        <a onclick="openNavRAM()"><img src="https://i.imgur.com/LL72KzO.png" title="Memória RAM" id="icones"></a>
+        <a onclick="openNavGPU()"><img src="https://i.imgur.com/zuCKghj.png" title="Placa de vídeo" id="icones"></a>
+        <a onclick="openNavSSD()"><img src="https://i.imgur.com/z4MIrET.png" title="SSD" id="icones"></a>
+        <a onclick="openNavCabinet()"><img src="https://i.imgur.com/KIFUmg3.png" title="Periféricos" id="icones"></a>
+        <a onclick="openNavFont()"><img src="https://i.imgur.com/qJNZEo8.png" title="Fonte de alimentação" id="icones"></a>
+    </div>  
 </div>
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid-top">
+  <!-- <div class="row"> -->
 {%for product in products%}
   <div class="card">
     <div class="wsk-cp-text">
@@ -1060,7 +1115,7 @@ font-size: 14px;
     <p> <a href="{{product.link}}"><button>Acesse</button></a></p>
   </div>
 {%endfor%}
-  </div>
+  <!-- </div> -->
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>

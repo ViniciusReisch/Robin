@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Alldata
 import random
-from .filters import ProductFilter
+# from .filters import ProductFilter
 
 
 def index(request):
@@ -19,8 +19,8 @@ def ssd_promo(request):
 
 def allProducts(request):
     products = Alldata.objects.all().filter
-    meu_filtro = ProductFilter(request.GET, queryset=products)
-    products = meu_filtro.qs
+    # meu_filtro = ProductFilter(request.GET, queryset=products)
+    # products = meu_filtro.qs
     return render(request, 'products/allProducts.html',
                   {'products': products, 'meu_filtro': meu_filtro})
 

@@ -257,7 +257,7 @@ a:hover {
 
 
 
-#banner-bottom {
+#footer {
     width: 100%;
     height: 100px;
     background-color: var(--corners);
@@ -266,26 +266,39 @@ a:hover {
     left: 0;
     right: 0;
     z-index: 99;
-    padding: 20px 10px;
-    box-sizing: border-box;
+    /* padding: 20px 10px; */
+    /* box-sizing: border-box; */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9;
 }
 
-#banner-bottom a {
+.vertical-scroll{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow-x: scroll;
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.vertical-scroll::-webkit-scrollbar{
+  display: none;
+}
+
+.vertical-scroll a {
     margin: 0 20px;
     font-weight: 700;
     color: var(--main-links);
     font-size: 1.2em;
 }
 
-#banner-bottom a:hover {
+.vertical-scroll a:hover {
     color: var(--main-links);
     opacity: 0.6;
 }
-
 
 
 #banner-left {
@@ -333,21 +346,58 @@ a:hover {
 
 
 
-#header-image {
-    width: auto;
+#header {
+    width: 100%;
     height: 100%;
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    background: var(--container) url("https://i.imgur.com/oOqA7ch.png") no-repeat fixed center;
+    background-image: url("https://i.imgur.com/oOqA7ch.png") no-repeat fixed center;
     z-index: 1000000000000000;
+
+
 }
 
-#header-image img {
+#header img {
     width: 100%;
     height: auto;
 }
 
+.left-header{
+  display: flex;
+  flex-direction: column; 
+  width: 450px;
+  gap: 20px
 
+}
+
+.initial-buttons {   
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+}
+
+.main-title-top {
+  font-size: 4em;
+  font-weight: bold;
+  color: black;  
+  text-align: center;
+}
+
+.top-buttons{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+
+.header-image {
+  width: 40%;
+  height: 40%;
+  background-color: black;
+
+}
 
 
 #header-content {
@@ -517,9 +567,27 @@ a:hover {
     border-radius: 10px;
 }
 
+@media screen and (max-width: 1100px) {
+  body{
+    font-size: 16px;
+  }
+}
 
 
 @media screen and (max-width: 1100px) {
+    body{
+      font-size: 12px;
+    }
+
+    #header{
+      flex-direction: column-reverse;
+      justify-content: center;
+      gap: 40px;
+
+    }
+
+
+
     .bloco {
         display: flex;
         flex-wrap: wrap;
@@ -552,52 +620,50 @@ a:hover {
 
 .posicaobotao {
     z-index: 100000000;
-    margin-top: 330px;
-    position: absolute;
+    /* margin-top: 330px; */
+    /* position: absolute; */
     width: 39%;
     left: 115px;
     color: #fff;
 }
 
 .button {
-	 margin: 0.4em;
 	 padding: 1em;
 	 cursor: pointer;
 	 background: #005f9e;
 	 text-decoration: none;
 	 color: #fff;
-     width: 210px;
-     text-align: center;
-     top: 50%;
-     font-weight: 500;
-     font-family: 'Montserrat', sans-serif;
-     letter-spacing: 1px;
-     font-size: 16px;
-     height: 70px;
-     display: inline-block;
-     padding-top: 22px;
-     text-decoration: none;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    font-size: 16px;
+    height: 70px;
+    display: inline-block;
+    padding-top: 22px;
+    text-decoration: none;
 
 }
 
 .button2 {
-	 margin: 0.4em;
 	 padding: 1em;
 	 cursor: pointer;
 	 background: #005f9e;
 	 text-decoration: none;
 	 color: #fff;
-     width: 457px;
-     text-align: center;
-     top: 50%;
-     font-weight: 500;
-     font-family: 'Montserrat', sans-serif;
-     letter-spacing: 1px;
-     font-size: 16px;
-     height: 40px;
-     display: inline-block;
-     padding-top: 8px;
-     text-decoration: none;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    font-size: 16px;
+    height: 40px;
+    display: inline-block;
+    padding-top: 8px;
+    text-decoration: none;
 
 }
 
@@ -640,25 +706,15 @@ a:hover {
 }
 
 .botaopromocao {
-    width: 300px;
-    margin-top: 32.5%;
-    position: absolute;
-    margin-left: 9.8%;
+    width: 100% !important; 
 }
 
 .primeirapagina {
-    margin-top: 200px;
-    position: absolute;
-    width: 38.5%;
-    height: 500px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
-    top: 250px;
-    box-sizing: border-box;
     line-height: 15px;
-    left: 115px;
     font-size: 10px;
     color: rgba(121, 110, 110, 0.911);
     z-index: inherit;
@@ -924,7 +980,8 @@ a:hover {
 
 <div id="banner-right"></div>
 
-<div id="banner-bottom">
+<div id="footer">
+  <div class="vertical-scroll">
     <a href="#page2"><img src="https://i.imgur.com/VsRc1Kk.png" title="Processador" id="icones"></a>
     <a href="#page3"><img src="https://i.imgur.com/zKzh5Em.png" title="Placa-mãe" id="icones"></a>
     <a href="#page4"><img src="https://i.imgur.com/RqLq7QL.png" title="Memória RAM" id="icones"></a>
@@ -933,6 +990,7 @@ a:hover {
     <a href="#page7"><img src="https://i.imgur.com/9kH9hfC.png" title="Gabinete" id="icones"></a>
     <a href="#page8"><img src="https://i.imgur.com/LznnzQH.png" title="Fonte de alimentação" id="icones"></a>
     <a href="#page9"><img src="https://i.imgur.com/cngWwrv.png" title="SSD" id="icones"></a>
+  </div>
 </div>
 
 <div id="banner-left"></div>
@@ -940,32 +998,29 @@ a:hover {
 <div id="fullpage">
     
     <div class="section" data-anchor="page1">
-        <header id="header-image">
-                <div class="posicaobotao">
-                    <div class="container">
-                        <div class="row">
-                        <div class="col-sm">
-                            <a href="" class="button grow">Montado</a>
-                        </div>
-                            <div class="col-sm">
-                            <a href="/allcpu/" class="button pulse-grow">Faça você mesmo*</a>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            <div class="botaopromocao">
-                <a href="/allcpu/" class="button2 grow-rotate">Promoções</a>
+        <header id="header">
+          <div class="left-header">
+            <h1 class="main-title-top">HORA DE COMEÇAR!</h1>
+            <div class="initial-buttons">
+              <div class="top-buttons">
+                  <a href="" class="button grow">Montado</a>
+                  <a href="/allcpu/" class="button pulse-grow">Faça você mesmo*</a>
+              </div>
+              <div class="botaopromocao">
+                  <a href="/allcpu/" class="button2 grow-rotate">Promoções</a>
+              </div>
+              <article class="primeirapagina">
+                <p>
+                  * A Robin ultiliza de automação e webscraping para coletar dados da internet dos mais diversos marketplaces de peças de computadores. A Robin filtra estes produtos e reune em um banco de dados. Não somos exclusivos de nenhuma loja, nós agregamos os preços de várias lojas brasileiras e mostramos os melhores preços do mercado.
+                <p>
+              </article>
             </div>
+            
+          </div>
+          <div class="header-image"></div>
+          
         </header>
 
-        <article class="primeirapagina">
-            <p>
-            * A Robin ultiliza de automação e webscraping para coletar dados da internet dos mais diversos marketplaces de peças de computadores. A Robin filtra estes produtos e reune em um banco de dados. Não somos exclusivos de nenhuma loja, nós agregamos os preços de várias lojas brasileiras e mostramos os melhores preços do mercado.
-<p>
-
-            </ptiam>
-            </p>
-        </article>
     </div>
 
 
