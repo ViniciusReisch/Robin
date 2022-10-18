@@ -27,12 +27,12 @@ class KabumGPU:
 
         allModel = ['GT 1030', 'Gt 1030', 'GT1030', 'GT 610', 'Gt 610', 'GT610' 'GT 710 1GB', 'Gt 710 1GB',
                     'GT 710 1gb', 'GT 710 2GB', 'Gt 710 2GB', 'GT 710 2gb', 'GT 730 2GB', 'GT 730 2gb'
-                    'GT 730 2gb','GT240', 'Gt240', 'GTX 1050 2GB', 'GTx 1050 2GB', 'GTx 1050 2GB', 'GTX 1050 3GB',
+                    'GT 730 2gb', 'GT240', 'Gt240', 'GTX 1050 2GB', 'GTx 1050 2GB', 'GTx 1050 2GB', 'GTX 1050 3GB',
                     'GTx 1050 3GB', 'GTX 1050 3gb',
-                    'GTX 1050 TI', 'GTx 1050 TI', 'GTX 1050 ti', 'GTX 1060', 'GTx 1060', 'gtx 1060 3GB','gtx 1060',
-                    'GTX 1070', 'GTX 1070 TI', 'GTX 1080', 'GTX 1080 TI', 'GTX 1630',
-                    'GTX 1650', 'Gtx 1650 4GB', 'GTX 1650 Super', 'GTX 1660', 'GTX 1660 Super',
-                    'GTX 1660 TI', 'Gtx 1660 TI', 'GTX 750 TI,2GB', 'GTX 750 TI,4GB', 'GTX 980 TI',
+                    'GTX 1050 TI', 'GTx 1050 TI', 'GTX 1050 ti', 'GTX 1060', 'GTx 1060', 'gtx 1060 3GB', 'GTX 1060 3GB', 'gtx 1060',
+                    'GTX 1070', 'GTx 1070', 'GTX 1070 TI', 'GTx 1070 TI', 'GTX 1070 ti', 'GTX 1080', 'GTx 1080', 'GTX 1080 TI', 'GTx 1080 TI', 'GTX 1080 ti', 'GTX 1630', 'GTx 1630',
+                    'GTX 1650', 'GTx 1650', 'Gtx 1650 4GB', 'GTX 1650 4GB', 'GTX 1650 4gb', 'GTx 1650 4GB', 'GTX 1650 Super', 'GTX 1660', 'GTx 1660', 'GTX 1660 Super',
+                    'GTX 1660 TI', 'Gtx 1660 TI', 'GTX 750 TI', 'GTX 750 TI,2GB', 'GTx 750 TI,2GB', 'GTX 750 ti,2GB', 'GTX 750 TI,2gb', 'GTX 750 TI 2GB',  'GTX 750 TI 2gb', 'GTX 750 TI,4GB', 'GTx 980 TI', 'GTX 980 TI', 'GTX 980 ti',
                     'NVS 810', 'PRO W6600', 'Quadro P1000', 'Quadro P2000', 'Quadro P400',
                     'Quadro P4000', 'Quadro P620', 'Quadro Rtx 4000', 'Quadro RTX A2000',
                     'Quadro RTX A2000', 'Quadro Rtx A4000', 'Quadro RTX A4500', 'Quadro RTX A5000',

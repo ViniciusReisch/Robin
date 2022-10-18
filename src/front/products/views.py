@@ -373,41 +373,46 @@ def GPU_GTX1050TI(request):
                   {'products': products})
 
 def GPU_GTX1060(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GTX 1060') | Alldata.objects.all().filter(type='GPU', model='GTx 1060') | Alldata.objects.all().filter(type='GPU', model='gtx 1060')
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 1060') | Alldata.objects.all().filter(type='GPU', model='GTx 1060') | Alldata.objects.all().filter(type='GPU', model='gtx 1060') | Alldata.objects.all().filter(type='GPU', model='GTX 1060 3GB')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 def GPU_GTX1070(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GTX 1070')
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 1070') | Alldata.objects.all().filter(type='GPU', model='GTx 1070')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 def GPU_GTX1070TI(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GTX 1070 TI')
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 1070 TI') | Alldata.objects.all().filter(type='GPU', model='GTx 1070 TI') | Alldata.objects.all().filter(type='GPU', model='GTX 1070 ti')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 def GPU_GTX1080(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GTX 1080')
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 1080') | Alldata.objects.all().filter(type='GPU', model='GTx 1080')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 def GPU_GTX1080TI(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GTX 1080 TI')
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 1080 TI') | Alldata.objects.all().filter(type='GPU', model='GTx 1080 TI') | Alldata.objects.all().filter(type='GPU', model='GTX 1080 ti')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 def GPU_GTX1630(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GTX 1630')
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 1630') |  Alldata.objects.all().filter(type='GPU', model='GTx 1630')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 
 def GPU_GTX1650(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GTX 1650')
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 1650') | Alldata.objects.all().filter(type='GPU', model='GTx 1650')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
+
+def GPU_GTX16504GB(request):
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 1650 4GB') | Alldata.objects.all().filter(type='GPU', model='Gtx 1650 4GB') | Alldata.objects.all().filter(type='GPU', model='GTX 1650 4gb')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
 
 
 def GPU_GTX1650SUPER(request):
@@ -428,17 +433,17 @@ def GPU_GTX1660SUPER(request):
                   {'products': products})
 
 def GPU_GTX1660TI(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GTX 1660 TI')
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 1660 TI') | Alldata.objects.all().filter(type='GPU', model='Gtx 1660 TI')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 def GPU_GTX750TI(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GTX 750TI')
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 750TI') | Alldata.objects.all().filter(type='GPU', model='GTX 750TI,2GB') | Alldata.objects.all().filter(type='GPU', model='GTX 750TI,4GB') | Alldata.objects.all().filter(type='GPU', model='GTx 750TI,2GB') | Alldata.objects.all().filter(type='GPU', model='GTX 750ti,2GB') | Alldata.objects.all().filter(type='GPU', model='GTX 750TI 2gb') | Alldata.objects.all().filter(type='GPU', model='GTX 750TI') | Alldata.objects.all().filter(type='GPU', model='GTX 750TI 2gb')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 def GPU_GTX980TI(request):
-    products = Alldata.objects.all().filter(type='GPU', model='GTX 980 TI')
+    products = Alldata.objects.all().filter(type='GPU', model='GTX 980 TI') | Alldata.objects.all().filter(type='GPU', model='GTx 980 TI') | Alldata.objects.all().filter(type='GPU', model='GTX 980 ti')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
