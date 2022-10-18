@@ -66,7 +66,7 @@ def Crawl_Pichau():
                    'Installment price':  [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
                    'Logo': 'https://static.pichau.com.br/logo-pichau-2021-dark.png', 'Type': 'Promo', 'Model': '',
-                   'Format': '',  'Discount': round(discountProduct, 2), 'Old Prices': passPriceProducts[i],
+                   'Format': '',  'Discount': round(discountProduct, 2), 'Old Prices': passPricesProducts[i],
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
     return allData

@@ -23,6 +23,12 @@ def allProducts(request):
                   {'products': products, 'my_filter': my_filter})
 
 
+def low_price(request):
+    products = Alldata.objects.all().order_by('price')
+    return render(request, 'products/allProducts.html',
+                  {'products': products})
+
+
 def ram(request):
     products = Alldata.objects.all().filter(type='RAM Memory')
     return render(request, 'products/allProducts.html',
@@ -42,20 +48,29 @@ def motherboard_ddr3(request):
     products = Alldata.objects.all().filter(type='MotherBoard', ddr='DDR3')
     my_filter = ProductFilter(request.GET, queryset=products)
     products = my_filter.qs
+    low_prices = products.objects.all().order_by('price')
+    high_prices = products.objects.all().order_by('-price')
     return render(request, 'products/allProducts.html',
-                  {'products': products, 'my_filter': my_filter})
+                  {'products': products, 'my_filter': my_filter, 'low_prices': low_prices, 'high_prices': high_prices})
 
 
 def motherboard_ddr4(request):
     products = Alldata.objects.all().filter(type='MotherBoard', ddr='DDR4')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    low_prices = products.objects.all().order_by('price')
+    high_prices = products.objects.all().order_by('-price')
     return render(request, 'products/allProducts.html',
-                  {'products': products})
-
+                  {'products': products, 'my_filter': my_filter, 'low_prices': low_prices, 'high_prices': high_prices})
 
 def motherboard_ddr5(request):
     products = Alldata.objects.all().filter(type='MotherBoard', ddr='DDR5')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    low_prices = products.objects.all().order_by('price')
+    high_prices = products.objects.all().order_by('-price')
     return render(request, 'products/allProducts.html',
-                  {'products': products})
+                  {'products': products, 'my_filter': my_filter, 'low_prices': low_prices, 'high_prices': high_prices})
 
 
 #  MOTHERBOARD SOCKET
@@ -63,39 +78,61 @@ def motherboard_ddr5(request):
 
 def motherboard_socketAM4(request):
     products = Alldata.objects.all().filter(type='MotherBoard', model='AM4')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    low_prices = products.objects.all().order_by('price')
+    high_prices = products.objects.all().order_by('-price')
     return render(request, 'products/allProducts.html',
-                  {'products': products})
+                  {'products': products, 'my_filter': my_filter, 'low_prices': low_prices, 'high_prices': high_prices})
 
 
 def motherboard_socketFM2(request):
     products = Alldata.objects.all().filter(type='MotherBoard', model='FM2+')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    low_prices = products.objects.all().order_by('price')
+    high_prices = products.objects.all().order_by('-price')
     return render(request, 'products/allProducts.html',
-                  {'products': products})
-
+                  {'products': products, 'my_filter': my_filter, 'low_prices': low_prices, 'high_prices': high_prices})
 
 def motherboard_socketLGA1700(request):
     products = Alldata.objects.all().filter(type='MotherBoard', model='LGA1700')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    low_prices = products.objects.all().order_by('price')
+    high_prices = products.objects.all().order_by('-price')
     return render(request, 'products/allProducts.html',
-                  {'products': products})
+                  {'products': products, 'my_filter': my_filter, 'low_prices': low_prices, 'high_prices': high_prices})
 
 
 def motherboard_socket1200(request):
     products = Alldata.objects.all().filter(type='MotherBoard', model='1200')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    low_prices = products.objects.all().order_by('price')
+    high_prices = products.objects.all().order_by('-price')
     return render(request, 'products/allProducts.html',
-                  {'products': products})
+                  {'products': products, 'my_filter': my_filter, 'low_prices': low_prices, 'high_prices': high_prices})
 
 
 def motherboard_socketLGA1150(request):
     products = Alldata.objects.all().filter(type='MotherBoard', model='LGA1150')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    low_prices = products.objects.all().order_by('price')
+    high_prices = products.objects.all().order_by('-price')
     return render(request, 'products/allProducts.html',
-                  {'products': products})
+                  {'products': products, 'my_filter': my_filter, 'low_prices': low_prices, 'high_prices': high_prices})
 
 
 def motherboard_socketLGA1151(request):
     products = Alldata.objects.all().filter(type='MotherBoard', model='LGA1151')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    low_prices = products.objects.all().order_by('price')
+    high_prices = products.objects.all().order_by('-price')
     return render(request, 'products/allProducts.html',
-                  {'products': products})
-
+                  {'products': products, 'my_filter': my_filter, 'low_prices': low_prices, 'high_prices': high_prices})
 
 def motherboard_socketLGA1155(request):
     products = Alldata.objects.all().filter(type='MotherBoard', model='LGA1155')
@@ -903,13 +940,10 @@ def GPU_QUADRORTXA4500(request):
 
 
 def GPU_RX6950XT(request):
-    products = Alldata.objects.all().filter(type='GPU', model='RX 6950 XT') | Alldata.objects.all().filter(type='GPU',
-                                                                                                           model='Rx 6950 XT') | Alldata.objects.all().filter(
-        type='GPU', model='RX 6950 xt') | Alldata.objects.all().filter(type='GPU',
-                                                                       model='Rx 6950 Xt') | Alldata.objects.all().filter(
-        type='GPU', model='RX 6950XT') | Alldata.objects.all().filter(type='GPU',
-                                                                      model='Rx 6950XT') | Alldata.objects.all().filter(
-        type='GPU', model='RX 6950xt') | Alldata.objects.all().filter(type='GPU', model='Rx 6950Xt')
+    products = Alldata.objects.all().filter(type='GPU', model='RX 6950 XT') | Alldata.objects.all().filter(type='GPU', model='Rx 6950 XT') | \
+               Alldata.objects.all().filter(type='GPU', model='RX 6950 xt') | Alldata.objects.all().filter(type='GPU',model='Rx 6950 Xt') | \
+               Alldata.objects.all().filter(type='GPU', model='RX 6950XT') | Alldata.objects.all().filter(type='GPU',model='Rx 6950XT') | \
+               Alldata.objects.all().filter(type='GPU', model='RX 6950xt') | Alldata.objects.all().filter(type='GPU', model='Rx 6950Xt')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
@@ -1117,8 +1151,7 @@ def cabinet_Azul(request):
 
 
 def cabinet_Branco(request):
-    products = Alldata.objects.all().filter(type='Gabinete', color='White') | Alldata.objects.all().filter(
-        type='Gabinete', color='Branco')
+    products = Alldata.objects.all().filter(type='Gabinete', color='White') | Alldata.objects.all().filter(type='Gabinete', color='Branco')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
