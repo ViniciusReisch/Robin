@@ -527,17 +527,17 @@ def GPU_R52202GB(request):
                   {'products': products})
 
 def GPU_R52301GB(request):
-    products = Alldata.objects.all().filter(type='GPU', model='R5 230 1GB')
+    products = Alldata.objects.all().filter(type='GPU', model='R5 230 1GB') | Alldata.objects.all().filter(type='GPU', model='R5 230 1gb')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 def GPU_R52302GB(request):
-    products = Alldata.objects.all().filter(type='GPU', model='R5 230 2GB')
+    products = Alldata.objects.all().filter(type='GPU', model='R5 230 2GB') | Alldata.objects.all().filter(type='GPU', model='R5 230 2gb')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 
 def GPU_R7240(request):
-    products = Alldata.objects.all().filter(type='GPU', model='R7 240')
+    products = Alldata.objects.all().filter(type='GPU', model='R7 240') | Alldata.objects.all().filter(type='GPU', model='R7 240 2GB') | Alldata.objects.all().filter(type='GPU', model='R7 240 2gb') | Alldata.objects.all().filter(type='GPU', model='R7 240,2GB')
     return render(request, 'products/allProducts.html',
                   {'products': products})
 

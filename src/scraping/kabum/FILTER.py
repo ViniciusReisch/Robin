@@ -37,7 +37,7 @@ class KabumGPU:
                     'Quadro P4000', 'Quadro P620', 'Quadro Rtx 4000', 'Quadro RTX A2000',
                     'Quadro RTX A2000', 'Quadro Rtx A4000', 'Quadro RTX A4500', 'Quadro RTX A5000',
                     'Quadro T1000', 'Quadro T1000', 'Quadro T400', 'Quadro T600', 'R5 220 2GB',
-                    'R5 230, 1GB', 'R5 230 2GB', 'R7 240, 2GB', 'Rtx 2060 Super', 'RTX 2060', 'Rtx 2060',
+                    'R5 230 1GB', 'R5 230 1gb', 'R5 230 2GB', 'R5 230 gb', 'R7 240', 'R7 240 2GB', 'R7 240 2gb', 'R7 240,2GB', 'Rtx 2060 Super', 'RTX 2060', 'Rtx 2060',
                     'Rtx 2060 Super', 'RTX 2070', 'RTX 2070 Super', 'RTX 2080', 'RTX 2080 Super',
                     'RTX 2080 TI', 'Rtx 3050', 'RTX 3050', 'RTX 3060', 'RTX 3060 TI', 'RTX 3070',
                     'RTX 3070 TI', 'Rtx 3070 TI', 'Rtx 3080', 'Rtx 3080', 'RTX 3080 TI', 'RTX 3090',
