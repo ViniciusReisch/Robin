@@ -1099,7 +1099,10 @@ font-size: 14px;
         <a onclick="openNavFont()"><img src="https://i.imgur.com/qJNZEo8.png" title="Fonte de alimentação" id="icones"></a>
     </div>  
 </div>
-
+    <form method="get">
+                {{ my_filter.form.as_h1 }}
+                <button class="botaoPesquisar" type="submit">Pesquisar</button>
+    </form>
 <div class="container-fluid-top">
   <!-- <div class="row"> -->
 {%for product in products%}

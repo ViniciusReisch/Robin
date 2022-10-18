@@ -1,8 +1,11 @@
-from django import  forms
+import django_filters
+from django_filters import CharFilter
 from .models import *
 
 
-class Form(forms.ModelForm):
+class ProductFilter(django_filters.FilterSet):
+    name = CharFilter(field_name='name', lookup_expr='icontains', label='')
+
     class Meta:
         model = Alldata
         fields = '__all__'
