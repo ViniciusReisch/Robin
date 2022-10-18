@@ -1077,6 +1077,10 @@ font-size: 14px;
 
 <div id="banner-top">
     <a href="/#/"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
+    <form method="get">
+                {{ my_filter.form.as_p }}
+                <button class="botaoPesquisar" type="submit">Pesquisar</button>
+    </form>
     <nav class="homelinks">
         <a href="/" title="home"><i class="ph-house"></i></a>
         <a href="/" title="newsletter"><i class="ph-newspaper-clipping"></i></a>
@@ -1099,10 +1103,6 @@ font-size: 14px;
         <a onclick="openNavFont()"><img src="https://i.imgur.com/qJNZEo8.png" title="Fonte de alimentação" id="icones"></a>
     </div>  
 </div>
-    <form method="get">
-                {{ my_filter.form.as_h1 }}
-                <button class="botaoPesquisar" type="submit">Pesquisar</button>
-    </form>
 <div class="container-fluid-top">
   <!-- <div class="row"> -->
 {%for product in products%}
