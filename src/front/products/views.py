@@ -16,7 +16,7 @@ def index(request):
 
 
 def allProducts(request):
-    products = Alldata.objects.all().filter
+    products = Alldata.objects.all()
     my_filter = ProductFilter(request.GET, queryset=products)
     products = my_filter.qs
     return render(request, 'products/allProducts.html',
@@ -40,8 +40,10 @@ def motherboard(request):
 
 def motherboard_ddr3(request):
     products = Alldata.objects.all().filter(type='MotherBoard', ddr='DDR3')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
     return render(request, 'products/allProducts.html',
-                  {'products': products})
+                  {'products': products, 'my_filter': my_filter})
 
 
 def motherboard_ddr4(request):
