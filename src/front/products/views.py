@@ -5,16 +5,21 @@ import random
 
 
 def index(request):
-    promos = list(Alldata.objects.all().filter(type='Promo'))
-    random_items = random.sample(promos, 5)
+    promos = Alldata.objects.all().filter(type='Promo')
+    ssds = promos.filter(name__contains='SSD')
+    rams = promos.filter(name__contains='RAM')
+    random_items = random.sample(list(promos), 5)
+    random_ssds = random.sample(list(ssds), 5)
+    random_rams = random.sample(list(ssds), 3)
     return render(request, 'products/index.html',
-                  {'promos': random_items})
+                  {'promos': random_items, 'ssds': random_ssds, 'rams': random_rams})
 
 
-def ssd_promo(request):
-    ssds = Alldata.objects.all().filter(name='ssd', discont='1')
-    return render(request, 'products/index.html',
-                  {'ssds': ssds})
+# def ssd_promo(request):
+#
+#     ssds_filtrado = [ssd for ssd in ssds if "SSD" in ssd.name]
+#     return render(request, 'products/index.html',
+#                   {'ssds': ssds})
 
 
 def allProducts(request):
