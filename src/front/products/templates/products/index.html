@@ -1191,9 +1191,6 @@ font-size: 10px;
                         </label>
                     {%endfor%}
                 </div>
-                <br>
-                <br>
-                <br>
                 <div class="dots">
                     <label for="t-1"></label>
                     <label for="t-2"></label>
@@ -1240,21 +1237,20 @@ font-size: 10px;
                       <div class="slides">
                         {% for ram in rams %}
                             <div id="slide-{{forloop.counter}}">
-                                <div class="card">
-                                    <div class="wsk-cp-text">
-                                      <div class="category">
-                                        <span><img src="{{ram.logo}}" alt="Product" class="loja-tamanho"/></span>
-                                      </div>
-                                    </div>
-                                    <img src="{{ram.image}}" alt="Denim Jeans" style="width:100%">
-                                    <h1 class="name">{{product.name}}</h1>
-                                    <p class="price">{{product.price}}</p>
-                                    <p> <a href="{{ram.link}}"><button>Acesse</button></a></p>
-                              </div>
+                                <div class="wsk-cp-text">
+                                    <img src="{{ram.image}}" alt="picture" class="imagemprincipal">
+                                    <h1 class="name"> {{ram.name}} </h1>
+                                    <p class="price">{{ram.oldprice}}</p>
+                                    <p class="line">{{ram.price}}</p>
+                                    <a class="wobble-horizontal" href="{{ram.link}}"><div class="botaopricecard">Acesse</div></a>
+                                </div>
                             </div>
                         {% endfor %}
                       </div>
                     </div>
+                </div>
+                <div class="botaopromocao">
+                  <a href="/allcpu/" class="button2 grow-rotate">Promoções</a>
                 </div>
             </aside>
 
