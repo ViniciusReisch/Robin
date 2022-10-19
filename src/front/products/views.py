@@ -1168,6 +1168,86 @@ def HD(request):
                   {'products': products, 'my_filter': my_filter})
 
 
+def HD_10TB(request):
+    products = Alldata.objects.all().filter(type='HardDisk', model='10TB')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    return render(request, 'products/allProducts.html',
+                  {'products': products, 'my_filter': my_filter})
+
+
+def HD_12TB(request):
+    products = Alldata.objects.all().filter(type='HardDisk', model='12TB')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    return render(request, 'products/allProducts.html',
+                  {'products': products, 'my_filter': my_filter})
+
+
+def HD_14TB(request):
+    products = Alldata.objects.all().filter(type='HardDisk', model='14TB')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    return render(request, 'products/allProducts.html',
+                  {'products': products, 'my_filter': my_filter})
+
+
+def HD_16TB(request):
+    products = Alldata.objects.all().filter(type='HardDisk', model='16TB')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    return render(request, 'products/allProducts.html',
+                  {'products': products, 'my_filter': my_filter})
+
+
+def HD_1TB(request):
+    products = Alldata.objects.all().filter(type='HardDisk', model='1TB')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    return render(request, 'products/allProducts.html',
+                  {'products': products, 'my_filter': my_filter})
+
+
+def HD_2TB(request):
+    products = Alldata.objects.all().filter(type='HardDisk', model='2TB')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    return render(request, 'products/allProducts.html',
+                  {'products': products, 'my_filter': my_filter})
+
+
+def HD_3TB(request):
+    products = Alldata.objects.all().filter(type='HardDisk', model='3TB')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    return render(request, 'products/allProducts.html',
+                  {'products': products, 'my_filter': my_filter})
+
+
+def HD_4TB(request):
+    products = Alldata.objects.all().filter(type='HardDisk', model='4TB')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    return render(request, 'products/allProducts.html',
+                  {'products': products, 'my_filter': my_filter})
+
+
+def HD_6TB(request):
+    products = Alldata.objects.all().filter(type='HardDisk', model='6TB')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    return render(request, 'products/allProducts.html',
+                  {'products': products, 'my_filter': my_filter})
+
+
+def HD_8TB(request):
+    products = Alldata.objects.all().filter(type='HardDisk', model='8TB')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
+    return render(request, 'products/allProducts.html',
+                  {'products': products, 'my_filter': my_filter})
+
+
 def SSD(request):
     products = Alldata.objects.all().filter(type='SSD')
     my_filter = ProductFilter(request.GET, queryset=products)
@@ -1368,6 +1448,7 @@ def font_600W(request):
     products = my_filter.qs
     return render(request, 'products/allProducts.html',
                   {'products': products, 'my_filter': my_filter})
+
 
 def font_650W(request):
     products = Alldata.objects.all().filter(type='Font', model='650W')
