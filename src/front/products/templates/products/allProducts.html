@@ -209,6 +209,7 @@ a:hover {
     -o-transition-duration: 0.8s;
     -webkit-transition-duration: 0.8s;
     transition-duration: 0.8s;
+    text-decoration: none;
 }
 
 .container-fluid-top{
@@ -799,6 +800,63 @@ font-size: 14px;
   text-decoration: line-through;
 }
 
+.botaopricecard {
+  background: var(--corners);
+  margin: 10px;
+  padding: 10px;
+  align-items: center;
+  text-justify: center;
+  bottom: 0;
+  position: relative;
+  border-radius: 15px;
+}
+
+.botaopricecard a {
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.botaopricecard a:hover {
+  text-decoration: none;
+}
+
+/* Wobble Horizontal */
+@keyframes wobble-horizontal {
+  16.65% {
+    transform: translateX(8px);
+  }
+  33.3% {
+    transform: translateX(-6px);
+  }
+  49.95% {
+    transform: translateX(4px);
+  }
+  66.6% {
+    transform: translateX(-2px);
+  }
+  83.25% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.wobble-horizontal {
+  display: inline-block;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+.wobble-horizontal:hover {
+  animation-name: wobble-horizontal;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
 </style>
 
 </head>
@@ -1123,7 +1181,7 @@ font-size: 14px;
     <h1 class="name">{{product.name}}</h1>
     <p class="line">{{product.oldprice}}</p>
     <p class="price">{{product.price}}</p>
-    <p> <a href="{{product.link}}"><button>Acesse</button></a></p>
+    <p> <a class="button wobble-horizontal" href="{{product.link}}"><div class="botaopricecard" >Acesse</div></a></p>
   </div>
 {%endfor%}
   <!-- </div> -->
