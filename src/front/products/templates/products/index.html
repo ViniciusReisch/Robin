@@ -734,9 +734,9 @@ a:hover {
   font-family: 'Roboto', sans-serif;
 }
 
-.price p {
+.oldprice {
   color: grey;
-  font-size: 30px;
+  font-size: 8px;
 }
 
 .card button {
@@ -1184,8 +1184,8 @@ font-size: 10px;
                             <div class="wsk-cp-text">
                                 <img src="{{promo.image}}" alt="picture" class="imagemprincipal">
                                 <h1 class="name"> {{promo.name}} </h1>
-                                <p class="price">{{promo.oldprice}}</p>
-                                <p class="line">{{promo.price}}</p>
+                                <div class="price">{{promo.oldprice}}</div>
+                                <div class="price">{{promo.price}}</div>
                                 <a class="wobble-horizontal" href="{{promo.link}}"><div class="botaopricecard">Acesse</div></a>
                             </div>
                         </label>
