@@ -1,52 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
-<head>
-<meta charset="UTF-8"/>
-<link href="https://fonts.googleapis.com/css?family=Exo:300,300i,400,400i,500,500i|Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito+Sans:300,300i,400,400i,600,600i,700,700i|Titillium+Web:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i|Oxygen:300,400,700|Arimo:400,400i,700,700i|Lato:300,300i,400,400i,700,700i|Karla:400,400i,700,700i|Montserrat:300,300i,400,400i,500,500i" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Exo:300,300i,400,400i,500,500i|Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito+Sans:300,300i,400,400i,600,600i,700,700i|Titillium+Web:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i|Oxygen:300,400,700|Arimo:400,400i,700,700i|Lato:300,300i,400,400i,700,700i|Karla:400,400i,700,700i|Montserrat:300,300i,400,400i,500,500i" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-<meta property="og:image" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
-<meta property="og:image:secure_url" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
-<meta property="og:image:type" content="image/jpeg" />
-<meta property="og:image:width" content="150" />
-<meta property="og:image:height" content="200" /><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'><link rel="stylesheet" href="./stylecard.css">
-<!-- CSS only -->
-<script src="https://unpkg.com/phosphor-icons"></script>
-
-<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
-    <title>robin — Os melhores preços para o seu PC Gamer!</title>
-    <link rel="icon" type="image/x-icon" href="https://i.imgur.com/k92TGxm.png">
-    <link rel="altertnate" type="application/rss+xml" href="{RSS}">
-    <meta http-equiv="x-dns-prefetch-control" content="off"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-<script src="https://unpkg.com/phosphor-icons"></script>
-
-
-<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
-    <title>robin — Os melhores preços para o seu PC Gamer!</title>
-    <link rel="icon" type="image/x-icon" href="https://i.imgur.com/k92TGxm.png">
-    <link rel="altertnate" type="application/rss+xml" href="{RSS}">
-    <meta http-equiv="x-dns-prefetch-control" content="off"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
-
-<style type="text/css">
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 :root {
     --accent: #005f9e;
     --accented-text: #ffffff;
@@ -631,8 +583,8 @@ a:hover {
 .button {
 	 padding: 1em;
 	 cursor: pointer;
-	 text-decoration: none;
 	 background: #005f9e;
+	 text-decoration: none;
 	 color: #fff;
     width: 100%;
     text-align: center;
@@ -646,10 +598,6 @@ a:hover {
     padding-top: 22px;
     text-decoration: none;
 
-}
-
-.button:hover {
-    text-decoration: none;
 }
 
 .button2 {
@@ -734,9 +682,9 @@ a:hover {
   font-family: 'Roboto', sans-serif;
 }
 
-.price p {
+.price {
   color: grey;
-  font-size: 30px;
+  font-size: 14px;
 }
 
 .card button {
@@ -764,7 +712,6 @@ a:hover {
    -webkit-line-clamp: 3; /* number of lines to show */
            line-clamp: 3;
    -webkit-box-orient: vertical;
-   color: #000;
 }
 
 
@@ -780,15 +727,14 @@ a:hover {
 	justify-content: center;
 	position: relative;
 	min-height: 350px;
-	perspective: 1200px;
+	perspective: 1100px;
 	overflow: hidden;
 }
 .testimonials .item {
 	max-width: 270px;
-	height: 300px;
 	padding: 30px;
 	border-radius: 5px;
-	background-color: #fff;
+	background-color: #0A0220;
 	position: absolute;
 	top: 0;
 	box-sizing: border-box;
@@ -800,6 +746,7 @@ a:hover {
 }
 .testimonials .item img {
 	width: 100px;
+	height: 100px;
 	object-fit: cover;
 }
 .testimonials .item p {
@@ -839,7 +786,7 @@ a:hover {
   text-align:center;
   font-size:12px;
   font-weight:bold;
-  padding:10px;
+  padding:5px;
   position:relative;
   transition: all 0.2s ease-in-out;
 }
@@ -864,11 +811,10 @@ a:hover {
 
 }
 
-.logosize img {
-  width: 10px;
+.logosize {
+  width: 50px;
   height: auto;
 }
-
 
 #t-1:checked ~ .dots label[for="t-1"],
 #t-2:checked ~ .dots label[for="t-2"],
@@ -940,7 +886,7 @@ a:hover {
 .box {
   margin: 0px auto;
   width: 60px;
-  margin-left: 50%;
+  margin-left: 70px;
   position: absolute;
   transform: rotate(-15deg)
 }
@@ -950,7 +896,7 @@ a:hover {
 	 color: #fff;
 	 height: 80px;
 	 width: 80px;
-     padding-top: 45%;
+     padding-top: 20px;
 	 border-radius: 50%;
 	 font-size: 13px;
      align-items: center;
@@ -959,15 +905,11 @@ a:hover {
      position: absolute;
 }
  .badge small {
+	 text-decoration: line-through;
 	 font-size: 11px;
 }
  .badge large {
-	 font-size: 20px;
-}
-
-.badge p {
-color: #fff!important;
-font-size: 10px;
+	 font-size: 14px;
 }
 
 .slider-melhores {
@@ -1069,383 +1011,3 @@ font-size: 10px;
     display: none;
   }
 }
-
-
-.botaopricecard {
-  background: var(--corners);
-  margin: 30px;
-  padding: 10px;
-  align-items: center;
-  text-justify: center;
-  bottom: 0;
-  position: relative;
-  border-radius: 15px;
-  text-decoration: none!important;
-}
-
-.botaopricecard a {
-  font-size: 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-align: center;
-    text-decoration: none!important;
-}
-
-.botaopricecard a:hover {
-  text-decoration: none!important;
-  }
-
-.line {
-  text-decoration: line-through;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div id="banner-top">
-    <a href="/"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
-
-    <nav class="homelinks">
-        <a href="/" title="home"><i class="ph-house"></i></a>
-        <a href="/" title="newsletter"><i class="ph-newspaper-clipping"></i></a>
-        <a href="https://www.instagram.com/robinwebsite/" title="instagram"><i class="ph-instagram-logo"></i></a>
-        <a href="https://twitter.com/robinsite" title="twitter"><i class="ph-twitter-logo"></i></a>
-
-    </nav>
-</div>
-
-<div id="banner-right"></div>
-
-<div id="footer">
-  <div class="vertical-scroll">
-    <a href="#page2"><img src="https://i.imgur.com/VsRc1Kk.png" title="Processador" id="icones"></a>
-    <a href="#page3"><img src="https://i.imgur.com/zKzh5Em.png" title="Placa-mãe" id="icones"></a>
-    <a href="#page4"><img src="https://i.imgur.com/RqLq7QL.png" title="Memória RAM" id="icones"></a>
-    <a href="#page5"><img src="https://i.imgur.com/zFUZl0F.png" title="Placa de vídeo" id="icones"></a>
-    <a href="#page6"><img src="https://i.imgur.com/h9VapYx.png" title="HD" id="icones"></a>
-    <a href="#page7"><img src="https://i.imgur.com/9kH9hfC.png" title="Gabinete" id="icones"></a>
-    <a href="#page8"><img src="https://i.imgur.com/LznnzQH.png" title="Fonte de alimentação" id="icones"></a>
-    <a href="#page9"><img src="https://i.imgur.com/cngWwrv.png" title="SSD" id="icones"></a>
-  </div>
-</div>
-
-<div id="banner-left"></div>
-
-<div id="fullpage">
-    
-    <div class="section" data-anchor="page1">
-        <header id="header">
-          <div class="left-header">
-            <h1 class="main-title-top">HORA DE COMEÇAR!</h1>
-            <div class="initial-buttons">
-              <div class="top-buttons">
-                  <a href="" class="button grow">Montado</a>
-                  <a href="/allcpu/" class="button pulse-grow">Faça você mesmo*</a>
-              </div>
-              <div class="botaopromocao">
-                  <a href="/allcpu/" class="button2 grow-rotate">Promoções</a>
-              </div>
-              <article class="primeirapagina">
-                <p>
-                  * A Robin ultiliza de automação e webscraping para coletar dados da internet dos mais diversos marketplaces de peças de computadores. A Robin filtra estes produtos e reune em um banco de dados. Não somos exclusivos de nenhuma loja, nós agregamos os preços de várias lojas brasileiras e mostramos os melhores preços do mercado.
-                <p>
-              </article>
-            </div>
-            
-          </div>
-          <img class="header-image" src='https://i.imgur.com/VJsB1Dm.png' width="10%">
-          
-        </header>
-
-    </div>
-
-
-    <div class="section fp-auto-height-responsive" data-anchor="page2">
-        <section class="bloco">
-        <div class="slider">
-                <input type="radio" name="testimonial" id="t-1">
-                <input type="radio" name="testimonial" id="t-2">
-                <input type="radio" name="testimonial" id="t-3" checked>
-                <input type="radio" name="testimonial" id="t-4">
-                <input type="radio" name="testimonial" id="t-5">
-                <div class="testimonials">
-                    {%for promo in promos%}
-                        <label class="item" for="t-{{forloop.counter}}">
-                            <div class="box">
-                                <div class="badge">
-                                    <large>{{promo.discount}}%</large>
-                                    <p>de desconto</p>
-                                </div>
-                            </div>
-                            <div class="wsk-cp-text">
-                                <img src="{{promo.image}}" alt="picture" class="imagemprincipal">
-                                <h1 class="name"> {{promo.name}} </h1>
-                                <p class="price">{{promo.oldprice}}</p>
-                                <p class="line">{{promo.price}}</p>
-                                <a class="wobble-horizontal" href="{{promo.link}}"><div class="botaopricecard">Acesse</div></a>
-                            </div>
-                        </label>
-                    {%endfor%}
-                </div>
-                <br>
-                <br>
-                <br>
-                <div class="dots">
-                    <label for="t-1"></label>
-                    <label for="t-2"></label>
-                    <label for="t-3"></label>
-                    <label for="t-4"></label>
-                    <label for="t-5"></label>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="section fp-auto-height-responsive" data-anchor="page3">
-        <section class="bloco">
-
-            <aside class="stats-section">
-                 <div class="stats">
-                    <h2>Melhores preços</h2>
-                </div>
-            </aside>
-
-            <header class="image-container">
-            <img src="https://mercado.etc.br/wp-content/uploads/2021/06/Placa-mae-ASRock.png">
-
-            </header>
-
-            <article class="biography">
-                <h2>Placa-mãe</h2>
-
-                <p>
-
-                    A placa-mãe (ou motherboard, em inglês) é uma placa de circuito impresso que permite interligar todos os componentes de um computador. Nesse sentido, conta com um programa (software) básico conhecido como BIOS, que lhe permite preencher as suas funções.
-            </article>
-
-        </section>
-    </div>
-
-    <div class="section fp-auto-height-responsive" data-anchor="page4">
-        <section class="bloco">
-
-            <aside class="stats-section">
-                 <div class="stats">
-                    <h2>Melhores preços</h2>
-                     <div class="slider-melhores">
-                      <div class="slides">
-                        {% for ram in rams %}
-                            <div id="slide-{{forloop.counter}}">
-                                <div class="card">
-                                    <div class="wsk-cp-text">
-                                      <div class="category">
-                                        <span><img src="{{ram.logo}}" alt="Product" class="loja-tamanho"/></span>
-                                      </div>
-                                    </div>
-                                    <img src="{{ram.image}}" alt="Denim Jeans" style="width:100%">
-                                    <h1 class="name">{{product.name}}</h1>
-                                    <p class="price">{{product.price}}</p>
-                                    <p> <a href="{{ram.link}}"><button>Acesse</button></a></p>
-                              </div>
-                            </div>
-                        {% endfor %}
-                      </div>
-                    </div>
-                </div>
-            </aside>
-
-            <header class="image-container">
-            <img src="https://www.pngmart.com/files/7/RAM-PNG-Photos.png">
-
-            </header>
-
-            <article class="biography">
-                <h2> Memória RAM</h2>
-
-                <p>
-
-                RAM, ou memória de acesso aleatório, é um tipo de memória de computador que pode ser acessada aleatoriamente. Isso significa que os dados podem ser armazenados e recuperados em qualquer ordem.
-<p></ptiam>
-                </p>
-
-            </article>
-
-        </section>
-    </div>
-
-    <div class="section fp-auto-height-responsive" data-anchor="page5">
-        <section class="bloco">
-            <header class="image-container">
-            <img src="https://nvidiastore.com.br/media/catalog/product/cache/1/image/450x450/9df78eab33525d08d6e5fb8d27136e95/t/i/titan_rtx_6_2.png">
-
-            </header>
-            <article class="biography">
-                <h2>Placa de vídeo</h2>
-
-                <p>
-
-                Uma placa de vídeo é o componente do hardware do computador responsável por administrar e controlar as funções de exibição de vídeo na tela. Todo computador contemporâneo usa uma interface gráfica. A placa gráfica faz com que essa interface salte aos olhos através do LCD.
-
-<p></ptiam>
-
-                </p>
-
-            </article>
-
-            <aside class="stats-section">
-                <div class="stats">
-                    <h2>Os melhores preços</h2>
-
-                </div>
-
-            </aside>
-        </section>
-    </div>
-
-    <div class="section fp-auto-height-responsive" data-anchor="page6">
-        <section class="bloco">
-
-            <article class="biography">
-                <h2> SSD</h2>
-                <p>
-                Uma HD é um dispositivo de armazenamento tradicional que usa pratos giratórios mecânicos e um cabeçote móvel de leitura/gravação para acessar dados. SSDs são unidades mais recentes e rápidas que armazenam dados em chips de memória acessíveis instantaneamente.
-<p></ptiam>
-                </p>
-
-            </article>
-
-        <aside class="stats-section">
-
-                <div class="stats">
-                    <h2>Os melhores preços</h2>
-                    {% for ssd in ssds %}
-                        <p></p>
-                    {% endfor %}
-                </div>
-
-        </aside>
-
-        <header class="image-container">
-            <img src="https://cdn.dooca.store/2394/products/5gs74oklwvgaoaxguym9zuyudhkep8snf6sd_1600x1600+crop_center.png?v=1656358942&webp=0">
-
-        </header>
-
-        </section>
-    </div>
-
-    <div class="section fp-auto-height-responsive" data-anchor="page7">
-        <section class="bloco">
-            <header class="image-container">
-            <img src="https://i.imgur.com/utv1okE.png">
-
-            </header>
-            <article class="biography">
-                <h2>Gabinete</h2>
-
-                <p>
-
-                    Um gabinete de computador, também conhecido como case, caixa, chassis ou carcaça, é o compartimento que contém a maioria dos componentes de um computador. O gabinete pode ser de 2 modelos, de acordo com a sua posição. Torre, são os que ficam na posição vertical e mesa, os que ficam na horizontal. A função do Gabinete é proteger os componentes de sujeira e umidade, e também evitar superaquecimento dos componentes.
-<p></ptiam>
-
-                </p>
-
-            </article>
-
-            <aside class="stats-section">
-                <div class="stats">
-                    <h2>Os melhores preços</h2>
-
-                </div>
-
-            </aside>
-        </section>
-    </div>
-
-    <div class="section fp-auto-height-responsive" data-anchor="page8">
-        <section class="bloco">
-
-            <aside class="stats-section">
-                 <div class="stats">
-                    <h2>Melhores preços</h2>
-                </div>
-            </aside>
-
-            <header class="image-container">
-            <img src="https://www.imagensempng.com.br/wp-content/uploads/2021/10/70-2.png">
-
-            </header>
-
-            <article class="biography">
-                <h2>Fonte de alimentação</h2>
-
-                <p>
-
-                    A fonte de alimentação é o dispositivo responsável por fornecer energia elétrica aos componentes de um computador. Portanto, é um tipo de equipamento que deve ser escolhido e manipulado com cuidado, afinal, qualquer equívoco pode resultar em provimento inadequado de eletricidade ou em danos à máquina. De acordo com a forma de desligamento, a fonte pode ser classificada em 2 tipos: AT e ATX. A fonte AT faz um corte instantâneo de energia, enquanto a fonte ATX faz o fechamento dos programas antes de desligar.<p></ptiam>
-                </p>
-
-            </article>
-
-        </section>
-    </div>
-
-    <div class="section fp-auto-height-responsive" data-anchor="page9">
-        <section class="bloco">
-
-            <header class="image-container">
-            <img src="https://www.imagensempng.com.br/wp-content/uploads/2021/10/710-3.png">
-            </header>
-
-            <article class="biography">
-                <h2>Periféricos</h2>
-
-            <p>
-                O periférico na Informática define-se como sendo um aparelho que envia e recebe informações de um computador. Esses periféricos, sejam eles para receber ou enviar informações, estão todos ligados ao CPU (Unidade de Processamento de Dados, ver aqui o que é) do computador.        </p>        </p>
-        Tudo aquilo que se liga a um computador é um periférico. Como periféricos na Informática, temos as impressoras, o mouse, as telas, scanner, os discos externos, leitores e gravadores de CD e DVDs, etc.</p>
-
-            </article>
-
-            <aside class="stats-section">
-
-                <div class="stats">
-                    <h2>Os melhores preços</h2>
-                </div>
-            </aside>
-        </section>
-    </div>
-
-</div></div>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<script src="https://static.tumblr.com/uh2chis/dk1qhlq4o/fullpage.js"></script>
-
-<script src="https://unpkg.com/popper.js@1"></script> <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script> <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
-
-<script>
-    $(document).ready(function() {
-	    $('#fullpage').fullpage({
-	        loopBottom: true,
-	        autoScrolling: true,
-	        scrollHorizontally: true,
-	        responsiveWidth: 1100,
-	    });
-    });
-        tippy('a[title]', {
-            theme: 'custom',
-            arrow: tippy.roundArrow,
-            zIndex: 9999999999,
-            placement: 'auto',
-            maxWidth: 300,
-            content(reference) {
-                const title = reference.getAttribute('title');
-                reference.removeAttribute('title'); return title; },
-
-        });
-</script>
-
-</body>
-
-</html>
