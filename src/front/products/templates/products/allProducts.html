@@ -1128,14 +1128,37 @@ font-size: 14px;
   <div class="dropdown">
   <button class="dropbtn">Potência</button>
       <div class="dropdown-content">
-          <a href="/gpugt1030/" style="font-size: 15px;">GPU GT 1030</a>
-          <a href="/gpugt610/" style="font-size: 15px;">GPU GT 610</a>
-          <a href="/gpugt7101GB/" style="font-size: 15px;">GPU GT 710 1GB</a>
-          <a href="/gpugt7102GB/" style="font-size: 15px;">GPU GT 710 2GB</a>
-          <a href="/gpugt730/" style="font-size: 15px;">GPU GT 730</a>
-          <a href="/gpugt240/" style="font-size: 15px;">GPU GT 240</a>
-          <a href="/gpugtx10502GB/" style="font-size: 15px;">GPU GTX 1050 2GB</a>
-          <a href="/gpugtx10503GB/" style="font-size: 15px;">GPU GTX 1050 3GB</a>
+          <a href="/font200w/" style="font-size: 15px;">200 W</a>
+          <a href="/font400w/" style="font-size: 15px;">400 W</a>
+          <a href="/font450w/" style="font-size: 15px;">450 W</a>
+          <a href="/font500w/" style="font-size: 15px;">500 W</a>
+          <a href="/font550w/" style="font-size: 15px;">550 W</a>
+          <a href="/font600w/" style="font-size: 15px;">600 W</a>
+          <a href="/font650w/" style="font-size: 15px;">650 W</a>
+          <a href="/font700w/" style="font-size: 15px;">700 W</a>
+          <a href="/font750w/" style="font-size: 15px;">750 W</a>
+          <a href="/font850w/" style="font-size: 15px;">850 W</a>
+          <a href="/font1200w/" style="font-size: 15px;">1200 W</a>
+      </div>
+    </div>
+</div>
+
+
+<div id="mySidenavHD" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNavHD()">&times;</a>
+  <div class="dropdown">
+  <button class="dropbtn">Capacidade</button>
+      <div class="dropdown-content">
+          <a href="/hd14tb/" style="font-size: 15px;">14 TB</a>
+          <a href="/hd16tb/" style="font-size: 15px;">16 TB</a>
+          <a href="/hd12tb/" style="font-size: 15px;">12 TB</a>
+          <a href="/hd10tb/" style="font-size: 15px;">10 TB</a>
+          <a href="/hd8tb/" style="font-size: 15px;">8 TB</a>
+          <a href="/hd6tb/" style="font-size: 15px;">6 TB</a>
+          <a href="/hd4tb/" style="font-size: 15px;">4 TB</a>
+          <a href="/hd3tb/" style="font-size: 15px;">3 TB</a>
+          <a href="/hd2tb/" style="font-size: 15px;">2 TB</a>
+          <a href="/hd1tb/" style="font-size: 15px;">1 TB</a>
       </div>
     </div>
 </div>
@@ -1159,18 +1182,20 @@ font-size: 14px;
 
 <div id="footer">
     <div class="vertical-scroll">
-        <a onclick="openNavCPU()"><img src="https://i.imgur.com/KbleMJc.png" title="Processadores" id="icones"></a>
-        <a onclick="openNavMotherboard()"><img src="https://i.imgur.com/g0zO5EJ.png" title="Placa-mãe" id="icones"></a>
-        <a onclick="openNavRAM()"><img src="https://i.imgur.com/LL72KzO.png" title="Memória RAM" id="icones"></a>
-        <a onclick="openNavGPU()"><img src="https://i.imgur.com/zuCKghj.png" title="Placa de vídeo" id="icones"></a>
-        <a onclick="openNavSSD()"><img src="https://i.imgur.com/z4MIrET.png" title="SSD" id="icones"></a>
-        <a onclick="openNavCabinet()"><img src="https://i.imgur.com/KIFUmg3.png" title="Periféricos" id="icones"></a>
-        <a onclick="openNavFont()"><img src="https://i.imgur.com/qJNZEo8.png" title="Fonte de alimentação" id="icones"></a>
+        <a onclick="openNavCPU()"><img src="https://i.imgur.com/VsRc1Kk.png" title="Processador" id="icones"></a>
+        <a onclick="openNavMotherboard()"><img src="https://i.imgur.com/zKzh5Em.png" title="Placa-mãe" id="icones"></a>
+        <a onclick="openNavRAM()"><img src="https://i.imgur.com/RqLq7QL.png" title="Memória RAM" id="icones"></a>
+        <a onclick="openNavGPU()"><img src="https://i.imgur.com/zFUZl0F.png" title="Placa de vídeo" id="icones"></a>
+        <a onclick="openNavHD()"><img src="https://i.imgur.com/h9VapYx.png" title="HD" id="icones"></a>
+        <a onclick="openNavCabinet()"><img src="https://i.imgur.com/9kH9hfC.png" title="Gabinete" id="icones"></a>
+        <a onclick="openNavFont()"><img src="https://i.imgur.com/LznnzQH.png" title="Fonte de alimentação" id="icones"></a>
+        <a onclick="openNavSSD()"><img src="https://i.imgur.com/cngWwrv.png" title="SSD" id="icones"></a>
     </div>  
 </div>
 <div class="container-fluid-top">
   <!-- <div class="row"> -->
-{%for product in products%}
+{% if products %}
+{% for product in products %}
   <div class="card">
     <div class="wsk-cp-text">
       <div class="category">
@@ -1183,8 +1208,11 @@ font-size: 14px;
     <p class="price">{{product.price}}</p>
     <p> <a class="button wobble-horizontal" href="{{product.link}}"><div class="botaopricecard" >Acesse</div></a></p>
   </div>
-{%endfor%}
-  <!-- </div> -->
+{% endfor %}
+{% else %}
+<h1> Nenhum produto foi encontrado </h1>
+{% endif %}
+    <!-- </div> -->
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
@@ -1203,6 +1231,38 @@ function openNavRAM() {
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
 function closeNavRAM() {
   document.getElementById("mySidenavRAM").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNavHD() {
+  document.getElementById("mySidenavHD").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNavHD() {
+  document.getElementById("mySidenavHD").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+<script>
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNavFont() {
+  document.getElementById("mySidenavFont").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNavFont() {
+  document.getElementById("mySidenavFont").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
   document.body.style.backgroundColor = "white";
 }

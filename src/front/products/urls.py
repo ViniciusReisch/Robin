@@ -210,15 +210,29 @@ urlpatterns = [
 
     # Font Potency
 
-    path('font200w/', views.font_200W, name='cabinet_fulltower'),
-    path('font400w/', views.font_400W, name='cabinet_midtower'),
-    path('font450w/', views.font_400W, name='cabinet_minitower'),
-    path('font500w/', views.font_400W, name='cabinet_fulltower'),
-    path('font550w/', views.font_400W, name='cabinet_midtower'),
-    path('font600w/', views.font_400W, name='cabinet_minitower'),
-    path('font650w/', views.font_400W, name='cabinet_fulltower'),
-    path('font700w/', views.font_400W, name='cabinet_midtower'),
-    path('font750w/', views.font_400W, name='cabinet_minitower'),
-    path('font850w/', views.font_400W, name='cabinet_minitower'),
-    path('font1200w/', views.font_400W, name='cabinet_minitower'),
+    path('font200w/', views.font_200W, name='font_200W'),
+    path('font400w/', views.font_400W, name='font_400W'),
+    path('font450w/', views.font_450W, name='font_450W'),
+    path('font500w/', views.font_500W, name='font_500W'),
+    path('font550w/', views.font_550W, name='font_550W'),
+    path('font600w/', views.font_600W, name='font_600W'),
+    path('font650w/', views.font_650W, name='font_650W'),
+    path('font700w/', views.font_700W, name='font_700W'),
+    path('font750w/', views.font_750W, name='font_750W'),
+    path('font850w/', views.font_850W, name='font_850W'),
+    path('font1200w/', views.font_1200W, name='font_1200W'),
+
+
+    # HD Capacity
+
+    path('hd14tb/', views.HD_14TB, name='HD_14TB'),
+    path('hd16tb/', views.HD_16TB, name='HD_16TB'),
+    path('hd12tb/', views.HD_12TB, name='HD_12TB'),
+    path('hd10tb/', views.HD_10TB, name='HD_10TB'),
+    path('hd8tb/', views.HD_8TB, name='HD_8TB'),
+    path('hd6tb/', views.HD_6TB, name='HD_6TB'),
+    path('hd4tb/', views.HD_4TB, name='HD_4TB'),
+    path('hd3tb/', views.HD_3TB, name='HD_3TB'),
+    path('hd2tb/', views.HD_2TB, name='HD_2TB'),
+    path('hd1tb/', views.HD_1TB, name='HD_1TB'),
 ]
