@@ -31,12 +31,15 @@ def low_price(request):
 
 def ram(request):
     products = Alldata.objects.all().filter(type='RAM Memory')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
     return render(request, 'products/allProducts.html',
                   {'products': products, 'my_filter': my_filter})
 
-
 def motherboard(request):
     products = Alldata.objects.all().filter(type='MotherBoard')
+    my_filter = ProductFilter(request.GET, queryset=products)
+    products = my_filter.qs
     return render(request, 'products/allProducts.html',
                   {'products': products, 'my_filter': my_filter})
 
