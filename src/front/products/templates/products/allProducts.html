@@ -8,6 +8,7 @@
 <meta property="og:image" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
 <meta property="og:image:secure_url" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
 <meta property="og:image:type" content="image/jpeg" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta property="og:image:width" content="150" />
 <meta property="og:image:height" content="200" /><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'><link rel="stylesheet" href="./stylecard.css">
@@ -899,6 +900,53 @@ font-size: 14px;
 	 margin-left: 4%;
 }
 
+/* Style the search field */
+form.example input[type=text] {
+  padding: 6px;
+  font-size: 17px;
+  border: 1px solid blue;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.exemple {
+
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #03bb85;
+  color: white;
+  font-size: 17px;
+  border: 1px solid blue;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example button {
+  position: relative;
+
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.form-div {
+  width: 30%;
+  padding-left: 50px;
+}
 </style>
 
 </head>
@@ -1207,10 +1255,6 @@ font-size: 14px;
 
 <div id="banner-top">
     <a href="/#/"><img src="https://i.imgur.com/DyFEAAB.png" alt="" id="logo"></a>
-    <form method="get">
-                {{ my_filter.form.as_p }}
-                <button class="botaoPesquisar" type="submit">Pesquisar</button>
-    </form>
     <nav class="homelinks">
         <a href="/" title="home"><i class="ph-house"></i></a>
         <a href="/" title="newsletter"><i class="ph-newspaper-clipping"></i></a>
@@ -1218,6 +1262,13 @@ font-size: 14px;
         <a href="https://twitter.com/robinsite" title="twitter"><i class="ph-twitter-logo"></i></a>
 
     </nav>
+</div>
+<div class="form-div" align="right">
+    <form method="get" class="example">
+                {{ my_filter.form.as_p }}
+                <button class="botaoPesquisar" type="submit"><i class="fa fa-search">
+    </i></button>
+    </form>
 </div>
 
 <div id="banner-right"></div>
