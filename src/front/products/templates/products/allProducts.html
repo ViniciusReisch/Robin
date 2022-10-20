@@ -951,6 +951,105 @@ form.example::after {
 .form-bordinha {
     border-radius:2%;
 }
+
+ .bttdropdown {
+	 position: absolute;
+	 display: inline-block;
+	 text-align: left;
+	 margin-top: -2.9%;
+	 left: 31%;
+}
+ .bttdropdown > button {
+	 position: relative;
+	 border: 0;
+	 padding: 10px 50px 10px 30px;
+	 overflow: hidden;
+	 background: none;
+	 color: white;
+	 font-size: 14px;
+	 font-weight: 700;
+	 letter-spacing: 0.03em;
+	 line-height: normal;
+	 text-transform: uppercase;
+	 z-index: 2;
+}
+ .bttdropdown > button[aria-expanded="true"] {
+	 color: var(--corners);
+}
+ .bttdropdown > button[aria-expanded="true"]:before {
+	 transform: translateY(calc(100% - 3px));
+}
+ .bttdropdown > button[aria-expanded="true"]:after {
+	 border-width: 0 5px 5px 5px;
+	 border-color: transparent transparent var(--corners) transparent;
+}
+ .bttdropdown > button:before {
+	 content: '';
+	 display: block;
+	 position: absolute;
+	 top: 0;
+	 right: 0;
+	 bottom: 0;
+	 left: 0;
+	 background: var(--corners);
+	 z-index: -1;
+	 transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
+	 transform: translateZ(0) translateY(0);
+}
+ .bttdropdown > button:after {
+	 content: '';
+	 position: absolute;
+	 top: 50%;
+	 right: 30px;
+	 display: block;
+	 margin-top: -3px;
+	 width: 0;
+	 height: 0;
+	 border-style: solid;
+	 border-width: 5px 5px 0 5px;
+	 border-color: white transparent transparent transparent;
+	 opacity: 1;
+	 transition: all 0.3s ease;
+}
+ .bttdropdown > button:focus:before {
+	 background: var(--corners);
+}
+ .bttdropdown button + ul {
+	 position: absolute;
+	 overflow: hidden;
+	 top: 100%;
+	 left: 0;
+	 right: 0;
+	 margin: 0;
+	 padding: 0;
+	 background: #f1f1f1;
+	 list-style: none;
+	 transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9) 0.2s;
+	 transform: translateZ(0);
+	 max-height: 200px;
+	 visibility: visible;
+	 z-index: 1;
+}
+ .bttdropdown button + ul[aria-hidden='true'] {
+	 max-height: 0;
+	 visibility: hidden;
+	 transform: translateZ(0);
+}
+ .bttdropdown button + ul li {
+	 font-family: 'Open Sans', sans-serif;
+}
+ .bttdropdown button + ul li a {
+	 display: block;
+	 color: #1e1e1e;
+	 padding: 10px 5px 10px 10px;
+	 font-weight: 400;
+	 text-decoration: none;
+	 font-size: 14px;
+	 transition: all 0.3s ease;
+}
+ .bttdropdown button + ul li a:hover, .bttdropdown button + ul li a:focus {
+	 background: #dedede;
+}
 </style>
 
 </head>
@@ -1273,8 +1372,15 @@ form.example::after {
                 <button class="botaoPesquisar" type="submit"><i class="fa fa-search">
     </i></button>
     </form>
-
 </div>
+
+<div class="bttdropdown">
+  <button>Filtro <i class="ph-faders-horizontal"></i> </button>
+  <ul id="bttdropdown-list">
+      <li><a href=""><i class="ph-arrow-down"></i> Menor preço</a></li>
+    <li><a href=""><i class="ph-arrow-up"></i> Maior preço</a></li>
+  </ul>
+</div><!-- /.bttdropdown -->
 
 <div id="banner-right"></div>
 
@@ -1451,6 +1557,82 @@ function closeNavGPU() {
 </script>
 
 </div>
+
+<script>
+     (function($) {
+   $(function() {
+
+     $('.button-collapse').sideNav();
+     $('select').material_select();
+     $('.dropdown-button').dropdown();
+
+   }); // end of document ready
+ })(jQuery); // end of jQuery name space
+</script>
+
+<script>
+        //Revealing Module Pattern
+
+        var bttdropdown = (function($) {
+
+          var $body = $('body'),
+            $bttdropdown = $body.find('.bttdropdown'),
+            $trigger = $bttdropdown.find('button'),
+            $list = $bttdropdown.find('ul'),
+            $firstLink = $list.find('li:first a'),
+            $lastLink = $list.find('li:last a');
+
+          var init = function() {
+            ariaSetup();
+            bindEvents();
+          }
+
+          var ariaSetup = function() {
+            var listId = $list.attr('id');
+
+            $trigger.attr({
+              'aria-expanded': 'false',
+              'aria-controls': listId
+            });
+
+            $list.attr({
+              'aria-hidden': true
+            });
+          }
+
+          var bindEvents = function() {
+            $trigger.on('click', togglebttdropdown);
+
+            $firstLink.on('keydown', function() {
+              if (event.which === 9 && event.shiftKey === false) {
+                return;
+              } else if (event.which === 9 && event.shiftKey === true) {
+                togglebttdropdown();
+              }
+            });
+
+            $lastLink.on('keydown', function() {
+              if (event.shiftKey) return;
+              togglebttdropdown();
+            });
+          }
+
+          var togglebttdropdown = function() {
+            var $this = $(event.target),
+              hidden = $list.attr('aria-hidden') === 'true' ? false : true,
+              expanded = !hidden;
+
+            $this.attr('aria-expanded', expanded);
+            $this.next('ul').attr('aria-hidden', hidden);
+          }
+
+          return {
+            init: init
+          }
+
+        })(jQuery);
+
+        bttdropdown.init();</script>
 </body>
 
 </html>
