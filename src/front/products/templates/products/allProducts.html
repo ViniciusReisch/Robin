@@ -904,10 +904,9 @@ font-size: 14px;
 form.example input[type=text] {
   padding: 6px;
   font-size: 17px;
-  border: 1px solid blue;
+  border: 1px solid #d7d7d7;
   float: left;
   width: 80%;
-  background: #f1f1f1;
 }
 
 form.exemple {
@@ -922,9 +921,10 @@ form.example button {
   background: #03bb85;
   color: white;
   font-size: 17px;
-  border: 1px solid blue;
+  border: 1px solid #d7d7d7;
   border-left: none; /* Prevent double borders */
   cursor: pointer;
+  z-index: 70;
 }
 
 form.example button:hover {
@@ -946,6 +946,10 @@ form.example::after {
 .form-div {
   width: 30%;
   padding-left: 50px;
+}
+
+.form-bordinha {
+    border-radius:2%;
 }
 </style>
 
@@ -1269,6 +1273,7 @@ form.example::after {
                 <button class="botaoPesquisar" type="submit"><i class="fa fa-search">
     </i></button>
     </form>
+
 </div>
 
 <div id="banner-right"></div>
