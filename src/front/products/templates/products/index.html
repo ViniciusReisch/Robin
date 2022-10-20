@@ -831,7 +831,7 @@ a:hover {
 	width: 5px;
 	border-radius: 50%;
 	cursor: pointer;
-	background-color: #413B52;
+	background-color: var(--corners);
 	margin: 7px;
 	transition-duration: 0.2s;
 }
@@ -889,7 +889,7 @@ a:hover {
 #t-4:checked ~ .dots label[for="t-4"],
 #t-5:checked ~ .dots label[for="t-5"] {
 	transform: scale(2);
-	background-color: #fff;
+	background-color: #68d9c2;
 }
 #t-1:checked ~ .dots label[for="t-2"],
 #t-2:checked ~ .dots label[for="t-1"],
@@ -959,7 +959,7 @@ a:hover {
 }
 
 .badge {
-	 background: red;
+	 background: #003d65;
 	 color: #fff;
 	 height: 80px;
 	 width: 80px;
@@ -1086,7 +1086,7 @@ font-size: 10px;
 
 .botaopricecard {
   background: var(--corners);
-  margin: 30px;
+  margin: 10%;
   padding: 10px;
   align-items: center;
   text-justify: center;
@@ -1112,6 +1112,44 @@ font-size: 10px;
 .line {
   text-decoration: line-through;
 }
+
+.fonte {
+  	 color: #808080;
+	 text-decoration: none;
+	 position: relative;
+}
+
+.fonte2 {
+  	 color: #808080;
+	 text-decoration: none;
+	 position: absolute;
+	 font-size: 12px;
+	 margin-top: -3%;
+}
+
+.style-1 del {
+	 color: #808080;
+	 text-decoration: none;
+	 position: relative;
+}
+ .style-1 del:before {
+	 content: " ";
+	 display: block;
+	 width: 100%;
+	 border-top: 2px solid #808080;;
+	 height: 9px;
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 transform: rotate(-4deg);
+}
+ .style-1 ins {
+	 color: #68d9c2;
+	 font-size: 25px;
+	 text-decoration: none;
+	 padding: 1em 1em 1em 0.01em;
+}
+
 
 </style>
 
@@ -1197,8 +1235,11 @@ font-size: 10px;
                             <div class="wsk-cp-text">
                                 <img src="{{promo.image}}" alt="picture" class="imagemprincipal">
                                 <h1 class="name"> {{promo.name}} </h1>
-                                <div class="price">{{promo.oldprice}}</div>
-                                <div class="price">{{promo.price}}</div>
+                                <div class="style-1">
+                                    <a><span class="fonte">de: </a><del>R$ {{promo.oldprice}}</del></span>
+                                    <br>
+                                    <a><span class="fonte">para: </a></span><ins><span class="amount">R$ {{promo.changeableprice}}</span></ins><br><a><span class="fonte2"> à vista</a>
+                                </div>
                                 <a class="wobble-horizontal" href="{{promo.link}}"><div class="botaopricecard">Acesse</div></a>
                             </div>
                         </label>
