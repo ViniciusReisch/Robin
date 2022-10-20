@@ -878,7 +878,7 @@ a:hover {
 }
 
 .logosize img {
-  width: 10px;
+  width: 6px;
   height: auto;
 }
 
@@ -1149,6 +1149,45 @@ font-size: 10px;
 	 text-decoration: none;
 	 padding: 1em 1em 1em 0.01em;
 }
+
+.ribbon {
+  height: 20px;
+  width: 60px;
+  position: absolute;
+  margin-bottom: 30px;
+  background-size: cover;
+  text-transform: uppercase;
+  color: white;
+}
+
+.ribbon4 {
+  position: absolute;
+  top: 15px;
+  padding: 8px 10px;
+  background: #00B3ED;
+  box-shadow: -1px 2px 3px rgba(0,0,0,.3);
+}
+.ribbon4:before, .ribbon4:after {
+  content: "";
+  position: absolute;
+}
+.ribbon4:before {
+  width: 7px;
+  height: 100%;
+  top: 0;
+  left: -6.5px;
+  padding: 0 0 7px;
+  background: inherit;
+  border-radius: 5px 0 0 5px;
+}
+.ribbon4:after {
+  width: 5px;
+  height: 5px;
+  bottom: -5px;
+  left: -4.5px;
+  background: lightblue;
+  border-radius: 5px 0 0 5px;
+ }
 
 
 </style>

@@ -162,7 +162,7 @@ body {
 }
 
 b,strong {
-    color:var(--bolded);
+    color: #68d9c2;
     font-weight: 700;
 }
 
@@ -658,6 +658,9 @@ font-size: 14px;
    -webkit-line-clamp: 3; /* number of lines to show */
            line-clamp: 3;
    -webkit-box-orient: vertical;
+   margin: 10px;
+    text-align: justify;
+    hyphens: auto
 }
 
 .wsk-cp-text{
@@ -684,7 +687,7 @@ font-size: 14px;
 }
 .wsk-cp-text .category > span{
   padding: 12px 30px;
-  background:#212121;
+  background:#003d65!important;
   color:#fff;
   border-radius:27px;
   transition: all 0.05s ease-in-out;
@@ -856,6 +859,44 @@ font-size: 14px;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
+}
+
+.fonte {
+  	 color: #808080;
+	 text-decoration: none;
+	 position: relative;
+}
+
+.fonte2 {
+  	 color: #808080;
+	 text-decoration: none;
+	 position: absolute;
+	 font-size: 12px;
+	 margin-top: -3%;
+}
+
+.style-1 del {
+	 color: #808080;
+	 text-decoration: none;
+	 position: relative;
+}
+ .style-1 del:before {
+	 content: " ";
+	 display: block;
+	 width: 100%;
+	 border-top: 2px solid #808080;;
+	 height: 9px;
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 transform: rotate(-4deg);
+}
+ .style-1 ins {
+	 color: #68d9c2;
+	 font-size: 20px;
+	 text-decoration: none;
+	 padding: 1em 1em 2em 0.1em;
+	 margin-left: 4%;
 }
 
 </style>
@@ -1205,8 +1246,10 @@ font-size: 14px;
     </div>
     <img src="{{product.image}}" alt="Denim Jeans" style="width:100%">
     <h1 class="name">{{product.name}}</h1>
-    <p class="line">{{product.oldprice}}</p>
-    <p class="price">{{product.price}}</p>
+      <div class="style-1">
+            <a><span class="fonte">de: </a><del>algum preço</del></span>
+            <br></span><ins><span class="amount"><b>{{product.price}}</b></span></ins><br>
+      </div>
     <p> <a class="button wobble-horizontal" href="{{product.link}}"><div class="botaopricecard" >Acesse</div></a></p>
   </div>
 {% endfor %}
@@ -1215,6 +1258,7 @@ font-size: 14px;
 {% endif %}
     <!-- </div> -->
 </div>
+<br><br><br><br>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script src="https://static.tumblr.com/uh2chis/dk1qhlq4o/fullpage.js"></script>
