@@ -7,10 +7,14 @@ from .filters import ProductFilter
 def index(request):
     promos = Alldata.objects.all().filter(type='Promo')
     ssds = promos.filter(name__contains='SSD')
-    rams = promos.filter(name__contains='RAM')
+    rams = promos.filter(name__contains='Memória') | promos.filter(name__contains='Memoria')
+    cpus = promos.filter(name__contains='Processador') | promos.filter(name__contains='PROCESSADOR')
+    gpus = promos.filter(name__contains='Placa de Vídeo') | promos.filter(name__contains='GPU') | promos.filter(name__contains='Placa de Video') | promos.filter(name__contains='VGA')
+    mbs = promos.filter(name__contains='Placa Mãe') | promos.filter(name__contains='Placa-Mãe') | promos.filter(name__contains='Motherboard')
+    cabinets = promos.filter(name__contains='Gabinete')
     random_items = random.sample(list(promos), 5)
     random_ssds = random.sample(list(ssds), 5)
-    random_rams = random.sample(list(ssds), 3)
+    random_rams = random.sample(list(rams), 3)
     return render(request, 'products/index.html',
                   {'promos': random_items, 'ssds': random_ssds, 'rams': random_rams})
 
