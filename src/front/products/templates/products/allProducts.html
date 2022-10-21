@@ -1377,8 +1377,8 @@ form.example::after {
 <div class="bttdropdown">
   <button>Filtro <i class="ph-faders-horizontal"></i> </button>
   <ul id="bttdropdown-list">
-      <li><a href=""><i class="ph-arrow-down"></i> Menor preço</a></li>
-    <li><a href=""><i class="ph-arrow-up"></i> Maior preço</a></li>
+      <li><a href="?sort=l2h"><i class="ph-arrow-down"></i> Menor preço</a></li>
+    <li><a href="?sort=h2l"><i class="ph-arrow-up"></i> Maior preço</a></li>
   </ul>
 </div><!-- /.bttdropdown -->
 
@@ -1407,12 +1407,12 @@ form.example::after {
       </div>
     </div>
     <img src="{{product.image}}" alt="Denim Jeans" style="width:100%">
-    <h1 class="name">{{product.name}}</h1>
+    <h1 class="name">{{product.name|slice:40}}</h1>
       <div class="style-1">
             <a><span class="fonte">de: </a><del>algum preço</del></span>
             <br></span><ins><span class="amount"><b>{{product.price}}</b></span></ins><br>
       </div>
-    <p> <a class="button wobble-horizontal" href="{{product.link}}"><div class="botaopricecard" >Acesse</div></a></p>
+   <a class="button wobble-horizontal" href="{{product.link}}"> <p> <div class="botaopricecard" >Acesse</div></p></a>
   </div>
 {% endfor %}
 {% else %}
