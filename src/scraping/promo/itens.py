@@ -135,7 +135,7 @@ def Crawl_Kabum():
         dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': ['', float(changeablePrices)],
                    'Installment price': [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://upload.wikimedia.org/wikipedia/commons/7/71/KaBuM%21_Logo2015.png',
+                   'Logo': 'https://logodownload.org/wp-content/uploads/2017/11/kabum-logo.png',
                    'Type': 'Promo', 'Model': '', 'Format': '', 'Discount': round(discountProduct, 2), 'Old Prices': float(changeablePassedPrices),
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)

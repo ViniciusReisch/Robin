@@ -1050,6 +1050,10 @@ form.example::after {
  .bttdropdown button + ul li a:hover, .bttdropdown button + ul li a:focus {
 	 background: #dedede;
 }
+
+.block-filter {
+  text-align: center;
+}
 </style>
 
 </head>
@@ -1058,6 +1062,8 @@ form.example::after {
 
 <div id="mySidenavCPU" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNavCPU()">&times;</a>
+  <a href="/allcpu/">Todos processadores</a>
+  <a href="/promocpu/">Promoções</a>
   <div class="dropdown">
   <button class="dropbtn">Format</button>
       <div class="dropdown-content">
@@ -1094,6 +1100,8 @@ form.example::after {
 
 <div id="mySidenavMB" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNavMB()">&times;</a>
+  <a href="/allmb/">Todas as Placas-Mãe</a>
+  <a href="/promomb/">Promoções</a>
   <div class="dropdown">
   <button class="dropbtn">DDR</button>
       <div class="dropdown-content">
@@ -1129,6 +1137,8 @@ form.example::after {
 
 <div id="mySidenavSSD" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNavSSD()">&times;</a>
+  <a href="/allssd/">Todos SSD</a>
+  <a href="/promossd/">Promoções</a>
   <div class="dropdown">
   <button class="dropbtn">Format</button>
       <div class="dropdown-content">
@@ -1166,6 +1176,8 @@ form.example::after {
 
 <div id="mySidenavRAM" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNavRAM()">&times;</a>
+  <a href="/allram/">Todas Memórias</a>
+  <a href="/promoram/">Promoções</a>
   <div class="dropdown">
   <button class="dropbtn">DDR</button>
       <div class="dropdown-content">
@@ -1204,8 +1216,10 @@ form.example::after {
 
 <div id="mySidenavGPU" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNavGPU()">&times;</a>
+  <a href="/allgpu/">Todas as Placas de Vídeo</a>
+  <a href="/promogpu/">Promoções</a>
   <div class="dropdown">
-  <button class="dropbtn">Tamanho</button>
+  <button class="dropbtn">Modelos</button>
       <div class="dropdown-content">
           <a href="/gpugt1030/" style="font-size: 15px;">GPU GT 1030</a>
           <a href="/gpugt610/" style="font-size: 15px;">GPU GT 610</a>
@@ -1291,6 +1305,8 @@ form.example::after {
 
 <div id="mySidenavCabinet" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNavCabinet()">&times;</a>
+  <a href="/allcabinet/">Todos Gabinetes</a>
+  <a href="/promocabinet/">Promoções</a>
   <div class="dropdown">
   <button class="dropbtn">Cores</button>
       <div class="dropdown-content">
@@ -1318,6 +1334,8 @@ form.example::after {
 
 <div id="mySidenavFont" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNavFont()">&times;</a>
+  <a href="/allfont/">Todas Fontes</a>
+  <a href="/promofont/">Promoções</a>
   <div class="dropdown">
   <button class="dropbtn">Potência</button>
       <div class="dropdown-content">
@@ -1339,6 +1357,8 @@ form.example::after {
 
 <div id="mySidenavHD" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNavHD()">&times;</a>
+  <a href="/allhd/">Todos HD's</a>
+  <a href="/promohd/">Promoções</a>
   <div class="dropdown">
   <button class="dropbtn">Capacidade</button>
       <div class="dropdown-content">
@@ -1366,22 +1386,23 @@ form.example::after {
 
     </nav>
 </div>
-<div class="form-div" align="right">
-    <form method="get" class="example">
-                {{ my_filter.form.as_p }}
-                <button class="botaoPesquisar" type="submit"><i class="fa fa-search">
-    </i></button>
-    </form>
+<div class="block-filter">
+    <div class="form-div" align="right">
+        <form method="get" class="example">
+                    {{ my_filter.form.as_p }}
+                    <button class="botaoPesquisar" type="submit"><i class="fa fa-search">
+        </i></button>
+        </form>
+    </div>
+
+    <div class="bttdropdown">
+      <button>Filtro <i class="ph-faders-horizontal"></i> </button>
+      <ul id="bttdropdown-list">
+          <li><a href="?sort=l2h"><i class="ph-arrow-down"></i> Menor preço</a></li>
+        <li><a href="?sort=h2l"><i class="ph-arrow-up"></i> Maior preço</a></li>
+      </ul>
+    </div><!-- /.bttdropdown -->
 </div>
-
-<div class="bttdropdown">
-  <button>Filtro <i class="ph-faders-horizontal"></i> </button>
-  <ul id="bttdropdown-list">
-      <li><a href="?sort=l2h"><i class="ph-arrow-down"></i> Menor preço</a></li>
-    <li><a href="?sort=h2l"><i class="ph-arrow-up"></i> Maior preço</a></li>
-  </ul>
-</div><!-- /.bttdropdown -->
-
 <div id="banner-right"></div>
 
 <div id="footer">

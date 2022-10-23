@@ -51,7 +51,7 @@ def SSD_Crawl():
         dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                    'Installment price': [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://upload.wikimedia.org/wikipedia/commons/7/71/KaBuM%21_Logo2015.png', 'Type': 'SSD', 'Model': '', 'Format': '',
+                   'Logo': 'https://logodownload.org/wp-content/uploads/2017/11/kabum-logo.png', 'Type': 'SSD', 'Model': '', 'Format': '',
                    'Discount': '', 'Old Prices': '',
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)
@@ -128,7 +128,7 @@ def SSD_Crawl():
         dataDic = {'Store': 'Kabum', 'Name': namesProducts[i], 'Price': [pricesProducts[i], float(changeablePrices)],
                    'Installment price': [0, 0],
                    'Link': linksProducts[i], 'Image': imgProducts[i], 'Time': local.format('YYYY-MM-DD HH:mm:ss'),
-                   'Logo': 'https://upload.wikimedia.org/wikipedia/commons/7/71/KaBuM%21_Logo2015.png', 'Type': 'SSD','Model': '', 'Format': '',
+                   'Logo': 'https://logodownload.org/wp-content/uploads/2017/11/kabum-logo.png', 'Type': 'SSD','Model': '', 'Format': '',
                    'Discount': '', 'Old Prices': '',
                    'Interface': '', 'Capacity': '', 'DDR': '', 'Frequency': '', 'Platform': '', 'Color': ''}
         allData.append(dataDic)

@@ -6,19 +6,130 @@ from .filters import ProductFilter
 
 def index(request):
     promos = Alldata.objects.all().filter(type='Promo')
-    ssds = promos.filter(name__contains='SSD')
-    rams = promos.filter(name__contains='Memória') | promos.filter(name__contains='Memoria')
-    cpus = promos.filter(name__contains='Processador') | promos.filter(name__contains='PROCESSADOR')
-    gpus = promos.filter(name__contains='Placa de Vídeo') | promos.filter(name__contains='GPU') | promos.filter(
-        name__contains='Placa de Video') | promos.filter(name__contains='VGA')
-    mbs = promos.filter(name__contains='Placa Mãe') | promos.filter(name__contains='Placa-Mãe') | promos.filter(
-        name__contains='Motherboard')
-    cabinets = promos.filter(name__contains='Gabinete')
     random_items = random.sample(list(promos), 5)
-    random_ssds = random.sample(list(ssds), 5)
-    random_rams = random.sample(list(rams), 3)
     return render(request, 'products/index.html',
-                  {'promos': random_items, 'ssds': random_ssds, 'rams': random_rams})
+                  {'promos': random_items})
+
+
+def promo_cpu(request):
+    products = Alldata.objects.all().filter(type='Promo')
+    cpus = products.filter(name__contains='Processador AMD') | products.filter(name__contains='Processador Intel')
+    sort_by = request.GET.get("sort", "l2h")
+    my_filter = ProductFilter(request.GET, queryset=cpus)
+    products = my_filter.qs
+    if sort_by == "l2h":
+        products = products.order_by("changeableprice")
+    elif sort_by == "h2l":
+        products = products.order_by("-changeableprice")
+    return render(request, 'products/allProducts.html',
+                  {'request': request.GET, 'products': products, 'my_filter': my_filter,
+                   "subcategory_list": products})
+
+
+def promo_gpu(request):
+    products = Alldata.objects.all().filter(type='Promo')
+    gpu = products.filter(name__contains='Placa de Video') | products.filter(name__contains='Placa de Vídeo')
+    sort_by = request.GET.get("sort", "l2h")
+    my_filter = ProductFilter(request.GET, queryset=gpu)
+    products = my_filter.qs
+    if sort_by == "l2h":
+        products = products.order_by("changeableprice")
+    elif sort_by == "h2l":
+        products = products.order_by("-changeableprice")
+    return render(request, 'products/allProducts.html',
+                  {'request': request.GET, 'products': products, 'my_filter': my_filter,
+                   "subcategory_list": products})
+
+
+def promo_ram(request):
+    products = Alldata.objects.all().filter(type='Promo')
+    ram = products.filter(name__contains='Memória') | products.filter(name__contains='memoria')| products.filter(name__contains='memória')| products.filter(name__contains='RAM')| products.filter(name__contains='ram')
+    sort_by = request.GET.get("sort", "l2h")
+    my_filter = ProductFilter(request.GET, queryset=ram)
+    products = my_filter.qs
+    if sort_by == "l2h":
+        products = products.order_by("changeableprice")
+    elif sort_by == "h2l":
+        products = products.order_by("-changeableprice")
+    return render(request, 'products/allProducts.html',
+                  {'request': request.GET, 'products': products, 'my_filter': my_filter,
+                   "subcategory_list": products})
+
+
+def promo_ssd(request):
+    products = Alldata.objects.all().filter(type='Promo')
+    ssd = products.filter(name__contains='SSD') | products.filter(name__contains='ssd')
+    sort_by = request.GET.get("sort", "l2h")
+    my_filter = ProductFilter(request.GET, queryset=ssd)
+    products = my_filter.qs
+    if sort_by == "l2h":
+        products = products.order_by("changeableprice")
+    elif sort_by == "h2l":
+        products = products.order_by("-changeableprice")
+    return render(request, 'products/allProducts.html',
+                  {'request': request.GET, 'products': products, 'my_filter': my_filter,
+                   "subcategory_list": products})
+
+
+def promo_hd(request):
+    products = Alldata.objects.all().filter(type='Promo')
+    hd = products.filter(name__contains='HardDisk') | products.filter(name__contains='HD')
+    sort_by = request.GET.get("sort", "l2h")
+    my_filter = ProductFilter(request.GET, queryset=hd)
+    products = my_filter.qs
+    if sort_by == "l2h":
+        products = products.order_by("changeableprice")
+    elif sort_by == "h2l":
+        products = products.order_by("-changeableprice")
+    return render(request, 'products/allProducts.html',
+                  {'request': request.GET, 'products': products, 'my_filter': my_filter,
+                   "subcategory_list": products})
+
+
+def promo_cabinet(request):
+    products = Alldata.objects.all().filter(type='Promo')
+    cpus = products.filter(name__contains='Gabinete') | products.filter(name__contains='gabinete')
+    sort_by = request.GET.get("sort", "l2h")
+    my_filter = ProductFilter(request.GET, queryset=cpus)
+    products = my_filter.qs
+    if sort_by == "l2h":
+        products = products.order_by("changeableprice")
+    elif sort_by == "h2l":
+        products = products.order_by("-changeableprice")
+    return render(request, 'products/allProducts.html',
+                  {'request': request.GET, 'products': products, 'my_filter': my_filter,
+                   "subcategory_list": products})
+
+
+def promo_font(request):
+    products = Alldata.objects.all().filter(type='Promo')
+    cpus = products.filter(name__contains='Fonte') | products.filter(name__contains='fonte')
+    sort_by = request.GET.get("sort", "l2h")
+    my_filter = ProductFilter(request.GET, queryset=cpus)
+    products = my_filter.qs
+    if sort_by == "l2h":
+        products = products.order_by("changeableprice")
+    elif sort_by == "h2l":
+        products = products.order_by("-changeableprice")
+    return render(request, 'products/allProducts.html',
+                  {'request': request.GET, 'products': products, 'my_filter': my_filter,
+                   "subcategory_list": products})
+
+
+def promo_mb(request):
+    products = Alldata.objects.all().filter(type='Promo')
+    cpus = products.filter(name__contains='Motherboard') | products.filter(name__contains='Placa-Mae')| products.filter(name__contains='Placa-Mãe')| products.filter(name__contains='Placa Mae')| products.filter(name__contains='Placa Mãe')
+    sort_by = request.GET.get("sort", "l2h")
+    my_filter = ProductFilter(request.GET, queryset=cpus)
+    products = my_filter.qs
+    if sort_by == "l2h":
+        products = products.order_by("changeableprice")
+    elif sort_by == "h2l":
+        products = products.order_by("-changeableprice")
+    return render(request, 'products/allProducts.html',
+                  {'request': request.GET, 'products': products, 'my_filter': my_filter,
+                   "subcategory_list": products})
+
 
 
 def allProducts(request):

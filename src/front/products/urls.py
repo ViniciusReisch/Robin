@@ -15,6 +15,16 @@ urlpatterns = [
     path('allfont/', views.font, name='allfont'),
     path('allcabinet/', views.cabinet, name='allcabinet'),
 
+    # Promo PATHS
+    path('promocpu/', views.promo_cpu, name='promo_cpu'),
+    path('promoram/', views.promo_ram, name='promo_cpu'),
+    path('promogpu/', views.promo_gpu, name='promo_cpu'),
+    path('promohd/', views.promo_hd, name='promo_cpu'),
+    path('promomb/', views.promo_mb, name='promo_cpu'),
+    path('promocabinet/', views.promo_cabinet, name='promo_cpu'),
+    path('promofont/', views.promo_font, name='promo_cpu'),
+    path('promossd/', views.promo_ssd, name='promo_cpu'),
+
 
     # Motherboard DDR
     path('mbddr3/', views.motherboard_ddr3, name='motherboard_ddr3'),
