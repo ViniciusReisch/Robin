@@ -9,7 +9,7 @@ conexao = mysql.connector.connect(
     password="entra21python",
     database="RobinDatabase"
 )
-cursor = conexao.cursor()
+cursor = conexao.cursor() 
 
 for product in allProducts:
     cursor.execute(f'INSERT INTO alldata (store, name, price, changeablePrice, installmentPrice, '

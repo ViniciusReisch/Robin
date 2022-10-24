@@ -56,7 +56,7 @@ class KabumGPU:
                     'Rx 6700 XT', 'RX 6700 xt', 'Rx 6700 Rx', 'RX 6750 XT', 'Rx 6750 XT', 'RX 6750 xt', 'Rx 6750 Xt',
                     'RX 6800', 'Rx 6800', 'R 6800 XT', 'Rx 6800 XT', 'RX 6800 xt', 'Rx 6800 Xt', 'RX 6900 XT',
                     'Rx 6900 XT', 'RX 6900 xt', 'Rx 6900 Xt', 'RX 6950 XT', 'Rx 6950 XT', 'RX 6950 xt', 'Rx 6950 Xt',
-                    'RX 6950XT', 'Rx 6950XT', 'RX 6950xt', 'Rx 6950Xt']adr
+                    'RX 6950XT', 'Rx 6950XT', 'RX 6950xt', 'Rx 6950Xt']
 
         for i in range(len(allModel)):
             for data in allGPU:

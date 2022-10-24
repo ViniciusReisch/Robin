@@ -43,7 +43,7 @@ def promo_gpu(request):
 
 def promo_ram(request):
     products = Alldata.objects.all().filter(type='Promo')
-    ram = products.filter(name__contains='Memória') | products.filter(name__contains='memoria')| products.filter(name__contains='memória')| products.filter(name__contains='RAM')| products.filter(name__contains='ram')
+    ram = products.filter(name__contains='Memória') | products.filter(name__contains='memoria')| products.filter(name__contains='memória')
     sort_by = request.GET.get("sort", "l2h")
     my_filter = ProductFilter(request.GET, queryset=ram)
     products = my_filter.qs
@@ -73,7 +73,7 @@ def promo_ssd(request):
 
 def promo_hd(request):
     products = Alldata.objects.all().filter(type='Promo')
-    hd = products.filter(name__contains='HardDisk') | products.filter(name__contains='HD')
+    hd = products.filter(name__contains='HardDisk ') | products.filter(name__contains='HD ')
     sort_by = request.GET.get("sort", "l2h")
     my_filter = ProductFilter(request.GET, queryset=hd)
     products = my_filter.qs
@@ -118,7 +118,7 @@ def promo_font(request):
 
 def promo_mb(request):
     products = Alldata.objects.all().filter(type='Promo')
-    cpus = products.filter(name__contains='Motherboard') | products.filter(name__contains='Placa-Mae')| products.filter(name__contains='Placa-Mãe')| products.filter(name__contains='Placa Mae')| products.filter(name__contains='Placa Mãe')
+    cpus = products.filter(name__contains='Placa-Mae')| products.filter(name__contains='Placa-Mãe')| products.filter(name__contains='Placa Mae')| products.filter(name__contains='Placa Mãe')
     sort_by = request.GET.get("sort", "l2h")
     my_filter = ProductFilter(request.GET, queryset=cpus)
     products = my_filter.qs
