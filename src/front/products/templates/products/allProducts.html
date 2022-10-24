@@ -299,7 +299,6 @@ a:hover {
 .vertical-scroll{
   display: flex;
   align-items: center;
-  justify-content: center;
 
   overflow-x: scroll;
 
@@ -943,6 +942,7 @@ form.example::after {
   display: table;
 }
 
+
 .form-div {
   width: 30%;
   padding-left: 50px;
@@ -952,13 +952,26 @@ form.example::after {
     border-radius:2%;
 }
 
+
  .bttdropdown {
 	 position: absolute;
 	 display: inline-block;
 	 text-align: left;
-	 margin-top: -2.9%;
+	 margin-top: -38px;
 	 left: 31%;
 }
+
+
+@media screen and (max-width:1100px) {
+  .form-div {
+    width: 50%;
+  }
+
+ .bttdropdown {
+    left: 51%;
+  }
+}
+
  .bttdropdown > button {
 	 position: relative;
 	 border: 0;
@@ -1051,9 +1064,6 @@ form.example::after {
 	 background: #dedede;
 }
 
-.block-filter {
-  text-align: center;
-}
 </style>
 
 </head>
@@ -1415,7 +1425,7 @@ form.example::after {
         <a onclick="openNavCabinet()"><img src="https://i.imgur.com/9kH9hfC.png" title="Gabinete" id="icones"></a>
         <a onclick="openNavFont()"><img src="https://i.imgur.com/LznnzQH.png" title="Fonte de alimentação" id="icones"></a>
         <a onclick="openNavSSD()"><img src="https://i.imgur.com/cngWwrv.png" title="SSD" id="icones"></a>
-    </div>  
+    </div>
 </div>
 <div class="container-fluid-top">
   <!-- <div class="row"> -->
